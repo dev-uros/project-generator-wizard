@@ -40,14 +40,56 @@ const accordionItems = [
     slot: 'user-management',
   },
   {
-    label: 'Logs',
-    icon: 'icon-park-outline:upload-logs',
-    slot: 'logs',
-  },
-  {
     label: 'Authentication',
     icon: 'arcticons:authenticator',
     slot: 'authentication',
+  },
+  {
+    label: 'Logs',
+    icon: 'icon-park-outline:upload-logs',
+    slot: 'logs',
+  }
+]
+
+//
+
+const backofficeFeaturesModal = ref(false);
+
+const closeBackofficeFeaturesPreview = () => {
+  backofficeFeaturesModal.value = false;
+  isOpen.value = true;
+}
+
+//
+
+const backofficeFeatureTabs = [
+  {
+    label: 'Users overview',
+    icon: 'i-heroicons-information-circle',
+    content: 'This is the content shown for Tab1'
+  }, {
+    label: 'User Creation',
+    icon: 'i-heroicons-arrow-down-tray',
+    content: 'And, this is the content for Tab2'
+  }, {
+    label: 'User Details',
+    icon: 'i-heroicons-eye-dropper',
+    content: 'Finally, this is the content for Tab3'
+  },
+  {
+    label: 'Activate Account Email',
+    icon: 'i-heroicons-eye-dropper',
+    content: 'Finally, this is the content for Tab3'
+  },
+  {
+    label: 'Generate Password',
+    icon: 'i-heroicons-eye-dropper',
+    content: 'Finally, this is the content for Tab3'
+  },
+  {
+    label: 'Logs',
+    icon: 'i-heroicons-eye-dropper',
+    content: 'Finally, this is the content for Tab3'
   }]
 </script>
 
@@ -103,7 +145,7 @@ const accordionItems = [
                       </p>
                       <UButton label="More info" color="gray" @click="isOpen = true">
                         <template #trailing>
-                          <UIcon name="i-heroicons-arrow-right-20-solid" class="w-5 h-5"/>
+                          <UIcon name="material-symbols:info-outline" class="w-5 h-5"/>
                         </template>
                       </UButton>
                     </article>
@@ -117,6 +159,16 @@ const accordionItems = [
                   </div>
 
                 </template>
+                <template #footer>
+                  <div class="flex flex-col items-end">
+                    <UButton label="Next">
+                      <template #trailing>
+                        <UIcon name="i-heroicons-arrow-right-20-solid" class="w-5 h-5" />
+                      </template>
+                    </UButton>
+                  </div>
+
+                </template>
               </UCard>
             </div>
 
@@ -127,7 +179,7 @@ const accordionItems = [
   </UContainer>
   <USlideover v-model="isOpen">
     <UCard
-        class="flex flex-col flex-1"
+        class="flex flex-col flex-1 overflow-auto"
         :ui="{ body: { base: 'flex-1' }, ring: '', divide: 'divide-y divide-gray-100 dark:divide-gray-800' }"
     >
       <template #header>
@@ -142,46 +194,155 @@ const accordionItems = [
       <div class="h-full">
         <UAccordion :items="accordionItems">
           <template #user-management>
-            <p>Every backoffice application should have user management system.</p>
-            <p>Project Generator Wizard scaffolds user dashboard with following functionalities:</p>
-            <p>User creation:</p>
-            <p>Simply create new user by entering needed data (name, surname, email)</p>
-            <p>User overview:</p>
-            <p>Overview users of your app</p>
-            <p>User details page:</p>
-            <p>Open users details page, from where user data can be edited, or user account be deactivated!</p>
-          </template>
+            <article class="prose prose-sm dark:prose-invert">
+              <p>Every backoffice application should have user management system.</p>
+              <p>Project Generator Wizard scaffolds user dashboard with following functionalities:</p>
 
-          <template #logs>
-            <p>Every backoffice application should have robust logging system.</p>
-<!--            <p>Project Generator Wizard scaffolds user dashboard with following functionalities:</p>-->
-<!--            <p>User creation:</p>-->
-<!--            <p>Simply create new user by entering needed data (name, surname, email)</p>-->
-<!--            <p>User overview:</p>-->
-<!--            <p>Overview users of your app</p>-->
-<!--            <p>User details page:</p>-->
-<!--            <p>Open users details page, from where user data can be edited, or user account be deactivated!</p>-->
+              <UDivider class="mb-3 mt-3"/>
+
+              <p>
+                <UBadge class="mr-3" size="md" :ui="{'rounded': 'rounded-full'}">
+                  <UIcon name="material-symbols:person-add-outline"/>
+                </UBadge>
+                User creation:
+              </p>
+              <p>Simply create new user by entering needed data (name, surname, email)</p>
+              <p>
+                <UBadge class="mr-3" size="md" :ui="{'rounded': 'rounded-full'}">
+                  <UIcon name="fa6-solid:users"/>
+                </UBadge>
+                User overview:
+              </p>
+              <p>Overview the list of users created in the application</p>
+              <p>
+                <UBadge class="mr-3" size="md" :ui="{'rounded': 'rounded-full'}">
+                  <UIcon name="hugeicons:edit-user-02"/>
+                </UBadge>
+                User details page:
+              </p>
+              <p>Open users details page, from where user data can be edited, or user account be <span
+                  class="text-red-500">deactivated</span> or <span class="text-green-500">reactivated</span>!</p>
+            </article>
           </template>
 
           <template #authentication>
-            <p>Every backoffice application should have reliable authentication system.</p>
-<!--            <p>Project Generator Wizard scaffolds user dashboard with following functionalities:</p>-->
-<!--            <p>User creation:</p>-->
-<!--            <p>Simply create new user by entering needed data (name, surname, email)</p>-->
-<!--            <p>User overview:</p>-->
-<!--            <p>Overview users of your app</p>-->
-<!--            <p>User details page:</p>-->
-<!--            <p>Open users details page, from where user data can be edited, or user account be deactivated!</p>-->
+            <article class="prose prose-sm dark:prose-invert">
+              <p>Every backoffice application should have reliable authentication system.</p>
+              <UDivider class="mt-3 mb-3"/>
+              <p>Upon user creation, an email is sent to user with instructions how to generate password and, by doing
+                that, activate his account.</p>
+              <p class="italic">
+                <UBadge class="mr-3" size="md" :ui="{'rounded': 'rounded-full'}">
+                  <UIcon name="ph:warning-circle-bold"/>
+                </UBadge>
+                (System requires safe passwords, ex: min 8 characters, at least 1 uppercase letter, at least one number,
+                at least one special character, uncompromised)
+              </p>
+              <p>When user generates his wanted password, he can finally log into the system.</p>
+              <p>All content behind Login page is not accessible for users that are not logged in and for users whose
+                accounts are deactivated from users administration!</p>
+              <p>If an unauthenticated user would try to access some page behind login, he would instantly be redirected
+                back to Login page!</p>
+
+            </article>
+
           </template>
+          <template #logs>
+            <article class="prose prose-sm dark:prose-invert">
+              <p>Every backoffice application should have robust logging system.</p>
+
+              <UDivider class="mb-3 mt-3"/>
+
+              <p>Backoffice application logs following items:</p>
+
+              <p>
+                <UBadge class="mr-3" size="md" :ui="{'rounded': 'rounded-full'}">
+                  <UIcon name="material-symbols:http"/>
+                </UBadge>
+                User request, including all request parameters and user data
+              </p>
+
+              <p>
+                <UBadge class="mr-3" size="md" :ui="{'rounded': 'rounded-full'}">
+                  <UIcon name="mdi:code-json"/>
+                </UBadge>
+                User request response, including response time and response data
+              </p>
+
+              <p>
+                <UBadge class="mr-3" size="md" :ui="{'rounded': 'rounded-full'}">
+                  <UIcon name="material-symbols:chat-error-outline"/>
+                </UBadge>
+                Failed data validations
+              </p>
+
+              <p>
+                <UBadge class="mr-3" size="md" :ui="{'rounded': 'rounded-full'}">
+                  <UIcon
+                      name="streamline:interface-user-delete-actions-close-delete-deny-fail-geometric-human-person-remove-single-up-user"/>
+                </UBadge>
+                Failed logins
+              </p>
+
+              <p>
+                <UBadge class="mr-3" size="md" :ui="{'rounded': 'rounded-full'}">
+                  <UIcon name="ic:twotone-warning-amber"/>
+                </UBadge>
+                Unauthenticated access attempts
+              </p>
+              <p>All these logs can be viewed/queried on frontend application!</p>
+
+
+            </article>
+
+          </template>
+
+
         </UAccordion>
       </div>
 
-      <!--                          <template #footer>-->
-      <!--                            <Placeholder class="h-8" />-->
-      <!--                          </template>-->
+      <template #footer>
+        <UButton block label="Preview" @click="backofficeFeaturesModal = true">
+          <template #leading>
+            <UIcon name="material-symbols:preview" class="w-7 h-7"/>
+          </template>
+        </UButton>
+      </template>
     </UCard>
   </USlideover>
 
+  <UModal v-model="backofficeFeaturesModal" fullscreen>
+    <UCard
+        :ui="{
+          base: 'h-full flex flex-col',
+          rounded: '',
+          divide: 'divide-y divide-gray-100 dark:divide-gray-800',
+          body: {
+            base: 'grow'
+          }
+        }"
+    >
+      <template #header>
+        <div class="flex items-center justify-between">
+          <h3 class="text-base font-semibold leading-6 text-gray-900 dark:text-white">
+            Modal
+          </h3>
+          <UButton color="gray" variant="ghost" icon="i-heroicons-x-mark-20-solid" class="-my-1"
+                   @click="closeBackofficeFeaturesPreview"/>
+        </div>
+      </template>
+
+      <UTabs :items="backofficeFeatureTabs"/>
+      <!--      slika pregled korisnika-->
+      <!--      slika kreiranje korisnika-->
+      <!--      slika kartica korisnika-->
+      <!--      slika logovi-->
+
+      <!--      <UCarousel v-slot="{ item }" :items="backofficeFeaturesCarouselItems" :ui="{ item: 'basis-full' }" class="rounded-lg overflow-hidden" arrows>-->
+      <!--        <img :src="item" class="w-full h-5/6" draggable="false">-->
+      <!--      </UCarousel>-->
+    </UCard>
+  </UModal>
 </template>
 
 <style scoped></style>
