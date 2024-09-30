@@ -18,18 +18,18 @@ import BackofficeMoreInfoSide from "~/components/BackofficeMoreInfoSide.vue";
         offerings, and provide convenient access to their services, while also enhancing brand visibility and user
         engagement in the digital space.
       </p>
-      <UButton label="More info" color="gray" @click="moreInfoSideOpened = true">
-        <template #trailing>
-          <UIcon name="material-symbols:info-outline" class="w-5 h-5"/>
-        </template>
-      </UButton>
+<!--      <UButton label="More info" color="gray" @click="moreInfoSideOpened = true">-->
+<!--        <template #trailing>-->
+<!--          <UIcon name="material-symbols:info-outline" class="w-5 h-5"/>-->
+<!--        </template>-->
+<!--      </UButton>-->
     </article>
 
-    <BackofficeMoreInfoSide v-model="moreInfoSideOpened"
-                            @close-side="closeSideDialog"
-                            @open-feature-details-dialog="openFeaturesDialog"/>
-    <BackofficeFeaturesDialog v-model="detailedFeaturesDialogOpened"
-                              @close-dialog="closeFeaturesDialog"/>
+<!--    <BackofficeMoreInfoSide v-model="moreInfoSideOpened"-->
+<!--                            @close-side="closeSideDialog"-->
+<!--                            @open-feature-details-dialog="openFeaturesDialog"/>-->
+<!--    <BackofficeFeaturesDialog v-model="detailedFeaturesDialogOpened"-->
+<!--                              @close-dialog="closeFeaturesDialog"/>-->
   </div>
 </template>
 

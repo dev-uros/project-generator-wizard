@@ -10,7 +10,7 @@ interface Props {
 const props = defineProps<Props>()
 
 const emit = defineEmits<{
-  setNextStep: [index: number]
+  setNextStep: [index: number, projectFlavour: string]
 }>()
 
 const projectFlavourOptions = [
@@ -68,7 +68,7 @@ const selectedProjectFlavour = ref('backoffice')
         </template>
         <template #footer>
           <div class="flex flex-col items-end">
-            <UButton label="Next" @click="emit('setNextStep', 1)">
+            <UButton label="Next" @click="emit('setNextStep', 1, selectedProjectFlavour)">
               <template #trailing>
                 <UIcon name="i-heroicons-arrow-right-20-solid" class="w-5 h-5"/>
               </template>

@@ -1,44 +1,73 @@
 <script lang="ts" setup>
+
+interface FrontendFlavour {
+  value: string,
+  label: string,
+  quasarIcon?: string,
+  vueIcon?: string,
+  angularIcon? :string,
+  astroIcon?: string,
+  nuxtIcon?: string,
+  daisyIcon?: string
+}
 interface Props {
-  headerLabel: string
+  headerLabel: string,
+  frontendFlavourOptions: FrontendFlavour[]
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
 
 const emit = defineEmits<{
-  setNextStep: [index: number]
+  setNextStep: [index: number, frontendFlavour: string]
 }>()
 
-const frontendFlavourOptions = [
-  {value: 'quasar', label: 'Vue/Quasar', quasarIcon: 'devicon:quasar', vueIcon: 'devicon:vuejs'},
-  {value: 'angular', label: 'Angular', angularIcon: 'devicon:angular'},
-
-]
 
 const selectedFrontend = ref('quasar')
-
-
 
 const frontendRadioGrayscale = computed(() => {
   if (selectedFrontend.value === 'quasar') {
     return {
       quasarGrayScale: false,
+      nuxtGrayScale: true,
+      astroGrayScale: true,
       angularGrayScale: true
     }
-  } else {
+  }
+  if(selectedFrontend.value === 'angular'){
     return {
       quasarGrayScale: true,
+      nuxtGrayScale: true,
+      astroGrayScale: true,
       angularGrayScale: false
+    }
+  }
+  if(selectedFrontend.value === 'astro'){
+    return {
+      quasarGrayScale: true,
+      nuxtGrayScale: true,
+      astroGrayScale: false,
+      angularGrayScale: true
+    }
+  }
+
+  if(selectedFrontend.value === 'nuxt'){
+    return {
+      quasarGrayScale: true,
+      nuxtGrayScale: false,
+      astroGrayScale: true,
+      angularGrayScale: true
     }
   }
 })
 
-onMounted(()=>{
-  console.log('mounting')
+
+onUpdated(()=>{
+
+  if(!props.frontendFlavourOptions.some((frontend: FrontendFlavour) => frontend.value === selectedFrontend.value)){
+    selectedFrontend.value = props.frontendFlavourOptions[0].value
+  }
 })
-onActivated(()=>{
-  console.log('activated')
-})
+
 </script>
 
 <template>
@@ -58,6 +87,15 @@ onActivated(()=>{
             <div class="flex justify-center items-center" v-else-if="option.value === 'angular'">
               <UIcon :name="option.angularIcon" class="w-10 h-10" :class="{'grayscale': frontendRadioGrayscale.angularGrayScale}"/>
             </div>
+            <div class="flex justify-center items-center" v-if="option.value === 'nuxt'">
+              <UIcon :name="option.nuxtIcon" class="w-10 h-10" :class="{'grayscale': frontendRadioGrayscale.nuxtGrayScale}"/>
+              <UIcon :name="option.daisyIcon" class="w-10 h-10" :class="{'grayscale': frontendRadioGrayscale.nuxtGrayScale}"/>
+            </div>
+            <div class="flex justify-center items-center" v-if="option.value === 'astro'">
+              <UIcon :name="option.astroIcon" class="w-10 h-10" :class="{'grayscale': frontendRadioGrayscale.astroGrayScale}"/>
+              <UIcon :name="option.daisyIcon" class="w-10 h-10" :class="{'grayscale': frontendRadioGrayscale.astroGrayScale}"/>
+            </div>
+
           </UCard>
 
         </template>
@@ -120,16 +158,77 @@ onActivated(()=>{
             </article>
 
           </div>
+          <div v-if="selectedFrontend === 'nuxt'">
+            <article class="prose lg:prose-xl dark:prose-invert">
+              <h1>Vue/Quasar SPA</h1>
+              <UDivider/>
+              <p>
+                Vue.js: A progressive JavaScript framework for building user interfaces. It's flexible, easy to
+                integrate, and uses a component-based architecture for developing web applications.
+                <ULink
+                    to="https://vuejs.org/"
+                    target="_blank"
+                    active-class="text-primary"
+                    inactive-class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
+                >
+                  More info
+                </ULink>
+              </p>
+              <p>
+                Quasar: A Vue.js framework for building responsive web, mobile, and desktop apps with one codebase. It
+                offers rich UI components, PWA, SSR, and Electron support.
+                <ULink
+                    to="https://quasar.dev/"
+                    target="_blank"
+                    active-class="text-primary"
+                    inactive-class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
+                >
+                  More info
+                </ULink>
+              </p>
+            </article>
 
+          </div>
+          <div v-if="selectedFrontend === 'astro'">
+            <article class="prose lg:prose-xl dark:prose-invert">
+              <h1>Vue/Quasar SPA</h1>
+              <UDivider/>
+              <p>
+                Vue.js: A progressive JavaScript framework for building user interfaces. It's flexible, easy to
+                integrate, and uses a component-based architecture for developing web applications.
+                <ULink
+                    to="https://vuejs.org/"
+                    target="_blank"
+                    active-class="text-primary"
+                    inactive-class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
+                >
+                  More info
+                </ULink>
+              </p>
+              <p>
+                Quasar: A Vue.js framework for building responsive web, mobile, and desktop apps with one codebase. It
+                offers rich UI components, PWA, SSR, and Electron support.
+                <ULink
+                    to="https://quasar.dev/"
+                    target="_blank"
+                    active-class="text-primary"
+                    inactive-class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
+                >
+                  More info
+                </ULink>
+              </p>
+            </article>
+
+          </div>
         </template>
         <template #footer>
           <div class="flex flex-row justify-between">
-            <UButton label="Previous" @click="emit('setNextStep', 0)">
+            <UButton label="Previous" @click="emit('setNextStep', 0, selectedFrontend)">
               <template #leading>
                 <UIcon name="i-heroicons-arrow-left-20-solid" class="w-5 h-5"/>
               </template>
             </UButton>
-            <UButton label="Next" @click="emit('setNextStep', 2)">
+            <UButton label="Next" @click="emit('setNextStep', 2, selectedFrontend)">
               <template #trailing>
                 <UIcon name="i-heroicons-arrow-right-20-solid" class="w-5 h-5"/>
               </template>
