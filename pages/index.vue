@@ -123,9 +123,17 @@ const setWizardStep = (index: number, selectedOption: string) => {
     projectFlavours.value[index].disabled = false;
   }
 
-  setTimeout(() => selectedFlavour.value = index, 0)
-}
+  if(index === 3){
+    wizardSummaryModal.value = true;
+  }
 
+  if(index !== 3){
+    wizardSummaryModal.value = false;
+    setTimeout(() => selectedFlavour.value = index, 0)
+
+  }
+}
+const wizardSummaryModal = ref(false);
 
 </script>
 
@@ -166,6 +174,28 @@ const setWizardStep = (index: number, selectedOption: string) => {
         </template>
       </UTabs>
     </UCard>
+    <UModal v-model="wizardSummaryModal">
+      <UCard :ui="{ ring: '', divide: 'divide-y divide-gray-100 dark:divide-gray-800' }">
+        <template #header>
+          <h1>Wizard is cooking</h1>
+        </template>
+        <p>Selected ingredients</p>
+        <div class="flex justify-between">
+          <UIcon name="material-symbols:admin-panel-settings-outline" class="w-20 h-20 text-green-500"
+          />
+          <UIcon name="devicon:php" class="w-20 h-20"/>
+          <UIcon name="devicon:laravel" class="w-20 h-20"/>
+          <UIcon name="devicon:vuejs" class="w-20 h-20"/>
+          <UIcon name="devicon:quasar" class="w-20 h-20"/>
+        </div>
+        <UInput v-model="value" />
+
+        <template #footer>
+          <UButton label="Generate"/>
+        </template>
+      </UCard>
+    </UModal>
+
   </UContainer>
 
 </template>

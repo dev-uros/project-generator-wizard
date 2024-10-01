@@ -17,7 +17,7 @@ interface Props {
 const props = defineProps<Props>()
 
 const emit = defineEmits<{
-  setNextStep: [index: number]
+  setNextStep: [index: number, selectedBackend: string]
 }>()
 
 
@@ -189,12 +189,12 @@ const appNameModal = ref(false);
           </template>
           <template #footer>
             <div class="flex flex-row justify-between">
-              <UButton label="Previous" @click="emit('setNextStep', 1)">
+              <UButton label="Previous" @click="emit('setNextStep', 1, selectedBackend)">
                 <template #leading>
                   <UIcon name="i-heroicons-arrow-left-20-solid" class="w-5 h-5"/>
                 </template>
               </UButton>
-              <UButton label="Next" @click="appNameModal = true">
+              <UButton label="Next" @click="emit('setNextStep', 3, selectedBackend)">
                 <template #trailing>
                   <UIcon name="i-heroicons-arrow-right-20-solid" class="w-5 h-5"/>
                 </template>
@@ -204,27 +204,6 @@ const appNameModal = ref(false);
           </template>
         </UCard>
       </div>
-      <UModal v-model="appNameModal">
-        <UCard :ui="{ ring: '', divide: 'divide-y divide-gray-100 dark:divide-gray-800' }">
-          <template #header>
-            <h1>Wizard is cooking</h1>
-          </template>
-          <p>Selected ingredients</p>
-          <div class="flex justify-between">
-            <UIcon name="material-symbols:admin-panel-settings-outline" class="w-20 h-20 text-green-500"
-            />
-            <UIcon name="devicon:php" class="w-20 h-20"/>
-            <UIcon name="devicon:laravel" class="w-20 h-20"/>
-            <UIcon name="devicon:vuejs" class="w-20 h-20"/>
-            <UIcon name="devicon:quasar" class="w-20 h-20"/>
-          </div>
-          <UInput v-model="value" />
-
-          <template #footer>
-            <UButton label="Generate"/>
-          </template>
-        </UCard>
-      </UModal>
     </UCard>
 </template>
 
