@@ -1,140 +1,20 @@
 <script setup lang="ts">
+import {useSetWizardStep} from "~/composables/setWizardStep";
 
-import ProjectFlavour from "~/components/ProjectFlavour.vue";
-import FrontendFlavour from "~/components/FrontendFlavour.vue";
-import BackendFlavour from "~/components/BackendFlavour.vue";
+const {
+  wizardSteps,
+  selectedStep,
+  projectTypeOptions,
+  frontendOptions,
+  backendOptions,
+  wizardSummaryModal,
+  selectedProjectFlavour,
+  selectedFrontend,
+  selectedBackend,
+  setWizardStep
+} = useSetWizardStep()
 
-const projectFlavours = ref([{
-  label: 'Project Flavour',
-  icon: 'i-heroicons-information-circle',
-  description: 'Select project flavour that you would like to conjure',
-  disabled: false,
-}, {
-  label: 'Frontend Flavour',
-  icon: 'i-heroicons-arrow-down-tray',
-  description: 'Select your user interface magic',
-  disabled: true,
-}, {
-  label: 'Backend Flavour',
-  icon: 'i-heroicons-eye-dropper',
-  description: 'Finally, this is the content for Tab3',
-  disabled: true
-}]);
-
-const currentlySelectedFlavourIndex = ref(0);
-
-const selectedFlavour = computed({
-  get() {
-    return currentlySelectedFlavourIndex.value
-  },
-  set(newSelectedValueIndex: number) {
-    currentlySelectedFlavourIndex.value = newSelectedValueIndex
-  }
-})
-
-const frontendOptions = ref([
-  {value: 'quasar', label: 'Vue/Quasar', quasarIcon: 'devicon:quasar', vueIcon: 'devicon:vuejs'},
-  {value: 'angular', label: 'Angular', angularIcon: 'devicon:angular'}
-]);
-
-const backendOptions = ref([
-  {value: 'laravel', label: 'Php/Laravel', phpIcon: 'devicon:php', laravelIcon: 'devicon:laravel'},
-  {value: 'fastify', label: 'Node/Fastify', nodeIcon: 'devicon:nodejs', fastifyIcon: 'devicon-plain:fastify'},
-]);
-
-
-//0 - prvi korak tip projekta
-//1 - drugi korak tip frontend-a
-//2 - treci korak tip backend-a
-
-const selectedProjectType = ref()
-const selectedFrontendType = ref()
-const selectedBackendType = ref();
-const setWizardStep = (index: number, selectedOption: string) => {
-  if (index === 0) {
-
-    projectFlavours.value[index].disabled = false;
-    projectFlavours.value[1].disabled = true;
-    projectFlavours.value[2].disabled = true;
-  }
-  if (index === 1) {
-    if (selectedOption === 'backoffice') {
-      selectedProjectType.value = selectedOption;
-      frontendOptions.value = [
-        {value: 'quasar', label: 'Vue/Quasar', quasarIcon: 'devicon:quasar', vueIcon: 'devicon:vuejs'},
-        {value: 'angular', label: 'Angular', angularIcon: 'devicon:angular'}
-      ]
-    }
-
-    if (selectedOption === 'website') {
-      selectedProjectType.value = selectedOption;
-
-      frontendOptions.value = [
-        {value: 'astro', label: 'Astro/Daisy UI', astroIcon: 'devicon:astro', daisyIcon: 'simple-icons:daisyui'},
-        {value: 'nuxt', label: 'Nuxt/Daisy UI', nuxtIcon: 'devicon:nuxtjs', daisyIcon: 'simple-icons:daisyui'}
-      ]
-    }
-
-    if (selectedOption === 'desktop') {
-      selectedProjectType.value = selectedOption;
-
-      frontendOptions.value = [
-        {value: 'quasar', label: 'Vue/Quasar', quasarIcon: 'devicon:quasar', vueIcon: 'devicon:vuejs'},
-      ]
-    }
-
-    projectFlavours.value[0].disabled = true;
-    projectFlavours.value[index].disabled = false;
-    projectFlavours.value[2].disabled = true;
-  }
-  if (index === 2) {
-    if (selectedProjectType.value === 'backoffice' && selectedOption === 'quasar') {
-      backendOptions.value = [
-        {value: 'laravel', label: 'Php/Laravel', phpIcon: 'devicon:php', laravelIcon: 'devicon:laravel'},
-        {value: 'fastify', label: 'Node/Fastify', nodeIcon: 'devicon:nodejs', fastifyIcon: 'devicon-plain:fastify'},
-      ]
-    }
-
-    if (selectedProjectType.value === 'backoffice' && selectedOption === 'angular') {
-      backendOptions.value = [
-        {value: 'laravel', label: 'Php/Laravel', phpIcon: 'devicon:php', laravelIcon: 'devicon:laravel'},
-      ]
-    }
-    if (selectedProjectType.value === 'website' && selectedOption === 'nuxt') {
-      backendOptions.value = [
-        {value: 'none', label: 'None', noBackendIcon: 'fluent-emoji-high-contrast:no-entry'},
-      ]
-    }
-
-    if (selectedProjectType.value === 'website' && selectedOption === 'astro') {
-      backendOptions.value = [
-        {value: 'none', label: 'None', noBackendIcon: 'fluent-emoji-high-contrast:no-entry'},
-      ]
-    }
-
-    if (selectedProjectType.value === 'desktop' && selectedOption === 'quasar') {
-      backendOptions.value = [
-        {value: 'none', label: 'None', noBackendIcon: 'fluent-emoji-high-contrast:no-entry'},
-      ]
-    }
-
-    projectFlavours.value[0].disabled = true;
-    projectFlavours.value[1].disabled = true;
-    projectFlavours.value[index].disabled = false;
-  }
-
-  if(index === 3){
-    wizardSummaryModal.value = true;
-  }
-
-  if(index !== 3){
-    wizardSummaryModal.value = false;
-    setTimeout(() => selectedFlavour.value = index, 0)
-
-  }
-}
-const wizardSummaryModal = ref(false);
-
+const appName = ref('');
 </script>
 
 <template>
@@ -151,14 +31,15 @@ const wizardSummaryModal = ref(false);
           </ColorScheme>
         </div>
       </template>
-      <UTabs :items="projectFlavours" orientation="vertical"
-             v-model="selectedFlavour"
+      <UTabs :items="wizardSteps" orientation="vertical"
+             v-model="selectedStep"
              :ui="{ wrapper: 'flex items-center gap-4', list: { width: 'w-48' } }">
 
         <template #item="{item}">
           <ProjectFlavour v-if="item.label === 'Project Flavour'"
                           :header-label="item.description"
                           @set-next-step="setWizardStep"
+                          :project-types="projectTypeOptions"
                           :key="item.label"/>
           <FrontendFlavour v-else-if="item.label === 'Frontend Flavour'"
                            :header-label="item.description"
@@ -181,17 +62,43 @@ const wizardSummaryModal = ref(false);
         </template>
         <p>Selected ingredients</p>
         <div class="flex justify-between">
-          <UIcon name="material-symbols:admin-panel-settings-outline" class="w-20 h-20 text-green-500"
-          />
-          <UIcon name="devicon:php" class="w-20 h-20"/>
-          <UIcon name="devicon:laravel" class="w-20 h-20"/>
-          <UIcon name="devicon:vuejs" class="w-20 h-20"/>
-          <UIcon name="devicon:quasar" class="w-20 h-20"/>
+          <UIcon :name="selectedProjectFlavour.icon" class="w-20 h-20 text-green-500"/>
+          <UIcon v-for="icon in selectedFrontend.icons" :name="icon.name" class="w-20 h-20"/>
+          <UIcon v-for="icon in selectedBackend.icons" :name="icon.name" class="w-20 h-20"/>
         </div>
-        <UInput v-model="value" />
+
+        <UInput v-model="appName"/>
+
+        <UCard>
+          <template #header>
+            What are you getting
+          </template>
+          <div v-if="selectedProjectFlavour.value === 'backoffice'">
+            backoffice
+          </div>
+          <div v-else-if="selectedProjectFlavour.value === 'website'">
+            website
+          </div>
+          <div v-else-if="selectedProjectFlavour.value === 'desktop'">
+            desktop
+          </div>
+          <UAccordion
+              multiple
+              variant="ghost"
+              :items="[{ label: 'What is Nuxt UI?', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
+               { label: 'Getting Started', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
+                { label: 'Theming', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
+                 { label: 'Components', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit' }]"
+          />
+        </UCard>
 
         <template #footer>
-          <UButton label="Generate"/>
+          <div class="flex justify-between">
+            <UButton label="Generate"/>
+            <UButton color="red" variant="ghost" label="Cancel" @click="wizardSummaryModal = false"/>
+          </div>
+
+
         </template>
       </UCard>
     </UModal>

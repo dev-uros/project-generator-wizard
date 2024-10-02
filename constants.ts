@@ -1,14 +1,139 @@
-export const QUASAR_BADGE = {value: 'quasar', label: 'Vue/Quasar', quasarIcon: 'devicon:quasar', vueIcon: 'devicon:vuejs'}
+export type ICON_SET = {
+    main: string,
+    secondary?: string
+}
 
-export const LARAVEL_BADGE = {value: 'laravel', label: 'Php/Laravel', phpIcon: 'devicon:php', laravelIcon: 'devicon:laravel'}
+export const PROJECT_TYPES = [
+    {
+        value: 'backoffice',
+        label: 'Backoffice',
+        icon: 'material-symbols:admin-panel-settings-outline'
+    },
+    {
+        value: 'website',
+        label: 'Website',
+        icon: 'streamline:programming-web-server-world-internet-earth-www-globe-worldwide-web-network'
+    },
+    {
+        value: 'desktop',
+        label: 'Desktop',
+        icon: 'material-symbols-light:desktop-windows-outline'
+    }
+]
 
-export const ANGULAR_BADGE = {value: 'angular', label: 'Angular', angularIcon: 'devicon:angular'}
+export type PROJECT_TYPE = {
+    value: string,
+    label: string,
+    icon: string
+}
 
-export const NUXT_BADGE = {value: 'nuxt', label: 'Nuxt/Daisy UI', nuxtIcon: 'devicon:nuxtjs', daisyIcon: 'simple-icons:daisyui'};
+export type FRONTEND_OPTION = {
+    value: string,
+    label: string,
+    icons: ICON_SET[]
+}
+export type BACKEND_OPTION = {
+    value: string,
+    label: string,
+    icons: ICON_SET[]
+}
+export const QUASAR_BADGE = {
+    value: 'quasar',
+    label: 'Vue/Quasar',
+    icons: [
+        {
+            name: 'devicon:quasar',
+        },
+        {
+            name: 'devicon:vuejs'
+        }
+    ]
+}
 
-export const ASTRO_BADGE = {value: 'astro', label: 'Astro/Daisy UI', astroIcon: 'devicon:astro', daisyIcon: 'simple-icons:daisyui'}
+export const ELECTRON_BADGE = {
+    value: 'electron',
+    label: 'Node/Electron',
+    icons: [
+        {
+            name: 'devicon:nodejs',
+        },
+        {
+            name: 'devicon:electron'
+        }
+    ]
+}
+export const LARAVEL_BADGE = {
+    value: 'laravel',
+    label: 'Php/Laravel',
+    icons: [
+        {
+            name: 'devicon:laravel',
+        },
+        {
+            name: 'devicon:php'
+        }
+    ]
+}
 
-export const FASTIFY_BADGE = {value: 'fastify', label: 'Node/Fastify', nodeIcon: 'devicon:nodejs', fastifyIcon: 'devicon-plain:fastify'}
+export const ANGULAR_BADGE = {
+    value: 'angular',
+    label: 'Angular',
+    icons: [
+        {
+            name: 'devicon:angular',
+        }
+    ]
+}
+
+export const NUXT_BADGE = {
+    value: 'nuxt',
+    label: 'Nuxt/Daisy UI',
+    icons: [
+        {
+            name: 'devicon:nuxtjs',
+        },
+        {
+            name: 'simple-icons:daisyui'
+        }
+    ]
+};
+
+export const ASTRO_BADGE = {
+    value: 'astro',
+    label: 'Astro/Daisy UI',
+    icons: [
+        {
+            name: 'devicon:astro',
+        },
+        {
+            name: 'simple-icons:daisyui'
+        }
+    ]
+
+}
+
+export const FASTIFY_BADGE = {
+    value: 'fastify',
+    label: 'Node/Fastify',
+    icons: [
+        {
+            name: 'devicon:nodejs',
+        },
+        {
+            name: 'devicon-plain:fastify'
+        }
+    ]
+}
+
+export const NO_BACKEND_BADGE = {
+    value: 'none',
+    label: 'None',
+    icons: [
+        {
+            name: 'fluent-emoji-high-contrast:no-entry',
+        }
+    ]
+}
 
 
 export const BACKOFFICE_FRONTENDS = [
@@ -29,4 +154,15 @@ export const BACKOFFICE_ANGULAR_BACKENDS = [
 export const WEBSITE_FRONTENDS = [
     ASTRO_BADGE,
     NUXT_BADGE
+]
+
+export const WEBSITE_BACKENDS = [
+    NO_BACKEND_BADGE
+]
+export const DESKTOP_FRONTENDS = [
+    QUASAR_BADGE
+]
+
+export const DESKTOP_BACKENDS = [
+    ELECTRON_BADGE
 ]
