@@ -17,6 +17,10 @@
     "vue-router": "latest"
   },
   "devDependencies": {
+    "@iconify-json/catppuccin": "^1.2.4",
+    "@iconify-json/devicon": "^1.2.3",
+    "@iconify-json/devicon-plain": "^1.2.3",
+    "@iconify-json/material-symbols": "^1.2.2",
     "@iconify-json/vscode-icons": "^1.2.2"
   }
 }
