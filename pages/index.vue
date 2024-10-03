@@ -15,6 +15,9 @@ const {
 } = useSetWizardStep()
 
 const appName = ref('');
+
+
+
 </script>
 
 <template>
@@ -82,14 +85,7 @@ const appName = ref('');
           <div v-else-if="selectedProjectFlavour.value === 'desktop'">
             desktop
           </div>
-          <UAccordion
-              multiple
-              variant="ghost"
-              :items="[{ label: 'What is Nuxt UI?', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
-               { label: 'Getting Started', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
-                { label: 'Theming', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
-                 { label: 'Components', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit' }]"
-          />
+          <BackendLaravelFolderStructure/>
         </UCard>
 
         <template #footer>
