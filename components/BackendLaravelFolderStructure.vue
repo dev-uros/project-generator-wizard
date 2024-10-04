@@ -133,8 +133,84 @@ const laravelSrcFolder = [
   },
   {
     label: 'database',
-    icon: 'vscode-icons:default-folder',
-    content: ''
+    icon: 'vscode-icons:folder-type-db',
+    slot: 'src-database-folder'
+  },
+  {
+    label: 'lang',
+    icon: 'vscode-icons:folder-type-locale'
+  },
+  {
+    label: 'public',
+    icon: 'vscode-icons:folder-type-public'
+  },
+  {
+    label: 'resources',
+    icon: 'vscode-icons:folder-type-asset'
+  },
+  {
+    label: 'routes',
+    icon: 'vscode-icons:folder-type-route'
+  },
+  {
+    label: 'storage',
+    icon: 'vscode-icons:default-folder'
+  },
+  {
+    label: 'tests',
+    icon: 'vscode-icons:folder-type-test'
+  },
+  {
+    label: '.editorconfig',
+    icon: 'vscode-icons:file-type-light-config'
+  },
+  {
+    label: '.env',
+    icon: 'vscode-icons:file-type-dotenv'
+  },
+  {
+    label: '.env.example',
+    icon: 'vscode-icons:file-type-dotenv'
+  },
+  {
+    label: '.env.testing',
+    icon: 'vscode-icons:file-type-dotenv'
+  },
+  {
+    label: '.gitattributes',
+    icon: 'vscode-icons:file-type-git'
+  },
+  {
+    label: '.gitignore',
+    icon: 'vscode-icons:file-type-git'
+  },
+  {
+    label: 'artisan',
+    icon: 'devicon:laravel'
+  },
+  {
+    label: 'composer.json',
+    icon: 'vscode-icons:file-type-composer'
+  },
+  {
+    label: 'composer.lock',
+    icon: 'vscode-icons:file-type-composer'
+  },
+  {
+    label: 'package.json',
+    icon: 'vscode-icons:file-type-npm'
+  },
+  {
+    label: 'phpunit.xml',
+    icon: 'vscode-icons:file-type-phpunit'
+  },
+  {
+    label: 'README.md',
+    icon: 'vscode-icons:default-folder'
+  },
+  {
+    label: 'vite.config.js',
+    icon: 'vscode-icons:file-type-vite'
   }
 ]
 
@@ -257,86 +333,184 @@ const srcBootstrapCacheFolder = [
 
 const srcConfigFolder = [
   {
-    label:'app.php',
+    label: 'app.php',
     icon: 'vscode-icons:file-type-php3',
     disabled: true
   },
   {
-    label:'auth.php',
+    label: 'auth.php',
     icon: 'vscode-icons:file-type-php3',
     disabled: true
   },
   {
-    label:'broadcasting.php',
+    label: 'broadcasting.php',
     icon: 'vscode-icons:file-type-php3',
     disabled: true
   },
   {
-    label:'cache.php',
+    label: 'cache.php',
     icon: 'vscode-icons:file-type-php3',
     disabled: true
   },
   {
-    label:'cors.php',
+    label: 'cors.php',
     icon: 'vscode-icons:file-type-php3',
     disabled: true
   },
   {
-    label:'database.php',
+    label: 'database.php',
     icon: 'vscode-icons:file-type-php3',
     disabled: true
   },
   {
-    label:'filesystems.php',
+    label: 'filesystems.php',
     icon: 'vscode-icons:file-type-php3',
     disabled: true
   },
   {
-    label:'frontend-app.php',
+    label: 'frontend-app.php',
     icon: 'vscode-icons:file-type-php3',
     disabled: true
   },
   {
-    label:'hashing.php',
+    label: 'hashing.php',
     icon: 'vscode-icons:file-type-php3',
     disabled: true
   },
   {
-    label:'logging.php',
+    label: 'logging.php',
     icon: 'vscode-icons:file-type-php3',
     disabled: true
   },
   {
-    label:'mail.php',
+    label: 'mail.php',
     icon: 'vscode-icons:file-type-php3',
     disabled: true
   },
   {
-    label:'queue.php',
+    label: 'queue.php',
     icon: 'vscode-icons:file-type-php3',
     disabled: true
   },
   {
-    label:'sanctum.php',
+    label: 'sanctum.php',
     icon: 'vscode-icons:file-type-php3',
     disabled: true
   },
   {
-    label:'services.php',
+    label: 'services.php',
     icon: 'vscode-icons:file-type-php3',
     disabled: true
   },
   {
-    label:'session.php',
+    label: 'session.php',
     icon: 'vscode-icons:file-type-php3',
     disabled: true
   },
   {
-    label:'view.php',
+    label: 'view.php',
     icon: 'vscode-icons:file-type-php3',
     disabled: true
   }
 ]
+
+const srcDatabaseFolder = [
+  {
+    label: 'factories',
+    icon: 'vscode-icons:default-folder',
+    slot:'src-database-factories-folder'
+  },
+  {
+    label: 'migrations',
+    icon: 'vscode-icons:default-folder',
+    slot:'src-database-migrations-folder'
+  },
+  {
+    label: 'seeders',
+    icon: 'vscode-icons:default-folder',
+    slot:'src-database-seeders-folder'
+  },
+  {
+    label: '.gitignore',
+    icon: 'vscode-icons:file-type-git',
+    disabled: true
+  }
+]
+
+const srcDatabaseFactoriesFolder = [
+  {
+    label: 'UserFactory.php',
+    icon: 'vscode-icons:file-type-php3',
+    content: 'Factory class that allows for easy dummy user creation'
+  }
+]
+
+const srcDatabaseMigrationsFolder = [
+  {
+    label: 'create_users_table.php',
+    icon: 'vscode-icons:file-type-php3',
+    content: 'Migration for users table creation'
+  },
+  {
+    label: 'create_password_resets_table.php',
+    icon: 'vscode-icons:file-type-php3',
+    content: 'Migration for password_resets table creation'
+  },
+  {
+    label: 'create_failed_jobs_table.php',
+    icon: 'vscode-icons:file-type-php3',
+    content: 'Migration for failed_jobs table creation'
+  },
+  {
+    label: 'create_personal_access_tokens_table.php',
+    icon: 'vscode-icons:file-type-php3',
+    content: 'Migration for personal_access_tokens table creation'
+  },
+  {
+    label: 'create_jobs_table.php',
+    icon: 'vscode-icons:file-type-php3',
+    content: 'Migration for jobs table creation'
+  },
+  {
+    label: 'create_user_logs_table.php',
+    icon: 'vscode-icons:file-type-php3',
+    content: 'Migration for user_logs table creation'
+  },
+  {
+    label: 'create_user_action_logs_table.php',
+    icon: 'vscode-icons:file-type-php3',
+    content: 'Migration for user_action_logs table creation'
+  },
+  {
+    label: 'create_session_timeout_table.php',
+    icon: 'vscode-icons:file-type-php3',
+    content: 'Migration for session_timeout table creation'
+  },
+  {
+    label: 'create_routes_table.php',
+    icon: 'vscode-icons:file-type-php3',
+    content: 'Migration for routes table creation'
+  },
+  {
+    label: 'create_user_login_logs_table.php',
+    icon: 'vscode-icons:file-type-php3',
+    content: 'Migration for user_login_logs table creation'
+  },
+  {
+    label: 'create_user_login_logs_table.php',
+    icon: 'vscode-icons:file-type-php3',
+    content: 'Migration for user_login_logs table creation'
+  }
+]
+
+const srcDatabaseSeedersFolder = [
+  {
+    label: 'DatabaseSeeder.php',
+    icon: 'vscode-icons:file-type-php3',
+    content: 'Main database seeder class'
+  }
+]
+
 const srcAppHttpFolder = [
   {
     label: 'Controllers',
@@ -1075,6 +1249,42 @@ const srcAppConsoleCommandsMakeFolder = [
               variant="ghost"
               :items="srcConfigFolder"
           />
+        </template>
+        <template #src-database-folder>
+          The database directory contains your database migrations, model factories, and seeds. If you wish, you may
+          also use this directory to hold an SQLite database.
+          <UAccordion
+              class="pl-5"
+              multiple
+              variant="ghost"
+              :items="srcDatabaseFolder"
+          >
+            <template #src-database-factories-folder>
+              <UAccordion
+                  class="pl-5"
+                  multiple
+                  variant="ghost"
+                  :items="srcDatabaseFactoriesFolder"
+              />
+            </template>
+            <template #src-database-migrations-folder>
+              <UAccordion
+                  class="pl-5"
+                  multiple
+                  variant="ghost"
+                  :items="srcDatabaseMigrationsFolder"
+              />
+            </template>
+            <template #src-database-seeders-folder>
+              <UAccordion
+                  class="pl-5"
+                  multiple
+                  variant="ghost"
+                  :items="srcDatabaseSeedersFolder"
+              />
+            </template>
+
+          </UAccordion>
         </template>
       </UAccordion>
     </template>
