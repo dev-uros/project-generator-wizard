@@ -120,12 +120,14 @@ const laravelSrcFolder = [
   {
     label: 'bootstrap',
     icon: 'vscode-icons:default-folder',
+    slot: 'src-bootstrap-folder',
     content: 'The bootstrap directory contains the app.php file which bootstraps the framework. ' +
         'This directory also houses a cache directory which contains framework generated files for performance optimization such as the route and services cache files.'
   },
   {
     label: 'config',
     icon: 'vscode-icons:default-folder',
+    slot: 'src-config-folder',
     content: "The config directory, as the name implies, contains all of your application's configuration files. " +
         "It's a great idea to read through all of these files and familiarize yourself with all of the options available to you."
   },
@@ -219,6 +221,120 @@ const srcAppFolder = [
     label: 'Traits',
     icon: 'vscode-icons:default-folder',
     slot: 'src-app-traits-folder'
+  }
+]
+
+const srcBootstrapFolder = [
+  {
+    label: 'cache',
+    icon: 'vscode-icons:default-folder',
+    slot: 'src-bootstrap-cache-folder'
+  },
+  {
+    label: 'app.php',
+    icon: 'vscode-icons:file-type-php3',
+    disabled: true
+  }
+]
+
+const srcBootstrapCacheFolder = [
+  {
+    label: '.gitignore',
+    icon: 'vscode-icons:file-type-git',
+    disabled: true
+  },
+  {
+    label: 'packages.php',
+    icon: 'vscode-icons:file-type-php3',
+    disabled: true
+  },
+  {
+    label: 'services.php',
+    icon: 'vscode-icons:file-type-php3',
+    disabled: true
+  }
+]
+
+const srcConfigFolder = [
+  {
+    label:'app.php',
+    icon: 'vscode-icons:file-type-php3',
+    disabled: true
+  },
+  {
+    label:'auth.php',
+    icon: 'vscode-icons:file-type-php3',
+    disabled: true
+  },
+  {
+    label:'broadcasting.php',
+    icon: 'vscode-icons:file-type-php3',
+    disabled: true
+  },
+  {
+    label:'cache.php',
+    icon: 'vscode-icons:file-type-php3',
+    disabled: true
+  },
+  {
+    label:'cors.php',
+    icon: 'vscode-icons:file-type-php3',
+    disabled: true
+  },
+  {
+    label:'database.php',
+    icon: 'vscode-icons:file-type-php3',
+    disabled: true
+  },
+  {
+    label:'filesystems.php',
+    icon: 'vscode-icons:file-type-php3',
+    disabled: true
+  },
+  {
+    label:'frontend-app.php',
+    icon: 'vscode-icons:file-type-php3',
+    disabled: true
+  },
+  {
+    label:'hashing.php',
+    icon: 'vscode-icons:file-type-php3',
+    disabled: true
+  },
+  {
+    label:'logging.php',
+    icon: 'vscode-icons:file-type-php3',
+    disabled: true
+  },
+  {
+    label:'mail.php',
+    icon: 'vscode-icons:file-type-php3',
+    disabled: true
+  },
+  {
+    label:'queue.php',
+    icon: 'vscode-icons:file-type-php3',
+    disabled: true
+  },
+  {
+    label:'sanctum.php',
+    icon: 'vscode-icons:file-type-php3',
+    disabled: true
+  },
+  {
+    label:'services.php',
+    icon: 'vscode-icons:file-type-php3',
+    disabled: true
+  },
+  {
+    label:'session.php',
+    icon: 'vscode-icons:file-type-php3',
+    disabled: true
+  },
+  {
+    label:'view.php',
+    icon: 'vscode-icons:file-type-php3',
+    disabled: true
   }
 ]
 const srcAppHttpFolder = [
@@ -927,6 +1043,38 @@ const srcAppConsoleCommandsMakeFolder = [
               />
             </template>
           </UAccordion>
+        </template>
+        <template #src-bootstrap-folder>
+          The bootstrap directory contains the app.php file which bootstraps the framework. This directory also houses a
+          cache directory which contains framework generated files for performance optimization such as the route and
+          services cache files.
+
+          <UAccordion
+              class="pl-5"
+              multiple
+              variant="ghost"
+              :items="srcBootstrapFolder"
+          >
+            <template #src-bootstrap-cache-folder>
+              <UAccordion
+                  class="pl-5"
+                  multiple
+                  variant="ghost"
+                  :items="srcBootstrapCacheFolder"
+              />
+            </template>
+          </UAccordion>
+        </template>
+        <template #src-config-folder>
+          The config directory, as the name implies, contains all of your application's configuration files. It's a
+          great idea to read through all of these files and familiarize yourself with all of the options available to
+          you.
+          <UAccordion
+              class="pl-5"
+              multiple
+              variant="ghost"
+              :items="srcConfigFolder"
+          />
         </template>
       </UAccordion>
     </template>
