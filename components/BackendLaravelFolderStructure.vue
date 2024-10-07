@@ -1,77 +1,172 @@
 <script lang="ts" setup>
+import DockerFolderOpened from "~/components/icons/DockerFolderOpened.vue";
+import DockerFolderClosed from "~/components/icons/DockerFolderClosed.vue";
+import SrcFolderClosed from "~/components/icons/SrcFolderClosed.vue";
+import SrcFolderOpened from "~/components/icons/SrcFolderOpened.vue";
+import DotenvFileClosed from "~/components/icons/DotenvFileClosed.vue";
+import DotenvFileOpened from "~/components/icons/DotenvFileOpened.vue";
+import GitFileClosed from "~/components/icons/GitFileClosed.vue";
+import GitFileOpened from "~/components/icons/GitFileOpened.vue";
+import DockerFileClosed from "~/components/icons/DockerFileClosed.vue";
+import DockerFileOpened from "~/components/icons/DockerFileOpened.vue";
+import GnuFileClosed from "~/components/icons/GnuFileClosed.vue";
+import GnuFileOpened from "~/components/icons/GnuFileOpened.vue";
+import MarkdownFileClosed from "~/components/icons/MarkdownFileClosed.vue";
+import MarkdownFileOpened from "~/components/icons/MarkdownFileOpened.vue";
+import FolderIconClosed from "~/components/icons/FolderIconClosed.vue";
+import FolderIconOpened from "~/components/icons/FolderIconOpened.vue";
+import NginxFolderClosed from "~/components/icons/NginxFolderClosed.vue";
+import NginxFolderOpened from "~/components/icons/NginxFolderOpened.vue";
+import PhpFolderClosed from "~/components/icons/PhpFolderClosed.vue";
+import PhpFolderOpened from "~/components/icons/PhpFolderOpened.vue";
+import HtmlFileClosed from "~/components/icons/HtmlFileClosed.vue";
+import HtmlFileOpened from "~/components/icons/HtmlFileOpened.vue";
+import ConfigFileClosed from "~/components/icons/ConfigFileClosed.vue";
+import ConfigFileOpened from "~/components/icons/ConfigFileOpened.vue";
+import NginxFileOpened from "~/components/icons/NginxFileOpened.vue";
+import DatabaseFolderClosed from "~/components/icons/DatabaseFolderClosed.vue";
+import DatabaseFolderOpened from "~/components/icons/DatabaseFolderOpened.vue";
+import LocaleFolderClosed from "~/components/icons/LocaleFolderClosed.vue";
+import LocaleFolderOpened from "~/components/icons/LocaleFolderOpened.vue";
+import RoutesFolderClosed from "~/components/icons/RoutesFolderClosed.vue";
+import RoutesFolderOpened from "~/components/icons/RoutesFolderOpened.vue";
+import TestsFolderClosed from "~/components/icons/TestsFolderClosed.vue";
+import TestsFolderOpened from "~/components/icons/TestsFolderOpened.vue";
+import LaravelFileClosed from "~/components/icons/LaravelFileClosed.vue";
+import LaravelFileOpened from "~/components/icons/LaravelFileOpened.vue";
+import ComposerFileClosed from "~/components/icons/ComposerFileClosed.vue";
+import ComposerFileOpened from "~/components/icons/ComposerFileOpened.vue";
+import NpmFileClosed from "~/components/icons/NpmFileClosed.vue";
+import NpmFileOpened from "~/components/icons/NpmFileOpened.vue";
+import PhpUnitFileClosed from "~/components/icons/PhpUnitFileClosed.vue";
+import PhpUnitFileOpened from "~/components/icons/PhpUnitFileOpened.vue";
+import ViteFileClosed from "~/components/icons/ViteFileClosed.vue";
+import ViteFileOpened from "~/components/icons/ViteFileOpened.vue";
+import PhpFileClosed from "~/components/icons/PhpFileClosed.vue";
+import PhpFileOpened from "~/components/icons/PhpFileOpened.vue";
+import PublicFolderClosed from "~/components/icons/PublicFolderClosed.vue";
+import PublicFolderOpened from "~/components/icons/PublicFolderOpened.vue";
+import JsonFileOpened from "~/components/icons/JsonFileOpened.vue";
+import JsonFileClosed from "~/components/icons/JsonFileClosed.vue";
+import ApacheFileClosed from "~/components/icons/ApacheFileClosed.vue";
+import ApacheFileOpened from "~/components/icons/ApacheFileOpened.vue";
+import FaviconFileOpened from "~/components/icons/FaviconFileOpened.vue";
+import FaviconFileClosed from "~/components/icons/FaviconFileClosed.vue";
+import RobotsFileOpened from "~/components/icons/RobotsFileOpened.vue";
+import RobotsFileClosed from "~/components/icons/RobotsFileClosed.vue";
+import CssFolderOpened from "~/components/icons/CssFolderOpened.vue";
+import CssFolderClosed from "~/components/icons/CssFolderClosed.vue";
+import JsFolderOpened from "~/components/icons/JsFolderOpened.vue";
+import JsFolderClosed from "~/components/icons/JsFolderClosed.vue";
+import ViewFolderOpened from "~/components/icons/ViewFolderOpened.vue";
+import ViewFolderClosed from "~/components/icons/ViewFolderClosed.vue";
+import CssFileOpened from "~/components/icons/CssFileOpened.vue";
+import CssFileClosed from "~/components/icons/CssFileClosed.vue";
+import JsFileOpened from "~/components/icons/JsFileOpened.vue";
+import JsFileClosed from "~/components/icons/JsFileClosed.vue";
+import BladeFileOpened from "~/components/icons/BladeFileOpened.vue";
+import BladeFileClosed from "~/components/icons/BladeFileClosed.vue";
+
 const laravelProjectStructure = [
   {
-    icon: 'vscode-icons:folder-type-docker',
+    iconClosed: DockerFolderClosed,
+    iconOpened: DockerFolderOpened,
+    // icon: 'vscode-icons:folder-type-docker',
     label: 'docker',
     slot: 'docker-folder'
   },
   {
-    icon: 'vscode-icons:folder-type-src',
+    iconClosed: SrcFolderClosed,
+    iconOpened: SrcFolderOpened,
+    // icon: 'vscode-icons:folder-type-src',
     label: 'src',
     slot: 'src-folder'
   },
   {
-    icon: 'vscode-icons:file-type-dotenv',
+    iconClosed: DotenvFileClosed,
+    iconOpened: DotenvFileOpened,
+    // iconClosed: DotenvFileClosed,
+    iconOpened: DotenvFileOpened,
     label: '.env.docker',
     content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
   },
   {
-    icon: 'vscode-icons:file-type-dotenv',
+    iconClosed: DotenvFileClosed,
+    iconOpened: DotenvFileOpened,
+    // iconClosed: DotenvFileClosed,
+    iconOpened: DotenvFileOpened,
     label: '.env.local',
     content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
     disabled: true
   },
   {
-    icon: 'vscode-icons:file-type-dotenv',
+    iconClosed: DotenvFileClosed,
+    iconOpened: DotenvFileOpened,
+    // iconClosed: DotenvFileClosed,
+    iconOpened: DotenvFileOpened,
     label: '.env.local.testing',
     content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
   },
   {
-    icon: 'vscode-icons:file-type-git',
+    iconClosed: GitFileClosed,
+    iconOpened: GitFileOpened,
+    // iconClosed: GitFileClosed,
+    iconOpened: GitFileOpened,
     label: '.gitignore',
     content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
   },
   {
-    icon: 'vscode-icons:file-type-docker',
+    iconClosed: DockerFileClosed,
+    iconOpened: DockerFileOpened,
+    // icon: 'vscode-icons:file-type-docker',
     label: 'docker-compose.yml',
     content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
   },
   {
-    icon: 'catppuccin:makefile',
+    iconClosed: GnuFileClosed,
+    iconOpened: GnuFileOpened,
+    // icon: 'catppuccin:makefile',
     label: 'Makefile',
     content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
   },
   {
-    icon: 'vscode-icons:file-type-markdown',
+    iconClosed: MarkdownFileClosed,
+    iconOpened: MarkdownFileOpened,
+    // icon: 'vscode-icons:file-type-markdown',
     label: 'README.md',
     content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
   },
 ]
 const laravelDockerFolder = [
   {
-    icon: 'vscode-icons:default-folder',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
     label: 'database',
     slot: 'docker-database-folder'
   },
   {
-    icon: 'vscode-icons:folder-type-nginx',
+    iconClosed: NginxFolderClosed,
+    iconOpened: NginxFolderOpened,
     label: 'nginx',
     content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
     slot: 'docker-nginx-folder'
   },
   {
-    icon: 'vscode-icons:folder-type-php',
+    iconClosed: PhpFolderClosed,
+    iconOpened: PhpFolderOpened,
     label: 'php-fpm',
     content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
     slot: 'docker-phpfpm-folder'
   },
   {
-    icon: 'vscode-icons:file-type-markdown',
+    iconClosed: MarkdownFileClosed,
+    iconOpened: MarkdownFileOpened,
     label: 'README.md',
     content: 'Readme file explaining php docker image'
   },
   {
-    icon: 'vscode-icons:file-type-html',
+    iconClosed: HtmlFileClosed,
+    iconOpened: HtmlFileOpened,
     label: 'README.html',
     content: 'Readme file explaining php docker image',
   }
@@ -79,12 +174,14 @@ const laravelDockerFolder = [
 
 const laravelDockerDatabaseFolder = [
   {
-    icon: 'vscode-icons:default-folder',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
     label: 'dump',
     content: 'Folder for database dump file',
   },
   {
-    icon: 'vscode-icons:file-type-git',
+    iconClosed: GitFileClosed,
+    iconOpened: GitFileOpened,
     label: '.gitignore',
     slot: 'docker-folder'
   },
@@ -92,12 +189,14 @@ const laravelDockerDatabaseFolder = [
 
 const laravelDockerPhpFpmFolder = [
   {
-    icon: 'vscode-icons:file-type-docker',
+    iconClosed: DockerFileClosed,
+    iconOpened: DockerFileOpened,
     label: 'Dockerfile',
     content: 'Dockerfile for php',
   },
   {
-    icon: 'vscode-icons:file-type-light-config',
+    iconClosed: ConfigFileClosed,
+    iconOpened: ConfigFileOpened,
     label: 'php-ini-overrides.ini',
     content: 'Php ini settings',
   },
@@ -106,7 +205,8 @@ const laravelDockerPhpFpmFolder = [
 const laravelDockerNginxFolder = [
   {
     label: 'nginx.conf',
-    icon: 'vscode-icons:file-type-nginx',
+    iconClosed: NginxFolderClosed,
+    iconOpened: NginxFileOpened,
     content: 'Nginx configuration file'
   }
 ]
@@ -114,188 +214,246 @@ const laravelDockerNginxFolder = [
 const laravelSrcFolder = [
   {
     label: 'app',
-    icon: 'vscode-icons:default-folder',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
     slot: 'src-app-folder'
   },
   {
     label: 'bootstrap',
-    icon: 'vscode-icons:default-folder',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
     slot: 'src-bootstrap-folder',
     content: 'The bootstrap directory contains the app.php file which bootstraps the framework. ' +
         'This directory also houses a cache directory which contains framework generated files for performance optimization such as the route and services cache files.'
   },
   {
     label: 'config',
-    icon: 'vscode-icons:default-folder',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
     slot: 'src-config-folder',
     content: "The config directory, as the name implies, contains all of your application's configuration files. " +
         "It's a great idea to read through all of these files and familiarize yourself with all of the options available to you."
   },
   {
     label: 'database',
-    icon: 'vscode-icons:folder-type-db',
+    iconClosed: DatabaseFolderClosed,
+    iconOpened: DatabaseFolderOpened,
     slot: 'src-database-folder'
   },
   {
     label: 'lang',
-    icon: 'vscode-icons:folder-type-locale'
+    iconClosed: LocaleFolderClosed,
+    iconOpened: LocaleFolderOpened,
+    slot: 'src-lang-folder'
   },
   {
     label: 'public',
-    icon: 'vscode-icons:folder-type-public'
+    iconClosed: PublicFolderClosed,
+    iconOpened: PublicFolderOpened,
+    slot: 'src-public-folder'
   },
   {
     label: 'resources',
-    icon: 'vscode-icons:folder-type-asset'
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'src-resources-folder',
   },
   {
     label: 'routes',
-    icon: 'vscode-icons:folder-type-route'
+    iconClosed: RoutesFolderClosed,
+    iconOpened: RoutesFolderOpened,
+    slot: 'src-routes-folder'
   },
   {
     label: 'storage',
-    icon: 'vscode-icons:default-folder'
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    content: 'test'
   },
   {
     label: 'tests',
-    icon: 'vscode-icons:folder-type-test'
+    iconClosed: TestsFolderClosed,
+    iconOpened: TestsFolderOpened,
+    content: 'test'
   },
   {
     label: '.editorconfig',
-    icon: 'vscode-icons:file-type-light-config'
+    iconClosed: ConfigFileClosed,
+    iconOpened: ConfigFileOpened,
+    content: 'test'
   },
   {
     label: '.env',
-    icon: 'vscode-icons:file-type-dotenv'
+    iconClosed: DotenvFileClosed,
+    iconOpened: DotenvFileOpened,
+    content: 'test'
   },
   {
     label: '.env.example',
-    icon: 'vscode-icons:file-type-dotenv'
+    iconClosed: DotenvFileClosed,
+    iconOpened: DotenvFileOpened,
+    content: 'test'
   },
   {
     label: '.env.testing',
-    icon: 'vscode-icons:file-type-dotenv'
+    iconClosed: DotenvFileClosed,
+    iconOpened: DotenvFileOpened,
+    content: 'test'
   },
   {
     label: '.gitattributes',
-    icon: 'vscode-icons:file-type-git'
+    iconClosed: GitFileClosed,
+    iconOpened: GitFileOpened,
+    content: 'test'
   },
   {
     label: '.gitignore',
-    icon: 'vscode-icons:file-type-git'
+    iconClosed: GitFileClosed,
+    iconOpened: GitFileOpened,
+    content: 'test'
   },
   {
     label: 'artisan',
-    icon: 'devicon:laravel'
+    iconClosed: LaravelFileClosed,
+    iconOpened: LaravelFileOpened,
+    content: 'test'
   },
   {
     label: 'composer.json',
-    icon: 'vscode-icons:file-type-composer'
+    iconClosed: ComposerFileClosed,
+    iconOpened: ComposerFileOpened,
+    content: 'test'
   },
   {
     label: 'composer.lock',
-    icon: 'vscode-icons:file-type-composer'
+    iconClosed: ComposerFileClosed,
+    iconOpened: ComposerFileOpened,
+    content: 'test'
   },
   {
     label: 'package.json',
-    icon: 'vscode-icons:file-type-npm'
+    iconClosed: NpmFileClosed,
+    iconOpened: NpmFileOpened,
+    content: 'test'
   },
   {
     label: 'phpunit.xml',
-    icon: 'vscode-icons:file-type-phpunit'
+    iconClosed: PhpUnitFileClosed,
+    iconOpened: PhpUnitFileOpened,
+    content: 'test'
   },
   {
     label: 'README.md',
-    icon: 'vscode-icons:default-folder'
+    iconClosed: MarkdownFileClosed,
+    iconOpened: MarkdownFileOpened,
+    content: 'test'
   },
   {
     label: 'vite.config.js',
-    icon: 'vscode-icons:file-type-vite'
+    iconClosed: ViteFileClosed,
+    iconOpened: ViteFileOpened,
+    content: 'test'
   }
 ]
 
 const srcAppFolder = [
   {
     label: 'Console',
-    icon: 'vscode-icons:default-folder',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
     slot: 'src-app-console-folder',
     description: 'The Console directory contains all of the custom Artisan commands for your application. These commands may be generated using the make:command command.'
   },
   {
     label: 'Cron',
-    icon: 'vscode-icons:default-folder',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
     content: 'The Cron directory can contain all of the invokable classes that can be used in task scheduler.',
     slot: 'src-app-cron-folder'
   },
   {
     label: 'Enum',
-    icon: 'vscode-icons:default-folder',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
     slot: 'src-app-enum-folder',
     content: 'The Enum directory can contain all of your php enums.'
   },
   {
     label: 'Exceptions',
-    icon: 'vscode-icons:default-folder',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
     slot: 'src-app-exceptions-folder',
   },
   {
     label: 'Http',
-    icon: 'vscode-icons:default-folder',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
     slot: 'src-app-http-folder'
   },
   {
     label: 'Interfaces',
-    icon: 'vscode-icons:default-folder',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
     slot: 'src-app-interfaces-folder',
   },
   {
     label: 'Jobs',
-    icon: 'vscode-icons:default-folder',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
     slot: 'src-app-jobs-folder',
   },
   {
     label: 'Mail',
-    icon: 'vscode-icons:default-folder',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
     slot: 'src-app-mail-folder'
   },
   {
     label: 'Models',
-    icon: 'vscode-icons:default-folder',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
     slot: 'src-app-models-folder'
   },
   {
     label: 'Notifications',
-    icon: 'vscode-icons:default-folder',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
     slot: 'src-app-notifications-folder'
   },
   {
     label: 'Observers',
-    icon: 'vscode-icons:default-folder',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
     slot: 'src-app-observers-folder'
   },
   {
     label: 'Providers',
-    icon: 'vscode-icons:default-folder',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
     slot: 'src-app-providers-folder'
   },
   {
     label: 'Repositories',
-    icon: 'vscode-icons:default-folder',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
     slot: 'src-app-repositories-folder'
   },
   {
     label: 'Rules',
-    icon: 'vscode-icons:default-folder',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
     slot: 'src-app-rules-folder'
   },
   {
     label: 'Services',
-    icon: 'vscode-icons:default-folder',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
     slot: 'src-app-services-folder'
   },
   {
     label: 'Traits',
-    icon: 'vscode-icons:default-folder',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
     slot: 'src-app-traits-folder'
   }
 ]
@@ -303,12 +461,14 @@ const srcAppFolder = [
 const srcBootstrapFolder = [
   {
     label: 'cache',
-    icon: 'vscode-icons:default-folder',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
     slot: 'src-bootstrap-cache-folder'
   },
   {
     label: 'app.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     disabled: true
   }
 ]
@@ -316,17 +476,20 @@ const srcBootstrapFolder = [
 const srcBootstrapCacheFolder = [
   {
     label: '.gitignore',
-    icon: 'vscode-icons:file-type-git',
+    iconClosed: GitFileClosed,
+    iconOpened: GitFileOpened,
     disabled: true
   },
   {
     label: 'packages.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     disabled: true
   },
   {
     label: 'services.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     disabled: true
   }
 ]
@@ -334,82 +497,98 @@ const srcBootstrapCacheFolder = [
 const srcConfigFolder = [
   {
     label: 'app.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     disabled: true
   },
   {
     label: 'auth.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     disabled: true
   },
   {
     label: 'broadcasting.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     disabled: true
   },
   {
     label: 'cache.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     disabled: true
   },
   {
     label: 'cors.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     disabled: true
   },
   {
     label: 'database.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     disabled: true
   },
   {
     label: 'filesystems.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     disabled: true
   },
   {
     label: 'frontend-app.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     disabled: true
   },
   {
     label: 'hashing.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     disabled: true
   },
   {
     label: 'logging.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     disabled: true
   },
   {
     label: 'mail.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     disabled: true
   },
   {
     label: 'queue.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     disabled: true
   },
   {
     label: 'sanctum.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     disabled: true
   },
   {
     label: 'services.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     disabled: true
   },
   {
     label: 'session.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     disabled: true
   },
   {
     label: 'view.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     disabled: true
   }
 ]
@@ -417,30 +596,251 @@ const srcConfigFolder = [
 const srcDatabaseFolder = [
   {
     label: 'factories',
-    icon: 'vscode-icons:default-folder',
-    slot:'src-database-factories-folder'
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'src-database-factories-folder'
   },
   {
     label: 'migrations',
-    icon: 'vscode-icons:default-folder',
-    slot:'src-database-migrations-folder'
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'src-database-migrations-folder'
   },
   {
     label: 'seeders',
-    icon: 'vscode-icons:default-folder',
-    slot:'src-database-seeders-folder'
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'src-database-seeders-folder'
   },
   {
     label: '.gitignore',
-    icon: 'vscode-icons:file-type-git',
+    iconClosed: GitFileClosed,
+    iconOpened: GitFileOpened,
     disabled: true
+  }
+]
+
+const srcLangFolder = [
+  {
+    label: 'en',
+    iconOpened: FolderIconOpened,
+    iconClosed: FolderIconClosed,
+    slot: 'src-lang-en-folder'
+  },
+  {
+    label: 'sr-latn.json',
+    iconOpened: JsonFileOpened,
+    iconClosed: JsonFileClosed,
+    content: 'Serbian localisation for password validation'
+  }
+]
+
+const srcPublicFolder = [
+  {
+    label: '.httaccess',
+    iconOpened: ApacheFileOpened,
+    iconClosed: ApacheFileClosed,
+    content: 'Setup httaccess configuration'
+  },
+  {
+    label: 'favicon.ico',
+    iconOpened: FaviconFileOpened,
+    iconClosed: FaviconFileClosed,
+    content: 'Setup your favicon'
+  },
+  {
+    label: 'index.php',
+    iconOpened: PhpFileOpened,
+    iconClosed: PhpFileClosed,
+    content: 'Application entry point'
+  },
+  {
+    label: 'robots.txt',
+    iconOpened: RobotsFileOpened,
+    iconClosed: RobotsFileClosed,
+    content: 'Setup robots.txt file config '
+  }
+]
+
+const srcResourcesFolder = [
+  {
+    label: 'css',
+    iconOpened: CssFolderOpened,
+    iconClosed: CssFolderClosed,
+    slot: 'src-resources-css-folder'
+  },
+  {
+    label: 'js',
+    iconOpened: JsFolderOpened,
+    iconClosed: JsFolderClosed,
+    slot: 'src-resources-js-folder'
+  },
+  {
+    label: 'stubs',
+    iconOpened: FolderIconOpened,
+    iconClosed: FolderIconClosed,
+    slot: 'src-resources-stubs-folder'
+  },
+  {
+    label: 'views',
+    iconOpened: ViewFolderOpened,
+    iconClosed: ViewFolderClosed,
+    slot: 'src-resources-views-folder'
+  }
+]
+
+const srcRoutesFolder = [
+  {
+    label: 'api.php',
+    iconOpened: PhpFileOpened,
+    iconClosed: PhpFileClosed,
+    content: 'This file contains all the api endpoints used by frontend app'
+  },
+  {
+    label: 'channels.php',
+    iconOpened: PhpFileOpened,
+    iconClosed: PhpFileClosed,
+    disabled: true
+  },
+  {
+    label: 'console.php',
+    iconOpened: PhpFileOpened,
+    iconClosed: PhpFileClosed,
+    disabled: true
+  },
+  {
+    label: 'web.php',
+    iconOpened: PhpFileOpened,
+    iconClosed: PhpFileClosed,
+    disabled: true
+  }
+]
+const srcResourcesCssFolder = [
+  {
+    label: 'app.css',
+    iconOpened: CssFileOpened,
+    iconClosed: CssFileClosed,
+    content: 'Main css file'
+  },
+
+]
+
+const srcResourcesJsFolder = [
+  {
+    label: 'app.js',
+    iconOpened: JsFileOpened,
+    iconClosed: JsFileClosed,
+    disabled: true,
+  },
+  {
+    label: 'bootstrap.js',
+    iconOpened: JsFileOpened,
+    iconClosed: JsFileClosed,
+    disabled: true,
+  }
+]
+
+const srcResourcesStubsFolder = [
+  {
+    label: 'interfaceStub.php',
+    iconOpened: PhpFileOpened,
+    iconClosed: PhpFileClosed,
+    content: 'Template used in php artisan make:interface command'
+  },
+  {
+    label: 'RepositoryStub.php',
+    iconOpened: PhpFileOpened,
+    iconClosed: PhpFileClosed,
+    content: 'Template used in php artisan make:repository command'
+  },
+  {
+    label: 'ServiceStub.php',
+    iconOpened: PhpFileOpened,
+    iconClosed: PhpFileClosed,
+    content: 'Template used in php artisan make:service command'
+  },
+  {
+    label: 'TraitStub',
+    iconOpened: PhpFileOpened,
+    iconClosed: PhpFileClosed,
+    content: 'Template used in php artisan make:trait command'
+  }
+]
+
+const srcResourcesViewsFolder = [
+  {
+    label: 'mail',
+    iconOpened: FolderIconOpened,
+    iconClosed: FolderIconClosed,
+    slot: 'src-resources-views-mail-folder'
+  },
+  // {
+  //   label: 'vendor',
+  //   iconOpened: FolderIconOpened,
+  //   iconClosed: FolderIconClosed,
+  //   slot: 'src-resources-views-vendor-folder'
+  // },
+  {
+    label: 'welcome.blade.php',
+    iconOpened: BladeFileOpened,
+    iconClosed: BladeFileClosed,
+    content: 'Default laravel welcome page'
+  }
+]
+
+const srcResourcesViewsMailFolder = [
+  {
+    label: 'generate-forgot-password-mail.blade.php',
+    iconOpened: BladeFileOpened,
+    iconClosed: BladeFileClosed,
+    content: 'Laravel blade template containing forgot password email'
+  },
+  {
+    label: 'send-error-alert.blade.php',
+    iconOpened: BladeFileOpened,
+    iconClosed: BladeFileClosed,
+    content: 'Laravel blade template containing server error details email'
+  },
+  {
+    label: 'welcome-mail.blade.php',
+    iconOpened: BladeFileOpened,
+    iconClosed: BladeFileClosed,
+    content: 'Laravel blade template containing welcome new user email'
+  }
+]
+
+const srcLangEnFolder = [
+  {
+    label: 'auth.php',
+    iconOpened: PhpFileOpened,
+    iconClosed: PhpFileClosed,
+    content: 'En localisation for auth validation messages'
+  },
+  {
+    label: 'pagination.php',
+    iconOpened: PhpFileOpened,
+    iconClosed: PhpFileClosed,
+    content: 'En localisation for pagination messages'
+  },
+  {
+    label: 'passwords.php',
+    iconOpened: PhpFileOpened,
+    iconClosed: PhpFileClosed,
+    content: 'En localisation for password messages'
+  },
+  {
+    label: 'validation.php',
+    iconOpened: PhpFileOpened,
+    iconClosed: PhpFileClosed,
+    content: 'En localisation for validation messages'
   }
 ]
 
 const srcDatabaseFactoriesFolder = [
   {
     label: 'UserFactory.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Factory class that allows for easy dummy user creation'
   }
 ]
@@ -448,57 +848,68 @@ const srcDatabaseFactoriesFolder = [
 const srcDatabaseMigrationsFolder = [
   {
     label: 'create_users_table.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Migration for users table creation'
   },
   {
     label: 'create_password_resets_table.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Migration for password_resets table creation'
   },
   {
     label: 'create_failed_jobs_table.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Migration for failed_jobs table creation'
   },
   {
     label: 'create_personal_access_tokens_table.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Migration for personal_access_tokens table creation'
   },
   {
     label: 'create_jobs_table.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Migration for jobs table creation'
   },
   {
     label: 'create_user_logs_table.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Migration for user_logs table creation'
   },
   {
     label: 'create_user_action_logs_table.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Migration for user_action_logs table creation'
   },
   {
     label: 'create_session_timeout_table.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Migration for session_timeout table creation'
   },
   {
     label: 'create_routes_table.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Migration for routes table creation'
   },
   {
     label: 'create_user_login_logs_table.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Migration for user_login_logs table creation'
   },
   {
     label: 'create_user_login_logs_table.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Migration for user_login_logs table creation'
   }
 ]
@@ -506,7 +917,8 @@ const srcDatabaseMigrationsFolder = [
 const srcDatabaseSeedersFolder = [
   {
     label: 'DatabaseSeeder.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Main database seeder class'
   }
 ]
@@ -514,25 +926,29 @@ const srcDatabaseSeedersFolder = [
 const srcAppHttpFolder = [
   {
     label: 'Controllers',
-    icon: 'vscode-icons:default-folder',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
     slot: 'src-app-http-controllers-folder',
     content: 'The Console directory contains all of the custom Artisan commands for your application. These commands may be generated using the make:command command.'
   },
   {
     label: 'Middleware',
-    icon: 'vscode-icons:default-folder',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
     slot: 'src-app-http-middleware-folder',
     content: 'The Cron directory can contain all of the invokable classes that can be used in task scheduler.'
   },
   {
     label: 'Requests',
-    icon: 'vscode-icons:default-folder',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
     slot: 'src-app-http-requests-folder',
     content: 'The Enum directory can contain all of your php enums.'
   },
   {
     label: 'Kernel.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'The Exceptions directory contains all of the custom exceptions for your application. These exceptions may be generated using the make:exception command.'
   }
 ]
@@ -540,32 +956,38 @@ const srcAppHttpFolder = [
 const srcAppHttpControllersFolder = [
   {
     label: 'AuthController.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Controller that contains auth functionalities (login, logout, forgotPassword, resetPassword, activateAccount, autoLogin)'
   },
   {
     label: 'Controller.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Base controller class which all other controllers extend'
   },
   {
     label: 'LogViewerController.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Controller which provides two methods, one lists all the log folders, and the other log files within selected folder provided by previous method'
   },
   {
     label: 'SetSessionTimeoutPeriodController.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Controller which provides method to set needed inactivity time before user sanctum token is revoked'
   },
   {
     label: 'SetUserAccountState.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Controller which provides method to set user account state from active to inactive and vice-versa.'
   },
   {
     label: 'UserController.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Controller which provides CRUD method for users, as well as functionality to manually send user account activation email.'
   }
 ]
@@ -573,22 +995,26 @@ const srcAppHttpControllersFolder = [
 const srcAppHttpMiddlewareFolder = [
   {
     label: 'EnsureUserAccountIsActive.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Middleware that checks is user flagged as active or inactive in database, prevents inactive users that still have valid sanctum tokens from accessing endpoints.'
   },
   {
     label: 'EnsureUserAccountIsActive.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Middleware that checks is user flagged as active or inactive in database, prevents inactive users that still have valid sanctum tokens from accessing endpoints.'
   },
   {
     label: 'LogRequestResponseMiddleware.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Middleware which stores request/response data to folders in storage.'
   },
   {
     label: 'LogUserAction.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Middleware which stores user action in database. It stores route name, user id, user ip'
   }
 ]
@@ -596,37 +1022,44 @@ const srcAppHttpMiddlewareFolder = [
 const srcAppHttpRequestsFolder = [
   {
     label: 'ActivateAccountRequest.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Activate account request data validation'
   },
   {
     label: 'ForgotPasswordRequest.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Forgot password request data validation'
   },
   {
     label: 'LoginUserRequest.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'User login request data validation'
   },
   {
     label: 'ResetPasswordRequest.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Reset password request data validation'
   },
   {
     label: 'SetSessionTimeOutPeriodRequest.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Set session timeout period request data validation'
   },
   {
     label: 'StoreUserRequest.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Store new user request data validation'
   },
   {
     label: 'UpdateUserRequest.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Update user request data validation'
   }
 ]
@@ -634,13 +1067,15 @@ const srcAppHttpRequestsFolder = [
 const srcAppConsoleFolder = [
   {
     label: 'Commands',
-    icon: 'vscode-icons:default-folder',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
     description: 'Folder that contains Laravel commands created by php artisan make:command command',
     slot: 'src-app-console-commands-folder'
   },
   {
     label: 'Kernel.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Contains schedule function where cron jobs can be called from.'
   }
 ];
@@ -648,7 +1083,8 @@ const srcAppConsoleFolder = [
 const srcAppCronFolder = [
   {
     label: 'LogoutInactiveUser.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Invokable class, used in scheduler to periodically check for inactive users and delete their sanctum tokens from database.'
   }
 ]
@@ -656,7 +1092,8 @@ const srcAppCronFolder = [
 const srcAppEnumFolder = [
   {
     label: 'NonLoggableRoutes.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'This file provides enum of routes that are not loggable by user action logger (since no user is logged in while they are being called)'
   }
 ]
@@ -664,7 +1101,8 @@ const srcAppEnumFolder = [
 const srcAppExceptionsFolder = [
   {
     label: 'Handler.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'The default handler currently sends application errors with its details to provided email addresses. (Only when environment is set to production)'
   }
 ]
@@ -672,27 +1110,32 @@ const srcAppExceptionsFolder = [
 const srcAppInterfacesFolder = [
   {
     label: 'PasswordResetRepositoryInterface.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Interfaces contains all the methods that are implemented in PasswordResetRepository.php'
   },
   {
     label: 'SessionTimeoutRepositoryInterface.php.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Interfaces contains all the methods that are implemented in SessionTimeoutRepository.php'
   },
   {
     label: 'UserLoginLogRepositoryInterface.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Interfaces contains all the methods that are implemented in UserLoginLogRepository.php'
   },
   {
     label: 'UserLogRepositoryInterface.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Interfaces contains all the methods that are implemented in UserLogRepository.php'
   },
   {
     label: 'UserRepositoryInterface.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Interfaces contains all the methods that are implemented in UserRepository.php'
   }
 ]
@@ -700,17 +1143,20 @@ const srcAppInterfacesFolder = [
 const srcAppJobsFolder = [
   {
     label: 'SendForgotPasswordMail.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Sends user forgot password email via queue'
   },
   {
     label: 'SendUserCreationEmail.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Sends user welcome email via queue'
   },
   {
     label: 'StoreUserAction.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Sends user action in database via queue'
   }
 ]
@@ -718,17 +1164,20 @@ const srcAppJobsFolder = [
 const srcAppMailFolder = [
   {
     label: 'ForgotPasswordMail.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'For sending forgot password email'
   },
   {
     label: 'SendErrorAlert.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'For sending server errors'
   },
   {
     label: 'WelcomeMail.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'For sending welcome new user email'
   },
 ]
@@ -736,42 +1185,50 @@ const srcAppMailFolder = [
 const srcAppModelsFolder = [
   {
     label: 'PasswordReset.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Represents password_resets table model'
   },
   {
     label: 'RouteList.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Represents routes table model'
   },
   {
     label: 'SanctumToken.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Represents personal_access_tokens table model'
   },
   {
     label: 'SessionTimeout.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Represents session_timeout table model'
   },
   {
     label: 'User.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Represents users table model'
   },
   {
     label: 'UserActionLog.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Represents user_action_logs table model'
   },
   {
     label: 'UserLog.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Represents user_logs table model'
   },
   {
     label: 'UserLoginLog.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Represents user_login_logs table model'
   }
 
@@ -780,7 +1237,8 @@ const srcAppModelsFolder = [
 const srcAppNotificationsFolder = [
   {
     label: 'DatabaseApproachingMaxConnections.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Notification that triggers when database gets near maximum number of connections'
   }
 ]
@@ -788,7 +1246,8 @@ const srcAppNotificationsFolder = [
 const srcAppObserversFolder = [
   {
     label: 'UserObserver.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Observes create and update methods used on User model, and then stores data into user_logs table'
   }
 ]
@@ -796,27 +1255,32 @@ const srcAppObserversFolder = [
 const srcAppProvidersFolder = [
   {
     label: 'AppServiceProvider.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     disabled: true
   },
   {
     label: 'AuthServiceProvider.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     disabled: true
   },
   {
     label: 'BroadcastServiceProvider.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     disabled: true
   },
   {
     label: 'EventServiceProvider.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     disabled: true
   },
   {
     label: 'RouteServiceProvider.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     disabled: true
   }
 ]
@@ -824,27 +1288,32 @@ const srcAppProvidersFolder = [
 const srcAppRepositoriesFolder = [
   {
     label: 'PasswordResetRepository.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Contains queries that use PasswordReset model'
   },
   {
     label: 'SessionTimeoutRepository.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Contains queries that use SessionTimeout model'
   },
   {
     label: 'UserLoginLogRepository.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Contains queries that use UserLoginLog model'
   },
   {
     label: 'UserLogRepository.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Contains queries that use UserLog model'
   },
   {
     label: 'UserRepository.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Contains queries that use User model'
   }
 ]
@@ -852,17 +1321,20 @@ const srcAppRepositoriesFolder = [
 const srcAppRulesFolder = [
   {
     label: 'CheckUserPasswordResetToken.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Custom rule that checks password validity upon user reset password action'
   },
   {
     label: 'ValidateUserAccountActivationToken.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Custom rule that checks user account activation token upon account activation action'
   },
   {
     label: 'ValidateUserPassword.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Custom rule that checks password validity upon user login action'
   }
 ]
@@ -870,12 +1342,14 @@ const srcAppRulesFolder = [
 const srcAppTraitsFolder = [
   {
     label: 'ResponseWithHttpStatus.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Trait used for returning uniformed responses from controllers'
   },
   {
     label: 'SerializeDate.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Trait used in models to convert timestamp to server time zone'
   }
 ]
@@ -883,39 +1357,46 @@ const srcAppTraitsFolder = [
 const srcAppServicesFolder = [
   {
     label: 'AuthService.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'AuthService contains all methods related to user authentication functionalities (login, forgotPassword, resetPassword, activateAccount, autoLogin)'
   },
   {
     label: 'StoreUserLoginLogService.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'StoreUserLoginLogService contains method for storing user login logs'
   },
   {
     label: 'UserService.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'UserService contains methods related to User model (create, update, manuallySendWelcomeMail)'
   }
 ]
 const srcAppConsoleCommandsFolder = [
   {
     label: 'Make',
-    icon: 'vscode-icons:default-folder',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
     slot: 'src-app-console-commands-make-folder'
   },
   {
     label: 'DatabaseBackup.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Php artisan command for creating database backups'
   },
   {
     label: 'DeployScript.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Php artisan command for running laravel clear/create cache on deployment'
   },
   {
     label: 'GenerateRoutes.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Php artisan command for storing routes (based on their route name) in database, important to run when new routes are created, because logs and user actions are logged based on api routes '
   }
 ]
@@ -923,24 +1404,28 @@ const srcAppConsoleCommandsFolder = [
 const srcAppConsoleCommandsMakeFolder = [
   {
     label: 'MakeInterfaceCommand.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'This laravel backend uses repository pattern, and php artisan make:interface command is used within php artisan make:repository command for automatic interface file creation'
   },
   {
     label: 'MakeRepositoryCommand.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'This laravel backend uses repository pattern. Command php artisan make:repository MyRepository creates repository class in repositories folder and interface in interfaces folder ' +
         '(example: php artisan make:repository MyRepository creates MyRepository.php file in repositories which implements MyRepositoryInterface, and creates MyRepositoryInterface.php file in interfaces folder)'
   },
   {
     label: 'MakeServiceCommand.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'This laravel backend uses service pattern where business logic is implemented in service class. Command php artisan make:service ServiceName creates service class in services folder.' +
         'For example php artisan make:service MyService creates MyService.php file in services folder'
   },
   {
     label: 'MakeTraitCommand.php',
-    icon: 'vscode-icons:file-type-php3',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
     content: 'Php artisan command for making traits. For example php artisan make:trait MyTrait creates MyTrait.php file in traits folder'
   }
 ]
@@ -948,10 +1433,36 @@ const srcAppConsoleCommandsMakeFolder = [
 
 <template>
   <UAccordion
+      class="overflow-y-scroll max-h-96"
       multiple
       variant="ghost"
       :items="laravelProjectStructure"
   >
+    <template #default="{ item, index, open }">
+      <UButton color="gray" variant="ghost">
+        <template #leading>
+          <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+            <component v-show="!open" :is="item.iconClosed"></component>
+            <component v-show="open" :is="item.iconOpened"></component>
+
+          </div>
+        </template>
+
+        <span class="truncate">{{ item.label }}</span>
+
+        <template #trailing>
+          <UIcon
+              name="i-heroicons-chevron-right-20-solid"
+              class="w-5 h-5 ms-auto transform transition-transform duration-200"
+              :class="[open && 'rotate-90']"
+          />
+        </template>
+
+
+      </UButton>
+
+    </template>
+
     <template #docker-folder>
       <UAccordion
           class="pl-5"
@@ -959,15 +1470,64 @@ const srcAppConsoleCommandsMakeFolder = [
           variant="ghost"
           :items="laravelDockerFolder"
       >
+        <template #default="{ item, index, open }">
+          <UButton color="gray" variant="ghost">
+            <template #leading>
+              <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                <component v-show="!open" :is="item.iconClosed"></component>
+                <component v-show="open" :is="item.iconOpened"></component>
+
+              </div>
+            </template>
+
+            <span class="truncate">{{ item.label }}</span>
+
+            <template #trailing>
+              <UIcon
+                  name="i-heroicons-chevron-right-20-solid"
+                  class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                  :class="[open && 'rotate-90']"
+              />
+            </template>
+
+
+          </UButton>
+
+        </template>
 
         <template #docker-database-folder>
           <UAccordion
               class="pl-5"
-
               multiple
               variant="ghost"
               :items="laravelDockerDatabaseFolder"
-          ></UAccordion>
+          >
+            <template #default="{ item, index, open }">
+              <UButton color="gray" variant="ghost">
+                <template #leading>
+                  <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                    <component v-show="!open" :is="item.iconClosed"></component>
+                    <component v-show="open" :is="item.iconOpened"></component>
+
+                  </div>
+                </template>
+
+                <span class="truncate">{{ item.label }}</span>
+
+                <template #trailing>
+                  <UIcon
+                      name="i-heroicons-chevron-right-20-solid"
+                      class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                      :class="[open && 'rotate-90']"
+                  />
+                </template>
+
+
+              </UButton>
+
+            </template>
+
+          </UAccordion>
         </template>
 
         <template #docker-nginx-folder>
@@ -976,7 +1536,33 @@ const srcAppConsoleCommandsMakeFolder = [
               multiple
               variant="ghost"
               :items="laravelDockerNginxFolder"
-          ></UAccordion>
+          >
+            <template #default="{ item, index, open }">
+              <UButton color="gray" variant="ghost">
+                <template #leading>
+                  <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                    <component v-show="!open" :is="item.iconClosed"></component>
+                    <component v-show="open" :is="item.iconOpened"></component>
+
+                  </div>
+                </template>
+
+                <span class="truncate">{{ item.label }}</span>
+
+                <template #trailing>
+                  <UIcon
+                      name="i-heroicons-chevron-right-20-solid"
+                      class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                      :class="[open && 'rotate-90']"
+                  />
+                </template>
+
+
+              </UButton>
+
+            </template>
+
+          </UAccordion>
         </template>
 
         <template #docker-phpfpm-folder>
@@ -985,7 +1571,33 @@ const srcAppConsoleCommandsMakeFolder = [
               multiple
               variant="ghost"
               :items="laravelDockerPhpFpmFolder"
-          ></UAccordion>
+          >
+            <template #default="{ item, index, open }">
+              <UButton color="gray" variant="ghost">
+                <template #leading>
+                  <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                    <component v-show="!open" :is="item.iconClosed"></component>
+                    <component v-show="open" :is="item.iconOpened"></component>
+
+                  </div>
+                </template>
+
+                <span class="truncate">{{ item.label }}</span>
+
+                <template #trailing>
+                  <UIcon
+                      name="i-heroicons-chevron-right-20-solid"
+                      class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                      :class="[open && 'rotate-90']"
+                  />
+                </template>
+
+
+              </UButton>
+
+            </template>
+
+          </UAccordion>
         </template>
 
       </UAccordion>
@@ -998,6 +1610,31 @@ const srcAppConsoleCommandsMakeFolder = [
           variant="ghost"
           :items="laravelSrcFolder"
       >
+        <template #default="{ item, index, open }">
+          <UButton color="gray" variant="ghost">
+            <template #leading>
+              <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                <component v-show="!open" :is="item.iconClosed"></component>
+                <component v-show="open" :is="item.iconOpened"></component>
+
+              </div>
+            </template>
+
+            <span class="truncate">{{ item.label }}</span>
+
+            <template #trailing>
+              <UIcon
+                  name="i-heroicons-chevron-right-20-solid"
+                  class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                  :class="[open && 'rotate-90']"
+              />
+            </template>
+
+
+          </UButton>
+
+        </template>
+
         <template #src-app-folder>
           <UAccordion
               class="pl-5"
@@ -1005,6 +1642,31 @@ const srcAppConsoleCommandsMakeFolder = [
               variant="ghost"
               :items="srcAppFolder"
           >
+            <template #default="{ item, index, open }">
+              <UButton color="gray" variant="ghost">
+                <template #leading>
+                  <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                    <component v-show="!open" :is="item.iconClosed"></component>
+                    <component v-show="open" :is="item.iconOpened"></component>
+
+                  </div>
+                </template>
+
+                <span class="truncate">{{ item.label }}</span>
+
+                <template #trailing>
+                  <UIcon
+                      name="i-heroicons-chevron-right-20-solid"
+                      class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                      :class="[open && 'rotate-90']"
+                  />
+                </template>
+
+
+              </UButton>
+
+            </template>
+
             <template #src-app-console-folder>
               The Console directory contains all of the custom Artisan commands for your application. These commands may
               be generated using the make:command command.
@@ -1013,19 +1675,94 @@ const srcAppConsoleCommandsMakeFolder = [
                   multiple
                   variant="ghost"
                   :items="srcAppConsoleFolder">
+                <template #default="{ item, index, open }">
+                  <UButton color="gray" variant="ghost">
+                    <template #leading>
+                      <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                        <component v-show="!open" :is="item.iconClosed"></component>
+                        <component v-show="open" :is="item.iconOpened"></component>
+
+                      </div>
+                    </template>
+
+                    <span class="truncate">{{ item.label }}</span>
+
+                    <template #trailing>
+                      <UIcon
+                          name="i-heroicons-chevron-right-20-solid"
+                          class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                          :class="[open && 'rotate-90']"
+                      />
+                    </template>
+
+
+                  </UButton>
+
+                </template>
+
                 <template #src-app-console-commands-folder>
                   <UAccordion
                       class="pl-5"
                       multiple
                       variant="ghost"
                       :items="srcAppConsoleCommandsFolder">
+                    <template #default="{ item, index, open }">
+                      <UButton color="gray" variant="ghost">
+                        <template #leading>
+                          <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                            <component v-show="!open" :is="item.iconClosed"></component>
+                            <component v-show="open" :is="item.iconOpened"></component>
+
+                          </div>
+                        </template>
+
+                        <span class="truncate">{{ item.label }}</span>
+
+                        <template #trailing>
+                          <UIcon
+                              name="i-heroicons-chevron-right-20-solid"
+                              class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                              :class="[open && 'rotate-90']"
+                          />
+                        </template>
+
+
+                      </UButton>
+
+                    </template>
 
                     <template #src-app-console-commands-make-folder>
                       <UAccordion
                           class="pl-5"
                           multiple
                           variant="ghost"
-                          :items="srcAppConsoleCommandsMakeFolder"/>
+                          :items="srcAppConsoleCommandsMakeFolder">
+                        <template #default="{ item, index, open }">
+                          <UButton color="gray" variant="ghost">
+                            <template #leading>
+                              <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                                <component v-show="!open" :is="item.iconClosed"></component>
+                                <component v-show="open" :is="item.iconOpened"></component>
+
+                              </div>
+                            </template>
+
+                            <span class="truncate">{{ item.label }}</span>
+
+                            <template #trailing>
+                              <UIcon
+                                  name="i-heroicons-chevron-right-20-solid"
+                                  class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                                  :class="[open && 'rotate-90']"
+                              />
+                            </template>
+
+
+                          </UButton>
+
+                        </template>
+
+                      </UAccordion>
                     </template>
                   </UAccordion>
                 </template>
@@ -1038,7 +1775,33 @@ const srcAppConsoleCommandsMakeFolder = [
                   multiple
                   variant="ghost"
                   :items="srcAppCronFolder"
-              />
+              >
+                <template #default="{ item, index, open }">
+                  <UButton color="gray" variant="ghost">
+                    <template #leading>
+                      <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                        <component v-show="!open" :is="item.iconClosed"></component>
+                        <component v-show="open" :is="item.iconOpened"></component>
+
+                      </div>
+                    </template>
+
+                    <span class="truncate">{{ item.label }}</span>
+
+                    <template #trailing>
+                      <UIcon
+                          name="i-heroicons-chevron-right-20-solid"
+                          class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                          :class="[open && 'rotate-90']"
+                      />
+                    </template>
+
+
+                  </UButton>
+
+                </template>
+
+              </UAccordion>
             </template>
             <template #src-app-enum-folder>
               Here you can put enums used in the application.
@@ -1047,7 +1810,33 @@ const srcAppConsoleCommandsMakeFolder = [
                   multiple
                   variant="ghost"
                   :items="srcAppEnumFolder"
-              />
+              >
+                <template #default="{ item, index, open }">
+                  <UButton color="gray" variant="ghost">
+                    <template #leading>
+                      <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                        <component v-show="!open" :is="item.iconClosed"></component>
+                        <component v-show="open" :is="item.iconOpened"></component>
+
+                      </div>
+                    </template>
+
+                    <span class="truncate">{{ item.label }}</span>
+
+                    <template #trailing>
+                      <UIcon
+                          name="i-heroicons-chevron-right-20-solid"
+                          class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                          :class="[open && 'rotate-90']"
+                      />
+                    </template>
+
+
+                  </UButton>
+
+                </template>
+
+              </UAccordion>
             </template>
             <template #src-app-exceptions-folder>
               The Exceptions directory contains all of the custom exceptions for your application. These exceptions may
@@ -1057,7 +1846,33 @@ const srcAppConsoleCommandsMakeFolder = [
                   multiple
                   variant="ghost"
                   :items="srcAppExceptionsFolder"
-              />
+              >
+                <template #default="{ item, index, open }">
+                  <UButton color="gray" variant="ghost">
+                    <template #leading>
+                      <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                        <component v-show="!open" :is="item.iconClosed"></component>
+                        <component v-show="open" :is="item.iconOpened"></component>
+
+                      </div>
+                    </template>
+
+                    <span class="truncate">{{ item.label }}</span>
+
+                    <template #trailing>
+                      <UIcon
+                          name="i-heroicons-chevron-right-20-solid"
+                          class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                          :class="[open && 'rotate-90']"
+                      />
+                    </template>
+
+
+                  </UButton>
+
+                </template>
+
+              </UAccordion>
             </template>
             <template #src-app-http-folder>
               The Http directory contains your controllers, middleware, and form requests. Almost all of the logic to
@@ -1069,6 +1884,31 @@ const srcAppConsoleCommandsMakeFolder = [
                   :items="srcAppHttpFolder"
 
               >
+                <template #default="{ item, index, open }">
+                  <UButton color="gray" variant="ghost">
+                    <template #leading>
+                      <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                        <component v-show="!open" :is="item.iconClosed"></component>
+                        <component v-show="open" :is="item.iconOpened"></component>
+
+                      </div>
+                    </template>
+
+                    <span class="truncate">{{ item.label }}</span>
+
+                    <template #trailing>
+                      <UIcon
+                          name="i-heroicons-chevron-right-20-solid"
+                          class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                          :class="[open && 'rotate-90']"
+                      />
+                    </template>
+
+
+                  </UButton>
+
+                </template>
+
                 <template #src-app-http-controllers-folder>
                   <UAccordion
                       class="pl-5"
@@ -1076,7 +1916,33 @@ const srcAppConsoleCommandsMakeFolder = [
                       variant="ghost"
                       :items="srcAppHttpControllersFolder"
 
-                  />
+                  >
+                    <template #default="{ item, index, open }">
+                      <UButton color="gray" variant="ghost">
+                        <template #leading>
+                          <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                            <component v-show="!open" :is="item.iconClosed"></component>
+                            <component v-show="open" :is="item.iconOpened"></component>
+
+                          </div>
+                        </template>
+
+                        <span class="truncate">{{ item.label }}</span>
+
+                        <template #trailing>
+                          <UIcon
+                              name="i-heroicons-chevron-right-20-solid"
+                              class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                              :class="[open && 'rotate-90']"
+                          />
+                        </template>
+
+
+                      </UButton>
+
+                    </template>
+
+                  </UAccordion>
                 </template>
                 <template #src-app-http-middleware-folder>
                   Besides Laravel's default middlewares, the following are also provided (and used in project)
@@ -1086,7 +1952,33 @@ const srcAppConsoleCommandsMakeFolder = [
                       variant="ghost"
                       :items="srcAppHttpMiddlewareFolder"
 
-                  />
+                  >
+                    <template #default="{ item, index, open }">
+                      <UButton color="gray" variant="ghost">
+                        <template #leading>
+                          <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                            <component v-show="!open" :is="item.iconClosed"></component>
+                            <component v-show="open" :is="item.iconOpened"></component>
+
+                          </div>
+                        </template>
+
+                        <span class="truncate">{{ item.label }}</span>
+
+                        <template #trailing>
+                          <UIcon
+                              name="i-heroicons-chevron-right-20-solid"
+                              class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                              :class="[open && 'rotate-90']"
+                          />
+                        </template>
+
+
+                      </UButton>
+
+                    </template>
+
+                  </UAccordion>
                 </template>
                 <template #src-app-http-requests-folder>
                   <UAccordion
@@ -1095,7 +1987,33 @@ const srcAppConsoleCommandsMakeFolder = [
                       variant="ghost"
                       :items="srcAppHttpRequestsFolder"
 
-                  />
+                  >
+                    <template #default="{ item, index, open }">
+                      <UButton color="gray" variant="ghost">
+                        <template #leading>
+                          <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                            <component v-show="!open" :is="item.iconClosed"></component>
+                            <component v-show="open" :is="item.iconOpened"></component>
+
+                          </div>
+                        </template>
+
+                        <span class="truncate">{{ item.label }}</span>
+
+                        <template #trailing>
+                          <UIcon
+                              name="i-heroicons-chevron-right-20-solid"
+                              class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                              :class="[open && 'rotate-90']"
+                          />
+                        </template>
+
+
+                      </UButton>
+
+                    </template>
+
+                  </UAccordion>
                 </template>
               </UAccordion>
             </template>
@@ -1107,7 +2025,33 @@ const srcAppConsoleCommandsMakeFolder = [
                   variant="ghost"
                   :items="srcAppInterfacesFolder"
 
-              />
+              >
+                <template #default="{ item, index, open }">
+                  <UButton color="gray" variant="ghost">
+                    <template #leading>
+                      <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                        <component v-show="!open" :is="item.iconClosed"></component>
+                        <component v-show="open" :is="item.iconOpened"></component>
+
+                      </div>
+                    </template>
+
+                    <span class="truncate">{{ item.label }}</span>
+
+                    <template #trailing>
+                      <UIcon
+                          name="i-heroicons-chevron-right-20-solid"
+                          class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                          :class="[open && 'rotate-90']"
+                      />
+                    </template>
+
+
+                  </UButton>
+
+                </template>
+
+              </UAccordion>
             </template>
             <template #src-app-jobs-folder>
               The Jobs directory contains all job classes created by php artisan make:job command
@@ -1117,7 +2061,33 @@ const srcAppConsoleCommandsMakeFolder = [
                   variant="ghost"
                   :items="srcAppJobsFolder"
 
-              />
+              >
+                <template #default="{ item, index, open }">
+                  <UButton color="gray" variant="ghost">
+                    <template #leading>
+                      <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                        <component v-show="!open" :is="item.iconClosed"></component>
+                        <component v-show="open" :is="item.iconOpened"></component>
+
+                      </div>
+                    </template>
+
+                    <span class="truncate">{{ item.label }}</span>
+
+                    <template #trailing>
+                      <UIcon
+                          name="i-heroicons-chevron-right-20-solid"
+                          class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                          :class="[open && 'rotate-90']"
+                      />
+                    </template>
+
+
+                  </UButton>
+
+                </template>
+
+              </UAccordion>
             </template>
             <template #src-app-mail-folder>
               The Mail directory contains all mailable classes created by php artisan make:mail command
@@ -1127,7 +2097,33 @@ const srcAppConsoleCommandsMakeFolder = [
                   variant="ghost"
                   :items="srcAppMailFolder"
 
-              />
+              >
+                <template #default="{ item, index, open }">
+                  <UButton color="gray" variant="ghost">
+                    <template #leading>
+                      <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                        <component v-show="!open" :is="item.iconClosed"></component>
+                        <component v-show="open" :is="item.iconOpened"></component>
+
+                      </div>
+                    </template>
+
+                    <span class="truncate">{{ item.label }}</span>
+
+                    <template #trailing>
+                      <UIcon
+                          name="i-heroicons-chevron-right-20-solid"
+                          class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                          :class="[open && 'rotate-90']"
+                      />
+                    </template>
+
+
+                  </UButton>
+
+                </template>
+
+              </UAccordion>
             </template>
             <template #src-app-models-folder>
               The Models directory contains all model classes that represent database tables created by php artisan
@@ -1138,7 +2134,33 @@ const srcAppConsoleCommandsMakeFolder = [
                   variant="ghost"
                   :items="srcAppModelsFolder"
 
-              />
+              >
+                <template #default="{ item, index, open }">
+                  <UButton color="gray" variant="ghost">
+                    <template #leading>
+                      <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                        <component v-show="!open" :is="item.iconClosed"></component>
+                        <component v-show="open" :is="item.iconOpened"></component>
+
+                      </div>
+                    </template>
+
+                    <span class="truncate">{{ item.label }}</span>
+
+                    <template #trailing>
+                      <UIcon
+                          name="i-heroicons-chevron-right-20-solid"
+                          class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                          :class="[open && 'rotate-90']"
+                      />
+                    </template>
+
+
+                  </UButton>
+
+                </template>
+
+              </UAccordion>
             </template>
             <template #src-app-notifications-folder>
               The Notifications directory contains all notification classes created by php artisan make:notification
@@ -1149,7 +2171,33 @@ const srcAppConsoleCommandsMakeFolder = [
                   variant="ghost"
                   :items="srcAppNotificationsFolder"
 
-              />
+              >
+                <template #default="{ item, index, open }">
+                  <UButton color="gray" variant="ghost">
+                    <template #leading>
+                      <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                        <component v-show="!open" :is="item.iconClosed"></component>
+                        <component v-show="open" :is="item.iconOpened"></component>
+
+                      </div>
+                    </template>
+
+                    <span class="truncate">{{ item.label }}</span>
+
+                    <template #trailing>
+                      <UIcon
+                          name="i-heroicons-chevron-right-20-solid"
+                          class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                          :class="[open && 'rotate-90']"
+                      />
+                    </template>
+
+
+                  </UButton>
+
+                </template>
+
+              </UAccordion>
             </template>
             <template #src-app-observers-folder>
               The Observers directory contains all observer classes that observe model actions, created by php artisan
@@ -1160,7 +2208,33 @@ const srcAppConsoleCommandsMakeFolder = [
                   variant="ghost"
                   :items="srcAppObserversFolder"
 
-              />
+              >
+                <template #default="{ item, index, open }">
+                  <UButton color="gray" variant="ghost">
+                    <template #leading>
+                      <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                        <component v-show="!open" :is="item.iconClosed"></component>
+                        <component v-show="open" :is="item.iconOpened"></component>
+
+                      </div>
+                    </template>
+
+                    <span class="truncate">{{ item.label }}</span>
+
+                    <template #trailing>
+                      <UIcon
+                          name="i-heroicons-chevron-right-20-solid"
+                          class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                          :class="[open && 'rotate-90']"
+                      />
+                    </template>
+
+
+                  </UButton>
+
+                </template>
+
+              </UAccordion>
             </template>
             <template #src-app-providers-folder>
               The Providers directory contains all of the service providers for your application. Service providers
@@ -1172,7 +2246,33 @@ const srcAppConsoleCommandsMakeFolder = [
                   variant="ghost"
                   :items="srcAppProvidersFolder"
 
-              />
+              >
+                <template #default="{ item, index, open }">
+                  <UButton color="gray" variant="ghost">
+                    <template #leading>
+                      <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                        <component v-show="!open" :is="item.iconClosed"></component>
+                        <component v-show="open" :is="item.iconOpened"></component>
+
+                      </div>
+                    </template>
+
+                    <span class="truncate">{{ item.label }}</span>
+
+                    <template #trailing>
+                      <UIcon
+                          name="i-heroicons-chevron-right-20-solid"
+                          class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                          :class="[open && 'rotate-90']"
+                      />
+                    </template>
+
+
+                  </UButton>
+
+                </template>
+
+              </UAccordion>
             </template>
             <template #src-app-repositories-folder>
               Repositories contain queries based on their respective models
@@ -1182,7 +2282,33 @@ const srcAppConsoleCommandsMakeFolder = [
                   variant="ghost"
                   :items="srcAppRepositoriesFolder"
 
-              />
+              >
+                <template #default="{ item, index, open }">
+                  <UButton color="gray" variant="ghost">
+                    <template #leading>
+                      <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                        <component v-show="!open" :is="item.iconClosed"></component>
+                        <component v-show="open" :is="item.iconOpened"></component>
+
+                      </div>
+                    </template>
+
+                    <span class="truncate">{{ item.label }}</span>
+
+                    <template #trailing>
+                      <UIcon
+                          name="i-heroicons-chevron-right-20-solid"
+                          class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                          :class="[open && 'rotate-90']"
+                      />
+                    </template>
+
+
+                  </UButton>
+
+                </template>
+
+              </UAccordion>
             </template>
             <template #src-app-rules-folder>
               This directory does not exist by default, but will be created for you if you execute the make:rule Artisan
@@ -1194,7 +2320,33 @@ const srcAppConsoleCommandsMakeFolder = [
                   variant="ghost"
                   :items="srcAppRulesFolder"
 
-              />
+              >
+                <template #default="{ item, index, open }">
+                  <UButton color="gray" variant="ghost">
+                    <template #leading>
+                      <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                        <component v-show="!open" :is="item.iconClosed"></component>
+                        <component v-show="open" :is="item.iconOpened"></component>
+
+                      </div>
+                    </template>
+
+                    <span class="truncate">{{ item.label }}</span>
+
+                    <template #trailing>
+                      <UIcon
+                          name="i-heroicons-chevron-right-20-solid"
+                          class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                          :class="[open && 'rotate-90']"
+                      />
+                    </template>
+
+
+                  </UButton>
+
+                </template>
+
+              </UAccordion>
             </template>
             <template #src-app-services-folder>
               This directory contains all service classes created by php artisan make:service command
@@ -1204,7 +2356,33 @@ const srcAppConsoleCommandsMakeFolder = [
                   variant="ghost"
                   :items="srcAppServicesFolder"
 
-              />
+              >
+                <template #default="{ item, index, open }">
+                  <UButton color="gray" variant="ghost">
+                    <template #leading>
+                      <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                        <component v-show="!open" :is="item.iconClosed"></component>
+                        <component v-show="open" :is="item.iconOpened"></component>
+
+                      </div>
+                    </template>
+
+                    <span class="truncate">{{ item.label }}</span>
+
+                    <template #trailing>
+                      <UIcon
+                          name="i-heroicons-chevron-right-20-solid"
+                          class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                          :class="[open && 'rotate-90']"
+                      />
+                    </template>
+
+
+                  </UButton>
+
+                </template>
+
+              </UAccordion>
             </template>
             <template #src-app-traits-folder>
               This directory contains all traits created by php artisan make:trait command
@@ -1214,7 +2392,33 @@ const srcAppConsoleCommandsMakeFolder = [
                   variant="ghost"
                   :items="srcAppTraitsFolder"
 
-              />
+              >
+                <template #default="{ item, index, open }">
+                  <UButton color="gray" variant="ghost">
+                    <template #leading>
+                      <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                        <component v-show="!open" :is="item.iconClosed"></component>
+                        <component v-show="open" :is="item.iconOpened"></component>
+
+                      </div>
+                    </template>
+
+                    <span class="truncate">{{ item.label }}</span>
+
+                    <template #trailing>
+                      <UIcon
+                          name="i-heroicons-chevron-right-20-solid"
+                          class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                          :class="[open && 'rotate-90']"
+                      />
+                    </template>
+
+
+                  </UButton>
+
+                </template>
+
+              </UAccordion>
             </template>
           </UAccordion>
         </template>
@@ -1229,13 +2433,64 @@ const srcAppConsoleCommandsMakeFolder = [
               variant="ghost"
               :items="srcBootstrapFolder"
           >
+            <template #default="{ item, index, open }">
+              <UButton color="gray" variant="ghost">
+                <template #leading>
+                  <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                    <component v-show="!open" :is="item.iconClosed"></component>
+                    <component v-show="open" :is="item.iconOpened"></component>
+
+                  </div>
+                </template>
+
+                <span class="truncate">{{ item.label }}</span>
+
+                <template #trailing>
+                  <UIcon
+                      name="i-heroicons-chevron-right-20-solid"
+                      class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                      :class="[open && 'rotate-90']"
+                  />
+                </template>
+
+
+              </UButton>
+
+            </template>
+
             <template #src-bootstrap-cache-folder>
               <UAccordion
                   class="pl-5"
                   multiple
                   variant="ghost"
                   :items="srcBootstrapCacheFolder"
-              />
+              >
+                <template #default="{ item, index, open }">
+                  <UButton color="gray" variant="ghost">
+                    <template #leading>
+                      <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                        <component v-show="!open" :is="item.iconClosed"></component>
+                        <component v-show="open" :is="item.iconOpened"></component>
+
+                      </div>
+                    </template>
+
+                    <span class="truncate">{{ item.label }}</span>
+
+                    <template #trailing>
+                      <UIcon
+                          name="i-heroicons-chevron-right-20-solid"
+                          class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                          :class="[open && 'rotate-90']"
+                      />
+                    </template>
+
+
+                  </UButton>
+
+                </template>
+
+              </UAccordion>
             </template>
           </UAccordion>
         </template>
@@ -1248,7 +2503,33 @@ const srcAppConsoleCommandsMakeFolder = [
               multiple
               variant="ghost"
               :items="srcConfigFolder"
-          />
+          >
+            <template #default="{ item, index, open }">
+              <UButton color="gray" variant="ghost">
+                <template #leading>
+                  <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                    <component v-show="!open" :is="item.iconClosed"></component>
+                    <component v-show="open" :is="item.iconOpened"></component>
+
+                  </div>
+                </template>
+
+                <span class="truncate">{{ item.label }}</span>
+
+                <template #trailing>
+                  <UIcon
+                      name="i-heroicons-chevron-right-20-solid"
+                      class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                      :class="[open && 'rotate-90']"
+                  />
+                </template>
+
+
+              </UButton>
+
+            </template>
+
+          </UAccordion>
         </template>
         <template #src-database-folder>
           The database directory contains your database migrations, model factories, and seeds. If you wish, you may
@@ -1259,13 +2540,64 @@ const srcAppConsoleCommandsMakeFolder = [
               variant="ghost"
               :items="srcDatabaseFolder"
           >
+            <template #default="{ item, index, open }">
+              <UButton color="gray" variant="ghost">
+                <template #leading>
+                  <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                    <component v-show="!open" :is="item.iconClosed"></component>
+                    <component v-show="open" :is="item.iconOpened"></component>
+
+                  </div>
+                </template>
+
+                <span class="truncate">{{ item.label }}</span>
+
+                <template #trailing>
+                  <UIcon
+                      name="i-heroicons-chevron-right-20-solid"
+                      class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                      :class="[open && 'rotate-90']"
+                  />
+                </template>
+
+
+              </UButton>
+
+            </template>
+
             <template #src-database-factories-folder>
               <UAccordion
                   class="pl-5"
                   multiple
                   variant="ghost"
                   :items="srcDatabaseFactoriesFolder"
-              />
+              >
+                <template #default="{ item, index, open }">
+                  <UButton color="gray" variant="ghost">
+                    <template #leading>
+                      <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                        <component v-show="!open" :is="item.iconClosed"></component>
+                        <component v-show="open" :is="item.iconOpened"></component>
+
+                      </div>
+                    </template>
+
+                    <span class="truncate">{{ item.label }}</span>
+
+                    <template #trailing>
+                      <UIcon
+                          name="i-heroicons-chevron-right-20-solid"
+                          class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                          :class="[open && 'rotate-90']"
+                      />
+                    </template>
+
+
+                  </UButton>
+
+                </template>
+
+              </UAccordion>
             </template>
             <template #src-database-migrations-folder>
               <UAccordion
@@ -1273,7 +2605,33 @@ const srcAppConsoleCommandsMakeFolder = [
                   multiple
                   variant="ghost"
                   :items="srcDatabaseMigrationsFolder"
-              />
+              >
+                <template #default="{ item, index, open }">
+                  <UButton color="gray" variant="ghost">
+                    <template #leading>
+                      <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                        <component v-show="!open" :is="item.iconClosed"></component>
+                        <component v-show="open" :is="item.iconOpened"></component>
+
+                      </div>
+                    </template>
+
+                    <span class="truncate">{{ item.label }}</span>
+
+                    <template #trailing>
+                      <UIcon
+                          name="i-heroicons-chevron-right-20-solid"
+                          class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                          :class="[open && 'rotate-90']"
+                      />
+                    </template>
+
+
+                  </UButton>
+
+                </template>
+
+              </UAccordion>
             </template>
             <template #src-database-seeders-folder>
               <UAccordion
@@ -1281,11 +2639,403 @@ const srcAppConsoleCommandsMakeFolder = [
                   multiple
                   variant="ghost"
                   :items="srcDatabaseSeedersFolder"
-              />
+              >
+                <template #default="{ item, index, open }">
+                  <UButton color="gray" variant="ghost">
+                    <template #leading>
+                      <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                        <component v-show="!open" :is="item.iconClosed"></component>
+                        <component v-show="open" :is="item.iconOpened"></component>
+
+                      </div>
+                    </template>
+
+                    <span class="truncate">{{ item.label }}</span>
+
+                    <template #trailing>
+                      <UIcon
+                          name="i-heroicons-chevron-right-20-solid"
+                          class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                          :class="[open && 'rotate-90']"
+                      />
+                    </template>
+
+
+                  </UButton>
+
+                </template>
+
+              </UAccordion>
             </template>
 
           </UAccordion>
         </template>
+        <template #src-lang-folder>
+          The lang folder i used to place localization files/folders in it.
+          <UAccordion
+              class="pl-5"
+              multiple
+              variant="ghost"
+              :items="srcLangFolder"
+          >
+            <template #default="{ item, index, open }">
+              <UButton color="gray" variant="ghost">
+                <template #leading>
+                  <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                    <component v-show="!open" :is="item.iconClosed"></component>
+                    <component v-show="open" :is="item.iconOpened"></component>
+
+                  </div>
+                </template>
+
+                <span class="truncate">{{ item.label }}</span>
+
+                <template #trailing>
+                  <UIcon
+                      name="i-heroicons-chevron-right-20-solid"
+                      class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                      :class="[open && 'rotate-90']"
+                  />
+                </template>
+
+
+              </UButton>
+
+            </template>
+
+            <template #src-lang-en-folder>
+              <UAccordion
+                  class="pl-5"
+                  multiple
+                  variant="ghost"
+                  :items="srcLangEnFolder"
+              >
+                <template #default="{ item, index, open }">
+                  <UButton color="gray" variant="ghost">
+                    <template #leading>
+                      <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                        <component v-show="!open" :is="item.iconClosed"></component>
+                        <component v-show="open" :is="item.iconOpened"></component>
+
+                      </div>
+                    </template>
+
+                    <span class="truncate">{{ item.label }}</span>
+
+                    <template #trailing>
+                      <UIcon
+                          name="i-heroicons-chevron-right-20-solid"
+                          class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                          :class="[open && 'rotate-90']"
+                      />
+                    </template>
+
+
+                  </UButton>
+
+                </template>
+
+              </UAccordion>
+            </template>
+
+
+          </UAccordion>
+        </template>
+        <template #src-public-folder>
+          The public directory contains the index.php file, which is the entry point for all requests entering your
+          application and configures autoloading. This directory also houses your assets such as images, JavaScript, and
+          CSS.
+          <UAccordion
+              class="pl-5"
+              multiple
+              variant="ghost"
+              :items="srcPublicFolder"
+          >
+            <template #default="{ item, index, open }">
+              <UButton color="gray" variant="ghost">
+                <template #leading>
+                  <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                    <component v-show="!open" :is="item.iconClosed"></component>
+                    <component v-show="open" :is="item.iconOpened"></component>
+
+                  </div>
+                </template>
+
+                <span class="truncate">{{ item.label }}</span>
+
+                <template #trailing>
+                  <UIcon
+                      name="i-heroicons-chevron-right-20-solid"
+                      class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                      :class="[open && 'rotate-90']"
+                  />
+                </template>
+
+
+              </UButton>
+
+            </template>
+
+
+          </UAccordion>
+        </template>
+        <template #src-resources-folder>
+          The resources directory contains your views as well as your raw, un-compiled assets such as CSS or JavaScript.
+          <UAccordion
+              class="pl-5"
+              multiple
+              variant="ghost"
+              :items="srcResourcesFolder"
+          >
+            <template #default="{ item, index, open }">
+              <UButton color="gray" variant="ghost">
+                <template #leading>
+                  <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                    <component v-show="!open" :is="item.iconClosed"></component>
+                    <component v-show="open" :is="item.iconOpened"></component>
+
+                  </div>
+                </template>
+
+                <span class="truncate">{{ item.label }}</span>
+
+                <template #trailing>
+                  <UIcon
+                      name="i-heroicons-chevron-right-20-solid"
+                      class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                      :class="[open && 'rotate-90']"
+                  />
+                </template>
+
+
+              </UButton>
+
+            </template>
+
+
+            <template #src-resources-css-folder>
+              <UAccordion
+                  class="pl-5"
+                  multiple
+                  variant="ghost"
+                  :items="srcResourcesCssFolder"
+              >
+                <template #default="{ item, index, open }">
+                  <UButton color="gray" variant="ghost">
+                    <template #leading>
+                      <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                        <component v-show="!open" :is="item.iconClosed"></component>
+                        <component v-show="open" :is="item.iconOpened"></component>
+
+                      </div>
+                    </template>
+
+                    <span class="truncate">{{ item.label }}</span>
+
+                    <template #trailing>
+                      <UIcon
+                          name="i-heroicons-chevron-right-20-solid"
+                          class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                          :class="[open && 'rotate-90']"
+                      />
+                    </template>
+
+
+                  </UButton>
+
+                </template>
+
+              </UAccordion>
+
+            </template>
+
+            <template #src-resources-js-folder>
+              <UAccordion
+                  class="pl-5"
+                  multiple
+                  variant="ghost"
+                  :items="srcResourcesJsFolder"
+              >
+                <template #default="{ item, index, open }">
+                  <UButton color="gray" variant="ghost">
+                    <template #leading>
+                      <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                        <component v-show="!open" :is="item.iconClosed"></component>
+                        <component v-show="open" :is="item.iconOpened"></component>
+
+                      </div>
+                    </template>
+
+                    <span class="truncate">{{ item.label }}</span>
+
+                    <template #trailing>
+                      <UIcon
+                          name="i-heroicons-chevron-right-20-solid"
+                          class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                          :class="[open && 'rotate-90']"
+                      />
+                    </template>
+
+
+                  </UButton>
+
+                </template>
+
+              </UAccordion>
+
+            </template>
+
+            <template #src-resources-stubs-folder>
+              <UAccordion
+                  class="pl-5"
+                  multiple
+                  variant="ghost"
+                  :items="srcResourcesStubsFolder"
+              >
+                <template #default="{ item, index, open }">
+                  <UButton color="gray" variant="ghost">
+                    <template #leading>
+                      <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                        <component v-show="!open" :is="item.iconClosed"></component>
+                        <component v-show="open" :is="item.iconOpened"></component>
+
+                      </div>
+                    </template>
+
+                    <span class="truncate">{{ item.label }}</span>
+
+                    <template #trailing>
+                      <UIcon
+                          name="i-heroicons-chevron-right-20-solid"
+                          class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                          :class="[open && 'rotate-90']"
+                      />
+                    </template>
+
+
+                  </UButton>
+
+                </template>
+
+              </UAccordion>
+
+            </template>
+
+            <template #src-resources-views-folder>
+              <UAccordion
+                  class="pl-5"
+                  multiple
+                  variant="ghost"
+                  :items="srcResourcesViewsFolder"
+              >
+                <template #default="{ item, index, open }">
+                  <UButton color="gray" variant="ghost">
+                    <template #leading>
+                      <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                        <component v-show="!open" :is="item.iconClosed"></component>
+                        <component v-show="open" :is="item.iconOpened"></component>
+
+                      </div>
+                    </template>
+
+                    <span class="truncate">{{ item.label }}</span>
+
+                    <template #trailing>
+                      <UIcon
+                          name="i-heroicons-chevron-right-20-solid"
+                          class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                          :class="[open && 'rotate-90']"
+                      />
+                    </template>
+
+
+                  </UButton>
+
+                </template>
+
+                <template #src-resources-views-mail-folder>
+
+                  <UAccordion
+                      class="pl-5"
+                      multiple
+                      variant="ghost"
+                      :items="srcResourcesViewsMailFolder"
+                  >
+                    <template #default="{ item, index, open }">
+                      <UButton color="gray" variant="ghost">
+                        <template #leading>
+                          <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                            <component v-show="!open" :is="item.iconClosed"></component>
+                            <component v-show="open" :is="item.iconOpened"></component>
+
+                          </div>
+                        </template>
+
+                        <span class="truncate">{{ item.label }}</span>
+
+                        <template #trailing>
+                          <UIcon
+                              name="i-heroicons-chevron-right-20-solid"
+                              class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                              :class="[open && 'rotate-90']"
+                          />
+                        </template>
+
+
+                      </UButton>
+
+                    </template>
+
+                  </UAccordion>
+                </template>
+
+                <!--                <template #src-resources-views-vendor-folder>-->
+
+                <!--                </template>-->
+              </UAccordion>
+
+            </template>
+
+          </UAccordion>
+        </template>
+        <template #src-routes-folder>
+          This folder contains laravel endpoints, in this project, all important routes are in api.php, which provides all endpoints for frontend app.
+          <UAccordion
+              class="pl-5"
+              multiple
+              variant="ghost"
+              :items="srcRoutesFolder"
+          >
+            <template #default="{ item, index, open }">
+              <UButton color="gray" variant="ghost">
+                <template #leading>
+                  <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                    <component v-show="!open" :is="item.iconClosed"></component>
+                    <component v-show="open" :is="item.iconOpened"></component>
+
+                  </div>
+                </template>
+
+                <span class="truncate">{{ item.label }}</span>
+
+                <template #trailing>
+                  <UIcon
+                      name="i-heroicons-chevron-right-20-solid"
+                      class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                      :class="[open && 'rotate-90']"
+                  />
+                </template>
+
+
+              </UButton>
+
+            </template>
+
+
+          </UAccordion>
+        </template>
+
+
       </UAccordion>
     </template>
   </UAccordion>
