@@ -72,12 +72,16 @@ const appName = ref('');
 
         <UInput v-model="appName" />
 
-        <UCard>
+        <UCard class="">
           <template #header>
             What are you getting
           </template>
           <div v-if="selectedProjectFlavour.value === 'backoffice'">
-            backoffice
+            <div class="flex flex-row gap-4">
+              <BackendLaravelFolderStructure class="basis-1/2"/>
+              <BackendLaravelFolderStructure class="basis-1/2"/>
+            </div>
+
           </div>
           <div v-else-if="selectedProjectFlavour.value === 'website'">
             website
@@ -85,7 +89,8 @@ const appName = ref('');
           <div v-else-if="selectedProjectFlavour.value === 'desktop'">
             desktop
           </div>
-          <BackendLaravelFolderStructure/>
+
+
         </UCard>
 
         <template #footer>
