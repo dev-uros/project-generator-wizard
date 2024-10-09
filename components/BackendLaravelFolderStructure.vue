@@ -66,75 +66,68 @@ import JsFileOpened from "~/components/icons/JsFileOpened.vue";
 import JsFileClosed from "~/components/icons/JsFileClosed.vue";
 import BladeFileOpened from "~/components/icons/BladeFileOpened.vue";
 import BladeFileClosed from "~/components/icons/BladeFileClosed.vue";
+import PostmanFolderOpened from "~/components/icons/PostmanFolderOpened.vue";
+import PostmanFolderClosed from "~/components/icons/PostmanFolderClosed.vue";
+import NginxFileClosed from "~/components/icons/NginxFileClosed.vue";
 
 const laravelProjectStructure = [
   {
     iconClosed: DockerFolderClosed,
     iconOpened: DockerFolderOpened,
-    // icon: 'vscode-icons:folder-type-docker',
     label: 'docker',
     slot: 'docker-folder'
   },
   {
     iconClosed: SrcFolderClosed,
     iconOpened: SrcFolderOpened,
-    // icon: 'vscode-icons:folder-type-src',
     label: 'src',
     slot: 'src-folder'
   },
   {
     iconClosed: DotenvFileClosed,
     iconOpened: DotenvFileOpened,
-    // iconClosed: DotenvFileClosed,
     iconOpened: DotenvFileOpened,
     label: '.env.docker',
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
+    content: 'Env file containing container names, db details, etc, data which is used in docker-compose and make file.'
   },
   {
     iconClosed: DotenvFileClosed,
     iconOpened: DotenvFileOpened,
-    // iconClosed: DotenvFileClosed,
     iconOpened: DotenvFileOpened,
     label: '.env.local',
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-    disabled: true
+    content: 'Env file which contains env variables for local development, so main .env file can easily be setup with make env NAME=local command, which copies all data from this file into .env file inside of src folder',
   },
   {
     iconClosed: DotenvFileClosed,
     iconOpened: DotenvFileOpened,
-    // iconClosed: DotenvFileClosed,
     iconOpened: DotenvFileOpened,
     label: '.env.local.testing',
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
+    content: 'Env file which contains env variables for local development, so main .env.testing file can easily be setup with make env NAME=local command, which copies all data from this file into .env.testing file inside of src folder',
   },
   {
     iconClosed: GitFileClosed,
     iconOpened: GitFileOpened,
-    // iconClosed: GitFileClosed,
     iconOpened: GitFileOpened,
     label: '.gitignore',
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
+    content: 'Gitignore file for project'
   },
   {
     iconClosed: DockerFileClosed,
     iconOpened: DockerFileOpened,
-    // icon: 'vscode-icons:file-type-docker',
     label: 'docker-compose.yml',
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
+    content: 'Docker compose file'
   },
   {
     iconClosed: GnuFileClosed,
     iconOpened: GnuFileOpened,
-    // icon: 'catppuccin:makefile',
     label: 'Makefile',
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
+    content: 'Makefile containing commands'
   },
   {
     iconClosed: MarkdownFileClosed,
     iconOpened: MarkdownFileOpened,
-    // icon: 'vscode-icons:file-type-markdown',
     label: 'README.md',
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
+    content: 'Readme file containing instructions how to start project'
   },
 ]
 const laravelDockerFolder = [
@@ -148,14 +141,14 @@ const laravelDockerFolder = [
     iconClosed: NginxFolderClosed,
     iconOpened: NginxFolderOpened,
     label: 'nginx',
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    content: 'Nginx conf for nginx docker container',
     slot: 'docker-nginx-folder'
   },
   {
     iconClosed: PhpFolderClosed,
     iconOpened: PhpFolderOpened,
     label: 'php-fpm',
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    content: 'Php fpm config for php docker container',
     slot: 'docker-phpfpm-folder'
   },
   {
@@ -205,7 +198,7 @@ const laravelDockerPhpFpmFolder = [
 const laravelDockerNginxFolder = [
   {
     label: 'nginx.conf',
-    iconClosed: NginxFolderClosed,
+    iconClosed: NginxFileClosed,
     iconOpened: NginxFileOpened,
     content: 'Nginx configuration file'
   }
@@ -268,91 +261,91 @@ const laravelSrcFolder = [
     label: 'storage',
     iconClosed: FolderIconClosed,
     iconOpened: FolderIconOpened,
-    content: 'test'
+    slot: 'src-storage-folder'
   },
   {
     label: 'tests',
     iconClosed: TestsFolderClosed,
     iconOpened: TestsFolderOpened,
-    content: 'test'
+    slot: 'src-tests-folder'
   },
   {
     label: '.editorconfig',
     iconClosed: ConfigFileClosed,
     iconOpened: ConfigFileOpened,
-    content: 'test'
+    content: 'Laravel provided basic editor config file'
   },
   {
     label: '.env',
     iconClosed: DotenvFileClosed,
     iconOpened: DotenvFileOpened,
-    content: 'test'
+    content: 'Env file containing env variables for the application'
   },
   {
     label: '.env.example',
     iconClosed: DotenvFileClosed,
     iconOpened: DotenvFileOpened,
-    content: 'test'
+    content: 'Example of env file'
   },
   {
     label: '.env.testing',
     iconClosed: DotenvFileClosed,
     iconOpened: DotenvFileOpened,
-    content: 'test'
+    content: 'Env file used for testing'
   },
   {
     label: '.gitattributes',
     iconClosed: GitFileClosed,
     iconOpened: GitFileOpened,
-    content: 'test'
+    content: 'Git attributes file'
   },
   {
     label: '.gitignore',
     iconClosed: GitFileClosed,
     iconOpened: GitFileOpened,
-    content: 'test'
+    content: 'Gitignore file'
   },
   {
     label: 'artisan',
     iconClosed: LaravelFileClosed,
     iconOpened: LaravelFileOpened,
-    content: 'test'
+    content: 'Laravel artisan file'
   },
   {
     label: 'composer.json',
     iconClosed: ComposerFileClosed,
     iconOpened: ComposerFileOpened,
-    content: 'test'
+    content: 'File containing php dependencies'
   },
   {
     label: 'composer.lock',
     iconClosed: ComposerFileClosed,
     iconOpened: ComposerFileOpened,
-    content: 'test'
+    content: 'Composer lock file'
   },
   {
     label: 'package.json',
     iconClosed: NpmFileClosed,
     iconOpened: NpmFileOpened,
-    content: 'test'
+    content: 'Npm dependencies'
   },
   {
     label: 'phpunit.xml',
     iconClosed: PhpUnitFileClosed,
     iconOpened: PhpUnitFileOpened,
-    content: 'test'
+    content: 'Php unit xml file for setting up tests'
   },
   {
     label: 'README.md',
     iconClosed: MarkdownFileClosed,
     iconOpened: MarkdownFileOpened,
-    content: 'test'
+    content: 'Read me file'
   },
   {
     label: 'vite.config.js',
     iconClosed: ViteFileClosed,
     iconOpened: ViteFileOpened,
-    content: 'test'
+    content: 'Vite config'
   }
 ]
 
@@ -715,6 +708,167 @@ const srcRoutesFolder = [
     disabled: true
   }
 ]
+
+const srcStorageFolder = [
+  {
+    label: 'app',
+    iconOpened: FolderIconOpened,
+    iconClosed: FolderIconClosed,
+    disabled: true
+  },
+  {
+    label: 'framework',
+    iconOpened: FolderIconOpened,
+    iconClosed: FolderIconClosed,
+    disabled: true
+  },
+  {
+    label: 'postman',
+    iconOpened: PostmanFolderOpened,
+    iconClosed: PostmanFolderClosed,
+    slot: 'src-storage-postman-folder'
+  }
+]
+
+const srcTestsFolder = [
+  {
+    label: 'Feature',
+    iconOpened: FolderIconOpened,
+    iconClosed: FolderIconClosed,
+    slot: 'src-storage-tests-feature-folder'
+  },
+  {
+    label: 'Traits',
+    iconOpened: FolderIconOpened,
+    iconClosed: FolderIconClosed,
+    slot: 'src-storage-tests-traits-folder'
+  },
+  {
+    label: 'Unit',
+    iconOpened: FolderIconOpened,
+    iconClosed: FolderIconClosed,
+    slot: 'src-storage-tests-unit-folder'
+  },
+  {
+    label: 'CreatesApplication.php',
+    iconOpened: PhpFileOpened,
+    iconClosed: PhpFileClosed,
+    content: 'Laravel provided file for starting application for testing'
+  },
+  {
+    label: 'TestCase.php',
+    iconOpened: PhpFileOpened,
+    iconClosed: PhpFileClosed,
+    content: 'Laravel provided file for setting up tests (define usage of transactions, migrations, etc..)'
+  }
+]
+const srcTestsFeatureFolder = [
+  {
+    label: 'ActivateAccountTest.php',
+    iconOpened: PhpFileOpened,
+    iconClosed: PhpFileClosed,
+    content: 'Test for account activation functionality'
+  },
+  {
+    label: 'AutoLoginTest.php',
+    iconOpened: PhpFileOpened,
+    iconClosed: PhpFileClosed,
+    content: 'Test for auto login functionality'
+  },
+  {
+    label: 'ForgotPasswordTest.php',
+    iconOpened: PhpFileOpened,
+    iconClosed: PhpFileClosed,
+    content: 'Test for forgot password functionality'
+  },
+  {
+    label: 'LoginTest.php',
+    iconOpened: PhpFileOpened,
+    iconClosed: PhpFileClosed,
+    content: 'Test for login functionality'
+  },
+  {
+    label: 'LogoutTest.php',
+    iconOpened: PhpFileOpened,
+    iconClosed: PhpFileClosed,
+    content: 'Test for logout functionality'
+  },
+  {
+    label: 'ManuallySendAccountActivationEmailTest.php',
+    iconOpened: PhpFileOpened,
+    iconClosed: PhpFileClosed,
+    content: 'Test for manually sending account activation email functionality'
+  },
+  {
+    label: 'ResetPasswordTest.php',
+    iconOpened: PhpFileOpened,
+    iconClosed: PhpFileClosed,
+    content: 'Test for reset password functionality'
+  },
+  {
+    label: 'SetSessionTimeOutPeriodTest.php',
+    iconOpened: PhpFileOpened,
+    iconClosed: PhpFileClosed,
+    content: 'Test for setting session timeout period functionality'
+  },
+  {
+    label: 'SetUserAccountStatusTest.php',
+    iconOpened: PhpFileOpened,
+    iconClosed: PhpFileClosed,
+    content: 'Test for setting user account state functionality'
+  },
+  {
+    label: 'UserIndexTest.php',
+    iconOpened: PhpFileOpened,
+    iconClosed: PhpFileClosed,
+    content: 'Test for users overview functionality'
+  },
+  {
+    label: 'UserShowTest.php',
+    iconOpened: PhpFileOpened,
+    iconClosed: PhpFileClosed,
+    content: 'Test for detailed user overview functionality'
+  },
+  {
+    label: 'UserStoreTest.php',
+    iconOpened: PhpFileOpened,
+    iconClosed: PhpFileClosed,
+    content: 'Test for store new user functionality'
+  },
+  {
+    label: 'UserUpdateTest.php',
+    iconOpened: PhpFileOpened,
+    iconClosed: PhpFileClosed,
+    content: 'Test for update existing user functionality'
+  }
+]
+const srcTestsTraitsFolder = [
+  {
+    label: 'ApiSignIn.php',
+    iconOpened: PhpFileOpened,
+    iconClosed: PhpFileClosed,
+    content: 'Utility trait for signing in user for testing'
+  }
+]
+const srcTestsUnitFolder = [
+  {
+    label: 'ExampleTest.php',
+    iconOpened: PhpFileOpened,
+    iconClosed: PhpFileClosed,
+    content: 'Laravel provided example test for unit testing'
+  }
+]
+
+
+const srcStoragePostmanFolder = [
+  {
+    label: 'Laravel Api Template.postman_collection.json',
+    iconOpened: JsonFileOpened,
+    iconClosed: JsonFileClosed,
+    content: 'Collection of api endpoints that can be imported into postman'
+  }
+]
+
 const srcResourcesCssFolder = [
   {
     label: 'app.css',
@@ -2999,7 +3153,8 @@ const srcAppConsoleCommandsMakeFolder = [
           </UAccordion>
         </template>
         <template #src-routes-folder>
-          This folder contains laravel endpoints, in this project, all important routes are in api.php, which provides all endpoints for frontend app.
+          This folder contains laravel endpoints, in this project, all important routes are in api.php, which provides
+          all endpoints for frontend app.
           <UAccordion
               class="pl-5"
               multiple
@@ -3031,6 +3186,222 @@ const srcAppConsoleCommandsMakeFolder = [
 
             </template>
 
+
+          </UAccordion>
+        </template>
+        <template #src-storage-folder>
+          The storage directory contains your logs, compiled Blade templates, file based sessions, file caches, and
+          other files generated by the framework. This directory is segregated into app, framework, and logs
+          directories. The app directory may be used to store any files generated by your application. The framework
+          directory is used to store framework generated files and caches. Finally, the logs directory contains your
+          application's log files.
+
+          <UAccordion
+              class="pl-5"
+              multiple
+              variant="ghost"
+              :items="srcStorageFolder"
+          >
+            <template #default="{ item, index, open }">
+              <UButton color="gray" variant="ghost">
+                <template #leading>
+                  <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                    <component v-show="!open" :is="item.iconClosed"></component>
+                    <component v-show="open" :is="item.iconOpened"></component>
+
+                  </div>
+                </template>
+
+                <span class="truncate">{{ item.label }}</span>
+
+                <template #trailing>
+                  <UIcon
+                      name="i-heroicons-chevron-right-20-solid"
+                      class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                      :class="[open && 'rotate-90']"
+                  />
+                </template>
+
+
+              </UButton>
+
+            </template>
+
+
+            <template #src-storage-postman-folder>
+              <UAccordion
+                  class="pl-5"
+                  multiple
+                  variant="ghost"
+                  :items="srcStoragePostmanFolder"
+              >
+                <template #default="{ item, index, open }">
+                  <UButton color="gray" variant="ghost">
+                    <template #leading>
+                      <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                        <component v-show="!open" :is="item.iconClosed"></component>
+                        <component v-show="open" :is="item.iconOpened"></component>
+
+                      </div>
+                    </template>
+
+                    <span class="truncate">{{ item.label }}</span>
+
+                    <template #trailing>
+                      <UIcon
+                          name="i-heroicons-chevron-right-20-solid"
+                          class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                          :class="[open && 'rotate-90']"
+                      />
+                    </template>
+
+
+                  </UButton>
+
+                </template>
+
+              </UAccordion>
+            </template>
+
+          </UAccordion>
+        </template>
+        <template #src-tests-folder>
+          The tests directory contains your automated tests. Example Pest or PHPUnit unit tests and feature tests are provided out of the box.
+
+          <UAccordion
+              class="pl-5"
+              multiple
+              variant="ghost"
+              :items="srcTestsFolder"
+          >
+            <template #default="{ item, index, open }">
+              <UButton color="gray" variant="ghost">
+                <template #leading>
+                  <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                    <component v-show="!open" :is="item.iconClosed"></component>
+                    <component v-show="open" :is="item.iconOpened"></component>
+
+                  </div>
+                </template>
+
+                <span class="truncate">{{ item.label }}</span>
+
+                <template #trailing>
+                  <UIcon
+                      name="i-heroicons-chevron-right-20-solid"
+                      class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                      :class="[open && 'rotate-90']"
+                  />
+                </template>
+
+
+              </UButton>
+
+            </template>
+
+
+            <template #src-storage-tests-feature-folder>
+              <UAccordion
+                  class="pl-5"
+                  multiple
+                  variant="ghost"
+                  :items="srcTestsFeatureFolder"
+              >
+                <template #default="{ item, index, open }">
+                  <UButton color="gray" variant="ghost">
+                    <template #leading>
+                      <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                        <component v-show="!open" :is="item.iconClosed"></component>
+                        <component v-show="open" :is="item.iconOpened"></component>
+
+                      </div>
+                    </template>
+
+                    <span class="truncate">{{ item.label }}</span>
+
+                    <template #trailing>
+                      <UIcon
+                          name="i-heroicons-chevron-right-20-solid"
+                          class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                          :class="[open && 'rotate-90']"
+                      />
+                    </template>
+
+
+                  </UButton>
+
+                </template>
+
+              </UAccordion>
+            </template>
+            <template #src-storage-tests-traits-folder>
+              <UAccordion
+                  class="pl-5"
+                  multiple
+                  variant="ghost"
+                  :items="srcTestsTraitsFolder"
+              >
+                <template #default="{ item, index, open }">
+                  <UButton color="gray" variant="ghost">
+                    <template #leading>
+                      <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                        <component v-show="!open" :is="item.iconClosed"></component>
+                        <component v-show="open" :is="item.iconOpened"></component>
+
+                      </div>
+                    </template>
+
+                    <span class="truncate">{{ item.label }}</span>
+
+                    <template #trailing>
+                      <UIcon
+                          name="i-heroicons-chevron-right-20-solid"
+                          class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                          :class="[open && 'rotate-90']"
+                      />
+                    </template>
+
+
+                  </UButton>
+
+                </template>
+
+              </UAccordion>
+            </template>
+            <template #src-storage-tests-unit-folder>
+              <UAccordion
+                  class="pl-5"
+                  multiple
+                  variant="ghost"
+                  :items="srcTestsUnitFolder"
+              >
+                <template #default="{ item, index, open }">
+                  <UButton color="gray" variant="ghost">
+                    <template #leading>
+                      <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                        <component v-show="!open" :is="item.iconClosed"></component>
+                        <component v-show="open" :is="item.iconOpened"></component>
+
+                      </div>
+                    </template>
+
+                    <span class="truncate">{{ item.label }}</span>
+
+                    <template #trailing>
+                      <UIcon
+                          name="i-heroicons-chevron-right-20-solid"
+                          class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                          :class="[open && 'rotate-90']"
+                      />
+                    </template>
+
+
+                  </UButton>
+
+                </template>
+
+              </UAccordion>
+            </template>
 
           </UAccordion>
         </template>

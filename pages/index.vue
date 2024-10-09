@@ -58,7 +58,7 @@ const appName = ref('');
         </template>
       </UTabs>
     </UCard>
-    <UModal v-model="wizardSummaryModal">
+    <UModal v-model="wizardSummaryModal" fullscreen>
       <UCard :ui="{ ring: '', divide: 'divide-y divide-gray-100 dark:divide-gray-800' }">
         <template #header>
           <h1>Wizard is cooking</h1>
@@ -70,7 +70,7 @@ const appName = ref('');
           <UIcon v-for="icon in selectedBackend.icons" :name="icon.name" class="w-20 h-20"/>
         </div>
 
-        <UInput v-model="appName"/>
+        <UInput v-model="appName" />
 
         <UCard>
           <template #header>
