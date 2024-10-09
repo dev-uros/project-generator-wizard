@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {useSetWizardStep} from "~/composables/setWizardStep";
+import FrontendQuasarSpaFolderStructure from "~/components/FrontendQuasarSpaFolderStructure.vue";
 
 const {
   wizardSteps,
@@ -79,7 +80,7 @@ const appName = ref('');
           <div v-if="selectedProjectFlavour.value === 'backoffice'">
             <div class="flex flex-row gap-4">
               <BackendLaravelFolderStructure class="basis-1/2"/>
-              <BackendLaravelFolderStructure class="basis-1/2"/>
+              <FrontendQuasarSpaFolderStructure class="basis-1/2"/>
             </div>
 
           </div>
