@@ -91,6 +91,16 @@ import VueFileClosed from "~/components/icons/VueFileClosed.vue";
 import VueFileOpened from "~/components/icons/VueFileOpened.vue";
 import TsFileClosed from "~/components/icons/TsFileClosed.vue";
 import TsFileOpened from "~/components/icons/TsFileOpened.vue";
+import SvgFileClosed from "~/components/icons/SvgFileClosed.vue";
+import SvgFileOpened from "~/components/icons/SvgFileOpened.vue";
+import ScssFileClosed from "~/components/icons/ScssFileClosed.vue";
+import ScssFileOpened from "~/components/icons/ScssFileOpened.vue";
+import ComponentFolderClosed from "~/components/icons/ComponentFolderClosed.vue";
+import ComponentFolderOpened from "~/components/icons/ComponentFolderOpened.vue";
+import MiddlewareFolderClosed from "~/components/icons/MiddlewareFolderClosed.vue";
+import MiddlewareFolderOpened from "~/components/icons/MiddlewareFolderOpened.vue";
+import ServiceFolderClosed from "~/components/icons/ServiceFolderClosed.vue";
+import ServiceFolderOpened from "~/components/icons/ServiceFolderOpened.vue";
 
 const quasarProjectStructure = [
   {
@@ -247,7 +257,7 @@ const quasarAppFolder = [
   }
 ]
 
-const srcAppFolder = [
+const appSrcFolder = [
   {
     label: 'assets',
     iconClosed: AssetsFolderClosed,
@@ -322,182 +332,791 @@ const srcAppFolder = [
   }
 ]
 
-const srcBootstrapFolder = [
+const appSrcAssetsFolder = [
   {
-    label: 'cache',
-    iconClosed: FolderIconClosed,
-    iconOpened: FolderIconOpened,
-    slot: 'src-bootstrap-cache-folder'
-  },
-  {
-    label: 'app.php',
-    iconClosed: PhpFileClosed,
-    iconOpened: PhpFileOpened,
-    disabled: true
+    label: 'quasar-logo-vertical.svg',
+    iconClosed: SvgFileClosed,
+    iconOpened: SvgFileOpened,
+    content: 'Quasar logo'
   }
 ]
 
-const srcBootstrapCacheFolder = [
+const appSrcBootFolder = [
   {
-    label: '.gitignore',
+    label: '.gitkeep',
     iconClosed: GitFileClosed,
     iconOpened: GitFileOpened,
-    disabled: true
+    content: 'Gitkeep file'
   },
   {
-    label: 'packages.php',
-    iconClosed: PhpFileClosed,
-    iconOpened: PhpFileOpened,
-    disabled: true
-  },
-  {
-    label: 'services.php',
-    iconClosed: PhpFileClosed,
-    iconOpened: PhpFileOpened,
-    disabled: true
+    label: 'axios.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'This contains axios setup and exports api axios instance which is used to make api calls in project. Axios is setup with request/response interceptors and all error handling is centralized here.'
   }
 ]
 
-const srcConfigFolder = [
+const appSrcCssFolder = [
   {
-    label: 'app.php',
-    iconClosed: PhpFileClosed,
-    iconOpened: PhpFileOpened,
-    disabled: true
+    label: 'app.scss',
+    iconClosed: ScssFileClosed,
+    iconOpened: ScssFileOpened,
+    content: 'App global css in SCSS form'
   },
   {
-    label: 'auth.php',
-    iconClosed: PhpFileClosed,
-    iconOpened: PhpFileOpened,
-    disabled: true
+    label: 'quasar.variables.scss',
+    iconClosed: ScssFileClosed,
+    iconOpened: ScssFileOpened,
+    content: 'Quasar SCSS (& Sass) Variables'
+  },
+]
+
+const appSrcLayoutsFolder = [
+  {
+    label: 'auth',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'app-src-layouts-auth-folder'
   },
   {
-    label: 'broadcasting.php',
-    iconClosed: PhpFileClosed,
-    iconOpened: PhpFileOpened,
-    disabled: true
+    label: 'main',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'app-src-layouts-main-folder'
   },
+]
+
+const appSrcLayoutsAuthFolder = [
   {
-    label: 'cache.php',
-    iconClosed: PhpFileClosed,
-    iconOpened: PhpFileOpened,
-    disabled: true
-  },
-  {
-    label: 'cors.php',
-    iconClosed: PhpFileClosed,
-    iconOpened: PhpFileOpened,
-    disabled: true
-  },
-  {
-    label: 'database.php',
-    iconClosed: PhpFileClosed,
-    iconOpened: PhpFileOpened,
-    disabled: true
-  },
-  {
-    label: 'filesystems.php',
-    iconClosed: PhpFileClosed,
-    iconOpened: PhpFileOpened,
-    disabled: true
-  },
-  {
-    label: 'frontend-app.php',
-    iconClosed: PhpFileClosed,
-    iconOpened: PhpFileOpened,
-    disabled: true
-  },
-  {
-    label: 'hashing.php',
-    iconClosed: PhpFileClosed,
-    iconOpened: PhpFileOpened,
-    disabled: true
-  },
-  {
-    label: 'logging.php',
-    iconClosed: PhpFileClosed,
-    iconOpened: PhpFileOpened,
-    disabled: true
-  },
-  {
-    label: 'mail.php',
-    iconClosed: PhpFileClosed,
-    iconOpened: PhpFileOpened,
-    disabled: true
-  },
-  {
-    label: 'queue.php',
-    iconClosed: PhpFileClosed,
-    iconOpened: PhpFileOpened,
-    disabled: true
-  },
-  {
-    label: 'sanctum.php',
-    iconClosed: PhpFileClosed,
-    iconOpened: PhpFileOpened,
-    disabled: true
-  },
-  {
-    label: 'services.php',
-    iconClosed: PhpFileClosed,
-    iconOpened: PhpFileOpened,
-    disabled: true
-  },
-  {
-    label: 'session.php',
-    iconClosed: PhpFileClosed,
-    iconOpened: PhpFileOpened,
-    disabled: true
-  },
-  {
-    label: 'view.php',
-    iconClosed: PhpFileClosed,
-    iconOpened: PhpFileOpened,
-    disabled: true
+    label: 'AuthLayout.vue',
+    iconClosed: VueFileClosed,
+    iconOpened: VueFileOpened,
+    content: 'Layout for auth pages (login, reset password, activate account, forgot password)'
   }
 ]
 
-const srcDatabaseFolder = [
+const appSrcLayoutsMainFolder = [
   {
-    label: 'factories',
-    iconClosed: FolderIconClosed,
-    iconOpened: FolderIconOpened,
-    slot: 'src-database-factories-folder'
-  },
-  {
-    label: 'migrations',
-    iconClosed: FolderIconClosed,
-    iconOpened: FolderIconOpened,
-    slot: 'src-database-migrations-folder'
-  },
-  {
-    label: 'seeders',
-    iconClosed: FolderIconClosed,
-    iconOpened: FolderIconOpened,
-    slot: 'src-database-seeders-folder'
-  },
-  {
-    label: '.gitignore',
-    iconClosed: GitFileClosed,
-    iconOpened: GitFileOpened,
-    disabled: true
+    label: 'MainLayout.vue',
+    iconClosed: VueFileClosed,
+    iconOpened: VueFileOpened,
+    content: 'Main layout used for entire app'
   }
 ]
 
-const srcLangFolder = [
+const appSrcModulesFolder = [
   {
-    label: 'en',
-    iconOpened: FolderIconOpened,
+    label: 'administration',
     iconClosed: FolderIconClosed,
-    slot: 'src-lang-en-folder'
+    iconOpened: FolderIconOpened,
+    slot: 'app-src-modules-administration-folder'
   },
   {
-    label: 'sr-latn.json',
-    iconOpened: JsonFileOpened,
-    iconClosed: JsonFileClosed,
-    content: 'Serbian localisation for password validation'
+    label: 'auth',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'app-src-modules-auth-folder'
+  },
+  {
+    label: 'home',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'app-src-modules-home-folder'
+  },
+  {
+    label: 'settings',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'app-src-modules-settings-folder'
+  },
+  {
+    label: 'shared',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'app-src-modules-shared-folder'
   }
 ]
+
+const appSrcModulesAdministrationFolder = [
+  {
+    label: 'logs',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'app-src-modules-administration-logs-folder'
+  },
+  {
+    label: 'users',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'app-src-modules-administration-users-folder'
+  },
+  {
+    label: 'routes.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Routes exported by administration module'
+  },
+]
+
+const appSrcModulesAdministrationLogsFolder = [
+  {
+    label: 'components',
+    iconClosed: ComponentFolderClosed,
+    iconOpened: ComponentFolderOpened,
+    slot: 'app-src-modules-administration-administration-logs-components-folder'
+  },
+  {
+    label: 'composables',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'app-src-modules-administration-administration-logs-composables-folder'
+  },
+  {
+    label: 'middleware',
+    iconClosed: MiddlewareFolderClosed,
+    iconOpened: MiddlewareFolderOpened,
+    slot: 'app-src-modules-administration-administration-logs-middleware-folder'
+  },
+  {
+    label: 'pages',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'app-src-modules-administration-administration-logs-pages-folder'
+  },
+  {
+    label: 'services',
+    iconClosed: ServiceFolderClosed,
+    iconOpened: ServiceFolderOpened,
+    slot: 'app-src-modules-administration-administration-logs-services-folder'
+  },
+  {
+    label: 'utils',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'app-src-modules-administration-administration-logs-utils-folder'
+  },
+  {
+    label: 'README.md',
+    iconClosed: MarkdownFileClosed,
+    iconOpened: MarkdownFileOpened,
+    content: 'Readme file containing module documentation'
+  },
+  {
+    label: 'routes.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Module routes'
+  },
+  {
+    label: 'store.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Module store'
+  },
+  {
+    label: 'types.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Module types'
+  },
+]
+
+const appSrcModulesAdministrationLogsComponentsFolder = [
+  {
+    label: 'LogFiltersDialog.vue',
+    iconClosed: VueFileClosed,
+    iconOpened: VueFileOpened,
+    content: 'Filter component for logs page'
+  },
+  {
+    label: 'LogsItem.vue',
+    iconClosed: VueFileClosed,
+    iconOpened: VueFileOpened,
+    content: 'Log list item component from the list of logs'
+  },
+  {
+    label: 'README.md',
+    iconClosed: MarkdownFileClosed,
+    iconOpened: MarkdownFileOpened,
+    content: 'Readme me documenting components'
+  }
+]
+
+const appSrcModulesAdministrationLogsComposablesFolder = [
+  {
+    label: 'logsComposable.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Example composable function'
+  },
+  {
+    label: 'README.md',
+    iconClosed: MarkdownFileClosed,
+    iconOpened: MarkdownFileOpened,
+    content: 'Readme me documenting composables'
+  }
+]
+
+const appSrcModulesAdministrationLogsMiddlewareFolder = [
+
+  {
+    label: 'README.md',
+    iconClosed: MarkdownFileClosed,
+    iconOpened: MarkdownFileOpened,
+    content: 'Readme me documenting middlewares'
+  },
+  {
+    label: 'setupLogsPage.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Middleware for logs page which calls api which fetches logs data'
+  },
+]
+
+const appSrcModulesAdministrationLogsPagesFolder = [
+  {
+    label: 'LogsPage.vue',
+    iconClosed: VueFileClosed,
+    iconOpened: VueFileOpened,
+    content: 'Logs page container component'
+  },
+  {
+    label: 'README.md',
+    iconClosed: MarkdownFileClosed,
+    iconOpened: MarkdownFileOpened,
+    content: 'Readme me documenting pages'
+  },
+]
+
+const appSrcModulesAdministrationLogsServicesFolder = [
+  {
+    label: 'getLogDetails.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Contains api call to get details of a specific log'
+  },
+  {
+    label: 'getLogs.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Contains api call to get list of logs'
+  },
+  {
+    label: 'README.md',
+    iconClosed: MarkdownFileClosed,
+    iconOpened: MarkdownFileOpened,
+    content: 'Readme me documenting services'
+  },
+]
+
+const appSrcModulesAdministrationLogsUtilsFolder = [
+  {
+    label: 'logUtils.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Example of utility function'
+  },
+  {
+    label: 'README.md',
+    iconClosed: MarkdownFileClosed,
+    iconOpened: MarkdownFileOpened,
+    content: 'Readme me documenting utilities'
+  },
+]
+
+const appSrcModulesAdministrationUsersFolder = [
+  {
+    label: 'components',
+    iconClosed: ComponentFolderClosed,
+    iconOpened: ComponentFolderOpened,
+    slot: 'app-src-modules-administration-administration-users-components-folder'
+  },
+  {
+    label: 'composables',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'app-src-modules-administration-administration-users-composables-folder'
+  },
+  {
+    label: 'middleware',
+    iconClosed: MiddlewareFolderClosed,
+    iconOpened: MiddlewareFolderOpened,
+    slot: 'app-src-modules-administration-administration-users-middleware-folder'
+  },
+  {
+    label: 'pages',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'app-src-modules-administration-administration-users-pages-folder'
+  },
+  {
+    label: 'services',
+    iconClosed: ServiceFolderClosed,
+    iconOpened: ServiceFolderOpened,
+    slot: 'app-src-modules-administration-administration-users-services-folder'
+  },
+  {
+    label: 'utils',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'app-src-modules-administration-administration-users-utils-folder'
+  },
+  {
+    label: 'README.md',
+    iconClosed: MarkdownFileClosed,
+    iconOpened: MarkdownFileOpened,
+    content: 'Readme file containing module documentation'
+  },
+  {
+    label: 'routes.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Module routes'
+  },
+  {
+    label: 'store.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Module store'
+  },
+  {
+    label: 'types.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Module types'
+  },
+]
+
+const appSrcModulesAdministrationUsersComponentsFolder = [
+  {
+    label: 'README.md',
+    iconClosed: MarkdownFileClosed,
+    iconOpened: MarkdownFileOpened,
+    content: 'Readme me documenting components'
+  },
+  {
+    label: 'UserForm.vue',
+    iconClosed: VueFileClosed,
+    iconOpened: VueFileOpened,
+    content: 'User form component'
+  },
+  {
+    label: 'UserPageFilters.vue',
+    iconClosed: VueFileClosed,
+    iconOpened: VueFileOpened,
+    content: 'Filters for users overview component'
+  },
+  {
+    label: 'UserStoreDialog.vue',
+    iconClosed: VueFileClosed,
+    iconOpened: VueFileOpened,
+    content: 'Dialog component for storing user action'
+  },
+  {
+    label: 'UserTable.vue',
+    iconClosed: VueFileClosed,
+    iconOpened: VueFileOpened,
+    content: 'Component containing table for users overview'
+  },
+  {
+    label: 'userTableColumns.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Typescript file containing table column definitions'
+  },
+]
+
+const appSrcModulesAdministrationUsersComposablesFolder = [
+  {
+    label: 'README.md',
+    iconClosed: MarkdownFileClosed,
+    iconOpened: MarkdownFileOpened,
+    content: 'Readme me documenting composables'
+  }
+]
+
+const appSrcModulesAdministrationUsersMiddlewareFolder = [
+
+  {
+    label: 'README.md',
+    iconClosed: MarkdownFileClosed,
+    iconOpened: MarkdownFileOpened,
+    content: 'Readme me documenting middlewares'
+  },
+  {
+    label: 'setupUserDetailsPage.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Middleware that calls api for specific user data'
+  },
+  {
+    label: 'setupUsersPage.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Middleware that calls api that gets users list'
+  },
+]
+
+const appSrcModulesAdministrationUsersPagesFolder = [
+  {
+    label: 'README.md',
+    iconClosed: MarkdownFileClosed,
+    iconOpened: MarkdownFileOpened,
+    content: 'Readme me documenting pages'
+  },
+  {
+    label: 'UserDetailsPage.vue',
+    iconClosed: VueFileClosed,
+    iconOpened: VueFileOpened,
+    content: 'User details container component'
+  },
+  {
+    label: 'UserPage.vue',
+    iconClosed: VueFileClosed,
+    iconOpened: VueFileOpened,
+    content: 'User list container component'
+  },
+
+]
+
+const appSrcModulesAdministrationUsersServicesFolder = [
+  {
+    label: 'getUsers.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Contains api call to get list of users'
+  },
+  {
+    label: 'README.md',
+    iconClosed: MarkdownFileClosed,
+    iconOpened: MarkdownFileOpened,
+    content: 'Readme me documenting services'
+  },
+  {
+    label: 'sendUserAccountActivationEmail.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Contains api call to get resend user account activation email'
+  },
+  {
+    label: 'showUser.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Contains api call that gets user details'
+  },
+  {
+    label: 'storeUser.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Contains api call that stores new user'
+  },
+  {
+    label: 'updateUser.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Contains api call that updates existing user'
+  },
+
+]
+
+const appSrcModulesAdministrationUsersUtilsFolder = [
+  {
+    label: 'README.md',
+    iconClosed: MarkdownFileClosed,
+    iconOpened: MarkdownFileOpened,
+    content: 'Readme me documenting utilities'
+  },
+]
+const appSrcModulesAuthFolder = [
+  {
+    label: 'components',
+    iconClosed: ComponentFolderClosed,
+    iconOpened: ComponentFolderOpened,
+    slot: 'app-src-modules-administration-auth-components-folder'
+  },
+  {
+    label: 'composables',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'app-src-modules-administration-auth-composables-folder'
+  },
+  {
+    label: 'middleware',
+    iconClosed: MiddlewareFolderClosed,
+    iconOpened: MiddlewareFolderOpened,
+    slot: 'app-src-modules-administration-auth-middleware-folder'
+  },
+  {
+    label: 'pages',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'app-src-modules-administration-auth-pages-folder'
+  },
+  {
+    label: 'services',
+    iconClosed: ServiceFolderClosed,
+    iconOpened: ServiceFolderOpened,
+    slot: 'app-src-modules-administration-auth-services-folder'
+  },
+  {
+    label: 'utils',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'app-src-modules-administration-auth-utils-folder'
+  },
+  {
+    label: 'README.md',
+    iconClosed: MarkdownFileClosed,
+    iconOpened: MarkdownFileOpened,
+    content: 'Readme file containing module documentation'
+  },
+  {
+    label: 'routes.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Module routes'
+  },
+  {
+    label: 'store.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Module store'
+  },
+  {
+    label: 'types.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Module types'
+  },
+]
+
+const appSrcModulesHomeFolder = [
+  {
+    label: 'components',
+    iconClosed: ComponentFolderClosed,
+    iconOpened: ComponentFolderOpened,
+    slot: 'app-src-modules-administration-home-components-folder'
+  },
+  {
+    label: 'composables',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'app-src-modules-administration-home-composables-folder'
+  },
+  {
+    label: 'middleware',
+    iconClosed: MiddlewareFolderClosed,
+    iconOpened: MiddlewareFolderOpened,
+    slot: 'app-src-modules-administration-home-middleware-folder'
+  },
+  {
+    label: 'pages',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'app-src-modules-administration-home-pages-folder'
+  },
+  {
+    label: 'services',
+    iconClosed: ServiceFolderClosed,
+    iconOpened: ServiceFolderOpened,
+    slot: 'app-src-modules-administration-home-services-folder'
+  },
+  {
+    label: 'utils',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'app-src-modules-administration-home-utils-folder'
+  },
+  {
+    label: 'README.md',
+    iconClosed: MarkdownFileClosed,
+    iconOpened: MarkdownFileOpened,
+    content: 'Readme file containing module documentation'
+  },
+  {
+    label: 'routes.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Module routes'
+  },
+  {
+    label: 'store.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Module store'
+  },
+  {
+    label: 'types.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Module types'
+  },
+]
+
+
+const appSrcModulesSettingsFolder = [
+  {
+    label: 'components',
+    iconClosed: ComponentFolderClosed,
+    iconOpened: ComponentFolderOpened,
+    slot: 'app-src-modules-administration-settings-components-folder'
+  },
+  {
+    label: 'composables',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'app-src-modules-administration-settings-composables-folder'
+  },
+  {
+    label: 'middleware',
+    iconClosed: MiddlewareFolderClosed,
+    iconOpened: MiddlewareFolderOpened,
+    slot: 'app-src-modules-administration-settings-middleware-folder'
+  },
+  {
+    label: 'pages',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'app-src-modules-administration-settings-pages-folder'
+  },
+  {
+    label: 'services',
+    iconClosed: ServiceFolderClosed,
+    iconOpened: ServiceFolderOpened,
+    slot: 'app-src-modules-administration-settings-services-folder'
+  },
+  {
+    label: 'utils',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'app-src-modules-administration-settings-utils-folder'
+  },
+  {
+    label: 'README.md',
+    iconClosed: MarkdownFileClosed,
+    iconOpened: MarkdownFileOpened,
+    content: 'Readme file containing module documentation'
+  },
+  {
+    label: 'routes.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Module routes'
+  },
+  {
+    label: 'store.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Module store'
+  },
+  {
+    label: 'types.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Module types'
+  },
+]
+
+
+const appSrcModulesSharedFolder = [
+  {
+    label: 'components',
+    iconClosed: ComponentFolderClosed,
+    iconOpened: ComponentFolderOpened,
+    slot: 'app-src-modules-administration-shared-components-folder'
+  },
+  {
+    label: 'composables',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'app-src-modules-administration-shared-composables-folder'
+  },
+  {
+    label: 'middleware',
+    iconClosed: MiddlewareFolderClosed,
+    iconOpened: MiddlewareFolderOpened,
+    slot: 'app-src-modules-administration-shared-middleware-folder'
+  },
+  {
+    label: 'pages',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'app-src-modules-administration-shared-pages-folder'
+  },
+  {
+    label: 'services',
+    iconClosed: ServiceFolderClosed,
+    iconOpened: ServiceFolderOpened,
+    slot: 'app-src-modules-administration-shared-services-folder'
+  },
+  {
+    label: 'utils',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'app-src-modules-administration-shared-utils-folder'
+  },
+  {
+    label: 'README.md',
+    iconClosed: MarkdownFileClosed,
+    iconOpened: MarkdownFileOpened,
+    content: 'Readme file containing module documentation'
+  },
+  {
+    label: 'routes.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Module routes'
+  },
+  {
+    label: 'store.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Module store'
+  },
+  {
+    label: 'types.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Module types'
+  },
+]
+
+const appSrcRouterFolder = [
+  {
+    label: 'index.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Initiates router with custom middleware pipeline'
+  },
+  {
+    label: 'middlewarePipeline.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Enables route to have middleware key in meta which takes array of functions that are executed one after another, used to determine can user access certain page'
+  },
+  {
+    label: 'routes.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Routes are placed in here'
+  },
+]
+
+const appSrcStoresFolder = [
+  {
+    label: 'index.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Initiates pinia'
+  },
+  {
+    label: 'store-flag.d.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Types file for store'
+  }
+]
+
 
 const appPublicFolder = [
   {
@@ -1560,7 +2179,7 @@ const srcAppConsoleCommandsMakeFolder = [
                 class="pl-5"
                 multiple
                 variant="ghost"
-                :items="srcAppFolder"
+                :items="appSrcFolder"
             >
               <template #default="{ item, index, open }">
                 <UButton color="gray" variant="ghost">
@@ -1587,14 +2206,13 @@ const srcAppConsoleCommandsMakeFolder = [
 
               </template>
 
-              <template #src-app-console-folder>
-                The Console directory contains all of the custom Artisan commands for your application. These commands may
-                be generated using the make:command command.
+              <template #app-src-assets-folder>
+                Dynamic assets (processed by Vite)
                 <UAccordion
                     class="pl-5"
                     multiple
                     variant="ghost"
-                    :items="srcAppConsoleFolder">
+                    :items="appSrcAssetsFolder">
                   <template #default="{ item, index, open }">
                     <UButton color="gray" variant="ghost">
                       <template #leading>
@@ -1688,14 +2306,13 @@ const srcAppConsoleCommandsMakeFolder = [
                   </template>
                 </UAccordion>
               </template>
-              <template #src-app-cron-folder>
-                Here you can put invokable classes that will be used in scheduler.
+              <template #app-src-boot-folder>
+                Boot files (app initialization code)
                 <UAccordion
                     class="pl-5"
                     multiple
                     variant="ghost"
-                    :items="srcAppCronFolder"
-                >
+                    :items="appSrcBootFolder">
                   <template #default="{ item, index, open }">
                     <UButton color="gray" variant="ghost">
                       <template #leading>
@@ -1721,122 +2338,12 @@ const srcAppConsoleCommandsMakeFolder = [
 
                   </template>
 
-                </UAccordion>
-              </template>
-              <template #src-app-enum-folder>
-                Here you can put enums used in the application.
-                <UAccordion
-                    class="pl-5"
-                    multiple
-                    variant="ghost"
-                    :items="srcAppEnumFolder"
-                >
-                  <template #default="{ item, index, open }">
-                    <UButton color="gray" variant="ghost">
-                      <template #leading>
-                        <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
-                          <component v-show="!open" :is="item.iconClosed"></component>
-                          <component v-show="open" :is="item.iconOpened"></component>
-
-                        </div>
-                      </template>
-
-                      <span class="truncate">{{ item.label }}</span>
-
-                      <template #trailing>
-                        <UIcon
-                            name="i-heroicons-chevron-right-20-solid"
-                            class="w-5 h-5 ms-auto transform transition-transform duration-200"
-                            :class="[open && 'rotate-90']"
-                        />
-                      </template>
-
-
-                    </UButton>
-
-                  </template>
-
-                </UAccordion>
-              </template>
-              <template #src-app-exceptions-folder>
-                The Exceptions directory contains all of the custom exceptions for your application. These exceptions may
-                be generated using the make:exception command.
-                <UAccordion
-                    class="pl-5"
-                    multiple
-                    variant="ghost"
-                    :items="srcAppExceptionsFolder"
-                >
-                  <template #default="{ item, index, open }">
-                    <UButton color="gray" variant="ghost">
-                      <template #leading>
-                        <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
-                          <component v-show="!open" :is="item.iconClosed"></component>
-                          <component v-show="open" :is="item.iconOpened"></component>
-
-                        </div>
-                      </template>
-
-                      <span class="truncate">{{ item.label }}</span>
-
-                      <template #trailing>
-                        <UIcon
-                            name="i-heroicons-chevron-right-20-solid"
-                            class="w-5 h-5 ms-auto transform transition-transform duration-200"
-                            :class="[open && 'rotate-90']"
-                        />
-                      </template>
-
-
-                    </UButton>
-
-                  </template>
-
-                </UAccordion>
-              </template>
-              <template #src-app-http-folder>
-                The Http directory contains your controllers, middleware, and form requests. Almost all of the logic to
-                handle requests entering your application will be placed in this directory.
-                <UAccordion
-                    class="pl-5"
-                    multiple
-                    variant="ghost"
-                    :items="srcAppHttpFolder"
-
-                >
-                  <template #default="{ item, index, open }">
-                    <UButton color="gray" variant="ghost">
-                      <template #leading>
-                        <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
-                          <component v-show="!open" :is="item.iconClosed"></component>
-                          <component v-show="open" :is="item.iconOpened"></component>
-
-                        </div>
-                      </template>
-
-                      <span class="truncate">{{ item.label }}</span>
-
-                      <template #trailing>
-                        <UIcon
-                            name="i-heroicons-chevron-right-20-solid"
-                            class="w-5 h-5 ms-auto transform transition-transform duration-200"
-                            :class="[open && 'rotate-90']"
-                        />
-                      </template>
-
-
-                    </UButton>
-
-                  </template>
-
-                  <template #src-app-http-controllers-folder>
+                  <template #src-app-console-commands-folder>
                     <UAccordion
                         class="pl-5"
                         multiple
                         variant="ghost"
-                        :items="srcAppHttpControllersFolder"
-
-                    >
+                        :items="srcAppConsoleCommandsFolder">
                       <template #default="{ item, index, open }">
                         <UButton color="gray" variant="ghost">
                           <template #leading>
@@ -1862,17 +2369,81 @@ const srcAppConsoleCommandsMakeFolder = [
 
                       </template>
 
+                      <template #src-app-console-commands-make-folder>
+                        <UAccordion
+                            class="pl-5"
+                            multiple
+                            variant="ghost"
+                            :items="srcAppConsoleCommandsMakeFolder">
+                          <template #default="{ item, index, open }">
+                            <UButton color="gray" variant="ghost">
+                              <template #leading>
+                                <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                                  <component v-show="!open" :is="item.iconClosed"></component>
+                                  <component v-show="open" :is="item.iconOpened"></component>
+
+                                </div>
+                              </template>
+
+                              <span class="truncate">{{ item.label }}</span>
+
+                              <template #trailing>
+                                <UIcon
+                                    name="i-heroicons-chevron-right-20-solid"
+                                    class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                                    :class="[open && 'rotate-90']"
+                                />
+                              </template>
+
+
+                            </UButton>
+
+                          </template>
+
+                        </UAccordion>
+                      </template>
                     </UAccordion>
                   </template>
-                  <template #src-app-http-middleware-folder>
-                    Besides Laravel's default middlewares, the following are also provided (and used in project)
+                </UAccordion>
+              </template>
+              <template #app-src-css-folder>
+                CSS/Sass/... files for your app
+                <UAccordion
+                    class="pl-5"
+                    multiple
+                    variant="ghost"
+                    :items="appSrcCssFolder">
+                  <template #default="{ item, index, open }">
+                    <UButton color="gray" variant="ghost">
+                      <template #leading>
+                        <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                          <component v-show="!open" :is="item.iconClosed"></component>
+                          <component v-show="open" :is="item.iconOpened"></component>
+
+                        </div>
+                      </template>
+
+                      <span class="truncate">{{ item.label }}</span>
+
+                      <template #trailing>
+                        <UIcon
+                            name="i-heroicons-chevron-right-20-solid"
+                            class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                            :class="[open && 'rotate-90']"
+                        />
+                      </template>
+
+
+                    </UButton>
+
+                  </template>
+
+                  <template #src-app-console-commands-folder>
                     <UAccordion
                         class="pl-5"
                         multiple
                         variant="ghost"
-                        :items="srcAppHttpMiddlewareFolder"
-
-                    >
+                        :items="srcAppConsoleCommandsFolder">
                       <template #default="{ item, index, open }">
                         <UButton color="gray" variant="ghost">
                           <template #leading>
@@ -1898,16 +2469,182 @@ const srcAppConsoleCommandsMakeFolder = [
 
                       </template>
 
+                      <template #src-app-console-commands-make-folder>
+                        <UAccordion
+                            class="pl-5"
+                            multiple
+                            variant="ghost"
+                            :items="srcAppConsoleCommandsMakeFolder">
+                          <template #default="{ item, index, open }">
+                            <UButton color="gray" variant="ghost">
+                              <template #leading>
+                                <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                                  <component v-show="!open" :is="item.iconClosed"></component>
+                                  <component v-show="open" :is="item.iconOpened"></component>
+
+                                </div>
+                              </template>
+
+                              <span class="truncate">{{ item.label }}</span>
+
+                              <template #trailing>
+                                <UIcon
+                                    name="i-heroicons-chevron-right-20-solid"
+                                    class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                                    :class="[open && 'rotate-90']"
+                                />
+                              </template>
+
+
+                            </UButton>
+
+                          </template>
+
+                        </UAccordion>
+                      </template>
                     </UAccordion>
                   </template>
-                  <template #src-app-http-requests-folder>
+                </UAccordion>
+              </template>
+              <template #app-src-layouts-folder>
+                <UAccordion
+                    class="pl-5"
+                    multiple
+                    variant="ghost"
+                    :items="appSrcLayoutsFolder">
+                  <template #default="{ item, index, open }">
+                    <UButton color="gray" variant="ghost">
+                      <template #leading>
+                        <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                          <component v-show="!open" :is="item.iconClosed"></component>
+                          <component v-show="open" :is="item.iconOpened"></component>
+
+                        </div>
+                      </template>
+
+                      <span class="truncate">{{ item.label }}</span>
+
+                      <template #trailing>
+                        <UIcon
+                            name="i-heroicons-chevron-right-20-solid"
+                            class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                            :class="[open && 'rotate-90']"
+                        />
+                      </template>
+
+
+                    </UButton>
+
+                  </template>
+
+                  <template #app-src-layouts-auth-folder>
                     <UAccordion
                         class="pl-5"
                         multiple
                         variant="ghost"
-                        :items="srcAppHttpRequestsFolder"
+                        :items="appSrcLayoutsAuthFolder">
+                      <template #default="{ item, index, open }">
+                        <UButton color="gray" variant="ghost">
+                          <template #leading>
+                            <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                              <component v-show="!open" :is="item.iconClosed"></component>
+                              <component v-show="open" :is="item.iconOpened"></component>
 
-                    >
+                            </div>
+                          </template>
+
+                          <span class="truncate">{{ item.label }}</span>
+
+                          <template #trailing>
+                            <UIcon
+                                name="i-heroicons-chevron-right-20-solid"
+                                class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                                :class="[open && 'rotate-90']"
+                            />
+                          </template>
+
+
+                        </UButton>
+
+                      </template>
+                    </UAccordion>
+                  </template>
+                  <template #app-src-layouts-main-folder>
+                    <UAccordion
+                        class="pl-5"
+                        multiple
+                        variant="ghost"
+                        :items="appSrcLayoutsMainFolder">
+                      <template #default="{ item, index, open }">
+                        <UButton color="gray" variant="ghost">
+                          <template #leading>
+                            <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                              <component v-show="!open" :is="item.iconClosed"></component>
+                              <component v-show="open" :is="item.iconOpened"></component>
+
+                            </div>
+                          </template>
+
+                          <span class="truncate">{{ item.label }}</span>
+
+                          <template #trailing>
+                            <UIcon
+                                name="i-heroicons-chevron-right-20-solid"
+                                class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                                :class="[open && 'rotate-90']"
+                            />
+                          </template>
+
+
+                        </UButton>
+
+                      </template>
+                    </UAccordion>
+                  </template>
+
+                </UAccordion>
+              </template>
+              <template #app-src-modules-folder>
+                The Console directory contains all of the custom Artisan commands for your application. These commands
+                may
+                be generated using the make:command command.
+                <UAccordion
+                    class="pl-5"
+                    multiple
+                    variant="ghost"
+                    :items="appSrcModulesFolder">
+                  <template #default="{ item, index, open }">
+                    <UButton color="gray" variant="ghost">
+                      <template #leading>
+                        <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                          <component v-show="!open" :is="item.iconClosed"></component>
+                          <component v-show="open" :is="item.iconOpened"></component>
+
+                        </div>
+                      </template>
+
+                      <span class="truncate">{{ item.label }}</span>
+
+                      <template #trailing>
+                        <UIcon
+                            name="i-heroicons-chevron-right-20-solid"
+                            class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                            :class="[open && 'rotate-90']"
+                        />
+                      </template>
+
+
+                    </UButton>
+
+                  </template>
+
+
+                  <template #app-src-modules-administration-folder>
+                    <UAccordion
+                        class="pl-5"
+                        multiple
+                        variant="ghost"
+                        :items="appSrcModulesAdministrationFolder">
                       <template #default="{ item, index, open }">
                         <UButton color="gray" variant="ghost">
                           <template #leading>
@@ -1933,19 +2670,697 @@ const srcAppConsoleCommandsMakeFolder = [
 
                       </template>
 
+                      <template #app-src-modules-administration-logs-folder>
+                        <UAccordion
+                            class="pl-5"
+                            multiple
+                            variant="ghost"
+                            :items="appSrcModulesAdministrationLogsFolder">
+                          <template #default="{ item, index, open }">
+                            <UButton color="gray" variant="ghost">
+                              <template #leading>
+                                <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                                  <component v-show="!open" :is="item.iconClosed"></component>
+                                  <component v-show="open" :is="item.iconOpened"></component>
+
+                                </div>
+                              </template>
+
+                              <span class="truncate">{{ item.label }}</span>
+
+                              <template #trailing>
+                                <UIcon
+                                    name="i-heroicons-chevron-right-20-solid"
+                                    class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                                    :class="[open && 'rotate-90']"
+                                />
+                              </template>
+
+
+                            </UButton>
+
+                          </template>
+
+                          <template #app-src-modules-administration-administration-logs-components-folder>
+                            <UAccordion
+                                class="pl-5"
+                                multiple
+                                variant="ghost"
+                                :items="appSrcModulesAdministrationLogsComponentsFolder">
+                              <template #default="{ item, index, open }">
+                                <UButton color="gray" variant="ghost">
+                                  <template #leading>
+                                    <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                                      <component v-show="!open" :is="item.iconClosed"></component>
+                                      <component v-show="open" :is="item.iconOpened"></component>
+
+                                    </div>
+                                  </template>
+
+                                  <span class="truncate">{{ item.label }}</span>
+
+                                  <template #trailing>
+                                    <UIcon
+                                        name="i-heroicons-chevron-right-20-solid"
+                                        class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                                        :class="[open && 'rotate-90']"
+                                    />
+                                  </template>
+
+
+                                </UButton>
+
+                              </template>
+                            </UAccordion>
+                          </template>
+                          <template #app-src-modules-administration-administration-logs-composables-folder>
+                            <UAccordion
+                                class="pl-5"
+                                multiple
+                                variant="ghost"
+                                :items="appSrcModulesAdministrationLogsComposablesFolder">
+                              <template #default="{ item, index, open }">
+                                <UButton color="gray" variant="ghost">
+                                  <template #leading>
+                                    <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                                      <component v-show="!open" :is="item.iconClosed"></component>
+                                      <component v-show="open" :is="item.iconOpened"></component>
+
+                                    </div>
+                                  </template>
+
+                                  <span class="truncate">{{ item.label }}</span>
+
+                                  <template #trailing>
+                                    <UIcon
+                                        name="i-heroicons-chevron-right-20-solid"
+                                        class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                                        :class="[open && 'rotate-90']"
+                                    />
+                                  </template>
+
+
+                                </UButton>
+
+                              </template>
+                            </UAccordion>
+                          </template>
+                          <template #app-src-modules-administration-administration-logs-middleware-folder>
+                            <UAccordion
+                                class="pl-5"
+                                multiple
+                                variant="ghost"
+                                :items="appSrcModulesAdministrationLogsMiddlewareFolder">
+                              <template #default="{ item, index, open }">
+                                <UButton color="gray" variant="ghost">
+                                  <template #leading>
+                                    <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                                      <component v-show="!open" :is="item.iconClosed"></component>
+                                      <component v-show="open" :is="item.iconOpened"></component>
+
+                                    </div>
+                                  </template>
+
+                                  <span class="truncate">{{ item.label }}</span>
+
+                                  <template #trailing>
+                                    <UIcon
+                                        name="i-heroicons-chevron-right-20-solid"
+                                        class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                                        :class="[open && 'rotate-90']"
+                                    />
+                                  </template>
+
+
+                                </UButton>
+
+                              </template>
+                            </UAccordion>
+                          </template>
+                          <template #app-src-modules-administration-administration-logs-pages-folder>
+                            <UAccordion
+                                class="pl-5"
+                                multiple
+                                variant="ghost"
+                                :items="appSrcModulesAdministrationLogsPagesFolder">
+                              <template #default="{ item, index, open }">
+                                <UButton color="gray" variant="ghost">
+                                  <template #leading>
+                                    <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                                      <component v-show="!open" :is="item.iconClosed"></component>
+                                      <component v-show="open" :is="item.iconOpened"></component>
+
+                                    </div>
+                                  </template>
+
+                                  <span class="truncate">{{ item.label }}</span>
+
+                                  <template #trailing>
+                                    <UIcon
+                                        name="i-heroicons-chevron-right-20-solid"
+                                        class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                                        :class="[open && 'rotate-90']"
+                                    />
+                                  </template>
+
+
+                                </UButton>
+
+                              </template>
+                            </UAccordion>
+                          </template>
+                          <template #app-src-modules-administration-administration-logs-services-folder>
+                            <UAccordion
+                                class="pl-5"
+                                multiple
+                                variant="ghost"
+                                :items="appSrcModulesAdministrationLogsServicesFolder">
+                              <template #default="{ item, index, open }">
+                                <UButton color="gray" variant="ghost">
+                                  <template #leading>
+                                    <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                                      <component v-show="!open" :is="item.iconClosed"></component>
+                                      <component v-show="open" :is="item.iconOpened"></component>
+
+                                    </div>
+                                  </template>
+
+                                  <span class="truncate">{{ item.label }}</span>
+
+                                  <template #trailing>
+                                    <UIcon
+                                        name="i-heroicons-chevron-right-20-solid"
+                                        class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                                        :class="[open && 'rotate-90']"
+                                    />
+                                  </template>
+
+
+                                </UButton>
+
+                              </template>
+                            </UAccordion>
+                          </template>
+                          <template #app-src-modules-administration-administration-logs-utils-folder>
+                            <UAccordion
+                                class="pl-5"
+                                multiple
+                                variant="ghost"
+                                :items="appSrcModulesAdministrationLogsUtilsFolder">
+                              <template #default="{ item, index, open }">
+                                <UButton color="gray" variant="ghost">
+                                  <template #leading>
+                                    <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                                      <component v-show="!open" :is="item.iconClosed"></component>
+                                      <component v-show="open" :is="item.iconOpened"></component>
+
+                                    </div>
+                                  </template>
+
+                                  <span class="truncate">{{ item.label }}</span>
+
+                                  <template #trailing>
+                                    <UIcon
+                                        name="i-heroicons-chevron-right-20-solid"
+                                        class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                                        :class="[open && 'rotate-90']"
+                                    />
+                                  </template>
+
+
+                                </UButton>
+
+                              </template>
+                            </UAccordion>
+                          </template>
+
+
+                        </UAccordion>
+                      </template>
+                      <template #app-src-modules-administration-users-folder>
+                        <UAccordion
+                            class="pl-5"
+                            multiple
+                            variant="ghost"
+                            :items="appSrcModulesAdministrationUsersFolder">
+                          <template #default="{ item, index, open }">
+                            <UButton color="gray" variant="ghost">
+                              <template #leading>
+                                <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                                  <component v-show="!open" :is="item.iconClosed"></component>
+                                  <component v-show="open" :is="item.iconOpened"></component>
+
+                                </div>
+                              </template>
+
+                              <span class="truncate">{{ item.label }}</span>
+
+                              <template #trailing>
+                                <UIcon
+                                    name="i-heroicons-chevron-right-20-solid"
+                                    class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                                    :class="[open && 'rotate-90']"
+                                />
+                              </template>
+
+
+                            </UButton>
+
+                          </template>
+
+                          <template #app-src-modules-administration-administration-users-components-folder>
+                            <UAccordion
+                                class="pl-5"
+                                multiple
+                                variant="ghost"
+                                :items="appSrcModulesAdministrationUsersComponentsFolder">
+                              <template #default="{ item, index, open }">
+                                <UButton color="gray" variant="ghost">
+                                  <template #leading>
+                                    <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                                      <component v-show="!open" :is="item.iconClosed"></component>
+                                      <component v-show="open" :is="item.iconOpened"></component>
+
+                                    </div>
+                                  </template>
+
+                                  <span class="truncate">{{ item.label }}</span>
+
+                                  <template #trailing>
+                                    <UIcon
+                                        name="i-heroicons-chevron-right-20-solid"
+                                        class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                                        :class="[open && 'rotate-90']"
+                                    />
+                                  </template>
+
+
+                                </UButton>
+
+                              </template>
+                            </UAccordion>
+                          </template>
+                          <template #app-src-modules-administration-administration-users-composables-folder>
+                            <UAccordion
+                                class="pl-5"
+                                multiple
+                                variant="ghost"
+                                :items="appSrcModulesAdministrationUsersComposablesFolder">
+                              <template #default="{ item, index, open }">
+                                <UButton color="gray" variant="ghost">
+                                  <template #leading>
+                                    <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                                      <component v-show="!open" :is="item.iconClosed"></component>
+                                      <component v-show="open" :is="item.iconOpened"></component>
+
+                                    </div>
+                                  </template>
+
+                                  <span class="truncate">{{ item.label }}</span>
+
+                                  <template #trailing>
+                                    <UIcon
+                                        name="i-heroicons-chevron-right-20-solid"
+                                        class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                                        :class="[open && 'rotate-90']"
+                                    />
+                                  </template>
+
+
+                                </UButton>
+
+                              </template>
+                            </UAccordion>
+                          </template>
+                          <template #app-src-modules-administration-administration-users-middleware-folder>
+                            <UAccordion
+                                class="pl-5"
+                                multiple
+                                variant="ghost"
+                                :items="appSrcModulesAdministrationUsersMiddlewareFolder">
+                              <template #default="{ item, index, open }">
+                                <UButton color="gray" variant="ghost">
+                                  <template #leading>
+                                    <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                                      <component v-show="!open" :is="item.iconClosed"></component>
+                                      <component v-show="open" :is="item.iconOpened"></component>
+
+                                    </div>
+                                  </template>
+
+                                  <span class="truncate">{{ item.label }}</span>
+
+                                  <template #trailing>
+                                    <UIcon
+                                        name="i-heroicons-chevron-right-20-solid"
+                                        class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                                        :class="[open && 'rotate-90']"
+                                    />
+                                  </template>
+
+
+                                </UButton>
+
+                              </template>
+                            </UAccordion>
+                          </template>
+                          <template #app-src-modules-administration-administration-users-pages-folder>
+                            <UAccordion
+                                class="pl-5"
+                                multiple
+                                variant="ghost"
+                                :items="appSrcModulesAdministrationUsersPagesFolder">
+                              <template #default="{ item, index, open }">
+                                <UButton color="gray" variant="ghost">
+                                  <template #leading>
+                                    <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                                      <component v-show="!open" :is="item.iconClosed"></component>
+                                      <component v-show="open" :is="item.iconOpened"></component>
+
+                                    </div>
+                                  </template>
+
+                                  <span class="truncate">{{ item.label }}</span>
+
+                                  <template #trailing>
+                                    <UIcon
+                                        name="i-heroicons-chevron-right-20-solid"
+                                        class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                                        :class="[open && 'rotate-90']"
+                                    />
+                                  </template>
+
+
+                                </UButton>
+
+                              </template>
+                            </UAccordion>
+                          </template>
+                          <template #app-src-modules-administration-administration-users-services-folder>
+                            <UAccordion
+                                class="pl-5"
+                                multiple
+                                variant="ghost"
+                                :items="appSrcModulesAdministrationUsersServicesFolder">
+                              <template #default="{ item, index, open }">
+                                <UButton color="gray" variant="ghost">
+                                  <template #leading>
+                                    <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                                      <component v-show="!open" :is="item.iconClosed"></component>
+                                      <component v-show="open" :is="item.iconOpened"></component>
+
+                                    </div>
+                                  </template>
+
+                                  <span class="truncate">{{ item.label }}</span>
+
+                                  <template #trailing>
+                                    <UIcon
+                                        name="i-heroicons-chevron-right-20-solid"
+                                        class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                                        :class="[open && 'rotate-90']"
+                                    />
+                                  </template>
+
+
+                                </UButton>
+
+                              </template>
+                            </UAccordion>
+                          </template>
+                          <template #app-src-modules-administration-administration-users-utils-folder>
+                            <UAccordion
+                                class="pl-5"
+                                multiple
+                                variant="ghost"
+                                :items="appSrcModulesAdministrationUsersUtilsFolder">
+                              <template #default="{ item, index, open }">
+                                <UButton color="gray" variant="ghost">
+                                  <template #leading>
+                                    <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                                      <component v-show="!open" :is="item.iconClosed"></component>
+                                      <component v-show="open" :is="item.iconOpened"></component>
+
+                                    </div>
+                                  </template>
+
+                                  <span class="truncate">{{ item.label }}</span>
+
+                                  <template #trailing>
+                                    <UIcon
+                                        name="i-heroicons-chevron-right-20-solid"
+                                        class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                                        :class="[open && 'rotate-90']"
+                                    />
+                                  </template>
+
+
+                                </UButton>
+
+                              </template>
+                            </UAccordion>
+                          </template>
+                        </UAccordion>
+                      </template>
+
+                    </UAccordion>
+                  </template>
+                  <template #app-src-modules-auth-folder>
+                    <UAccordion
+                        class="pl-5"
+                        multiple
+                        variant="ghost"
+                        :items="appSrcModulesAuthFolder">
+                      <template #default="{ item, index, open }">
+                        <UButton color="gray" variant="ghost">
+                          <template #leading>
+                            <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                              <component v-show="!open" :is="item.iconClosed"></component>
+                              <component v-show="open" :is="item.iconOpened"></component>
+
+                            </div>
+                          </template>
+
+                          <span class="truncate">{{ item.label }}</span>
+
+                          <template #trailing>
+                            <UIcon
+                                name="i-heroicons-chevron-right-20-solid"
+                                class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                                :class="[open && 'rotate-90']"
+                            />
+                          </template>
+
+
+                        </UButton>
+
+                      </template>
+                    </UAccordion>
+                  </template>
+                  <template #app-src-modules-home-folder>
+                    <UAccordion
+                        class="pl-5"
+                        multiple
+                        variant="ghost"
+                        :items="appSrcModulesHomeFolder">
+                      <template #default="{ item, index, open }">
+                        <UButton color="gray" variant="ghost">
+                          <template #leading>
+                            <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                              <component v-show="!open" :is="item.iconClosed"></component>
+                              <component v-show="open" :is="item.iconOpened"></component>
+
+                            </div>
+                          </template>
+
+                          <span class="truncate">{{ item.label }}</span>
+
+                          <template #trailing>
+                            <UIcon
+                                name="i-heroicons-chevron-right-20-solid"
+                                class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                                :class="[open && 'rotate-90']"
+                            />
+                          </template>
+
+
+                        </UButton>
+
+                      </template>
+                    </UAccordion>
+                  </template>
+                  <template #app-src-modules-settings-folder>
+                    <UAccordion
+                        class="pl-5"
+                        multiple
+                        variant="ghost"
+                        :items="appSrcModulesSettingsFolder">
+                      <template #default="{ item, index, open }">
+                        <UButton color="gray" variant="ghost">
+                          <template #leading>
+                            <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                              <component v-show="!open" :is="item.iconClosed"></component>
+                              <component v-show="open" :is="item.iconOpened"></component>
+
+                            </div>
+                          </template>
+
+                          <span class="truncate">{{ item.label }}</span>
+
+                          <template #trailing>
+                            <UIcon
+                                name="i-heroicons-chevron-right-20-solid"
+                                class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                                :class="[open && 'rotate-90']"
+                            />
+                          </template>
+
+
+                        </UButton>
+
+                      </template>
+                    </UAccordion>
+                  </template>
+                  <template #app-src-modules-shared-folder>
+                    <UAccordion
+                        class="pl-5"
+                        multiple
+                        variant="ghost"
+                        :items="appSrcModulesSharedFolder">
+                      <template #default="{ item, index, open }">
+                        <UButton color="gray" variant="ghost">
+                          <template #leading>
+                            <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                              <component v-show="!open" :is="item.iconClosed"></component>
+                              <component v-show="open" :is="item.iconOpened"></component>
+
+                            </div>
+                          </template>
+
+                          <span class="truncate">{{ item.label }}</span>
+
+                          <template #trailing>
+                            <UIcon
+                                name="i-heroicons-chevron-right-20-solid"
+                                class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                                :class="[open && 'rotate-90']"
+                            />
+                          </template>
+
+
+                        </UButton>
+
+                      </template>
+                    </UAccordion>
+                  </template>
+
+                </UAccordion>
+              </template>
+              <template #app-src-routes-folder>
+                <UAccordion
+                    class="pl-5"
+                    multiple
+                    variant="ghost"
+                    :items="appSrcRouterFolder">
+                  <template #default="{ item, index, open }">
+                    <UButton color="gray" variant="ghost">
+                      <template #leading>
+                        <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                          <component v-show="!open" :is="item.iconClosed"></component>
+                          <component v-show="open" :is="item.iconOpened"></component>
+
+                        </div>
+                      </template>
+
+                      <span class="truncate">{{ item.label }}</span>
+
+                      <template #trailing>
+                        <UIcon
+                            name="i-heroicons-chevron-right-20-solid"
+                            class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                            :class="[open && 'rotate-90']"
+                        />
+                      </template>
+
+
+                    </UButton>
+
+                  </template>
+
+                  <template #src-app-console-commands-folder>
+                    <UAccordion
+                        class="pl-5"
+                        multiple
+                        variant="ghost"
+                        :items="srcAppConsoleCommandsFolder">
+                      <template #default="{ item, index, open }">
+                        <UButton color="gray" variant="ghost">
+                          <template #leading>
+                            <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                              <component v-show="!open" :is="item.iconClosed"></component>
+                              <component v-show="open" :is="item.iconOpened"></component>
+
+                            </div>
+                          </template>
+
+                          <span class="truncate">{{ item.label }}</span>
+
+                          <template #trailing>
+                            <UIcon
+                                name="i-heroicons-chevron-right-20-solid"
+                                class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                                :class="[open && 'rotate-90']"
+                            />
+                          </template>
+
+
+                        </UButton>
+
+                      </template>
+
+                      <template #src-app-console-commands-make-folder>
+                        <UAccordion
+                            class="pl-5"
+                            multiple
+                            variant="ghost"
+                            :items="srcAppConsoleCommandsMakeFolder">
+                          <template #default="{ item, index, open }">
+                            <UButton color="gray" variant="ghost">
+                              <template #leading>
+                                <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                                  <component v-show="!open" :is="item.iconClosed"></component>
+                                  <component v-show="open" :is="item.iconOpened"></component>
+
+                                </div>
+                              </template>
+
+                              <span class="truncate">{{ item.label }}</span>
+
+                              <template #trailing>
+                                <UIcon
+                                    name="i-heroicons-chevron-right-20-solid"
+                                    class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                                    :class="[open && 'rotate-90']"
+                                />
+                              </template>
+
+
+                            </UButton>
+
+                          </template>
+
+                        </UAccordion>
+                      </template>
                     </UAccordion>
                   </template>
                 </UAccordion>
               </template>
-              <template #src-app-interfaces-folder>
-                The Interfaces directory contains all interfaces that repositories implement
+              <template #app-src-stores-folder>
                 <UAccordion
                     class="pl-5"
                     multiple
                     variant="ghost"
-                    :items="srcAppInterfacesFolder"
-
-                >
+                    :items="appSrcStoresFolder">
                   <template #default="{ item, index, open }">
                     <UButton color="gray" variant="ghost">
                       <template #leading>
@@ -1971,375 +3386,75 @@ const srcAppConsoleCommandsMakeFolder = [
 
                   </template>
 
-                </UAccordion>
-              </template>
-              <template #src-app-jobs-folder>
-                The Jobs directory contains all job classes created by php artisan make:job command
-                <UAccordion
-                    class="pl-5"
-                    multiple
-                    variant="ghost"
-                    :items="srcAppJobsFolder"
+                  <template #src-app-console-commands-folder>
+                    <UAccordion
+                        class="pl-5"
+                        multiple
+                        variant="ghost"
+                        :items="srcAppConsoleCommandsFolder">
+                      <template #default="{ item, index, open }">
+                        <UButton color="gray" variant="ghost">
+                          <template #leading>
+                            <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                              <component v-show="!open" :is="item.iconClosed"></component>
+                              <component v-show="open" :is="item.iconOpened"></component>
 
-                >
-                  <template #default="{ item, index, open }">
-                    <UButton color="gray" variant="ghost">
-                      <template #leading>
-                        <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
-                          <component v-show="!open" :is="item.iconClosed"></component>
-                          <component v-show="open" :is="item.iconOpened"></component>
+                            </div>
+                          </template>
 
-                        </div>
+                          <span class="truncate">{{ item.label }}</span>
+
+                          <template #trailing>
+                            <UIcon
+                                name="i-heroicons-chevron-right-20-solid"
+                                class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                                :class="[open && 'rotate-90']"
+                            />
+                          </template>
+
+
+                        </UButton>
+
                       </template>
 
-                      <span class="truncate">{{ item.label }}</span>
+                      <template #src-app-console-commands-make-folder>
+                        <UAccordion
+                            class="pl-5"
+                            multiple
+                            variant="ghost"
+                            :items="srcAppConsoleCommandsMakeFolder">
+                          <template #default="{ item, index, open }">
+                            <UButton color="gray" variant="ghost">
+                              <template #leading>
+                                <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                                  <component v-show="!open" :is="item.iconClosed"></component>
+                                  <component v-show="open" :is="item.iconOpened"></component>
 
-                      <template #trailing>
-                        <UIcon
-                            name="i-heroicons-chevron-right-20-solid"
-                            class="w-5 h-5 ms-auto transform transition-transform duration-200"
-                            :class="[open && 'rotate-90']"
-                        />
+                                </div>
+                              </template>
+
+                              <span class="truncate">{{ item.label }}</span>
+
+                              <template #trailing>
+                                <UIcon
+                                    name="i-heroicons-chevron-right-20-solid"
+                                    class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                                    :class="[open && 'rotate-90']"
+                                />
+                              </template>
+
+
+                            </UButton>
+
+                          </template>
+
+                        </UAccordion>
                       </template>
-
-
-                    </UButton>
-
+                    </UAccordion>
                   </template>
-
                 </UAccordion>
               </template>
-              <template #src-app-mail-folder>
-                The Mail directory contains all mailable classes created by php artisan make:mail command
-                <UAccordion
-                    class="pl-5"
-                    multiple
-                    variant="ghost"
-                    :items="srcAppMailFolder"
 
-                >
-                  <template #default="{ item, index, open }">
-                    <UButton color="gray" variant="ghost">
-                      <template #leading>
-                        <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
-                          <component v-show="!open" :is="item.iconClosed"></component>
-                          <component v-show="open" :is="item.iconOpened"></component>
-
-                        </div>
-                      </template>
-
-                      <span class="truncate">{{ item.label }}</span>
-
-                      <template #trailing>
-                        <UIcon
-                            name="i-heroicons-chevron-right-20-solid"
-                            class="w-5 h-5 ms-auto transform transition-transform duration-200"
-                            :class="[open && 'rotate-90']"
-                        />
-                      </template>
-
-
-                    </UButton>
-
-                  </template>
-
-                </UAccordion>
-              </template>
-              <template #src-app-models-folder>
-                The Models directory contains all model classes that represent database tables created by php artisan
-                make:model command
-                <UAccordion
-                    class="pl-5"
-                    multiple
-                    variant="ghost"
-                    :items="srcAppModelsFolder"
-
-                >
-                  <template #default="{ item, index, open }">
-                    <UButton color="gray" variant="ghost">
-                      <template #leading>
-                        <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
-                          <component v-show="!open" :is="item.iconClosed"></component>
-                          <component v-show="open" :is="item.iconOpened"></component>
-
-                        </div>
-                      </template>
-
-                      <span class="truncate">{{ item.label }}</span>
-
-                      <template #trailing>
-                        <UIcon
-                            name="i-heroicons-chevron-right-20-solid"
-                            class="w-5 h-5 ms-auto transform transition-transform duration-200"
-                            :class="[open && 'rotate-90']"
-                        />
-                      </template>
-
-
-                    </UButton>
-
-                  </template>
-
-                </UAccordion>
-              </template>
-              <template #src-app-notifications-folder>
-                The Notifications directory contains all notification classes created by php artisan make:notification
-                command
-                <UAccordion
-                    class="pl-5"
-                    multiple
-                    variant="ghost"
-                    :items="srcAppNotificationsFolder"
-
-                >
-                  <template #default="{ item, index, open }">
-                    <UButton color="gray" variant="ghost">
-                      <template #leading>
-                        <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
-                          <component v-show="!open" :is="item.iconClosed"></component>
-                          <component v-show="open" :is="item.iconOpened"></component>
-
-                        </div>
-                      </template>
-
-                      <span class="truncate">{{ item.label }}</span>
-
-                      <template #trailing>
-                        <UIcon
-                            name="i-heroicons-chevron-right-20-solid"
-                            class="w-5 h-5 ms-auto transform transition-transform duration-200"
-                            :class="[open && 'rotate-90']"
-                        />
-                      </template>
-
-
-                    </UButton>
-
-                  </template>
-
-                </UAccordion>
-              </template>
-              <template #src-app-observers-folder>
-                The Observers directory contains all observer classes that observe model actions, created by php artisan
-                make:observer command
-                <UAccordion
-                    class="pl-5"
-                    multiple
-                    variant="ghost"
-                    :items="srcAppObserversFolder"
-
-                >
-                  <template #default="{ item, index, open }">
-                    <UButton color="gray" variant="ghost">
-                      <template #leading>
-                        <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
-                          <component v-show="!open" :is="item.iconClosed"></component>
-                          <component v-show="open" :is="item.iconOpened"></component>
-
-                        </div>
-                      </template>
-
-                      <span class="truncate">{{ item.label }}</span>
-
-                      <template #trailing>
-                        <UIcon
-                            name="i-heroicons-chevron-right-20-solid"
-                            class="w-5 h-5 ms-auto transform transition-transform duration-200"
-                            :class="[open && 'rotate-90']"
-                        />
-                      </template>
-
-
-                    </UButton>
-
-                  </template>
-
-                </UAccordion>
-              </template>
-              <template #src-app-providers-folder>
-                The Providers directory contains all of the service providers for your application. Service providers
-                bootstrap your application by binding services in the service container, registering events, or performing
-                any other tasks to prepare your application for incoming requests.
-                <UAccordion
-                    class="pl-5"
-                    multiple
-                    variant="ghost"
-                    :items="srcAppProvidersFolder"
-
-                >
-                  <template #default="{ item, index, open }">
-                    <UButton color="gray" variant="ghost">
-                      <template #leading>
-                        <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
-                          <component v-show="!open" :is="item.iconClosed"></component>
-                          <component v-show="open" :is="item.iconOpened"></component>
-
-                        </div>
-                      </template>
-
-                      <span class="truncate">{{ item.label }}</span>
-
-                      <template #trailing>
-                        <UIcon
-                            name="i-heroicons-chevron-right-20-solid"
-                            class="w-5 h-5 ms-auto transform transition-transform duration-200"
-                            :class="[open && 'rotate-90']"
-                        />
-                      </template>
-
-
-                    </UButton>
-
-                  </template>
-
-                </UAccordion>
-              </template>
-              <template #src-app-repositories-folder>
-                Repositories contain queries based on their respective models
-                <UAccordion
-                    class="pl-5"
-                    multiple
-                    variant="ghost"
-                    :items="srcAppRepositoriesFolder"
-
-                >
-                  <template #default="{ item, index, open }">
-                    <UButton color="gray" variant="ghost">
-                      <template #leading>
-                        <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
-                          <component v-show="!open" :is="item.iconClosed"></component>
-                          <component v-show="open" :is="item.iconOpened"></component>
-
-                        </div>
-                      </template>
-
-                      <span class="truncate">{{ item.label }}</span>
-
-                      <template #trailing>
-                        <UIcon
-                            name="i-heroicons-chevron-right-20-solid"
-                            class="w-5 h-5 ms-auto transform transition-transform duration-200"
-                            :class="[open && 'rotate-90']"
-                        />
-                      </template>
-
-
-                    </UButton>
-
-                  </template>
-
-                </UAccordion>
-              </template>
-              <template #src-app-rules-folder>
-                This directory does not exist by default, but will be created for you if you execute the make:rule Artisan
-                command. The Rules directory contains the custom validation rule objects for your application. Rules are
-                used to encapsulate complicated validation logic in a simple object.
-                <UAccordion
-                    class="pl-5"
-                    multiple
-                    variant="ghost"
-                    :items="srcAppRulesFolder"
-
-                >
-                  <template #default="{ item, index, open }">
-                    <UButton color="gray" variant="ghost">
-                      <template #leading>
-                        <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
-                          <component v-show="!open" :is="item.iconClosed"></component>
-                          <component v-show="open" :is="item.iconOpened"></component>
-
-                        </div>
-                      </template>
-
-                      <span class="truncate">{{ item.label }}</span>
-
-                      <template #trailing>
-                        <UIcon
-                            name="i-heroicons-chevron-right-20-solid"
-                            class="w-5 h-5 ms-auto transform transition-transform duration-200"
-                            :class="[open && 'rotate-90']"
-                        />
-                      </template>
-
-
-                    </UButton>
-
-                  </template>
-
-                </UAccordion>
-              </template>
-              <template #src-app-services-folder>
-                This directory contains all service classes created by php artisan make:service command
-                <UAccordion
-                    class="pl-5"
-                    multiple
-                    variant="ghost"
-                    :items="srcAppServicesFolder"
-
-                >
-                  <template #default="{ item, index, open }">
-                    <UButton color="gray" variant="ghost">
-                      <template #leading>
-                        <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
-                          <component v-show="!open" :is="item.iconClosed"></component>
-                          <component v-show="open" :is="item.iconOpened"></component>
-
-                        </div>
-                      </template>
-
-                      <span class="truncate">{{ item.label }}</span>
-
-                      <template #trailing>
-                        <UIcon
-                            name="i-heroicons-chevron-right-20-solid"
-                            class="w-5 h-5 ms-auto transform transition-transform duration-200"
-                            :class="[open && 'rotate-90']"
-                        />
-                      </template>
-
-
-                    </UButton>
-
-                  </template>
-
-                </UAccordion>
-              </template>
-              <template #src-app-traits-folder>
-                This directory contains all traits created by php artisan make:trait command
-                <UAccordion
-                    class="pl-5"
-                    multiple
-                    variant="ghost"
-                    :items="srcAppTraitsFolder"
-
-                >
-                  <template #default="{ item, index, open }">
-                    <UButton color="gray" variant="ghost">
-                      <template #leading>
-                        <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
-                          <component v-show="!open" :is="item.iconClosed"></component>
-                          <component v-show="open" :is="item.iconOpened"></component>
-
-                        </div>
-                      </template>
-
-                      <span class="truncate">{{ item.label }}</span>
-
-                      <template #trailing>
-                        <UIcon
-                            name="i-heroicons-chevron-right-20-solid"
-                            class="w-5 h-5 ms-auto transform transition-transform duration-200"
-                            :class="[open && 'rotate-90']"
-                        />
-                      </template>
-
-
-                    </UButton>
-
-                  </template>
-
-                </UAccordion>
-              </template>
             </UAccordion>
           </template>
 
@@ -2445,7 +3560,6 @@ const srcAppConsoleCommandsMakeFolder = [
 
             </UAccordion>
           </template>
-
 
 
         </UAccordion>
