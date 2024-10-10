@@ -69,6 +69,8 @@ import BladeFileClosed from "~/components/icons/BladeFileClosed.vue";
 import PostmanFolderOpened from "~/components/icons/PostmanFolderOpened.vue";
 import PostmanFolderClosed from "~/components/icons/PostmanFolderClosed.vue";
 import NginxFileClosed from "~/components/icons/NginxFileClosed.vue";
+import AppFolderClosed from "~/components/icons/AppFolderClosed.vue";
+import AppFolderOpened from "~/components/icons/AppFolderOpened.vue";
 
 const laravelProjectStructure = [
   {
@@ -207,8 +209,8 @@ const laravelDockerNginxFolder = [
 const laravelSrcFolder = [
   {
     label: 'app',
-    iconClosed: FolderIconClosed,
-    iconOpened: FolderIconOpened,
+    iconClosed: AppFolderClosed,
+    iconOpened: AppFolderOpened,
     slot: 'src-app-folder'
   },
   {
