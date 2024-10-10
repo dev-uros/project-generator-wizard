@@ -83,6 +83,14 @@ import ImagesFolderOpened from "~/components/icons/ImagesFolderOpened.vue";
 import ImagesFolderClosed from "~/components/icons/ImagesFolderClosed.vue";
 import ImageFileOpened from "~/components/icons/ImageFileOpened.vue";
 import ImageFileClosed from "~/components/icons/ImageFileClosed.vue";
+import AssetsFolderClosed from "~/components/icons/AssetsFolderClosed.vue";
+import AssetsFolderOpened from "~/components/icons/AssetsFolderOpened.vue";
+import ModulesFolderClosed from "~/components/icons/ModulesFolderClosed.vue";
+import ModulesFolderOpened from "~/components/icons/ModulesFolderOpened.vue";
+import VueFileClosed from "~/components/icons/VueFileClosed.vue";
+import VueFileOpened from "~/components/icons/VueFileOpened.vue";
+import TsFileClosed from "~/components/icons/TsFileClosed.vue";
+import TsFileOpened from "~/components/icons/TsFileOpened.vue";
 
 const quasarProjectStructure = [
   {
@@ -241,103 +249,76 @@ const quasarAppFolder = [
 
 const srcAppFolder = [
   {
-    label: 'Console',
-    iconClosed: FolderIconClosed,
-    iconOpened: FolderIconOpened,
-    slot: 'src-app-console-folder',
-    description: 'The Console directory contains all of the custom Artisan commands for your application. These commands may be generated using the make:command command.'
+    label: 'assets',
+    iconClosed: AssetsFolderClosed,
+    iconOpened: AssetsFolderOpened,
+    slot: 'app-src-assets-folder',
   },
   {
-    label: 'Cron',
+    label: 'boot',
     iconClosed: FolderIconClosed,
     iconOpened: FolderIconOpened,
-    content: 'The Cron directory can contain all of the invokable classes that can be used in task scheduler.',
-    slot: 'src-app-cron-folder'
+    slot: 'app-src-boot-folder'
   },
   {
-    label: 'Enum',
-    iconClosed: FolderIconClosed,
-    iconOpened: FolderIconOpened,
-    slot: 'src-app-enum-folder',
-    content: 'The Enum directory can contain all of your php enums.'
+    label: 'css',
+    iconClosed: CssFolderClosed,
+    iconOpened: CssFolderOpened,
+    slot: 'app-src-css-folder',
   },
   {
-    label: 'Exceptions',
+    label: 'layouts',
     iconClosed: FolderIconClosed,
     iconOpened: FolderIconOpened,
-    slot: 'src-app-exceptions-folder',
+    slot: 'app-src-layouts-folder',
   },
   {
-    label: 'Http',
-    iconClosed: FolderIconClosed,
-    iconOpened: FolderIconOpened,
-    slot: 'src-app-http-folder'
+    label: 'modules',
+    iconClosed: ModulesFolderClosed,
+    iconOpened: ModulesFolderOpened,
+    slot: 'app-src-modules-folder'
   },
   {
-    label: 'Interfaces',
-    iconClosed: FolderIconClosed,
-    iconOpened: FolderIconOpened,
-    slot: 'src-app-interfaces-folder',
+    label: 'router',
+    iconClosed: RoutesFolderClosed,
+    iconOpened: RoutesFolderOpened,
+    slot: 'app-src-routes-folder',
   },
   {
-    label: 'Jobs',
+    label: 'stores',
     iconClosed: FolderIconClosed,
     iconOpened: FolderIconOpened,
-    slot: 'src-app-jobs-folder',
+    slot: 'app-src-stores-folder',
   },
   {
-    label: 'Mail',
-    iconClosed: FolderIconClosed,
-    iconOpened: FolderIconOpened,
-    slot: 'src-app-mail-folder'
+    label: 'App.vue',
+    iconClosed: VueFileClosed,
+    iconOpened: VueFileOpened,
+    content: 'App vue entry point'
   },
   {
-    label: 'Models',
-    iconClosed: FolderIconClosed,
-    iconOpened: FolderIconOpened,
-    slot: 'src-app-models-folder'
+    label: 'env.d.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Quasar provided default env type file'
   },
   {
-    label: 'Notifications',
-    iconClosed: FolderIconClosed,
-    iconOpened: FolderIconOpened,
-    slot: 'src-app-notifications-folder'
+    label: 'global.d.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Quasar provided default global type file'
   },
   {
-    label: 'Observers',
-    iconClosed: FolderIconClosed,
-    iconOpened: FolderIconOpened,
-    slot: 'src-app-observers-folder'
+    label: 'quasar.d.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Quasar provided default quasar type file'
   },
   {
-    label: 'Providers',
-    iconClosed: FolderIconClosed,
-    iconOpened: FolderIconOpened,
-    slot: 'src-app-providers-folder'
-  },
-  {
-    label: 'Repositories',
-    iconClosed: FolderIconClosed,
-    iconOpened: FolderIconOpened,
-    slot: 'src-app-repositories-folder'
-  },
-  {
-    label: 'Rules',
-    iconClosed: FolderIconClosed,
-    iconOpened: FolderIconOpened,
-    slot: 'src-app-rules-folder'
-  },
-  {
-    label: 'Services',
-    iconClosed: FolderIconClosed,
-    iconOpened: FolderIconOpened,
-    slot: 'src-app-services-folder'
-  },
-  {
-    label: 'Traits',
-    iconClosed: FolderIconClosed,
-    iconOpened: FolderIconOpened,
-    slot: 'src-app-traits-folder'
+    label: 'shims-vue.d.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Quasar provided default shims-vue type file'
   }
 ]
 
