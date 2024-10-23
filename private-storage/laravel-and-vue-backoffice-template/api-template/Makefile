@@ -1,10 +1,10 @@
 include ./.env.docker
 #Builds the container
 up:
-	docker-compose -f $(DOCKER_COMPOSE_FILE) --env-file .env.docker up -d --build
+	docker compose -f $(DOCKER_COMPOSE_FILE) --env-file .env.docker up -d --build
 #Shuts down container
 down:
-	docker-compose -f $(DOCKER_COMPOSE_FILE) --env-file .env.docker down
+	docker compose -f $(DOCKER_COMPOSE_FILE) --env-file .env.docker down
 	docker container prune
 	docker image prune -a
 #Makes a dump folder for database backup

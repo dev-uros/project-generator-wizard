@@ -11,10 +11,10 @@ fix-env:
 	touch $(PWD)/app/.env
 
 up:
-	docker-compose up --build
+	docker compose up --build
 
 down:
-	docker-compose -f docker-compose.yaml down
+	docker compose -f docker-compose.yaml down
 	docker container prune
 	docker image prune -a
 
