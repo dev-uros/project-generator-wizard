@@ -6,6 +6,7 @@ import {
     DESKTOP_FRONTENDS, FRONTEND_OPTION, PROJECT_TYPES, WEBSITE_BACKENDS,
     WEBSITE_FRONTENDS
 } from "~/constants";
+import {isObjectTypeAnnotation} from "@babel/types";
 
 export const useSetWizardStep = () => {
 
@@ -144,7 +145,16 @@ export const useSetWizardStep = () => {
 
 
     const handleGoToSummaryStep = (optionValue: string) => {
+
         selectedBackend.value = backendOptions.value.find(option => option.value === optionValue);
+
+
+        console.log({
+            selectedProjectFlavour:selectedProjectFlavour.value.value,
+            selectedFrontend:selectedFrontend.value.value,
+            selectedBackend:selectedBackend.value.value
+        })
+
 
         wizardSummaryModal.value = true
 

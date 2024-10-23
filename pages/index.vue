@@ -121,21 +121,8 @@ const downloadZip = async () => {
     </UCard>
     <UModal v-model="wizardSummaryModal" fullscreen>
       <UCard :ui="{ ring: '', divide: 'divide-y divide-gray-100 dark:divide-gray-800' }">
-        <template #header>
-          <h1>Wizard is cooking</h1>
-        </template>
-        <p>Selected ingredients</p>
-        <div class="flex justify-between">
-          <UIcon :name="selectedProjectFlavour.icon" class="w-20 h-20 text-green-500"/>
-          <UIcon v-for="icon in selectedFrontend.icons" :name="icon.name" class="w-20 h-20"/>
-          <UIcon v-for="icon in selectedBackend.icons" :name="icon.name" class="w-20 h-20"/>
-        </div>
 
-
-        <UCard class="">
-          <template #header>
-            What are you getting
-          </template>
+        <UCard>
           <div v-if="selectedProjectFlavour.value === 'backoffice'">
             <div class="flex flex-row gap-4">
               <BackendLaravelFolderStructure class="basis-1/2"/>
@@ -155,7 +142,7 @@ const downloadZip = async () => {
 
         <div class="mt-4 flex flex-row justify-center">
           <div class="w-96">
-            <UForm :validate="validate" :state="state" class="space-y-4" @submit="onSubmit">
+            <UForm :state="state" class="space-y-4">
               <UFormGroup label="Application name" name="appName">
                 <UInput v-model.trim="state.appName"/>
               </UFormGroup>
