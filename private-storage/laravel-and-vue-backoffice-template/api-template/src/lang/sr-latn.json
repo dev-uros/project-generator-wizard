@@ -1,0 +1,7 @@
+{
+    "The :attribute must contain at least one letter.": "Šifra mora da sadrži barem jedno slovo.",
+    "The :attribute must contain at least one number.": "Šifra mora da sadrži barem jedan broj.",
+    "The :attribute must contain at least one symbol.": "Šifra mora da sadrži barem jedan simbom.",
+    "The :attribute must contain at least one uppercase and one lowercase letter.": "Šifra mora da sadrži barem jedno veliko i jedno malo slovo.",
+    "The given :attribute has appeared in a data leak. Please choose a different :attribute.": "Uneta šifra se nalazi na listi eksploatisanih šifara , molimo izaberite drugu šifru."
+}

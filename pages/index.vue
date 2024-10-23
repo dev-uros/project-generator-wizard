@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import {useSetWizardStep} from "~/composables/setWizardStep";
 import FrontendQuasarSpaFolderStructure from "~/components/FrontendQuasarSpaFolderStructure.vue";
+import FolderIconClosed from "~/components/icons/FolderIconClosed.vue";
+import ZipFolderIcon from "~/components/icons/ZipFolderIcon.vue";
+import DockerFileClosed from "~/components/icons/DockerFileClosed.vue";
 
 const {
   wizardSteps,
@@ -15,10 +18,67 @@ const {
   setWizardStep
 } = useSetWizardStep()
 
-const appName = ref('');
+// const appName = ref('');
+
+
+const state = reactive({
+  appName: '',
+})
+
+const defaultAppName = 'Default Project Name';
+
+const generatedProjectNames = computed(function () {
+  if (!state.appName) {
+    return {
+      downloadZipName: `${defaultAppName.replace(/\s+/g, '-').toLowerCase()}.zip`,
+      unzippedFolderName: defaultAppName.replace(/\s+/g, '-').toLowerCase(),
+      frontendProjectFolderName: `${defaultAppName.replace(/\s+/g, '-').toLowerCase()}-app`,
+      backendProjectFolderName: `${defaultAppName.replace(/\s+/g, '-').toLowerCase()}-api`,
+      databaseContainerName: `${defaultAppName.replace(/\s+/g, '-').toLowerCase()}-db`,
+      databaseTestContainerName: `${defaultAppName.replace(/\s+/g, '-').toLowerCase()}-db-test`,
+      webserverContainerName: `${defaultAppName.replace(/\s+/g, '-').toLowerCase()}-api-webserver`,
+      phpContainerName: `${defaultAppName.replace(/\s+/g, '-').toLowerCase()}-api-php`,
+      frontendAppContainerName: `${defaultAppName.replace(/\s+/g, '-').toLowerCase()}-app`
+    }
+  }
+  return {
+    downloadZipName: `${state.appName.replace(/\s+/g, '-').toLowerCase()}.zip`,
+    unzippedFolderName: state.appName.replace(/\s+/g, '-').toLowerCase(),
+    frontendProjectFolderName: `${state.appName.replace(/\s+/g, '-').toLowerCase()}-app`,
+    backendProjectFolderName: `${state.appName.replace(/\s+/g, '-').toLowerCase()}-api`,
+    databaseContainerName: `${state.appName.replace(/\s+/g, '-').toLowerCase()}-db`,
+    databaseTestContainerName: `${state.appName.replace(/\s+/g, '-').toLowerCase()}-db-test`,
+    webserverContainerName: `${state.appName.replace(/\s+/g, '-').toLowerCase()}-api-webserver`,
+    phpContainerName: `${state.appName.replace(/\s+/g, '-').toLowerCase()}-api-php`,
+    frontendAppContainerName: `${state.appName.replace(/\s+/g, '-').toLowerCase()}-app`
+  }
+});
+const downloadZip = async () => {
+  const result = await $fetch('/api/generateProjectTemplate',{
+    method: 'POST',
+    body: {
+      projectName: state.appName
+
+    }
+  })
 
 
 
+
+  // Create a link element to trigger the download
+  const url = window.URL.createObjectURL(result as Blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `${state.appName.replace(/\s+/g, '-').toLowerCase()}.zip`; // Set the desired filename
+
+  // Append to the body and trigger click
+  document.body.appendChild(a);
+  a.click();
+
+  // Clean up
+  document.body.removeChild(a);
+  window.URL.revokeObjectURL(url); // Release the blob URL
+};
 </script>
 
 <template>
@@ -71,7 +131,6 @@ const appName = ref('');
           <UIcon v-for="icon in selectedBackend.icons" :name="icon.name" class="w-20 h-20"/>
         </div>
 
-        <UInput v-model="appName" />
 
         <UCard class="">
           <template #header>
@@ -94,10 +153,99 @@ const appName = ref('');
 
         </UCard>
 
+        <div class="mt-4 flex flex-row justify-center">
+          <div class="w-96">
+            <UForm :validate="validate" :state="state" class="space-y-4" @submit="onSubmit">
+              <UFormGroup label="Application name" name="appName">
+                <UInput v-model.trim="state.appName"/>
+              </UFormGroup>
+            </UForm>
+          </div>
+
+        </div>
+        <div class="flex flex-row justify-center space-x-2.5 mt-4">
+          <div>
+            <UCard>
+              <template #header>
+                Folders
+              </template>
+              <ul class="list-none h-36 space-y-1.5">
+                <li>
+                  <div class="flex flex-row gap-4">
+                    <ZipFolderIcon/>
+                    {{ generatedProjectNames.downloadZipName }}
+                  </div>
+
+                </li>
+                <li>
+                  <div class="flex flex-row gap-4">
+                    <FolderIconClosed/>
+                    {{ generatedProjectNames.unzippedFolderName }}
+                  </div>
+
+                </li>
+                <li class="ml-5">
+                  <div class="flex flex-row gap-4">
+                    <FolderIconClosed/>
+                    {{ generatedProjectNames.backendProjectFolderName }}
+                  </div>
+                </li>
+                <li class="ml-5">
+                  <div class="flex flex-row gap-4">
+                    <FolderIconClosed/>
+                    {{ generatedProjectNames.frontendProjectFolderName }}
+                  </div>
+                </li>
+              </ul>
+            </UCard>
+          </div>
+          <div>
+            <UCard>
+              <template #header>
+                Docker containers
+              </template>
+              <ul class="list-none h-36 space-y-1.5">
+                <li>
+                  <div class="flex flex-row gap-4">
+                    <DockerFileClosed/>
+                    {{ generatedProjectNames.databaseContainerName }}
+                  </div>
+                </li>
+                <li>
+                  <div class="flex flex-row gap-4">
+                    <DockerFileClosed/>
+                    {{ generatedProjectNames.databaseTestContainerName }}
+                  </div>
+                </li>
+                <li>
+                  <div class="flex flex-row gap-4">
+                    <DockerFileClosed/>
+                    {{ generatedProjectNames.webserverContainerName }}
+                  </div>
+                </li>
+                <li>
+                  <div class="flex flex-row gap-4">
+                    <DockerFileClosed/>
+                    {{ generatedProjectNames.phpContainerName }}
+                  </div>
+                </li>
+                <li>
+                  <div class="flex flex-row gap-4">
+                    <DockerFileClosed/>
+                    {{ generatedProjectNames.frontendAppContainerName }}
+                  </div>
+                </li>
+              </ul>
+            </UCard>
+          </div>
+        </div>
+
+        <div class="flex justify-center">
+        <UButton label="Generate" class="justify-center mt-4 w-96" @click="downloadZip"/>
+        </div>
         <template #footer>
-          <div class="flex justify-between">
-            <UButton label="Generate"/>
-            <UButton color="red" variant="ghost" label="Cancel" @click="wizardSummaryModal = false"/>
+          <div class="flex justify-center">
+            <UButton  color="red" variant="ghost" label="Cancel" @click="wizardSummaryModal = false" class="w-96 justify-center"/>
           </div>
 
 

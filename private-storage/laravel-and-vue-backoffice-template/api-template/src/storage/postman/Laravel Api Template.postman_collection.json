@@ -1,0 +1,544 @@
+{
+	"info": {
+		"_postman_id": "8309adaa-2231-4df5-ae20-62b645ebb52d",
+		"name": "Laravel Api Template",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "22217973"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost/api/auth/login?email=uros.minic@kentkart.rs&password=Bobasmrad2@",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "uros.minic@kentkart.rs"
+								},
+								{
+									"key": "password",
+									"value": "Bobasmrad2@"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "76|jkiyNbPAEM1bmia69FoTTxgVFUWbSaRLfLnXZhy35398f301"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"url": "localhost/api/auth/logout"
+					},
+					"response": []
+				},
+				{
+					"name": "Auto Login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "77|5Szf8EvETzGVeitY412ode8uxsS5LBx7ntv76zDv7a6e2698"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"url": "localhost/api/auth/auto-login"
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost/api/auth/reset-password?email=uros.minic@kentkart.rs&password=Bobasmrad2@&password_confirmation=Bobasmrad2@&token",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"auth",
+								"reset-password"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "uros.minic@kentkart.rs"
+								},
+								{
+									"key": "password",
+									"value": "Bobasmrad2@"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "Bobasmrad2@"
+								},
+								{
+									"key": "token",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Activate Account",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost/api/auth/reset-password?email=uros.minic@kentkart.rs&password=Bobasmrad2@&password_confirmation=Bobasmrad2@&token",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"auth",
+								"reset-password"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "uros.minic@kentkart.rs"
+								},
+								{
+									"key": "password",
+									"value": "Bobasmrad2@"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "Bobasmrad2@"
+								},
+								{
+									"key": "token",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forgot Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost/api/auth/forgot-password?email=uros.minic@kentkart.rs",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"auth",
+								"forgot-password"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "uros.minic@kentkart.rs"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "User List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "77|5Szf8EvETzGVeitY412ode8uxsS5LBx7ntv76zDv7a6e2698"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost/api/administration/users/index?accountState=-1",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"administration",
+								"users",
+								"index"
+							],
+							"query": [
+								{
+									"key": "accountState",
+									"value": "-1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Show",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "77|5Szf8EvETzGVeitY412ode8uxsS5LBx7ntv76zDv7a6e2698"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "localhost/api/administration/users/1/show"
+					},
+					"response": []
+				},
+				{
+					"name": "User Store",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "77|5Szf8EvETzGVeitY412ode8uxsS5LBx7ntv76zDv7a6e2698"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost/api/administration/users/store?name=Testko&surname=Testivojevic&email=testest@gmail.com",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"administration",
+								"users",
+								"store"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Testko"
+								},
+								{
+									"key": "surname",
+									"value": "Testivojevic"
+								},
+								{
+									"key": "email",
+									"value": "testest@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "77|5Szf8EvETzGVeitY412ode8uxsS5LBx7ntv76zDv7a6e2698"
+							}
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost/api/administration/users/6/update?name=Testkoizmena&surname=Testivojevic izmnena&email=testest@gmail.com",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"administration",
+								"users",
+								"6",
+								"update"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Testkoizmena"
+								},
+								{
+									"key": "surname",
+									"value": "Testivojevic izmnena"
+								},
+								{
+									"key": "email",
+									"value": "testest@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Set Status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "77|5Szf8EvETzGVeitY412ode8uxsS5LBx7ntv76zDv7a6e2698"
+							}
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost/api/administration/users/set-status/6",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"administration",
+								"users",
+								"set-status",
+								"6"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Testkoizmena",
+									"disabled": true
+								},
+								{
+									"key": "surname",
+									"value": "Testivojevic izmnena",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "testest@gmail.com",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Set Status Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "77|5Szf8EvETzGVeitY412ode8uxsS5LBx7ntv76zDv7a6e2698"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost/api/administration/users/resend-activation-email/6",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"administration",
+								"users",
+								"resend-activation-email",
+								"6"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Testkoizmena",
+									"disabled": true
+								},
+								{
+									"key": "surname",
+									"value": "Testivojevic izmnena",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "testest@gmail.com",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Session",
+			"item": [
+				{
+					"name": "Set Session Timeout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "77|5Szf8EvETzGVeitY412ode8uxsS5LBx7ntv76zDv7a6e2698"
+							}
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost/api/settings/session-timeout?timeout=120",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"settings",
+								"session-timeout"
+							],
+							"query": [
+								{
+									"key": "timeout",
+									"value": "120"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Logs",
+			"item": [
+				{
+					"name": "File List",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "File Content",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "77|5Szf8EvETzGVeitY412ode8uxsS5LBx7ntv76zDv7a6e2698"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost/api/log-viewer/file?logFolder=login&logFile=log-2023-11-22.log",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"log-viewer",
+								"file"
+							],
+							"query": [
+								{
+									"key": "logFolder",
+									"value": "login"
+								},
+								{
+									"key": "logFile",
+									"value": "log-2023-11-22.log"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,54 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "A Quasar Project",
+  "productName": "Quasar App",
+  "author": "",
+  "private": true,
+  "scripts": {
+    "lint": "eslint --ext .js,.ts,.vue ./",
+    "format": "prettier --write \"**/*.{js,ts,vue,scss,html,md,json}\" --ignore-path .gitignore",
+    "test": "vitest --run --reporter verbose",
+    "test:watch": "vitest",
+    "page": "quasar new p -ts-composition-setup",
+    "component": "quasar new c -ts-composition-setup",
+    "store": "quasar new s",
+    "build": "quasar clean && quasar build",
+    "postbuild": "node src/notifyClientsNewAppVersionAvailable.js",
+    "qmodule": "qmodule"
+  },
+  "dependencies": {
+    "@quasar/extras": "^1.16.12",
+    "@vueuse/components": "^10.11.0",
+    "@vueuse/core": "^10.11.0",
+    "axios": "^1.7.2",
+    "dotenv": "^16.4.5",
+    "moment-timezone": "^0.5.45",
+    "nanoid": "^5.0.7",
+    "pinia": "^2.0.11",
+    "quasar": "^2.16.6",
+    "vue": "^3.4.35",
+    "vue-json-pretty": "^2.4.0",
+    "vue-router": "^4.4.0"
+  },
+  "devDependencies": {
+    "quasar-easy-modules": "^1.0.17",
+    "quasar-easy-validate": "^1.0.2",
+    "@quasar/app-vite": "^1.9.4",
+    "@types/node": "^22.1.0",
+    "@typescript-eslint/eslint-plugin": "^5.10.0",
+    "@typescript-eslint/parser": "^5.10.0",
+    "autoprefixer": "^10.4.2",
+    "eslint": "8.22.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-vue": "^9.0.0",
+    "prettier": "^2.5.1",
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.4"
+  },
+  "engines": {
+    "node": "^18 || ^16 || ^14.19 || ^20",
+    "npm": ">= 6.13.4",
+    "yarn": ">= 1.21.1"
+  }
+}

@@ -19,9 +19,9 @@ logs
 .idea
 
 # Local env files
-.env
-.env.*
-!.env.example
+#.env
+#.env.*
+#!.env.example
 
 
 # Created by https://www.toptal.com/developers/gitignore/api/webstorm,phpstorm,visualstudiocode,macos,windows,linux,vue,vuejs,nuxtjs,node
@@ -151,6 +151,9 @@ web_modules/
 .env.test.local
 .env.production.local
 .env.local
+
+!private-storage/laravel-and-vue-backoffice-template/api-template/.env.local
+!private-storage/laravel-and-vue-backoffice-template/app-template/.env.local
 
 # parcel-bundler cache (https://parceljs.org/)
 .parcel-cache
