@@ -71,6 +71,7 @@ const {
       :selected-project-flavour="selectedProjectFlavour"
       :selected-front-end="selectedFrontend"
       :selected-back-end="selectedBackend"
+      @close-wizard-summary-modal="wizardSummaryModal = false"
     />
   </UContainer>
 </template>

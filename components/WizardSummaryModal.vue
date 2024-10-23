@@ -218,7 +218,7 @@ const downloadZip = async () => {
             color="red"
             variant="ghost"
             label="Cancel"
-            @click="wizardSummaryModal = false"
+            @click="$emit('closeWizardSummaryModal')"
             class="w-96 justify-center"
           />
         </div>
