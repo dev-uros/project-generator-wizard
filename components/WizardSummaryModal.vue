@@ -13,6 +13,7 @@ defineProps([
 const state = reactive({
   appName: ''
 })
+const generateProjectButtonLoadingState = ref(false)
 
 const defaultAppName = 'Default Project Name'
 
@@ -73,6 +74,7 @@ const generatedProjectNames = computed(function () {
   }
 })
 const downloadZip = async () => {
+  generateProjectButtonLoadingState.value = true
   const result = await $fetch('/api/generateProjectTemplate', {
     method: 'POST',
     body: {
@@ -93,6 +95,7 @@ const downloadZip = async () => {
   // Clean up
   document.body.removeChild(a)
   window.URL.revokeObjectURL(url) // Release the blob URL
+  generateProjectButtonLoadingState.value = false
 }
 </script>
 
@@ -210,6 +213,7 @@ const downloadZip = async () => {
           label="Generate"
           class="justify-center mt-4 w-96"
           @click="downloadZip"
+          :loading="generateProjectButtonLoadingState"
         />
       </div>
       <template #footer>
