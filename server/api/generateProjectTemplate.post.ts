@@ -153,7 +153,7 @@ const populateFrontEndDockerDotEnvVariables = async (tempFolderPath: string, fro
 
     // Replace the placeholders with user inputs
     dockerDotEnvContent = dockerDotEnvContent
-        .replace(/{{webserverContainerName}}/g, frontendEnvVariables.appContainerName)
+        .replace(/{{nodeContainerName}}/g, frontendEnvVariables.appContainerName)
 
 
     // Write the modified content back to docker-compose.yml

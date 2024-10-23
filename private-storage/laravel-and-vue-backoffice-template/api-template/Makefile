@@ -73,3 +73,12 @@ init:
 	$(MAKE) run-initial-migrations
 	$(MAKE) dump
 	$(MAKE) init-healthcheck
+
+partial-init:
+	echo "Laravel Api Initializing"
+	$(MAKE) env
+	$(MAKE) up
+	$(MAKE) init-composer
+	$(MAKE) run-initial-migrations
+	$(MAKE) dump
+	$(MAKE) init-healthcheck
