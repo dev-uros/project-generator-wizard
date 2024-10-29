@@ -1,12 +1,6 @@
 <script lang="ts" setup>
 import BaseHeader from "~/components/BaseHeader.vue";
 import BaseFooter from "~/components/BaseFooter.vue";
-import {useSetTheme} from "~/composables/setTheme";
-
-if(process.client){
-  const selectedTheme = localStorage.getItem('selectedTheme');
-  if (selectedTheme) useSetTheme(selectedTheme)
-}
 
 </script>
 

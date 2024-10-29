@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import ThemeConfiguratorItem from "~/components/ThemeConfiguratorItem.vue";
-import {useSetTheme} from "~/composables/setTheme";
 
 const themes = [
   "light",
@@ -37,8 +36,9 @@ const themes = [
   "sunset",
 ]
 
+const colorMode = useColorMode()
 const setWebsiteTheme = (theme: string) => {
-  useSetTheme(theme)
+  colorMode.preference = theme;
 }
 </script>
 
