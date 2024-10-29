@@ -75,7 +75,7 @@ const generatedProjectNames = computed(function () {
 })
 const downloadZip = async () => {
   generateProjectButtonLoadingState.value = true
-  const result = await $fetch('/api/generateProjectTemplate', {
+  const result = await $fetch('/api/generateBackofficeLaravelQuasarProjectTemplate', {
     method: 'POST',
     body: {
       projectName: state.appName
