@@ -1,6 +1,24 @@
 <script lang="ts" setup>
-import BackofficeFeaturesDialog from "~/components/BackofficeFeaturesDialog.vue";
-import BackofficeMoreInfoSide from "~/components/BackofficeMoreInfoSide.vue";
+import WebsiteMoreInfoSide from "~/components/WebsiteMoreInfoSide.vue";
+
+const moreInfoSideOpened = ref(false);
+
+const detailedFeaturesDialogOpened = ref(false);
+
+const closeSideDialog = () => {
+  moreInfoSideOpened.value = false;
+}
+
+const openFeaturesDialog = () => {
+  closeSideDialog()
+  detailedFeaturesDialogOpened.value = true;
+}
+
+const closeFeaturesDialog = () => {
+  detailedFeaturesDialogOpened.value = false;
+  moreInfoSideOpened.value = true;
+
+}
 </script>
 
 <template>
@@ -18,16 +36,16 @@ import BackofficeMoreInfoSide from "~/components/BackofficeMoreInfoSide.vue";
         offerings, and provide convenient access to their services, while also enhancing brand visibility and user
         engagement in the digital space.
       </p>
-<!--      <UButton label="More info" color="gray" @click="moreInfoSideOpened = true">-->
-<!--        <template #trailing>-->
-<!--          <UIcon name="material-symbols:info-outline" class="w-5 h-5"/>-->
-<!--        </template>-->
-<!--      </UButton>-->
+      <UButton label="More info" color="gray" @click="moreInfoSideOpened = true">
+        <template #trailing>
+          <UIcon name="material-symbols:info-outline" class="w-5 h-5"/>
+        </template>
+      </UButton>
     </article>
 
-<!--    <BackofficeMoreInfoSide v-model="moreInfoSideOpened"-->
-<!--                            @close-side="closeSideDialog"-->
-<!--                            @open-feature-details-dialog="openFeaturesDialog"/>-->
+    <WebsiteMoreInfoSide v-model="moreInfoSideOpened"
+                            @close-side="closeSideDialog"
+                            @open-feature-details-dialog="openFeaturesDialog"/>
 <!--    <BackofficeFeaturesDialog v-model="detailedFeaturesDialogOpened"-->
 <!--                              @close-dialog="closeFeaturesDialog"/>-->
   </div>
