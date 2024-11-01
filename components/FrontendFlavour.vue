@@ -53,7 +53,6 @@ const frontendRadioGrayscale = computed(() => {
   }
 })
 
-console.log('zdravo');
 
 onUpdated(() => {
 
@@ -85,6 +84,7 @@ onUpdated(() => {
             <div class="flex justify-center items-center" v-if="option.value === 'nuxt'">
               <UIcon v-for="icon in option.icons" :name="icon.name" class="w-10 h-10"
                      :class="{'grayscale': frontendRadioGrayscale.nuxtGrayScale}"/>
+
             </div>
             <div class="flex justify-center items-center" v-if="option.value === 'astro'">
               <UIcon v-for="icon in option.icons" :name="icon.name" class="w-10 h-10"

@@ -93,7 +93,7 @@ export const NUXT_BADGE = {
             name: 'devicon:nuxtjs',
         },
         {
-            name: 'simple-icons:daisyui'
+            name: 'logos:daisyui-icon'
         }
     ]
 };
@@ -106,7 +106,7 @@ export const ASTRO_BADGE = {
             name: 'devicon:astro',
         },
         {
-            name: 'simple-icons:daisyui'
+            name: 'logos:daisyui-icon'
         }
     ]
 
