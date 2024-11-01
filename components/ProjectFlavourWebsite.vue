@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import WebsiteMoreInfoSide from "~/components/WebsiteMoreInfoSide.vue";
 
 const moreInfoSideOpened = ref(false);
 
@@ -46,8 +45,8 @@ const closeFeaturesDialog = () => {
     <WebsiteMoreInfoSide v-model="moreInfoSideOpened"
                             @close-side="closeSideDialog"
                             @open-feature-details-dialog="openFeaturesDialog"/>
-<!--    <BackofficeFeaturesDialog v-model="detailedFeaturesDialogOpened"-->
-<!--                              @close-dialog="closeFeaturesDialog"/>-->
+    <WebsiteFeaturesDialog v-model="detailedFeaturesDialogOpened"
+                              @close-dialog="closeFeaturesDialog"/>
   </div>
 </template>
 

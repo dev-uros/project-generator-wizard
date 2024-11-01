@@ -143,7 +143,7 @@ const emit = defineEmits<{
 
               <p>
                 <UBadge class="mr-3" size="md" :ui="{'rounded': 'rounded-full'}">
-                  <UIcon name="material-symbols:person-add-outline"/>
+                  <UIcon name="bxs:category-alt"/>
                 </UBadge>
                 Product list:
               </p>
