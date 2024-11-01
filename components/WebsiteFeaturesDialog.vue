@@ -128,7 +128,7 @@ const logImages = [
               <div class="w-1/2">
                 <h2 class="py-2 text-center">Desktop View</h2>
                 <UCarousel v-slot="{ item }" :items="item.desktopImages" :ui="{ item: 'basis-full' }"
-                           class="rounded-lg overflow-hidden"
+                           class="rounded-lg overflow-hidden mt-11"
                            :next-button="{color: 'green'}"
                            :prev-button="{color: 'green'}"
                            arrows>
@@ -155,7 +155,7 @@ const logImages = [
               <div class="w-1/2">
                 <h2 class="py-2 text-center">Desktop View</h2>
                 <UCarousel v-slot="{ item }" :items="item.desktopImages" :ui="{ item: 'basis-full' }"
-                           class="rounded-lg overflow-hidden"
+                           class="rounded-lg overflow-hidden mt-16"
                            :next-button="{color: 'green'}"
                            :prev-button="{color: 'green'}"
                            arrows>
@@ -184,7 +184,7 @@ const logImages = [
                 <h2 class="py-2 text-center">Desktop View</h2>
 
                 <UCarousel v-slot="{ item }" :items="item.desktopImages" :ui="{ item: 'basis-full' }"
-                           class="rounded-lg overflow-hidden"
+                           class="rounded-lg overflow-hidden mt-11"
                            :next-button="{color: 'green'}"
                            :prev-button="{color: 'green'}"
                            arrows>
@@ -213,7 +213,7 @@ const logImages = [
                 <h2 class="py-2 text-center">Desktop View</h2>
 
                 <UCarousel v-slot="{ item }" :items="item.desktopImages" :ui="{ item: 'basis-full' }"
-                           class="rounded-lg overflow-hidden"
+                           class="rounded-lg overflow-hidden mt-11"
                            :next-button="{color: 'green'}"
                            :prev-button="{color: 'green'}"
                            arrows>
@@ -242,7 +242,7 @@ const logImages = [
                 <h2 class="py-2 text-center">Desktop View</h2>
 
                 <UCarousel v-slot="{ item }" :items="item.desktopImages" :ui="{ item: 'basis-full' }"
-                           class="rounded-lg overflow-hidden"
+                           class="rounded-lg overflow-hidden mt-14"
                            :next-button="{color: 'green'}"
                            :prev-button="{color: 'green'}"
                            arrows>
@@ -271,7 +271,7 @@ const logImages = [
                 <h2 class="py-2 text-center">Desktop View</h2>
 
                 <UCarousel v-slot="{ item }" :items="item.desktopImages" :ui="{ item: 'basis-full' }"
-                           class="rounded-lg overflow-hidden"
+                           class="rounded-lg overflow-hidden mt-11"
                            :next-button="{color: 'green'}"
                            :prev-button="{color: 'green'}"
                            arrows>
@@ -300,7 +300,7 @@ const logImages = [
                 <h2 class="py-2 text-center">Desktop View</h2>
 
                 <UCarousel v-slot="{ item }" :items="item.desktopImages" :ui="{ item: 'basis-full' }"
-                           class="rounded-lg overflow-hidden"
+                           class="rounded-lg overflow-hidden mt-11"
                            :next-button="{color: 'green'}"
                            :prev-button="{color: 'green'}"
                            arrows>
