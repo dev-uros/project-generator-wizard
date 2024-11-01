@@ -94,6 +94,12 @@ const quasarProjectStructure = [
     content: 'Docker compose file'
   },
   {
+    iconClosed: DockerFileClosed,
+    iconOpened: DockerFileOpened,
+    label: 'Dockerfile',
+    content: 'Dockerfile'
+  },
+  {
     iconClosed: GnuFileClosed,
     iconOpened: GnuFileOpened,
     label: 'Makefile',

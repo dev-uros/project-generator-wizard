@@ -3,6 +3,7 @@ import FrontendQuasarSpaFolderStructure from '~/components/FrontendQuasarSpaFold
 import FolderIconClosed from '~/components/icons/FolderIconClosed.vue'
 import ZipFolderIcon from '~/components/icons/ZipFolderIcon.vue'
 import DockerFileClosed from '~/components/icons/DockerFileClosed.vue'
+
 defineProps([
   'wizardSummaryModal',
   'selectedProjectFlavour',
@@ -17,65 +18,110 @@ const generateProjectButtonLoadingState = ref(false)
 
 const defaultAppName = 'Default Project Name'
 
-const generatedProjectNames = computed(function () {
+const generatedProjectNamesBackofficeLaravelQuasar = computed(function () {
   if (!state.appName) {
     return {
       downloadZipName: `${defaultAppName
-        .replace(/\s+/g, '-')
-        .toLowerCase()}.zip`,
+          .replace(/\s+/g, '-')
+          .toLowerCase()}.zip`,
       unzippedFolderName: defaultAppName.replace(/\s+/g, '-').toLowerCase(),
       frontendProjectFolderName: `${defaultAppName
-        .replace(/\s+/g, '-')
-        .toLowerCase()}-app`,
+          .replace(/\s+/g, '-')
+          .toLowerCase()}-app`,
       backendProjectFolderName: `${defaultAppName
-        .replace(/\s+/g, '-')
-        .toLowerCase()}-api`,
+          .replace(/\s+/g, '-')
+          .toLowerCase()}-api`,
       databaseContainerName: `${defaultAppName
-        .replace(/\s+/g, '-')
-        .toLowerCase()}-db`,
+          .replace(/\s+/g, '-')
+          .toLowerCase()}-db`,
       databaseTestContainerName: `${defaultAppName
-        .replace(/\s+/g, '-')
-        .toLowerCase()}-db-test`,
+          .replace(/\s+/g, '-')
+          .toLowerCase()}-db-test`,
       webserverContainerName: `${defaultAppName
-        .replace(/\s+/g, '-')
-        .toLowerCase()}-api-webserver`,
+          .replace(/\s+/g, '-')
+          .toLowerCase()}-api-webserver`,
       phpContainerName: `${defaultAppName
-        .replace(/\s+/g, '-')
-        .toLowerCase()}-api-php`,
+          .replace(/\s+/g, '-')
+          .toLowerCase()}-api-php`,
       frontendAppContainerName: `${defaultAppName
-        .replace(/\s+/g, '-')
-        .toLowerCase()}-app`
+          .replace(/\s+/g, '-')
+          .toLowerCase()}-app`
     }
   }
   return {
     downloadZipName: `${state.appName.replace(/\s+/g, '-').toLowerCase()}.zip`,
     unzippedFolderName: state.appName.replace(/\s+/g, '-').toLowerCase(),
     frontendProjectFolderName: `${state.appName
-      .replace(/\s+/g, '-')
-      .toLowerCase()}-app`,
+        .replace(/\s+/g, '-')
+        .toLowerCase()}-app`,
     backendProjectFolderName: `${state.appName
-      .replace(/\s+/g, '-')
-      .toLowerCase()}-api`,
+        .replace(/\s+/g, '-')
+        .toLowerCase()}-api`,
     databaseContainerName: `${state.appName
-      .replace(/\s+/g, '-')
-      .toLowerCase()}-db`,
+        .replace(/\s+/g, '-')
+        .toLowerCase()}-db`,
     databaseTestContainerName: `${state.appName
-      .replace(/\s+/g, '-')
-      .toLowerCase()}-db-test`,
+        .replace(/\s+/g, '-')
+        .toLowerCase()}-db-test`,
     webserverContainerName: `${state.appName
-      .replace(/\s+/g, '-')
-      .toLowerCase()}-api-webserver`,
+        .replace(/\s+/g, '-')
+        .toLowerCase()}-api-webserver`,
     phpContainerName: `${state.appName
-      .replace(/\s+/g, '-')
-      .toLowerCase()}-api-php`,
+        .replace(/\s+/g, '-')
+        .toLowerCase()}-api-php`,
     frontendAppContainerName: `${state.appName
-      .replace(/\s+/g, '-')
-      .toLowerCase()}-app`
+        .replace(/\s+/g, '-')
+        .toLowerCase()}-app`
   }
 })
-const downloadZip = async () => {
+const downloadZipBackofficeLaravelQuasar = async () => {
   generateProjectButtonLoadingState.value = true
   const result = await $fetch('/api/generateBackofficeLaravelQuasarProjectTemplate', {
+    method: 'POST',
+    body: {
+      projectName: state.appName
+    }
+  })
+
+  // Create a link element to trigger the download
+  const url = window.URL.createObjectURL(result as Blob)
+  const a = document.createElement('a')
+  a.href = url
+  a.download = `${state.appName.replace(/\s+/g, '-').toLowerCase()}.zip` // Set the desired filename
+
+  // Append to the body and trigger click
+  document.body.appendChild(a)
+  a.click()
+
+  // Clean up
+  document.body.removeChild(a)
+  window.URL.revokeObjectURL(url) // Release the blob URL
+  generateProjectButtonLoadingState.value = false
+}
+
+const generatedProjectNamesWebsiteNuxtDaisyUi = computed(function () {
+  if (!state.appName) {
+    return {
+      downloadZipName: `${defaultAppName
+          .replace(/\s+/g, '-')
+          .toLowerCase()}.zip`,
+      unzippedFolderName: defaultAppName.replace(/\s+/g, '-').toLowerCase(),
+      frontendWebsiteContainerName: `${defaultAppName
+          .replace(/\s+/g, '-')
+          .toLowerCase()}-website`
+    }
+  }
+  return {
+    downloadZipName: `${state.appName.replace(/\s+/g, '-').toLowerCase()}.zip`,
+    unzippedFolderName: state.appName.replace(/\s+/g, '-').toLowerCase(),
+    frontendWebsiteContainerName: `${state.appName
+        .replace(/\s+/g, '-')
+        .toLowerCase()}-website`
+  }
+})
+const downloadZipWebsiteNuxtDaisyUi= async () => {
+  generateProjectButtonLoadingState.value = true
+  const result = await $fetch('/api/generateWebsiteNuxtDaisyUiProjectTemplate', {
     method: 'POST',
     body: {
       projectName: state.appName
@@ -102,7 +148,7 @@ const downloadZip = async () => {
 <template>
   <UModal fullscreen>
     <UCard
-      :ui="{
+        :ui="{
         ring: '',
         divide: 'divide-y divide-gray-100 dark:divide-gray-800'
       }"
@@ -111,17 +157,19 @@ const downloadZip = async () => {
         <div v-if="selectedProjectFlavour.value === 'backoffice'">
           <div class="flex flex-row gap-4">
             <BackendLaravelFolderStructure
-              class="basis-1/2"
-              v-if="selectedBackEnd.value === 'laravel'"
+                class="basis-1/2"
+                v-if="selectedBackEnd.value === 'laravel'"
             />
             <FrontendQuasarSpaFolderStructure
-              class="basis-1/2"
-              v-if="selectedFrontEnd.value === 'quasar'"
+                class="basis-1/2"
+                v-if="selectedFrontEnd.value === 'quasar'"
             />
           </div>
         </div>
         <div v-else-if="selectedProjectFlavour.value === 'website'">
-          website
+          <WebsiteNuxtFolderStructure
+              v-if="selectedFrontEnd.value === 'nuxt'"
+          />
         </div>
         <div v-else-if="selectedProjectFlavour.value === 'desktop'">
           desktop
@@ -132,98 +180,42 @@ const downloadZip = async () => {
         <div class="w-96">
           <UForm :state="state" class="space-y-4">
             <UFormGroup label="Application name" name="appName">
-              <UInput v-model.trim="state.appName" />
+              <UInput v-model.trim="state.appName"/>
             </UFormGroup>
           </UForm>
         </div>
       </div>
-      <div class="flex flex-row justify-center space-x-2.5 mt-4">
-        <div>
-          <UCard>
-            <template #header> Folders </template>
-            <ul class="list-none h-36 space-y-1.5">
-              <li>
-                <div class="flex flex-row gap-4">
-                  <ZipFolderIcon />
-                  {{ generatedProjectNames.downloadZipName }}
-                </div>
-              </li>
-              <li>
-                <div class="flex flex-row gap-4">
-                  <FolderIconClosed />
-                  {{ generatedProjectNames.unzippedFolderName }}
-                </div>
-              </li>
-              <li class="ml-5">
-                <div class="flex flex-row gap-4">
-                  <FolderIconClosed />
-                  {{ generatedProjectNames.backendProjectFolderName }}
-                </div>
-              </li>
-              <li class="ml-5">
-                <div class="flex flex-row gap-4">
-                  <FolderIconClosed />
-                  {{ generatedProjectNames.frontendProjectFolderName }}
-                </div>
-              </li>
-            </ul>
-          </UCard>
-        </div>
-        <div>
-          <UCard>
-            <template #header> Docker containers </template>
-            <ul class="list-none h-36 space-y-1.5">
-              <li>
-                <div class="flex flex-row gap-4">
-                  <DockerFileClosed />
-                  {{ generatedProjectNames.databaseContainerName }}
-                </div>
-              </li>
-              <li>
-                <div class="flex flex-row gap-4">
-                  <DockerFileClosed />
-                  {{ generatedProjectNames.databaseTestContainerName }}
-                </div>
-              </li>
-              <li>
-                <div class="flex flex-row gap-4">
-                  <DockerFileClosed />
-                  {{ generatedProjectNames.webserverContainerName }}
-                </div>
-              </li>
-              <li>
-                <div class="flex flex-row gap-4">
-                  <DockerFileClosed />
-                  {{ generatedProjectNames.phpContainerName }}
-                </div>
-              </li>
-              <li>
-                <div class="flex flex-row gap-4">
-                  <DockerFileClosed />
-                  {{ generatedProjectNames.frontendAppContainerName }}
-                </div>
-              </li>
-            </ul>
-          </UCard>
-        </div>
-      </div>
+      <BackofficeLaravelQuasarDownloadPreview
+          :generated-project-names="generatedProjectNamesBackofficeLaravelQuasar"
+          v-if="selectedProjectFlavour.value === 'backoffice' && selectedFrontEnd.value === 'quasar' && selectedBackEnd.value === 'laravel'"/>
 
+      <WebsiteNuxtDaisyUiDownloadPreview
+          :generated-project-names="generatedProjectNamesWebsiteNuxtDaisyUi"
+          v-if="selectedProjectFlavour.value === 'website' && selectedFrontEnd.value === 'nuxt'"/>
       <div class="flex justify-center">
         <UButton
-          label="Generate"
-          class="justify-center mt-4 w-96"
-          @click="downloadZip"
-          :loading="generateProjectButtonLoadingState"
+            v-if="selectedProjectFlavour.value === 'backoffice' && selectedFrontEnd.value === 'quasar' && selectedBackEnd.value === 'laravel'"
+            label="Generate"
+            class="justify-center mt-4 w-96"
+            @click="downloadZipBackofficeLaravelQuasar"
+            :loading="generateProjectButtonLoadingState"
+        />
+        <UButton
+            v-if="selectedProjectFlavour.value === 'website' && selectedFrontEnd.value === 'nuxt'"
+            label="Generate"
+            class="justify-center mt-4 w-96"
+            @click="downloadZipWebsiteNuxtDaisyUi"
+            :loading="generateProjectButtonLoadingState"
         />
       </div>
       <template #footer>
         <div class="flex justify-center">
           <UButton
-            color="red"
-            variant="ghost"
-            label="Cancel"
-            @click="$emit('closeWizardSummaryModal')"
-            class="w-96 justify-center"
+              color="red"
+              variant="ghost"
+              label="Cancel"
+              @click="$emit('closeWizardSummaryModal')"
+              class="w-96 justify-center"
           />
         </div>
       </template>
