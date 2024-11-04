@@ -98,6 +98,7 @@ onMounted(() => {
             @set-next-step="setWizardStep"
             :key="item.label"
             :frontend-flavour-options="frontendOptions"
+            :orientation="orientation"
           />
           <BackendFlavour
             v-else-if="item.label === 'Backend Flavour'"

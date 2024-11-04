@@ -66,8 +66,12 @@ onUpdated(() => {
 <template>
   <UCard>
     <template #header>{{ headerLabel }}</template>
-    <div class="flex space-x-2.5">
-      <URadioGroup v-model="selectedFrontend" :options="frontendFlavourOptions">
+    <div class="flex flex-col xl:flex-row lg:flex-row md:flex-col sm:flex-col gap-2">
+      <URadioGroup
+       v-model="selectedFrontend"
+        :options="frontendFlavourOptions"
+        v-if="orientation === 'vertical'"
+        >
         <template #label="{ option }">
           <UCard class="w-48 mb-2">
             <template #header>
@@ -97,6 +101,13 @@ onUpdated(() => {
 
       </URadioGroup>
 
+      <USelectMenu
+        v-else
+        value-attribute="value"
+        class="py-4"
+        v-model="selectedFrontend"
+        :options="frontendFlavourOptions"
+      />
       <UCard class="flex-grow">
         <template #header>
           <div v-if="selectedFrontend === 'quasar'">
