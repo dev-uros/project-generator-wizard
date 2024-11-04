@@ -106,6 +106,8 @@ onMounted(() => {
             @set-next-step="setWizardStep"
             :backend-flavour-options="backendOptions"
             :key="item.label"
+            :orientation="orientation"
+
           />
         </template>
       </UTabs>

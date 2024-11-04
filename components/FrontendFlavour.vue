@@ -5,7 +5,8 @@ import type {FRONTEND_OPTION} from "~/constants";
 
 interface Props {
   headerLabel: string,
-  frontendFlavourOptions: FRONTEND_OPTION[]
+  frontendFlavourOptions: FRONTEND_OPTION[],
+  orientation: string
 }
 
 const props = defineProps<Props>()
