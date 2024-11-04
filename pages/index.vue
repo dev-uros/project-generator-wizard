@@ -13,6 +13,49 @@ const {
   selectedBackend,
   setWizardStep
 } = useSetWizardStep()
+
+const orientation = ref('')
+const defaultTabClass = ref({
+  wrapper: 'flex items-center gap-4',
+  list: { width: 'w-48' }
+})
+if (process.client) {
+  window.addEventListener('resize', event => {
+    if (window.innerWidth < 1020) {
+      orientation.value = 'horizontal'
+      defaultTabClass.value = {
+        wrapper: 'gap-4',
+        list: { width: 'w-full' }
+      }
+    } else {
+      orientation.value = 'vertical'
+      defaultTabClass.value = {
+        wrapper: 'flex items-center gap-4',
+        list: { width: 'w-48' }
+      }
+    }
+
+    console.log(window.innerWidth)
+  })
+}
+
+onMounted(() => {
+  if (process.client) {
+    if (window.innerWidth < 1020) {
+      orientation.value = 'horizontal'
+      defaultTabClass.value = {
+        wrapper: 'gap-4',
+        list: { width: 'w-full' }
+      }
+    } else {
+      orientation.value = 'vertical'
+      defaultTabClass.value = {
+        wrapper: 'flex items-center gap-4',
+        list: { width: 'w-48' }
+      }
+    }
+  }
+})
 </script>
 
 <template>
@@ -36,9 +79,9 @@ const {
       </template>
       <UTabs
         :items="wizardSteps"
-        orientation="vertical"
+        :orientation="orientation"
         v-model="selectedStep"
-        :ui="{ wrapper: 'flex items-center gap-4', list: { width: 'w-48' } }"
+        :ui="defaultTabClass"
       >
         <template #item="{ item }">
           <ProjectFlavour
@@ -47,6 +90,7 @@ const {
             @set-next-step="setWizardStep"
             :project-types="projectTypeOptions"
             :key="item.label"
+            :orientation="orientation"
           />
           <FrontendFlavour
             v-else-if="item.label === 'Frontend Flavour'"
