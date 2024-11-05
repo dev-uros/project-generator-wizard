@@ -7,11 +7,10 @@ defineProps(['generatedProjectNames'])
 </script>
 
 <template>
-  <div class="flex flex-row justify-center space-x-2.5 mt-4">
-    <div>
+
       <UCard>
         <template #header> Folders </template>
-        <ul class="list-none h-36 space-y-1.5">
+        <ul class="list-none space-y-1.5">
           <li>
             <div class="flex flex-row gap-4">
               <ZipFolderIcon />
@@ -26,11 +25,10 @@ defineProps(['generatedProjectNames'])
           </li>
         </ul>
       </UCard>
-    </div>
-    <div>
+
       <UCard>
         <template #header> Docker containers </template>
-        <ul class="list-none h-36 space-y-1.5">
+        <ul class="list-none space-y-1.5">
           <li>
             <div class="flex flex-row gap-4">
               <DockerFileClosed />
@@ -39,8 +37,7 @@ defineProps(['generatedProjectNames'])
           </li>
         </ul>
       </UCard>
-    </div>
-  </div>
+
 </template>
 
 <style scoped></style>
