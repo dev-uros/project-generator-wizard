@@ -14,7 +14,7 @@ const {
   setWizardStep
 } = useSetWizardStep()
 
-const orientation = ref('')
+const orientation = ref('horizontal')
 const defaultTabClass = ref({
   wrapper: 'flex items-center gap-4',
   list: { width: 'w-48' }
