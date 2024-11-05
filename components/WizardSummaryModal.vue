@@ -119,7 +119,7 @@ const generatedProjectNamesWebsiteNuxtDaisyUi = computed(function () {
         .toLowerCase()}-website`
   }
 })
-const downloadZipWebsiteNuxtDaisyUi= async () => {
+const downloadZipWebsiteNuxtDaisyUi = async () => {
   generateProjectButtonLoadingState.value = true
   const result = await $fetch('/api/generateWebsiteNuxtDaisyUiProjectTemplate', {
     method: 'POST',
@@ -154,19 +154,19 @@ const downloadZipWebsiteNuxtDaisyUi= async () => {
       }"
     >
       <UCard>
-        <div v-if="selectedProjectFlavour.value === 'backoffice'">
-          <div class="flex flex-row gap-4">
+        <div v-if="selectedProjectFlavour.value === 'backoffice'" class="flex flex-col lg:flex-row gap-4 justify-evenly">
+          <div class="w-full lg:w-1/2">
             <BackendLaravelFolderStructure
-                class="basis-1/2"
                 v-if="selectedBackEnd.value === 'laravel'"
             />
+          </div>
+          <div class="w-full lg:w-1/2 ">
             <FrontendQuasarSpaFolderStructure
-                class="basis-1/2"
                 v-if="selectedFrontEnd.value === 'quasar'"
             />
           </div>
         </div>
-        <div v-else-if="selectedProjectFlavour.value === 'website'">
+        <div v-else-if="selectedProjectFlavour.value === 'website'" class="flex flex-col gap-4 justify-evenly">
           <WebsiteNuxtFolderStructure
               v-if="selectedFrontEnd.value === 'nuxt'"
           />
@@ -185,6 +185,7 @@ const downloadZipWebsiteNuxtDaisyUi= async () => {
           </UForm>
         </div>
       </div>
+      <div class="flex flex-col lg:flex-row justify-center gap-4 mt-4">
       <BackofficeLaravelQuasarDownloadPreview
           :generated-project-names="generatedProjectNamesBackofficeLaravelQuasar"
           v-if="selectedProjectFlavour.value === 'backoffice' && selectedFrontEnd.value === 'quasar' && selectedBackEnd.value === 'laravel'"/>
@@ -192,6 +193,7 @@ const downloadZipWebsiteNuxtDaisyUi= async () => {
       <WebsiteNuxtDaisyUiDownloadPreview
           :generated-project-names="generatedProjectNamesWebsiteNuxtDaisyUi"
           v-if="selectedProjectFlavour.value === 'website' && selectedFrontEnd.value === 'nuxt'"/>
+      </div>
       <div class="flex justify-center">
         <UButton
             v-if="selectedProjectFlavour.value === 'backoffice' && selectedFrontEnd.value === 'quasar' && selectedBackEnd.value === 'laravel'"
