@@ -152,8 +152,8 @@ export const BACKOFFICE_ANGULAR_BACKENDS = [
 
 
 export const WEBSITE_FRONTENDS = [
-    ASTRO_BADGE,
-    NUXT_BADGE
+    NUXT_BADGE,
+    ASTRO_BADGE
 ]
 
 export const WEBSITE_BACKENDS = [
