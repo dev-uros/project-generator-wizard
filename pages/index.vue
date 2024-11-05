@@ -35,7 +35,6 @@ if (process.client) {
       }
     }
 
-    console.log(window.innerWidth)
   })
 }
 

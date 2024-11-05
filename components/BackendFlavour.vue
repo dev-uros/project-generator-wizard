@@ -53,7 +53,6 @@ const backendRadioGrayscale = computed(() => {
 })
 
 onUpdated(() => {
-  console.log(props.backendFlavourOptions)
   if (
     !props.backendFlavourOptions.some(
       (backend: BACKEND_OPTION) => backend.value === selectedBackend.value

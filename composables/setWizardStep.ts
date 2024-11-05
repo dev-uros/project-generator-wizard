@@ -137,7 +137,6 @@ export const useSetWizardStep = () => {
             backendOptions.value = DESKTOP_BACKENDS
         }
 
-        console.log(backendOptions);
         wizardSteps.value[0].disabled = true;
         wizardSteps.value[1].disabled = true;
         wizardSteps.value[optionIndex].disabled = false;
@@ -147,13 +146,6 @@ export const useSetWizardStep = () => {
     const handleGoToSummaryStep = (optionValue: string) => {
 
         selectedBackend.value = backendOptions.value.find(option => option.value === optionValue);
-
-
-        console.log({
-            selectedProjectFlavour:selectedProjectFlavour.value.value,
-            selectedFrontend:selectedFrontend.value.value,
-            selectedBackend:selectedBackend.value.value
-        })
 
 
         wizardSummaryModal.value = true

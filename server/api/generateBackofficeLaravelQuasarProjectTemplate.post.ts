@@ -6,10 +6,8 @@ export default defineEventHandler(async (event) => {
 
 
   const body = await readBody(event);
-  console.log(body)
 
-  console.log('proso')
-  console.log('test')
+
   let projectName = body.projectName || 'Default Project Name';
 
   // Replace spaces with hyphens

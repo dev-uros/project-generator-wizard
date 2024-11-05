@@ -17,9 +17,7 @@ const emit = defineEmits<{
 }>()
 
 const selectedProjectType = ref('backoffice')
-watch(selectedProjectType, value => {
-  console.log(value)
-})
+
 </script>
 
 <template>
