@@ -12,17 +12,17 @@ export const useSetWizardStep = () => {
 
     const wizardSteps = ref([{
         label: 'Project Flavour',
-        icon: 'i-heroicons-information-circle',
+        icon: 'tabler:components',
         description: 'Select project flavour that you would like to conjure',
         disabled: false,
     }, {
         label: 'Frontend Flavour',
-        icon: 'i-heroicons-arrow-down-tray',
+        icon: 'mage:color-swatch',
         description: 'Select your user interface magic',
         disabled: true,
     }, {
         label: 'Backend Flavour',
-        icon: 'i-heroicons-eye-dropper',
+        icon: 'mdi:server',
         description: 'Finally, this is the content for Tab3',
         disabled: true
     }]);
