@@ -92,7 +92,7 @@ onMounted(() => {
             :key="item.label"
             :orientation="orientation"
           />
-          <FrontendFlavour
+          <LazyFrontendFlavour
             v-else-if="item.label === 'Frontend Flavour'"
             :header-label="item.description"
             @set-next-step="setWizardStep"
@@ -100,7 +100,7 @@ onMounted(() => {
             :frontend-flavour-options="frontendOptions"
             :orientation="orientation"
           />
-          <BackendFlavour
+          <LazyBackendFlavour
             v-else-if="item.label === 'Backend Flavour'"
             :header-label="item.label"
             @set-next-step="setWizardStep"
@@ -112,7 +112,7 @@ onMounted(() => {
         </template>
       </UTabs>
     </UCard>
-    <WizardSummaryModal
+    <LazyWizardSummaryModal
       v-if="wizardSummaryModal"
       v-model="wizardSummaryModal"
       :selected-project-flavour="selectedProjectFlavour"

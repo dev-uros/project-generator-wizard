@@ -42,10 +42,10 @@ const closeFeaturesDialog = () => {
       </UButton>
     </article>
 
-    <WebsiteMoreInfoSide v-model="moreInfoSideOpened"
+    <LazyWebsiteMoreInfoSide v-model="moreInfoSideOpened"
                             @close-side="closeSideDialog"
                             @open-feature-details-dialog="openFeaturesDialog"/>
-    <WebsiteFeaturesDialog v-model="detailedFeaturesDialogOpened"
+    <LazyWebsiteFeaturesDialog v-model="detailedFeaturesDialogOpened"
                               @close-dialog="closeFeaturesDialog"/>
   </div>
 </template>
