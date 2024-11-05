@@ -111,7 +111,8 @@ const logImages = ['/images/logs.webp', '/images/log-filters.webp']
 
       <UTabs :items="backofficeFeatureTabs" v-model="selectedStep">
         <template #default="{ item, index, selected }">
-          <span class="truncate hidden lg:block md:hidden" :class="[selected && 'text-primary-500 dark:text-primary-400']">{{ item.label }}</span>
+          <span class="truncate hidden lg:block md:hidden"
+                :class="[selected && 'text-primary-500 dark:text-primary-400']">{{ item.label }}</span>
         </template>
         <template #item="{ item }">
           <UCard>
@@ -122,13 +123,15 @@ const logImages = ['/images/logs.webp', '/images/log-filters.webp']
                 <UButton class="w-1/2"
                          :disabled="item.previous === null"
                          @click="setSelectedStep(item.previous)"
-                         icon="material-symbols:arrow-left-alt"
-                >{{ item.previousLabel }}</UButton>
+                         icon="material-symbols:arrow-left-alt">
+                  {{ item.previousLabel }}
+                </UButton>
                 <UButton class="w-1/2 justify-end"
                          :disabled="item.next === null"
                          @click="setSelectedStep(item.next)"
-                         trailing-icon="material-symbols:arrow-right-alt"
-                >{{ item.nextLabel }}</UButton>
+                         trailing-icon="material-symbols:arrow-right-alt">
+                  {{ item.nextLabel }}
+                </UButton>
               </div>
             </template>
             <div
