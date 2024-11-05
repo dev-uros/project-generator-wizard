@@ -17,7 +17,8 @@ export const PROJECT_TYPES = [
     {
         value: 'desktop',
         label: 'Desktop',
-        icon: 'material-symbols-light:desktop-windows-outline'
+        icon: 'material-symbols-light:desktop-windows-outline',
+        disabled: true
     }
 ]
 
@@ -82,7 +83,8 @@ export const ANGULAR_BADGE = {
         {
             name: 'devicon:angular',
         }
-    ]
+    ],
+    disabled:true
 }
 
 export const NUXT_BADGE = {
@@ -108,7 +110,8 @@ export const ASTRO_BADGE = {
         {
             name: 'logos:daisyui-icon'
         }
-    ]
+    ],
+    disabled: true
 
 }
 
@@ -122,7 +125,8 @@ export const FASTIFY_BADGE = {
         {
             name: 'devicon-plain:fastify'
         }
-    ]
+    ],
+    disabled:true
 }
 
 export const NO_BACKEND_BADGE = {

@@ -84,6 +84,7 @@ onMounted(() => {
         :ui="defaultTabClass"
       >
         <template #item="{ item }">
+
           <ProjectFlavour
             v-if="item.label === 'Project Flavour'"
             :header-label="item.description"

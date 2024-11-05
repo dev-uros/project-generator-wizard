@@ -95,7 +95,11 @@ onUpdated(() => {
               <UIcon v-for="icon in option.icons" :name="icon.name" class="w-10 h-10"
                      :class="{'grayscale': frontendRadioGrayscale.astroGrayScale}"/>
             </div>
-
+            <template v-if="option.disabled" #footer>
+              <div class="flex justify-center text-gray-500">
+                {{ option.disabled ? 'Work in progress' : ''}}
+              </div>
+            </template>
           </UCard>
 
         </template>

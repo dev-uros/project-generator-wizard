@@ -34,6 +34,7 @@ watch(selectedProjectType, value => {
         v-if="orientation === 'vertical'"
       >
         <template #label="{ option }">
+
           <UCard class="w-48 mb-2">
             <template #header>
               {{ option.label }}
@@ -44,7 +45,13 @@ watch(selectedProjectType, value => {
                 class="w-10 h-10 text-green-500"
                 :class="{ grayscale: selectedProjectType !== option.value }"
               />
+
             </div>
+            <template v-if="option.disabled" #footer>
+              <div class="flex justify-center text-gray-500">
+                {{ option.disabled ? 'Work in progress' : ''}}
+              </div>
+            </template>
           </UCard>
         </template>
       </URadioGroup>

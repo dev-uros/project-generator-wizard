@@ -124,6 +124,12 @@ onUpdated(() => {
                 :class="{ grayscale: backendRadioGrayscale.noneGrayScale }"
               />
             </div>
+            <template v-if="option.disabled" #footer>
+              <div class="flex justify-center text-gray-500">
+                {{ option.disabled ? 'Work in progress' : ''}}
+              </div>
+            </template>
+
           </UCard>
         </template>
       </URadioGroup>
