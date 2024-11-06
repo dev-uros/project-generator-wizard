@@ -1,75 +1,71 @@
-# Nuxt 3 Minimal Starter
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+#  PROJECT SETUP
 
-## Setup
 
-Make sure to install the dependencies:
 
-```bash
-# npm
-npm install
+##  Requirements
 
-# pnpm
-pnpm install
 
-# yarn
-yarn install
 
-# bun
-bun install
-```
 
-## Development Server
+-  Installed `Docker`
 
-Start the development server on `http://localhost:3000`:
 
-```bash
-# npm
-npm run dev
 
-# pnpm
-pnpm run dev
+	-  [Get Docker](https://www.docker.com/)
 
-# yarn
-yarn dev
 
-# bun
-bun run dev
-```
 
-## Production
 
-Build the application for production:
 
-```bash
-# npm
-npm run build
+-  Installed `GNU Make`
 
-# pnpm
-pnpm run build
 
-# yarn
-yarn build
 
-# bun
-bun run build
-```
+	-  [Get GNU Make](https://formulae.brew.sh/formula/make#default)
 
-Locally preview production build:
 
-```bash
-# npm
-npm run preview
 
-# pnpm
-pnpm run preview
 
-# yarn
-yarn preview
 
-# bun
-bun run preview
-```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+###  Project initialization
+
+
+
+
+Run the following command: `make up`
+
+
+
+
+That's it, once quasar is ready, app will be available at http://localhost:9000
+
+
+
+
+###  Additional information
+
+
+
+
+1.  Command `make up` brings the docker container up and running
+
+
+
+
+2.  Command `make down` shuts the docker container down
+
+
+
+
+3.  Command `make node` enters the docker node process terminal (*use for npm commands*)
+
+
+
+
+4.  When making changes to .env file, you can make them inside of the .env.local file and then run `make env` command. The command copies data from .env.local to .env file inside of the app directory. By default, .env.local file is not ignored by git tracking, so local environment variables can easily be shared amongst the collaborators.
+
+
+
+**When finished with developing run make down!**
