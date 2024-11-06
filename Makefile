@@ -10,11 +10,21 @@ fix-env:
 	fi
 	touch $(PWD)/app/.env
 
-up:
-	docker compose up --build
+up-dev:
+	docker compose -f $(DOCKER_COMPOSE_DEV_FILE) up --build
 
-down:
-	docker compose -f docker-compose.yaml down
+
+up-prod:
+	docker compose -f $(DOCKER_COMPOSE_PROD_FILE) up -d --build
+
+
+down-dev:
+	docker compose -f $(DOCKER_COMPOSE_DEV_FILE) down
+	docker container prune
+	docker image prune -a
+
+down-prod:
+	docker compose -f $(DOCKER_COMPOSE_DEV_FILE) down
 	docker container prune
 	docker image prune -a
 

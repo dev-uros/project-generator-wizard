@@ -1,0 +1,11 @@
+services:
+  nuxt:
+    container_name: project-generator-wizard-web-app
+    build:
+      context: .
+      target: 'production-stage'
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=production
+    command: ["node", ".output/server/index.mjs"]
