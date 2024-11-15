@@ -58,7 +58,7 @@
 
               <q-item-section>Korisnici</q-item-section>
             </q-item>
-            <q-item
+            <!-- <q-item
               clickable
               v-ripple
               :active="link === 'logs'"
@@ -71,7 +71,7 @@
               </q-item-section>
 
               <q-item-section>Logovi</q-item-section>
-            </q-item>
+            </q-item> -->
 
           </q-list>
 
