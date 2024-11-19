@@ -90,8 +90,11 @@ const downloadZipBackofficeLaravelQuasar = async () => {
   const url = window.URL.createObjectURL(result as Blob)
   const a = document.createElement('a')
   a.href = url
-  a.download = `${state.appName.replace(/\s+/g, '-').toLowerCase()}.zip` // Set the desired filename
-
+  a.download = `${
+      state.appName
+          ? state.appName.replace(/\s+/g, '-').toLowerCase()
+          : 'default-project'
+  }.zip` // Set the desired filename
   // Append to the body and trigger click
   document.body.appendChild(a)
   a.click()
@@ -144,7 +147,6 @@ const downloadZipWebsiteNuxtDaisyUi = async () => {
       : 'default-project'
   }.zip` // Set the desired filename
 
-  console.log(a.download)
   // Append to the body and trigger click
   document.body.appendChild(a)
   a.click()
