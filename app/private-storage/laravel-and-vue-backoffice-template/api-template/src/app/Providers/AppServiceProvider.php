@@ -19,6 +19,7 @@ use App\Repositories\UserRepository;
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\DB;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -29,6 +30,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+
+        $this->app->singleton('logMessagesArray', function (){
+            return [];
+        });
         $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
 
         $this->app->bind(PasswordResetRepositoryInterface::class, PasswordResetRepository::class);
@@ -50,6 +55,19 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Model::unguard();
+
+                // Store executed queries for each request
+                DB::listen(function ($query) {
+                    // Initialize or get the current request's query log
+                    $executedQueries = app()->has('executedQueries') ? app('executedQueries') : [];
+                    $executedQueries[] = [
+                        'query' => $query->sql,
+                        'bindings' => $query->bindings,
+                        'time' => $query->time,
+                    ];
+                    app()->instance('executedQueries', $executedQueries);
+                });
+
         User::observe(UserObserver::class);
     }
 }

@@ -58,11 +58,11 @@
 
               <q-item-section>Korisnici</q-item-section>
             </q-item>
-            <!-- <q-item
+            <q-item
               clickable
               v-ripple
               :active="link === 'logs'"
-              :to="{name: 'app.logs'}"
+              :to="{name: 'logs.index'}"
               @click="link = 'logs'"
               active-class="my-menu-link"
             >
@@ -71,7 +71,21 @@
               </q-item-section>
 
               <q-item-section>Logovi</q-item-section>
-            </q-item> -->
+            </q-item>
+            <!--            <q-item-->
+            <!--              clickable-->
+            <!--              v-ripple-->
+            <!--              :active="link === 'docs'"-->
+            <!--              :to="{name: 'docs.index'}"-->
+            <!--              @click="link = 'docs'"-->
+            <!--              active-class="my-menu-link"-->
+            <!--            >-->
+            <!--              <q-item-section avatar>-->
+            <!--                <q-icon name="folder"/>-->
+            <!--              </q-item-section>-->
+
+            <!--              <q-item-section>Dokumentacija</q-item-section>-->
+            <!--            </q-item>-->
 
           </q-list>
 

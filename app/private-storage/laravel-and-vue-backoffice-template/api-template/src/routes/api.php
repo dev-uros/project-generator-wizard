@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Middleware\LogRequestResponseMiddleware;
 use App\Http\Middleware\LogUserAction;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ApiLogViewerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,8 +55,15 @@ Route::middleware(['auth:sanctum', 'user.active', LogUserAction::class, LogReque
     });
 
     Route::prefix('log-viewer')->group(function () {
-        Route::get('file-list', [LogViewerController::class, 'getFileList'])->name('log-viewer.get-files')->withoutMiddleware([LogUserAction::class, LogRequestResponseMiddleware::class]);
-        Route::get('file', [LogViewerController::class, 'getFileContent'])->name('log-viewer.get-file')->withoutMiddleware([LogUserAction::class, LogRequestResponseMiddleware::class]);
+
+        Route::prefix('api-logs')->group(function (){
+            Route::get('folder-list', [ApiLogViewerController::class, 'getFolders'])->name('log-viewer.api-logs.folder-list')->withoutMiddleware([LogUserAction::class, LogRequestResponseMiddleware::class]);
+            Route::get('file-list', [ApiLogViewerController::class, 'getFiles'])->name('log-viewer.api-logs.file-list')->withoutMiddleware([LogUserAction::class, LogRequestResponseMiddleware::class]);
+            Route::get('file-entries', [ApiLogViewerController::class, 'getFileEntries'])->name('log-viewer.api-logs.file-entries')->withoutMiddleware([LogUserAction::class, LogRequestResponseMiddleware::class]);
+            Route::get('entry-details', [ApiLogViewerController::class, 'getEntryDetails'])->name('log-viewer.api-logs.entry-details')->withoutMiddleware([LogUserAction::class, LogRequestResponseMiddleware::class]);
+        });
+
     });
+
 
 });

@@ -154,6 +154,8 @@ web_modules/
 
 !private-storage/laravel-and-vue-backoffice-template/api-template/.env.local
 !private-storage/laravel-and-vue-backoffice-template/app-template/.env.local
+!private-storage/laravel-and-vue-backoffice-template/app-template/app/src/modules/administration/logs
+
 !private-storage/nuxt-and-daisyui-website-template/.env.local
 
 # parcel-bundler cache (https://parceljs.org/)
