@@ -35,6 +35,13 @@ defineProps(['generatedProjectNames'])
               {{ generatedProjectNames.frontendProjectFolderName }}
             </div>
           </li>
+          <li class="ml-5">
+            <div class="flex flex-row gap-4">
+              <FolderIconClosed />
+              {{ generatedProjectNames.documentationProjectFolderName }}
+            </div>
+          </li>
+
         </ul>
       </UCard>
 
@@ -71,6 +78,13 @@ defineProps(['generatedProjectNames'])
               {{ generatedProjectNames.frontendAppContainerName }}
             </div>
           </li>
+          <li>
+            <div class="flex flex-row gap-4">
+              <DockerFileClosed />
+              {{ generatedProjectNames.documentationAppContainerName }}
+            </div>
+          </li>
+
         </ul>
       </UCard>
 

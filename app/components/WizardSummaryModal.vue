@@ -28,6 +28,9 @@ const generatedProjectNamesBackofficeLaravelQuasar = computed(function () {
       frontendProjectFolderName: `${defaultAppName
         .replace(/\s+/g, '-')
         .toLowerCase()}-app`,
+      documentationProjectFolderName: `${defaultAppName
+          .replace(/\s+/g, '-')
+          .toLowerCase()}-documentation`,
       backendProjectFolderName: `${defaultAppName
         .replace(/\s+/g, '-')
         .toLowerCase()}-api`,
@@ -45,7 +48,10 @@ const generatedProjectNamesBackofficeLaravelQuasar = computed(function () {
         .toLowerCase()}-api-php`,
       frontendAppContainerName: `${defaultAppName
         .replace(/\s+/g, '-')
-        .toLowerCase()}-app`
+        .toLowerCase()}-app`,
+      documentationAppContainerName: `${defaultAppName
+          .replace(/\s+/g, '-')
+          .toLowerCase()}-documentation`
     }
   }
   return {
@@ -171,14 +177,19 @@ const downloadZipWebsiteNuxtDaisyUi = async () => {
           v-if="selectedProjectFlavour.value === 'backoffice'"
           class="flex flex-col lg:flex-row gap-4 justify-evenly"
         >
-          <div class="w-full lg:w-1/2">
+          <div class="w-full lg:w-1/3">
             <BackendLaravelFolderStructure
               v-if="selectedBackEnd.value === 'laravel'"
             />
           </div>
-          <div class="w-full lg:w-1/2">
+          <div class="w-full lg:w-1/3">
             <FrontendQuasarSpaFolderStructure
               v-if="selectedFrontEnd.value === 'quasar'"
+            />
+          </div>
+          <div class="w-full lg:w-1/3">
+            <DocumentationVitepressFolderStructure
+                v-if="selectedFrontEnd.value === 'quasar' && selectedBackEnd.value === 'laravel'"
             />
           </div>
         </div>
