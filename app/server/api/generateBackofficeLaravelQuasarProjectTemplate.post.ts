@@ -17,6 +17,9 @@ export default defineEventHandler(async (event) => {
 
   const frontendEnvVariables = generateFrontendEnvVariables(projectName);
 
+  const documentationEnvVariables = generateDocumentationEnvVariables(projectName);
+
+
   const originalFolderPath = join(process.cwd(), 'private-storage', 'laravel-and-vue-backoffice-template'); // Path to your private folder
 
   const tempFolderId = nanoid(); // Generate a unique temporary folder ID
@@ -41,6 +44,15 @@ export default defineEventHandler(async (event) => {
   await populateFrontendEnvLocalVariables(tempFolderPath, projectName)
 
   await populateFrontendDockerComposeVariables(tempFolderPath, frontendEnvVariables)
+
+
+  await populateDocumentationDockerDotEnvVariables(tempFolderPath, documentationEnvVariables);
+
+  await populateDocumentationDockerComposeVariables(tempFolderPath, documentationEnvVariables)
+
+  await populateDocumentationIndexVariables(tempFolderPath, documentationEnvVariables)
+  //
+  await populateDocumentationConfigVariables(tempFolderPath, documentationEnvVariables)
 
 
   await renameSpecificFolders(tempFolderPath, projectName);
@@ -79,7 +91,7 @@ export default defineEventHandler(async (event) => {
 
 const renameSpecificFolders = async (folderPath: string, projectName: string) =>{
   // Define the subfolders to rename
-  const foldersToRename = ['api-template', 'app-template'];
+  const foldersToRename = ['api-template', 'app-template', 'documentation-template'];
 
   for (const folderName of foldersToRename) {
     const oldPath = join(folderPath, folderName);
@@ -88,8 +100,11 @@ const renameSpecificFolders = async (folderPath: string, projectName: string) =>
       if(folderName === 'api-template'){
         const newPath = join(folderPath, `${projectName}-api`);
         await fs.rename(oldPath, newPath);
-      }else{
+      }else if(folderName === 'app-template'){
         const newPath = join(folderPath, `${projectName}-app`);
+        await fs.rename(oldPath, newPath);
+      }else{
+        const newPath = join(folderPath, `${projectName}-documentation`);
         await fs.rename(oldPath, newPath);
       }
 
@@ -114,6 +129,14 @@ const generateFrontendEnvVariables = (projectName: string) => {
     appContainerName: `${projectName}-app`,
   }
 }
+
+const generateDocumentationEnvVariables = (projectName: string) => {
+  return {
+    documentationContainerName: `${projectName}-documentation`,
+    projectName: `${projectName}`
+  }
+}
+
 
 const populateDockerDotEnvVariables = async (tempFolderPath: string, backendEnvVariables) => {
   // Path to the docker-compose.yml inside the copied folder
@@ -158,6 +181,26 @@ const populateFrontEndDockerDotEnvVariables = async (tempFolderPath: string, fro
     await fs.writeFile(dockerDotEnvFilePath, dockerDotEnvContent, 'utf8');
   }
 }
+
+const populateDocumentationDockerDotEnvVariables = async (tempFolderPath: string, documentationEnvVariables) => {
+  // Path to the docker-compose.yml inside the copied folder
+  const dockerDotEnvFilePath = join(tempFolderPath, 'documentation-template', '.env.docker');
+
+  // Check if docker-compose.yml exists and modify it
+  if (await fs.pathExists(dockerDotEnvFilePath)) {
+    // Read the content of docker-compose.yml
+    let dockerDotEnvContent = await fs.readFile(dockerDotEnvFilePath, 'utf8');
+
+    // Replace the placeholders with user inputs
+    dockerDotEnvContent = dockerDotEnvContent
+        .replace(/{{documentationContainerName}}/g, documentationEnvVariables.documentationContainerName)
+
+
+    // Write the modified content back to docker-compose.yml
+    await fs.writeFile(dockerDotEnvFilePath, dockerDotEnvContent, 'utf8');
+  }
+}
+
 
 const populateEnvLocalVariables = async (tempFolderPath: string, backendEnvVariables, projectName: string)=>{
   const dotEnvLocalFilePath = join(tempFolderPath, 'api-template', '.env.local');
@@ -265,5 +308,59 @@ const populateFrontendDockerComposeVariables = async (tempFolderPath: string, fr
 
     // Write the modified content back to docker-compose.yml
     await fs.writeFile(dockerComposeFilePath, dockerComposeContent, 'utf8');
+  }
+}
+
+const populateDocumentationDockerComposeVariables = async (tempFolderPath: string, documentationEnvVariables) => {
+  const dockerComposeFilePath = join(tempFolderPath, 'documentation-template', 'docker-compose.yml');
+
+  // Check if docker-compose.yml exists and modify it
+  if (await fs.pathExists(dockerComposeFilePath)) {
+    // Read the content of docker-compose.yml
+    let dockerComposeContent = await fs.readFile(dockerComposeFilePath, 'utf8');
+
+    // Replace the placeholders with user inputs
+    dockerComposeContent = dockerComposeContent
+        .replace(/{{documentationContainerName}}/g, documentationEnvVariables.documentationContainerName)
+
+
+    // Write the modified content back to docker-compose.yml
+    await fs.writeFile(dockerComposeFilePath, dockerComposeContent, 'utf8');
+  }
+}
+
+const populateDocumentationIndexVariables = async (tempFolderPath: string, documentationEnvVariables) => {
+  const indexMdFilePath = join(tempFolderPath, 'documentation-template', 'app', 'docs', 'index.md');
+
+  // Check if docker-compose.yml exists and modify it
+  if (await fs.pathExists(indexMdFilePath)) {
+    // Read the content of docker-compose.yml
+    let indexMdContent = await fs.readFile(indexMdFilePath, 'utf8');
+
+    // Replace the placeholders with user inputs
+    indexMdContent = indexMdContent
+        .replace(/{{projectName}}/g, documentationEnvVariables.projectName)
+
+
+    // Write the modified content back to docker-compose.yml
+    await fs.writeFile(indexMdFilePath, indexMdContent, 'utf8');
+  }
+}
+
+const populateDocumentationConfigVariables = async (tempFolderPath: string, documentationEnvVariables) => {
+  const configFilePath = join(tempFolderPath, 'documentation-template', 'app', 'docs', '.vitepress', 'config.mts');
+
+  // Check if docker-compose.yml exists and modify it
+  if (await fs.pathExists(configFilePath)) {
+    // Read the content of docker-compose.yml
+    let configContent = await fs.readFile(configFilePath, 'utf8');
+
+    // Replace the placeholders with user inputs
+    configContent = configContent
+        .replace(/{{projectName}}/g, documentationEnvVariables.projectName)
+
+
+    // Write the modified content back to docker-compose.yml
+    await fs.writeFile(configFilePath, configContent, 'utf8');
   }
 }

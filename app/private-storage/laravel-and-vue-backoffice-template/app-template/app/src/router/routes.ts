@@ -6,6 +6,7 @@ import guest from "src/modules/shared/middleware/guest";
 import {authRoutes} from "src/modules/auth/routes";
 import {sharedRoutes} from "src/modules/shared/routes";
 import {administrationRoutes} from "src/modules/administration/routes";
+import {docsRoutes} from "src/modules/docs/routes";
 
 
 const routes: RouteRecordRaw[] = [
@@ -16,6 +17,7 @@ const routes: RouteRecordRaw[] = [
       middleware: [auth]
     },
     children: [
+      ...docsRoutes,
       ...homeRoutes,
       ...administrationRoutes,
       ...settingsRoutes,

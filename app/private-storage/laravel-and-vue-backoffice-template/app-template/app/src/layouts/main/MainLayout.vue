@@ -72,20 +72,20 @@
 
               <q-item-section>Logovi</q-item-section>
             </q-item>
-            <!--            <q-item-->
-            <!--              clickable-->
-            <!--              v-ripple-->
-            <!--              :active="link === 'docs'"-->
-            <!--              :to="{name: 'docs.index'}"-->
-            <!--              @click="link = 'docs'"-->
-            <!--              active-class="my-menu-link"-->
-            <!--            >-->
-            <!--              <q-item-section avatar>-->
-            <!--                <q-icon name="folder"/>-->
-            <!--              </q-item-section>-->
+            <q-item
+              clickable
+              v-ripple
+              :active="link === 'docs'"
+              :to="{name: 'docs.index'}"
+              @click="link = 'docs'"
+              active-class="my-menu-link"
+            >
+              <q-item-section avatar>
+                <q-icon name="description"/>
+              </q-item-section>
 
-            <!--              <q-item-section>Dokumentacija</q-item-section>-->
-            <!--            </q-item>-->
+              <q-item-section>Dokumentacija</q-item-section>
+            </q-item>
 
           </q-list>
 
@@ -176,6 +176,7 @@ import {useRouter} from "vue-router";
 import BaseTooltip from "src/modules/shared/components/BaseTooltip.vue";
 import {User} from "src/modules/administration/users/types";
 import {useAuthStore} from "src/modules/auth/store";
+
 const ChatContainer = defineAsyncComponent(() => import('layouts/main/components/ChatContainer.vue'))
 const webSocketServerEnabled = process.env.WEBSOCKET_SERVER === 'true';
 
@@ -192,7 +193,7 @@ const router = useRouter();
 
 
 const logout = async () => {
-  if(webSocketServerEnabled){
+  if (webSocketServerEnabled) {
     chatContainer.value.sendBeforeUnloadMessage();
   }
 
@@ -243,8 +244,6 @@ const backToHome = () => {
     name: 'home'
   })
 }
-
-
 
 
 </script>
