@@ -77,7 +77,7 @@ const setSelectedStep = (index: number) => {
   selectedStep.value = index
 
 }
-const logImages = ['/images/logs.webp', '/images/log-filters.webp']
+const logImages = ['/images/logs-main-page.webp', '/images/logs-200.webp', '/images/logs-422.webp', '/images/logs-500.webp']
 </script>
 
 <template>
@@ -530,17 +530,19 @@ const logImages = ['/images/logs.webp', '/images/log-filters.webp']
                       </UBadge>
                       Logs
                       <p>
-                        Administrator can see all the log folders on the right
-                        side
+                        All API endpoints have automatic logging mechanism which logs request meta data (date, time, user, params, url, status, response)
                       </p>
                       <p>
-                        On selected log folder, log files load, per each day
+                        First dropdown menu contains all endpoints which have some logs related to them
                       </p>
                       <p>
-                        On expanding log file, prettified json is displayed,
-                        containing details of requests and responses (such as,
-                        user that made the request, request time, response time,
-                        response data, errors, etc...)
+                        On selected endpoint, list of log files are generated on second dropdown menu
+                      </p>
+                      <p>
+                        On selected both endpoint and log file dropdown menus, a list of logs with some basic info is displayed inside of paginated table
+                      </p>
+                      <p>
+                        Button details opens log details in new tab
                       </p>
                     </li>
 
@@ -550,24 +552,26 @@ const logImages = ['/images/logs.webp', '/images/log-filters.webp']
                           size="md"
                           :ui="{ rounded: 'rounded-full' }"
                       >
-                        <UIcon name="material-symbols:filter-list"/>
+                        <UIcon name="icon-park-outline:more-four"/>
                       </UBadge>
-                      Filters
+                      Log Details
                       <p>
-                        Log files can be filtered with following parameters:
+                        Log details contains all that logged within an api call
                       </p>
                       <p>
-                        Request time from - to (default selected first request -
-                        last request time)
+                        Url, method, status, request date and time, user
                       </p>
                       <p>
-                        User that made the request (drop down menu contains only
-                        users from requests from the selected log folder)
+                        All queries that were executed, with options to copy to clipboard individual query, or all of the at once
                       </p>
                       <p>
-                        All logs are stored for
-                        <span class="font-bold text-red-500">7 days</span> (can
-                        be configured)
+                        All custom messages that were logged, with options to copy to clipboard individual message, or all of the at once
+                      </p>
+                      <p>
+                        Entire response is logged, with options to copy to clipboard
+                      </p>
+                      <p>
+                        Server errors are logged, with options to copy to clipboard individual error, or all at once
                       </p>
                     </li>
                   </ul>
