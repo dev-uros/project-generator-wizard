@@ -74,7 +74,7 @@ const setSelectedStep = (index: number) => {
             <div v-if="item.label === 'Website'" class="w-full gap-4">
               <p class="mb-8">Website preview</p>
 
-              <iframe src="http://urosminic.com:3001/services" title="Website Template" class="w-full min-h-screen"></iframe>
+              <iframe src="https://nuxt-daisyui-website-preview.urosminic.com/" title="Website Template" class="w-full min-h-screen"></iframe>
             </div>
 
 
