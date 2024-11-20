@@ -59,6 +59,14 @@ const backofficeFeatureTabs = [
     icon: 'material-symbols:settings-input-component',
     previous: 5,
     previousLabel: 'Logs',
+    next: 7,
+    nextLabel: 'Docs'
+  },
+  {
+    label: 'Docs',
+    icon: 'material-symbols:docs-apps-script',
+    previous: 6,
+    previousLabel: 'Settings',
     next: null,
     nextLabel: null
   }
@@ -530,7 +538,8 @@ const logImages = ['/images/logs-main-page.webp', '/images/logs-200.webp', '/ima
                       </UBadge>
                       Logs
                       <p>
-                        All API endpoints have automatic logging mechanism which logs request meta data (date, time, user, params, url, status, response)
+                        All API endpoints have automatic logging mechanism which logs request meta data (date, time,
+                        user, params, url, status, response)
                       </p>
                       <p>
                         First dropdown menu contains all endpoints which have some logs related to them
@@ -539,7 +548,8 @@ const logImages = ['/images/logs-main-page.webp', '/images/logs-200.webp', '/ima
                         On selected endpoint, list of log files are generated on second dropdown menu
                       </p>
                       <p>
-                        On selected both endpoint and log file dropdown menus, a list of logs with some basic info is displayed inside of paginated table
+                        On selected both endpoint and log file dropdown menus, a list of logs with some basic info is
+                        displayed inside of paginated table
                       </p>
                       <p>
                         Button details opens log details in new tab
@@ -562,10 +572,12 @@ const logImages = ['/images/logs-main-page.webp', '/images/logs-200.webp', '/ima
                         Url, method, status, request date and time, user
                       </p>
                       <p>
-                        All queries that were executed, with options to copy to clipboard individual query, or all of the at once
+                        All queries that were executed, with options to copy to clipboard individual query, or all of
+                        the at once
                       </p>
                       <p>
-                        All custom messages that were logged, with options to copy to clipboard individual message, or all of the at once
+                        All custom messages that were logged, with options to copy to clipboard individual message, or
+                        all of the at once
                       </p>
                       <p>
                         Entire response is logged, with options to copy to clipboard
@@ -611,6 +623,15 @@ const logImages = ['/images/logs-main-page.webp', '/images/logs-200.webp', '/ima
                 </article>
               </div>
             </div>
+            <div
+                v-if="item.label === 'Docs'"
+                class="w-full gap-4"
+            >
+              <p class="mb-8">This Documentation app is, via iframe, embedded into main single page vue application</p>
+
+              <iframe src="http://localhost:5173" title="Documentation Template" class="w-full min-h-screen"></iframe>
+            </div>
+
           </UCard>
         </template>
       </UTabs>
