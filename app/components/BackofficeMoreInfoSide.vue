@@ -20,6 +20,11 @@ const accordionItems = [
     label: 'Settings',
     icon: 'material-symbols:settings',
     slot: 'settings',
+  },
+  {
+    label: 'Docs',
+    icon: 'material-symbols:docs-apps-script',
+    slot: 'docs',
   }
 ]
 
@@ -170,6 +175,18 @@ const emit = defineEmits<{
 
           </template>
 
+          <template #docs>
+            <article class="prose prose-sm dark:prose-invert">
+              <p>Standalone documentation app which is embedded into main application</p>
+
+              <UDivider class="mb-3 mt-3"/>
+
+              <p>All above functionalities are covered in <a href="https://vitepress.dev/" target="_blank">Vitepress</a> documentation app</p>
+
+
+            </article>
+
+          </template>
 
         </UAccordion>
       </div>
