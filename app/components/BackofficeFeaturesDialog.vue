@@ -139,9 +139,8 @@ const logImages = ['/images/logs.webp', '/images/log-filters.webp']
                 class="flex flex-col xl:flex-row w-full gap-4"
             >
               <div class="w-full xl:w-2/3">
-                <NuxtImg
-                    preload
-                    format="webp"
+                <img
+                    alt="Users Overview Image"
                     src="/images/users-overview.webp"
                 />
               </div>
@@ -222,9 +221,8 @@ const logImages = ['/images/logs.webp', '/images/log-filters.webp']
                 class="flex flex-col xl:flex-row w-full gap-4"
             >
               <div class="w-full xl:w-2/3">
-                <NuxtImg
-                    preload
-                    format="webp"
+                <img
+                    alt="User Creation Image"
                     src="/images/user-creation.webp"
                 />
               </div>
@@ -285,9 +283,8 @@ const logImages = ['/images/logs.webp', '/images/log-filters.webp']
                 class="flex flex-col xl:flex-row w-full gap-4"
             >
               <div class="w-full xl:w-2/3">
-                <NuxtImg
-                    preload
-                    format="webp"
+                <img
+                    alt="Activate Account Image"
                     src="/images/activate-account-email.webp"
                 />
               </div>
@@ -324,9 +321,8 @@ const logImages = ['/images/logs.webp', '/images/log-filters.webp']
                 class="flex flex-col xl:flex-row w-full gap-4"
             >
               <div class="w-full xl:w-2/3">
-                <NuxtImg
-                    preload
-                    format="webp"
+                <img
+                    alt="User Activate Account Image"
                     src="/images/user-activate-account.webp"
                 />
               </div>
@@ -406,9 +402,8 @@ const logImages = ['/images/logs.webp', '/images/log-filters.webp']
                 class="flex flex-col xl:flex-row w-full gap-4"
             >
               <div class="w-full xl:w-2/3">
-                <NuxtImg
-                    preload
-                    format="webp"
+                <img
+                    alt="User Details Image"
                     src="/images/user-details.webp"
                 />
               </div>
@@ -515,7 +510,7 @@ const logImages = ['/images/logs.webp', '/images/log-filters.webp']
                     :prev-button="{ color: 'green' }"
                     arrows
                 >
-                  <NuxtImg :src="item" class="w-full" draggable="false"/>
+                  <img :src="item" class="w-full" alt="Logs Carousel Image"/>
                 </UCarousel>
               </div>
               <div class="w-full xl:w-1/3">
@@ -584,7 +579,7 @@ const logImages = ['/images/logs.webp', '/images/log-filters.webp']
                 class="flex flex-col xl:flex-row w-full gap-4"
             >
               <div class="w-full xl:w-2/3">
-                <NuxtImg preload format="webp" src="/images/settings.webp"/>
+                <img alt="Settings Image" src="/images/settings.webp"/>
               </div>
               <div class="w-full xl:w-1/3">
                 <article class="prose prose-sm dark:prose-invert">

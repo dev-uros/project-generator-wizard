@@ -193,7 +193,7 @@ const setSelectedStep = (index: number) => {
                            :next-button="{color: 'green'}"
                            :prev-button="{color: 'green'}"
                            arrows>
-                  <NuxtImg :src="item" class="w-full" draggable="false"/>
+                  <img alt="Home Page Desktop View Images" :src="item" class="w-full"/>
                 </UCarousel>
               </div>
               <div class="w-full xl:w-1/2 text-center">
@@ -207,7 +207,7 @@ const setSelectedStep = (index: number) => {
                     arrows
                     class="w-64 mx-auto"
                 >
-                  <NuxtImg :src="item" class="w-full" draggable="false"/>
+                  <img alt="Home Page Mobile View Images" :src="item" class="w-full" />
                 </UCarousel>
 
               </div>
@@ -220,7 +220,7 @@ const setSelectedStep = (index: number) => {
                            :next-button="{color: 'green'}"
                            :prev-button="{color: 'green'}"
                            arrows>
-                  <NuxtImg :src="item" class="w-full" draggable="false"/>
+                  <img alt="About Us Page Desktop View" :src="item" class="w-full" />
                 </UCarousel>
               </div>
               <div class="w-full xl:w-1/2 text-center">
@@ -235,7 +235,7 @@ const setSelectedStep = (index: number) => {
                     arrows
                     class="w-64 mx-auto"
                 >
-                  <NuxtImg :src="item" class="w-full" draggable="false"/>
+                  <img alt="About Us Page Mobile View" :src="item" class="w-full" draggable="false"/>
                 </UCarousel>
 
               </div>
@@ -249,7 +249,7 @@ const setSelectedStep = (index: number) => {
                            :next-button="{color: 'green'}"
                            :prev-button="{color: 'green'}"
                            arrows>
-                  <NuxtImg :src="item" class="w-full" draggable="false"/>
+                  <img alt="Services Page Desktop View" :src="item" class="w-full" />
                 </UCarousel>
               </div>
               <div class="w-full xl:w-1/2 text-center">
@@ -264,7 +264,7 @@ const setSelectedStep = (index: number) => {
                     arrows
                     class="w-64 mx-auto"
                 >
-                  <NuxtImg :src="item" class="w-full" draggable="false"/>
+                  <img alt="Services Page Mobile View" :src="item" class="w-full" />
                 </UCarousel>
 
               </div>
@@ -278,7 +278,7 @@ const setSelectedStep = (index: number) => {
                            :next-button="{color: 'green'}"
                            :prev-button="{color: 'green'}"
                            arrows>
-                  <NuxtImg :src="item" class="w-full" draggable="false"/>
+                  <img alt="Products Page Desktop View" :src="item" class="w-full" />
                 </UCarousel>
               </div>
               <div class="w-full xl:w-1/2 text-center">
@@ -293,7 +293,7 @@ const setSelectedStep = (index: number) => {
                     arrows
                     class="w-64 mx-auto"
                 >
-                  <NuxtImg :src="item" class="w-full" draggable="false"/>
+                  <img alt="Products Page Mobile View" :src="item" class="w-full" />
                 </UCarousel>
 
               </div>
@@ -307,7 +307,7 @@ const setSelectedStep = (index: number) => {
                            :next-button="{color: 'green'}"
                            :prev-button="{color: 'green'}"
                            arrows>
-                  <NuxtImg :src="item" class="w-full" draggable="false"/>
+                  <img alt="Blog Page Desktop View" :src="item" class="w-full" />
                 </UCarousel>
               </div>
               <div class="w-full xl:w-1/2 text-center">
@@ -322,7 +322,7 @@ const setSelectedStep = (index: number) => {
                     arrows
                     class="w-64 mx-auto"
                 >
-                  <NuxtImg :src="item" class="w-full" draggable="false"/>
+                  <img alt="Blog Page Mobile View" :src="item" class="w-full" />
                 </UCarousel>
 
               </div>
@@ -336,7 +336,7 @@ const setSelectedStep = (index: number) => {
                            :next-button="{color: 'green'}"
                            :prev-button="{color: 'green'}"
                            arrows>
-                  <NuxtImg :src="item" class="w-full" draggable="false"/>
+                  <img alt="FAQ Page Desktop View" :src="item" class="w-full" draggable="false"/>
                 </UCarousel>
               </div>
               <div class="w-full xl:w-1/2 text-center">
@@ -351,7 +351,7 @@ const setSelectedStep = (index: number) => {
                     arrows
                     class="w-64 mx-auto"
                 >
-                  <NuxtImg :src="item" class="w-full" draggable="false"/>
+                  <img alt="FAQ page Mobile View" :src="item" class="w-full" />
                 </UCarousel>
 
               </div>
@@ -365,7 +365,7 @@ const setSelectedStep = (index: number) => {
                            :next-button="{color: 'green'}"
                            :prev-button="{color: 'green'}"
                            arrows>
-                  <NuxtImg :src="item" class="w-full" draggable="false"/>
+                  <img alt="Contact Page Desktop View" :src="item" class="w-full" >
                 </UCarousel>
               </div>
               <div class="w-full xl:w-1/2 text-center">
@@ -380,7 +380,7 @@ const setSelectedStep = (index: number) => {
                     arrows
                     class="w-64 mx-auto"
                 >
-                  <NuxtImg :src="item" class="w-full" draggable="false"/>
+                  <img alt="Contact Page Mobile View" :src="item" class="w-full" />
                 </UCarousel>
 
               </div>
