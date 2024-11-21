@@ -629,7 +629,7 @@ const logImages = ['/images/logs-main-page.webp', '/images/logs-200.webp', '/ima
             >
               <p class="mb-8">This Documentation app is, via iframe, embedded into main single page vue application</p>
 
-              <iframe src="http://localhost:5173" title="Documentation Template" class="w-full min-h-screen"></iframe>
+              <iframe src="https://vitepress-documentation-preview.urosminic.com" title="Documentation Template" class="w-full min-h-screen"></iframe>
             </div>
 
           </UCard>

@@ -60,6 +60,9 @@ const generatedProjectNamesBackofficeLaravelQuasar = computed(function () {
     frontendProjectFolderName: `${state.appName
       .replace(/\s+/g, '-')
       .toLowerCase()}-app`,
+    documentationProjectFolderName: `${state.appName
+        .replace(/\s+/g, '-')
+        .toLowerCase()}-documentation`,
     backendProjectFolderName: `${state.appName
       .replace(/\s+/g, '-')
       .toLowerCase()}-api`,
@@ -77,7 +80,10 @@ const generatedProjectNamesBackofficeLaravelQuasar = computed(function () {
       .toLowerCase()}-api-php`,
     frontendAppContainerName: `${state.appName
       .replace(/\s+/g, '-')
-      .toLowerCase()}-app`
+      .toLowerCase()}-app`,
+    documentationAppContainerName: `${state.appName
+        .replace(/\s+/g, '-')
+        .toLowerCase()}-documentation`
   }
 })
 const downloadZipBackofficeLaravelQuasar = async () => {
