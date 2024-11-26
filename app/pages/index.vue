@@ -34,7 +34,6 @@ if (process.client) {
         list: { width: 'w-48' }
       }
     }
-
   })
 }
 
@@ -59,7 +58,7 @@ onMounted(() => {
 
 <template>
   <UContainer>
-    <UCard class="mt-10">
+    <UCard class="mt-10 overflow-y-auto">
       <template #header>
         <div class="flex justify-between">
           <h1 class="align-text-bottom">
@@ -83,7 +82,6 @@ onMounted(() => {
         :ui="defaultTabClass"
       >
         <template #item="{ item }">
-
           <ProjectFlavour
             v-if="item.label === 'Project Flavour'"
             :header-label="item.description"
@@ -107,7 +105,6 @@ onMounted(() => {
             :backend-flavour-options="backendOptions"
             :key="item.label"
             :orientation="orientation"
-
           />
         </template>
       </UTabs>

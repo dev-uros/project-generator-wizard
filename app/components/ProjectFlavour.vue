@@ -17,7 +17,6 @@ const emit = defineEmits<{
 }>()
 
 const selectedProjectType = ref('backoffice')
-
 </script>
 
 <template>
@@ -32,7 +31,6 @@ const selectedProjectType = ref('backoffice')
         v-if="orientation === 'vertical'"
       >
         <template #label="{ option }">
-
           <UCard class="w-48 mb-2">
             <template #header>
               {{ option.label }}
@@ -43,11 +41,10 @@ const selectedProjectType = ref('backoffice')
                 class="w-10 h-10 text-green-500"
                 :class="{ grayscale: selectedProjectType !== option.value }"
               />
-
             </div>
             <template v-if="option.disabled" #footer>
               <div class="flex justify-center text-gray-500">
-                {{ option.disabled ? 'Work in progress' : ''}}
+                {{ option.disabled ? 'Work in progress' : '' }}
               </div>
             </template>
           </UCard>
@@ -65,15 +62,19 @@ const selectedProjectType = ref('backoffice')
         <template #header>
           <ProjectFlavourBackoffice
             v-if="selectedProjectType === 'backoffice'"
-            class="max-h-96 overflow-auto p-4"
+            class="overflow-auto p-4"
           />
           <ProjectFlavourWebsite
             v-else-if="selectedProjectType === 'website'"
-            class="max-h-96 overflow-auto p-4"
+            class="overflow-auto p-4"
+          />
+          <ProjectFlavourMicroService
+            v-else-if="selectedProjectType === 'microservice'"
+            class="overflow-auto p-4"
           />
           <ProjectFlavourDesktop
             v-else-if="selectedProjectType === 'desktop'"
-            class="max-h-96 overflow-auto p-4"
+            class="overflow-auto p-4"
           />
         </template>
         <template #footer>
