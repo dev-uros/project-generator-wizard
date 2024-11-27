@@ -7,15 +7,6 @@ const closeSideDialog = () => {
   moreInfoSideOpened.value = false
 }
 
-const openFeaturesDialog = () => {
-  closeSideDialog()
-  detailedFeaturesDialogOpened.value = true
-}
-
-const closeFeaturesDialog = () => {
-  detailedFeaturesDialogOpened.value = false
-  moreInfoSideOpened.value = true
-}
 </script>
 
 <template>
@@ -48,14 +39,9 @@ const closeFeaturesDialog = () => {
       </UButton>
     </article>
 
-    <LazyWebsiteMoreInfoSide
+    <LazyMicroServiceMoreInfoSide
       v-model="moreInfoSideOpened"
       @close-side="closeSideDialog"
-      @open-feature-details-dialog="openFeaturesDialog"
-    />
-    <LazyWebsiteFeaturesDialog
-      v-model="detailedFeaturesDialogOpened"
-      @close-dialog="closeFeaturesDialog"
     />
   </div>
 </template>
