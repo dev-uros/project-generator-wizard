@@ -11,7 +11,7 @@ services:
       - '7604:5432'
     volumes:
       - ./init-scripts:/docker-entrypoint-initdb.d
-      - microservice_template_db:/var/lib/postgresql/data
+      - {{databaseContainerName}}:/var/lib/postgresql/data
 
   fastify:
     container_name: ${WEBSERVER_CONTAINER_NAME}
@@ -27,5 +27,5 @@ services:
     #    environment:
 #      NODE_ENV: development
 volumes:
-  microservice_template_db:
-    driver: local
+    {{databaseContainerName}}:
+      driver: local
