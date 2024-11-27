@@ -210,8 +210,10 @@ const downloadZipWebsiteNuxtDaisyUi = async () => {
         <div v-else-if="selectedProjectFlavour.value === 'desktop'">
           desktop
         </div>
-        <div v-else-if="selectedProjectFlavour.value === 'microservice'">
-          microservice
+        <div class="flex flex-col gap-4 justify-evenly" v-else-if="selectedProjectFlavour.value === 'microservice'">
+          <MicroServiceFolderStructure
+              v-if="selectedBackEnd.value === 'fastify'"
+          />
         </div>
       </UCard>
 
