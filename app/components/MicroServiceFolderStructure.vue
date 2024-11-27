@@ -195,252 +195,338 @@ const fastifySrcFolder = [
   }
 ]
 
-const appComponentsFolder = [
+const srcModulesFolder = [
   {
-    label: 'icons',
+    label: 'auth',
     iconClosed: FolderIconClosed,
     iconOpened: FolderIconOpened,
-    slot: 'app-components-icons-folder',
+    slot: 'src-modules-auth-folder',
   },
   {
-    label: 'BaseFooter.vue',
-    iconClosed: VueFileClosed,
-    iconOpened: VueFileOpened,
-    content: 'Footer component'
-  },
-  {
-    label: 'BaseHeader.vue',
-    iconClosed: VueFileClosed,
-    iconOpened: VueFileOpened,
-    content: 'Header component'
-  },
-  {
-    label: 'ThemeConfigurator.vue',
-    iconClosed: VueFileClosed,
-    iconOpened: VueFileOpened,
-    content: 'Component that lets you select a color theme'
-  },
-  {
-    label: 'ThemeConfiguratorItem.vue',
-    iconClosed: VueFileClosed,
-    iconOpened: VueFileOpened,
-    content: 'Component that represents each individual color theme available by default'
+    label: 'pets',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'src-modules-pets-folder',
   },
 ]
 
-const appComponentsIconsFolder = [
+const srcModulesAuthFolder = [
   {
-    label: 'AboutUsIcon.vue',
-    iconClosed: VueFileClosed,
-    iconOpened: VueFileOpened,
-    content: 'Component containing about us svg icon'
+    label: 'interfaces',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'src-modules-auth-interfaces-folder'
   },
   {
-    label: 'BlogIcon.vue',
-    iconClosed: VueFileClosed,
-    iconOpened: VueFileOpened,
-    content: 'Component containing blog svg icon'
+    label: 'repositories',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'src-modules-auth-repositories-folder'
   },
   {
-    label: 'ContactIcon.vue',
-    iconClosed: VueFileClosed,
-    iconOpened: VueFileOpened,
-    content: 'Component containing contact svg icon'
+    label: 'routes',
+    iconClosed: RoutesFolderClosed,
+    iconOpened: RoutesFolderOpened,
+    slot: 'src-modules-auth-routes-folder'
   },
   {
-    label: 'EmailContactIcon.vue',
-    iconClosed: VueFileClosed,
-    iconOpened: VueFileOpened,
-    content: 'Component containing email svg icon'
+    label: 'schemas',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'src-modules-auth-schemas-folder'
   },
   {
-    label: 'FAQIcon.vue',
-    iconClosed: VueFileClosed,
-    iconOpened: VueFileOpened,
-    content: 'Component containing FAQ svg icon'
+    label: 'index.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Module entry point'
   },
   {
-    label: 'LocationPinIcon.vue',
-    iconClosed: VueFileClosed,
-    iconOpened: VueFileOpened,
-    content: 'Component containing location pin svg icon'
+    label: 'README.md',
+    iconClosed: MarkdownFileClosed,
+    iconOpened: MarkdownFileOpened,
+    content: 'Read me file with some info about module'
   },
   {
-    label: 'NewsLetterIcon.vue',
-    iconClosed: VueFileClosed,
-    iconOpened: VueFileOpened,
-    content: 'Component containing newsletter svg icon'
-  },
-  {
-    label: 'PhoneContactIcon.vue',
-    iconClosed: VueFileClosed,
-    iconOpened: VueFileOpened,
-    content: 'Component containing phone contact svg icon'
-  },
-  {
-    label: 'ProductIcon.vue',
-    iconClosed: VueFileClosed,
-    iconOpened: VueFileOpened,
-    content: 'Component containing product svg icon'
-  },
-  {
-    label: 'ServiceAnalyticsIcon.vue',
-    iconClosed: VueFileClosed,
-    iconOpened: VueFileOpened,
-    content: 'Component containing analytic service svg icon'
-  },
-  {
-    label: 'ServiceConsultingIcon.vue',
-    iconClosed: VueFileClosed,
-    iconOpened: VueFileOpened,
-    content: 'Component containing consulting service svg icon'
-  },
-  {
-    label: 'ServiceIcon.vue',
-    iconClosed: VueFileClosed,
-    iconOpened: VueFileOpened,
-    content: 'Component containing service svg icon'
-  },
-  {
-    label: 'ServiceWrenchIcon.vue',
-    iconClosed: VueFileClosed,
-    iconOpened: VueFileOpened,
-    content: 'Component containing service wrench svg icon'
+    label: 'types.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Types file to place custom files used in module'
   },
 ]
 
-const appLayoutsFolder = [
-
+const srcModulesAuthInterfacesFolder = [
   {
-    label: 'default.vue',
-    iconClosed: VueFileClosed,
-    iconOpened: VueFileOpened,
-    content: 'App default layout component'
+    label: 'authRepositoryInterface.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Interface for AuthRepository class'
+  },
+]
+
+const srcModulesAuthRepositoriesFolder = [
+  {
+    label: 'authRepository.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'AuthRepository class containing queries used in auth functionality'
+  },
+]
+
+const srcModulesAuthRoutesFolder = [
+  {
+    label: 'index.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Auth routes are defined in here'
+  },
+]
+
+const srcModulesAuthSchemasFolder = [
+  {
+    label: 'generateTokenSchema.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Schema used in generate-token auth endpoint'
+  },
+]
+
+//pets
+const srcModulesPetsFolder = [
+  {
+    label: 'interfaces',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'src-modules-pets-interfaces-folder'
+  },
+  {
+    label: 'repositories',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'src-modules-pets-repositories-folder'
+  },
+  {
+    label: 'routes',
+    iconClosed: RoutesFolderClosed,
+    iconOpened: RoutesFolderOpened,
+    slot: 'src-modules-pets-routes-folder'
+  },
+  {
+    label: 'schemas',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'src-modules-pets-schemas-folder'
+  },
+  {
+    label: 'services',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'src-modules-pets-services-folder'
+  },
+  {
+    label: 'index.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Module entry point'
+  },
+  {
+    label: 'README.md',
+    iconClosed: MarkdownFileClosed,
+    iconOpened: MarkdownFileOpened,
+    content: 'Read me file with some info about module'
+  },
+  {
+    label: 'types.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Types file to place custom files used in module'
+  },
+]
+
+const srcModulesPetsInterfacesFolder = [
+  {
+    label: 'petIndexServiceInterface.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Interface for PetIndexService class'
+  },
+  {
+    label: 'petRepositoryInterface.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Interface for PetRepository class'
+  },
+  {
+    label: 'petShowServiceInterface.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Interface for PetShowService class'
+  },
+  {
+    label: 'petStoreServiceInterface.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Interface for PetStoreService class'
+  },
+  {
+    label: 'petUpdateServiceInterface.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Interface for PetUpdateService class'
+  },
+]
+
+const srcModulesPetsRepositoriesFolder = [
+  {
+    label: 'petRepository.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'PetRepository class containing queries used in pets functionality'
+  },
+]
+
+const srcModulesPetsRoutesFolder = [
+  {
+    label: 'autohooks.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Route hooks are defined in here'
+  },
+  {
+    label: 'index.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Pets routes are defined in here'
+  },
+]
+
+const srcModulesPetsSchemasFolder = [
+  {
+    label: 'indexSchema.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Schema used in pets list endpoint'
+  },
+  {
+    label: 'petEntitySchema.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Reusable pet entity schema'
+  },
+  {
+    label: 'showSchema.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Schema used in pets show endpoint'
+  },
+  {
+    label: 'storeSchema.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Schema used in pets store endpoint'
+  },
+  {
+    label: 'updateSchema.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Schema used in pets update endpoint'
+  },
+]
+
+const srcModulesPetsServicesFolder = [
+  {
+    label: 'indexService.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Service that gets list of pets'
+  },
+  {
+    label: 'showService.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Service that shows details of a single pet'
+  },
+  {
+    label: 'storeService.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Service that stores pet in database'
+  },
+  {
+    label: 'updateService.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Service that updates a pet in database'
+  }
+]
+//pets-end
+const srcPluginsFolder = [
+  {
+    label: 'config.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Config plugin, for loading .env file data'
+  },
+  {
+    label: 'database.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Plugin for connecting to a database'
+  },
+  {
+    label: 'error-handler.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Custom plugin that formats error response based on error code (used for centralized error handling)'
+  },
+  {
+    label: 'jwt.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'JWT plugin used for configuring jwt implementation'
+  },
+  {
+    label: 'swagger.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Swagger plugin, used for swagged config and exposing /documentation endpoint with swagger ui'
   }
 ]
 
-const appPagesFolder = [
+const srcSchemasFolder = [
   {
-    label: 'about.vue',
-    iconClosed: VueFileClosed,
-    iconOpened: VueFileOpened,
-    content: 'About us page'
+    label: 'badRequestSchema.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'General bad request response schema'
   },
   {
-    label: 'blog.vue',
-    iconClosed: VueFileClosed,
-    iconOpened: VueFileOpened,
-    content: 'Blog page'
+    label: 'config.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: '.env file schema'
   },
   {
-    label: 'contact.vue',
-    iconClosed: VueFileClosed,
-    iconOpened: VueFileOpened,
-    content: 'Contact page'
+    label: 'entityNotFoundSchema.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'General entity not found request response schema'
   },
   {
-    label: 'faq.vue',
-    iconClosed: VueFileClosed,
-    iconOpened: VueFileOpened,
-    content: 'FAQ page'
+    label: 'serverErrorSchema.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'General server error request response schema'
   },
   {
-    label: 'index.vue',
-    iconClosed: VueFileClosed,
-    iconOpened: VueFileOpened,
-    content: 'Home page'
-  },
-  {
-    label: 'products.vue',
-    iconClosed: VueFileClosed,
-    iconOpened: VueFileOpened,
-    content: 'Products page'
-  },
-  {
-    label: 'services.vue',
-    iconClosed: VueFileClosed,
-    iconOpened: VueFileOpened,
-    content: 'Services page'
-  },
-]
-
-const appPublicFolder = [
-  {
-    label: 'blog-image-1.jpg',
-    iconClosed: ImageFileClosed,
-    iconOpened: ImageFileOpened,
-    content: 'Blog post image'
-  },
-  {
-    label: 'blog-image-2.jpg',
-    iconClosed: ImageFileClosed,
-    iconOpened: ImageFileOpened,
-    content: 'Blog post image'
-  },
-  {
-    label: 'blog-image-3.jpg',
-    iconClosed: ImageFileClosed,
-    iconOpened: ImageFileOpened,
-    content: 'Blog post image'
-  },
-  {
-    label: 'blog-image-4.jpg',
-    iconClosed: ImageFileClosed,
-    iconOpened: ImageFileOpened,
-    content: 'Blog post image'
-  },
-  {
-    label: 'blog-image-5.webp',
-    iconClosed: ImageFileClosed,
-    iconOpened: ImageFileOpened,
-    content: 'Blog post image'
-  },
-  {
-    label: 'company-logo.jpg',
-    iconClosed: ImageFileClosed,
-    iconOpened: ImageFileOpened,
-    content: 'Company logo image'
-  },
-  {
-    label: 'default-avatar.webp',
-    iconClosed: ImageFileClosed,
-    iconOpened: ImageFileOpened,
-    content: 'Default female avatar image'
-  },
-  {
-    label: 'favicon.ico',
-    iconClosed: FaviconFileClosed,
-    iconOpened: FaviconFileOpened,
-    content: 'Favicon'
-  },
-  {
-    label: 'index-image.webp',
-    iconClosed: ImageFileClosed,
-    iconOpened: ImageFileOpened,
-    content: 'Home page hero image'
-  },
-  {
-    label: 'product-image.webp',
-    iconClosed: ImageFileClosed,
-    iconOpened: ImageFileOpened,
-    content: 'Default product image'
-  },
-  {
-    label: 'robots.txt',
-    iconClosed: RobotsFileClosed,
-    iconOpened: RobotsFileOpened,
-    content: 'Robots txt file'
-  },
-]
-
-const appServerFolder = [
-  {
-    label: 'tsconfig.json',
-    iconClosed: TsConfigFileClosed,
-    iconOpened: TsConfigFileOpened,
-    content: 'Typescript config file for server'
+    label: 'unauthenticatedRequestSchema.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'General unauthenticated request response schema'
   }
 ]
+
+
 
 </script>
 
@@ -550,7 +636,7 @@ const appServerFolder = [
                 class="pl-5"
                 multiple
                 variant="ghost"
-                :items="appComponentsFolder"
+                :items="srcModulesFolder"
             >
               <template #default="{ item, index, open }">
                 <UButton color="gray" variant="ghost">
@@ -577,12 +663,12 @@ const appServerFolder = [
 
               </template>
 
-              <template #app-components-icons-folder>
+              <template #src-modules-auth-folder>
                 <UAccordion
                     class="pl-5"
                     multiple
                     variant="ghost"
-                    :items="appComponentsIconsFolder">
+                    :items="srcModulesAuthFolder">
                   <template #default="{ item, index, open }">
                     <UButton color="gray" variant="ghost">
                       <template #leading>
@@ -608,6 +694,346 @@ const appServerFolder = [
 
                   </template>
 
+                  <template #src-modules-auth-interfaces-folder>
+                    <UAccordion
+                        class="pl-5"
+                        multiple
+                        variant="ghost"
+                        :items="srcModulesAuthInterfacesFolder">
+                      <template #default="{ item, index, open }">
+                        <UButton color="gray" variant="ghost">
+                          <template #leading>
+                            <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                              <component v-show="!open" :is="item.iconClosed"></component>
+                              <component v-show="open" :is="item.iconOpened"></component>
+
+                            </div>
+                          </template>
+
+                          <span class="truncate">{{ item.label }}</span>
+
+                          <template #trailing>
+                            <UIcon
+                                name="i-heroicons-chevron-right-20-solid"
+                                class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                                :class="[open && 'rotate-90']"
+                            />
+                          </template>
+
+
+                        </UButton>
+
+                      </template>
+
+                    </UAccordion>
+                  </template>
+
+                  <template #src-modules-auth-repositories-folder>
+                    <UAccordion
+                        class="pl-5"
+                        multiple
+                        variant="ghost"
+                        :items="srcModulesAuthRepositoriesFolder">
+                      <template #default="{ item, index, open }">
+                        <UButton color="gray" variant="ghost">
+                          <template #leading>
+                            <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                              <component v-show="!open" :is="item.iconClosed"></component>
+                              <component v-show="open" :is="item.iconOpened"></component>
+
+                            </div>
+                          </template>
+
+                          <span class="truncate">{{ item.label }}</span>
+
+                          <template #trailing>
+                            <UIcon
+                                name="i-heroicons-chevron-right-20-solid"
+                                class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                                :class="[open && 'rotate-90']"
+                            />
+                          </template>
+
+
+                        </UButton>
+
+                      </template>
+
+                    </UAccordion>
+                  </template>
+
+                  <template #src-modules-auth-routes-folder>
+                    <UAccordion
+                        class="pl-5"
+                        multiple
+                        variant="ghost"
+                        :items="srcModulesAuthRoutesFolder">
+                      <template #default="{ item, index, open }">
+                        <UButton color="gray" variant="ghost">
+                          <template #leading>
+                            <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                              <component v-show="!open" :is="item.iconClosed"></component>
+                              <component v-show="open" :is="item.iconOpened"></component>
+
+                            </div>
+                          </template>
+
+                          <span class="truncate">{{ item.label }}</span>
+
+                          <template #trailing>
+                            <UIcon
+                                name="i-heroicons-chevron-right-20-solid"
+                                class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                                :class="[open && 'rotate-90']"
+                            />
+                          </template>
+
+
+                        </UButton>
+
+                      </template>
+
+                    </UAccordion>
+                  </template>
+
+                  <template #src-modules-auth-schemas-folder>
+                    <UAccordion
+                        class="pl-5"
+                        multiple
+                        variant="ghost"
+                        :items="srcModulesAuthSchemasFolder">
+                      <template #default="{ item, index, open }">
+                        <UButton color="gray" variant="ghost">
+                          <template #leading>
+                            <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                              <component v-show="!open" :is="item.iconClosed"></component>
+                              <component v-show="open" :is="item.iconOpened"></component>
+
+                            </div>
+                          </template>
+
+                          <span class="truncate">{{ item.label }}</span>
+
+                          <template #trailing>
+                            <UIcon
+                                name="i-heroicons-chevron-right-20-solid"
+                                class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                                :class="[open && 'rotate-90']"
+                            />
+                          </template>
+
+
+                        </UButton>
+
+                      </template>
+
+                    </UAccordion>
+                  </template>
+
+                </UAccordion>
+              </template>
+
+              <template #src-modules-pets-folder>
+                <UAccordion
+                    class="pl-5"
+                    multiple
+                    variant="ghost"
+                    :items="srcModulesPetsFolder">
+                  <template #default="{ item, index, open }">
+                    <UButton color="gray" variant="ghost">
+                      <template #leading>
+                        <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                          <component v-show="!open" :is="item.iconClosed"></component>
+                          <component v-show="open" :is="item.iconOpened"></component>
+
+                        </div>
+                      </template>
+
+                      <span class="truncate">{{ item.label }}</span>
+
+                      <template #trailing>
+                        <UIcon
+                            name="i-heroicons-chevron-right-20-solid"
+                            class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                            :class="[open && 'rotate-90']"
+                        />
+                      </template>
+
+
+                    </UButton>
+
+                  </template>
+
+                  <template #src-modules-pets-interfaces-folder>
+                    <UAccordion
+                        class="pl-5"
+                        multiple
+                        variant="ghost"
+                        :items="srcModulesPetsInterfacesFolder">
+                      <template #default="{ item, index, open }">
+                        <UButton color="gray" variant="ghost">
+                          <template #leading>
+                            <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                              <component v-show="!open" :is="item.iconClosed"></component>
+                              <component v-show="open" :is="item.iconOpened"></component>
+
+                            </div>
+                          </template>
+
+                          <span class="truncate">{{ item.label }}</span>
+
+                          <template #trailing>
+                            <UIcon
+                                name="i-heroicons-chevron-right-20-solid"
+                                class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                                :class="[open && 'rotate-90']"
+                            />
+                          </template>
+
+
+                        </UButton>
+
+                      </template>
+
+                    </UAccordion>
+                  </template>
+
+                  <template #src-modules-pets-repositories-folder>
+                    <UAccordion
+                        class="pl-5"
+                        multiple
+                        variant="ghost"
+                        :items="srcModulesPetsRepositoriesFolder">
+                      <template #default="{ item, index, open }">
+                        <UButton color="gray" variant="ghost">
+                          <template #leading>
+                            <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                              <component v-show="!open" :is="item.iconClosed"></component>
+                              <component v-show="open" :is="item.iconOpened"></component>
+
+                            </div>
+                          </template>
+
+                          <span class="truncate">{{ item.label }}</span>
+
+                          <template #trailing>
+                            <UIcon
+                                name="i-heroicons-chevron-right-20-solid"
+                                class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                                :class="[open && 'rotate-90']"
+                            />
+                          </template>
+
+
+                        </UButton>
+
+                      </template>
+
+                    </UAccordion>
+                  </template>
+
+                  <template #src-modules-pets-routes-folder>
+                    <UAccordion
+                        class="pl-5"
+                        multiple
+                        variant="ghost"
+                        :items="srcModulesPetsRoutesFolder">
+                      <template #default="{ item, index, open }">
+                        <UButton color="gray" variant="ghost">
+                          <template #leading>
+                            <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                              <component v-show="!open" :is="item.iconClosed"></component>
+                              <component v-show="open" :is="item.iconOpened"></component>
+
+                            </div>
+                          </template>
+
+                          <span class="truncate">{{ item.label }}</span>
+
+                          <template #trailing>
+                            <UIcon
+                                name="i-heroicons-chevron-right-20-solid"
+                                class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                                :class="[open && 'rotate-90']"
+                            />
+                          </template>
+
+
+                        </UButton>
+
+                      </template>
+
+                    </UAccordion>
+                  </template>
+
+                  <template #src-modules-pets-schemas-folder>
+                    <UAccordion
+                        class="pl-5"
+                        multiple
+                        variant="ghost"
+                        :items="srcModulesPetsSchemasFolder">
+                      <template #default="{ item, index, open }">
+                        <UButton color="gray" variant="ghost">
+                          <template #leading>
+                            <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                              <component v-show="!open" :is="item.iconClosed"></component>
+                              <component v-show="open" :is="item.iconOpened"></component>
+
+                            </div>
+                          </template>
+
+                          <span class="truncate">{{ item.label }}</span>
+
+                          <template #trailing>
+                            <UIcon
+                                name="i-heroicons-chevron-right-20-solid"
+                                class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                                :class="[open && 'rotate-90']"
+                            />
+                          </template>
+
+
+                        </UButton>
+
+                      </template>
+
+                    </UAccordion>
+                  </template>
+
+                  <template #src-modules-pets-services-folder>
+                    <UAccordion
+                        class="pl-5"
+                        multiple
+                        variant="ghost"
+                        :items="srcModulesPetsServicesFolder">
+                      <template #default="{ item, index, open }">
+                        <UButton color="gray" variant="ghost">
+                          <template #leading>
+                            <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                              <component v-show="!open" :is="item.iconClosed"></component>
+                              <component v-show="open" :is="item.iconOpened"></component>
+
+                            </div>
+                          </template>
+
+                          <span class="truncate">{{ item.label }}</span>
+
+                          <template #trailing>
+                            <UIcon
+                                name="i-heroicons-chevron-right-20-solid"
+                                class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                                :class="[open && 'rotate-90']"
+                            />
+                          </template>
+
+
+                        </UButton>
+
+                      </template>
+
+                    </UAccordion>
+                  </template>
+
                 </UAccordion>
               </template>
 
@@ -620,7 +1046,7 @@ const appServerFolder = [
                 class="pl-5"
                 multiple
                 variant="ghost"
-                :items="appLayoutsFolder"
+                :items="srcPluginsFolder"
             >
               <template #default="{ item, index, open }">
                 <UButton color="gray" variant="ghost">
@@ -656,7 +1082,7 @@ const appServerFolder = [
                 class="pl-5"
                 multiple
                 variant="ghost"
-                :items="appPagesFolder"
+                :items="srcSchemasFolder"
             >
               <template #default="{ item, index, open }">
                 <UButton color="gray" variant="ghost">
@@ -687,77 +1113,7 @@ const appServerFolder = [
             </UAccordion>
           </template>
 
-          <template #app-public-folder>
-            <UAccordion
-                class="pl-5"
-                multiple
-                variant="ghost"
-                :items="appPublicFolder"
-            >
-              <template #default="{ item, index, open }">
-                <UButton color="gray" variant="ghost">
-                  <template #leading>
-                    <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
-                      <component v-show="!open" :is="item.iconClosed"></component>
-                      <component v-show="open" :is="item.iconOpened"></component>
 
-                    </div>
-                  </template>
-
-                  <span class="truncate">{{ item.label }}</span>
-
-                  <template #trailing>
-                    <UIcon
-                        name="i-heroicons-chevron-right-20-solid"
-                        class="w-5 h-5 ms-auto transform transition-transform duration-200"
-                        :class="[open && 'rotate-90']"
-                    />
-                  </template>
-
-
-                </UButton>
-
-              </template>
-
-
-            </UAccordion>
-          </template>
-
-          <template #app-server-folder>
-            <UAccordion
-                class="pl-5"
-                multiple
-                variant="ghost"
-                :items="appServerFolder"
-            >
-              <template #default="{ item, index, open }">
-                <UButton color="gray" variant="ghost">
-                  <template #leading>
-                    <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
-                      <component v-show="!open" :is="item.iconClosed"></component>
-                      <component v-show="open" :is="item.iconOpened"></component>
-
-                    </div>
-                  </template>
-
-                  <span class="truncate">{{ item.label }}</span>
-
-                  <template #trailing>
-                    <UIcon
-                        name="i-heroicons-chevron-right-20-solid"
-                        class="w-5 h-5 ms-auto transform transition-transform duration-200"
-                        :class="[open && 'rotate-90']"
-                    />
-                  </template>
-
-
-                </UButton>
-
-              </template>
-
-
-            </UAccordion>
-          </template>
 
         </UAccordion>
       </template>

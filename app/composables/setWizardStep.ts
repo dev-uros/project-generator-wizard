@@ -107,7 +107,6 @@ export const useSetWizardStep = () => {
         }
 
         if(optionValue === 'microservice'){
-            console.log('ULAZIM U OPTION VALUE MICROSERVICE')
 
             selectedProjectFlavour.value = PROJECT_TYPES.find(type => type.value === optionValue);
 
