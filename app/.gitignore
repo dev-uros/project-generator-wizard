@@ -152,6 +152,7 @@ web_modules/
 .env.production.local
 .env.local
 
+!private-storage/fastify-microservice-template/.env.local
 !private-storage/laravel-and-vue-backoffice-template/api-template/.env.local
 !private-storage/laravel-and-vue-backoffice-template/app-template/.env.local
 !private-storage/laravel-and-vue-backoffice-template/app-template/app/src/modules/administration/logs
