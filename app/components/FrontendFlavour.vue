@@ -24,7 +24,9 @@ const frontendRadioGrayscale = computed(() => {
       quasarGrayScale: false,
       nuxtGrayScale: true,
       astroGrayScale: true,
-      angularGrayScale: true
+      angularGrayScale: true,
+      noneGrayScale: true,
+
     }
   }
   if (selectedFrontend.value === 'angular') {
@@ -32,7 +34,9 @@ const frontendRadioGrayscale = computed(() => {
       quasarGrayScale: true,
       nuxtGrayScale: true,
       astroGrayScale: true,
-      angularGrayScale: false
+      angularGrayScale: false,
+      noneGrayScale: true,
+
     }
   }
   if (selectedFrontend.value === 'astro') {
@@ -40,7 +44,9 @@ const frontendRadioGrayscale = computed(() => {
       quasarGrayScale: true,
       nuxtGrayScale: true,
       astroGrayScale: false,
-      angularGrayScale: true
+      angularGrayScale: true,
+      noneGrayScale: true,
+
     }
   }
 
@@ -49,7 +55,19 @@ const frontendRadioGrayscale = computed(() => {
       quasarGrayScale: true,
       nuxtGrayScale: false,
       astroGrayScale: true,
-      angularGrayScale: true
+      angularGrayScale: true,
+      noneGrayScale: true,
+
+    }
+  }
+
+  if (selectedFrontend.value === 'none') {
+    return {
+      quasarGrayScale: true,
+      nuxtGrayScale: true,
+      astroGrayScale: true,
+      angularGrayScale: true,
+      noneGrayScale: false,
     }
   }
 })
@@ -69,10 +87,10 @@ onUpdated(() => {
     <template #header>{{ headerLabel }}</template>
     <div class="flex flex-col xl:flex-row lg:flex-row md:flex-col sm:flex-col gap-2">
       <URadioGroup
-       v-model="selectedFrontend"
-        :options="frontendFlavourOptions"
-        v-if="orientation === 'vertical'"
-        >
+          v-model="selectedFrontend"
+          :options="frontendFlavourOptions"
+          v-if="orientation === 'vertical'"
+      >
         <template #label="{ option }">
           <UCard class="w-48 mb-2">
             <template #header>
@@ -95,9 +113,20 @@ onUpdated(() => {
               <UIcon v-for="icon in option.icons" :name="icon.name" class="w-10 h-10"
                      :class="{'grayscale': frontendRadioGrayscale.astroGrayScale}"/>
             </div>
+            <div
+                class="flex justify-center items-center"
+                v-else-if="option.value === 'none'"
+            >
+              <UIcon
+                  v-for="icon in option.icons"
+                  :name="icon.name"
+                  class="w-10 h-10"
+                  :class="{ grayscale: frontendRadioGrayscale.noneGrayScale }"
+              />
+            </div>
             <template v-if="option.disabled" #footer>
               <div class="flex justify-center text-gray-500">
-                {{ option.disabled ? 'Work in progress' : ''}}
+                {{ option.disabled ? 'Work in progress' : '' }}
               </div>
             </template>
           </UCard>
@@ -107,11 +136,11 @@ onUpdated(() => {
       </URadioGroup>
 
       <USelectMenu
-        v-else
-        value-attribute="value"
-        class="py-4"
-        v-model="selectedFrontend"
-        :options="frontendFlavourOptions"
+          v-else
+          value-attribute="value"
+          class="py-4"
+          v-model="selectedFrontend"
+          :options="frontendFlavourOptions"
       />
       <UCard class="flex-grow">
         <template #header>
@@ -200,7 +229,7 @@ onUpdated(() => {
                 >
                   DaisyUI:
                 </ULink>
-                 A UI component library built on Tailwind CSS that simplifies styling with pre-designed,
+                A UI component library built on Tailwind CSS that simplifies styling with pre-designed,
                 customizable components. It enhances productivity by offering a wide range of accessible and responsive
                 UI elements without writing extensive custom CSS.
 
@@ -243,6 +272,13 @@ onUpdated(() => {
             </article>
 
           </div>
+          <div v-if="selectedFrontend === 'none'">
+            <article class="prose lg:prose-xl dark:prose-invert">
+              <h1>No frontend</h1>
+              <UDivider />
+            </article>
+          </div>
+
         </template>
         <template #footer>
           <div class="flex flex-row justify-between">

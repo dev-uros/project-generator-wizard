@@ -245,30 +245,6 @@ onUpdated(() => {
             <article class="prose lg:prose-xl dark:prose-invert">
               <h1>No backend</h1>
               <UDivider />
-              <!--                <p>-->
-              <!--                  Node: A JavaScript runtime built on Chrome's V8 engine, used for building scalable, server-side applications-->
-              <!--                  with non-blocking, event-driven architecture.-->
-              <!--                  <ULink-->
-              <!--                      to="https://nodejs.org/en"-->
-              <!--                      target="_blank"-->
-              <!--                      active-class="text-primary"-->
-              <!--                      inactive-class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"-->
-              <!--                  >-->
-              <!--                    More info-->
-              <!--                  </ULink>-->
-              <!--                </p>-->
-              <!--                <p>-->
-              <!--                  Fastify: A fast, lightweight web framework for Node.js, focused on low overhead, high performance, and-->
-              <!--                  extensibility through a powerful plugin system.-->
-              <!--                  <ULink-->
-              <!--                      to="https://fastify.dev/"-->
-              <!--                      target="_blank"-->
-              <!--                      active-class="text-primary"-->
-              <!--                      inactive-class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"-->
-              <!--                  >-->
-              <!--                    More info-->
-              <!--                  </ULink>-->
-              <!--                </p>-->
             </article>
           </div>
         </template>

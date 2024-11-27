@@ -3,7 +3,7 @@ import {
     BACKOFFICE_ANGULAR_BACKENDS,
     BACKOFFICE_FRONTENDS,
     BACKOFFICE_QUASAR_BACKENDS, DESKTOP_BACKENDS,
-    DESKTOP_FRONTENDS, FRONTEND_OPTION, PROJECT_TYPES, WEBSITE_BACKENDS,
+    DESKTOP_FRONTENDS, FRONTEND_OPTION, MICROSERVICE_BACKENDS, MICROSERVICE_FRONTENDS, PROJECT_TYPES, WEBSITE_BACKENDS,
     WEBSITE_FRONTENDS
 } from "~/constants";
 import {isObjectTypeAnnotation} from "@babel/types";
@@ -106,6 +106,14 @@ export const useSetWizardStep = () => {
             frontendOptions.value = DESKTOP_FRONTENDS
         }
 
+        if(optionValue === 'microservice'){
+            console.log('ULAZIM U OPTION VALUE MICROSERVICE')
+
+            selectedProjectFlavour.value = PROJECT_TYPES.find(type => type.value === optionValue);
+
+            frontendOptions.value = MICROSERVICE_FRONTENDS
+        }
+
         wizardSteps.value[0].disabled = true;
         wizardSteps.value[optionIndex].disabled = false;
         wizardSteps.value[2].disabled = true;
@@ -137,6 +145,9 @@ export const useSetWizardStep = () => {
             backendOptions.value = DESKTOP_BACKENDS
         }
 
+        if (selectedProjectFlavour.value.value === 'microservice') {
+            backendOptions.value = MICROSERVICE_BACKENDS
+        }
         wizardSteps.value[0].disabled = true;
         wizardSteps.value[1].disabled = true;
         wizardSteps.value[optionIndex].disabled = false;

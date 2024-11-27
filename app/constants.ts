@@ -133,7 +133,29 @@ export const FASTIFY_BADGE = {
   disabled: true
 }
 
+export const FASTIFY_BADGE_ENABLED = {
+  value: 'fastify',
+  label: 'Node/Fastify',
+  icons: [
+    {
+      name: 'devicon:nodejs'
+    },
+    {
+      name: 'devicon-plain:fastify'
+    }
+  ],
+}
 export const NO_BACKEND_BADGE = {
+  value: 'none',
+  label: 'None',
+  icons: [
+    {
+      name: 'fluent-emoji-high-contrast:no-entry'
+    }
+  ]
+}
+
+export const NO_FRONTEND_BADGE = {
   value: 'none',
   label: 'None',
   icons: [
@@ -154,4 +176,9 @@ export const WEBSITE_FRONTENDS = [NUXT_BADGE, ASTRO_BADGE]
 export const WEBSITE_BACKENDS = [NO_BACKEND_BADGE]
 export const DESKTOP_FRONTENDS = [QUASAR_BADGE]
 
+export const MICROSERVICE_FRONTENDS = [NO_FRONTEND_BADGE]
+
 export const DESKTOP_BACKENDS = [ELECTRON_BADGE]
+
+export const MICROSERVICE_BACKENDS = [FASTIFY_BADGE_ENABLED]
+
