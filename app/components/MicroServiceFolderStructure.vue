@@ -67,13 +67,23 @@ import TailwindFileClosed from "~/components/icons/TailwindFileClosed.vue";
 import TailwindFileOpened from "~/components/icons/TailwindFileOpened.vue";
 import RobotsFileClosed from "~/components/icons/RobotsFileClosed.vue";
 import RobotsFileOpened from "~/components/icons/RobotsFileOpened.vue";
+import PluginFolderOpened from "~/components/icons/PluginFolderOpened.vue";
+import PluginFolderClosed from "~/components/icons/PluginFolderClosed.vue";
+import SQLFileClosed from "~/components/icons/SQLFileClosed.vue";
+import SQLFileOpened from "~/components/icons/SQLFileOpened.vue";
 
 const fastifyProjectStructure = [
   {
-    iconClosed: AppFolderClosed,
-    iconOpened: AppFolderOpened,
-    label: 'app',
-    slot: 'app-folder'
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    label: 'init-scripts',
+    slot: 'init-scripts-folder'
+  },
+  {
+    iconClosed: SrcFolderClosed,
+    iconOpened: SrcFolderOpened,
+    label: 'src',
+    slot: 'src-folder'
   },
   {
     iconClosed: DotenvFileClosed,
@@ -96,7 +106,7 @@ const fastifyProjectStructure = [
   {
     iconClosed: DockerFileClosed,
     iconOpened: DockerFileOpened,
-    label: 'docker-compose.yml',
+    label: 'docker-compose.yaml',
     content: 'Docker compose file'
   },
   {
@@ -119,37 +129,33 @@ const fastifyProjectStructure = [
   },
 ]
 
+const fastifyInitScriptsFolder = [
+  {
+    label: 'init.sql',
+    iconClosed: SQLFileClosed,
+    iconOpened: SQLFileOpened,
+    content: 'Database init script'
+  }
+]
 
-const nuxtAppFolder = [
+const fastifySrcFolder = [
   {
-    label: 'components',
-    iconClosed: ComponentFolderClosed,
-    iconOpened: ComponentFolderOpened,
-    slot: 'app-components-folder'
+    label: 'modules',
+    iconClosed: ModulesFolderClosed,
+    iconOpened: ModulesFolderOpened,
+    slot: 'src-modules-folder'
   },
   {
-    label: 'layouts',
+    label: 'plugins',
+    iconClosed: PluginFolderClosed,
+    iconOpened: PluginFolderOpened,
+    slot: 'src-plugins-folder',
+  },
+  {
+    label: 'schemas',
     iconClosed: FolderIconClosed,
     iconOpened: FolderIconOpened,
-    slot: 'app-layouts-folder',
-  },
-  {
-    label: 'pages',
-    iconClosed: FolderIconClosed,
-    iconOpened: FolderIconOpened,
-    slot: 'app-pages-folder'
-  },
-  {
-    label: 'public',
-    iconClosed: PublicFolderClosed,
-    iconOpened: PublicFolderOpened,
-    slot: 'app-public-folder'
-  },
-  {
-    label: 'server',
-    iconClosed: FolderIconClosed,
-    iconOpened: FolderIconOpened,
-    slot: 'app-server-folder'
+    slot: 'src-schemas-folder'
   },
   {
     label: '.env',
@@ -158,16 +164,10 @@ const nuxtAppFolder = [
     content: 'Env file containing env variables for the application'
   },
   {
-    label: '.gitignore',
-    iconClosed: GitFileClosed,
-    iconOpened: GitFileOpened,
-    content: 'Gitignore file'
-  },
-  {
-    label: 'nuxt.config.ts',
-    iconClosed: NuxtFileClosed,
-    iconOpened: NuxtFileOpened,
-    content: 'Nuxt config file'
+    label: 'app.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Exports app object with its config'
   },
   {
     label: 'package.json',
@@ -182,24 +182,17 @@ const nuxtAppFolder = [
     content: 'Npm lock file'
   },
   {
-    label: 'README.md',
-    iconClosed: MarkdownFileClosed,
-    iconOpened: MarkdownFileOpened,
-    content: 'Read me file'
-  },
-  {
-    label: 'tailwind.config.js',
-    iconClosed: TailwindFileClosed,
-    iconOpened: TailwindFileOpened,
-    content: 'Tailwind config file'
+    label: 'server.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Starts node server with imported app object'
   },
   {
     label: 'tsconfig.json',
     iconClosed: TsConfigFileClosed,
     iconOpened: TsConfigFileOpened,
     content: 'Typescript config file'
-  },
-
+  }
 ]
 
 const appComponentsFolder = [
@@ -487,12 +480,45 @@ const appServerFolder = [
 
       </template>
 
-      <template #app-folder>
+      <template #init-scripts-folder>
         <UAccordion
             class="pl-5"
             multiple
             variant="ghost"
-            :items="nuxtAppFolder"
+            :items="fastifyInitScriptsFolder"
+        >
+          <template #default="{ item, index, open }">
+            <UButton color="gray" variant="ghost">
+              <template #leading>
+                <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                  <component v-show="!open" :is="item.iconClosed"></component>
+                  <component v-show="open" :is="item.iconOpened"></component>
+
+                </div>
+              </template>
+
+              <span class="truncate">{{ item.label }} </span>
+
+              <template #trailing>
+                <UIcon
+                    name="i-heroicons-chevron-right-20-solid"
+                    class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                    :class="[open && 'rotate-90']"
+                />
+              </template>
+
+
+            </UButton>
+
+          </template>
+        </UAccordion>
+      </template>
+      <template #src-folder>
+        <UAccordion
+            class="pl-5"
+            multiple
+            variant="ghost"
+            :items="fastifySrcFolder"
         >
           <template #default="{ item, index, open }">
             <UButton color="gray" variant="ghost">
@@ -519,7 +545,7 @@ const appServerFolder = [
 
           </template>
 
-          <template #app-components-folder>
+          <template #src-modules-folder>
             <UAccordion
                 class="pl-5"
                 multiple
@@ -589,7 +615,7 @@ const appServerFolder = [
             </UAccordion>
           </template>
 
-          <template #app-layouts-folder>
+          <template #src-plugins-folder>
             <UAccordion
                 class="pl-5"
                 multiple
@@ -625,7 +651,7 @@ const appServerFolder = [
             </UAccordion>
           </template>
 
-          <template #app-pages-folder>
+          <template #src-schemas-folder>
             <UAccordion
                 class="pl-5"
                 multiple
