@@ -29,8 +29,8 @@ const generatedProjectNamesBackofficeLaravelQuasar = computed(function () {
         .replace(/\s+/g, '-')
         .toLowerCase()}-app`,
       documentationProjectFolderName: `${defaultAppName
-          .replace(/\s+/g, '-')
-          .toLowerCase()}-documentation`,
+        .replace(/\s+/g, '-')
+        .toLowerCase()}-documentation`,
       backendProjectFolderName: `${defaultAppName
         .replace(/\s+/g, '-')
         .toLowerCase()}-api`,
@@ -50,8 +50,8 @@ const generatedProjectNamesBackofficeLaravelQuasar = computed(function () {
         .replace(/\s+/g, '-')
         .toLowerCase()}-app`,
       documentationAppContainerName: `${defaultAppName
-          .replace(/\s+/g, '-')
-          .toLowerCase()}-documentation`
+        .replace(/\s+/g, '-')
+        .toLowerCase()}-documentation`
     }
   }
   return {
@@ -61,8 +61,8 @@ const generatedProjectNamesBackofficeLaravelQuasar = computed(function () {
       .replace(/\s+/g, '-')
       .toLowerCase()}-app`,
     documentationProjectFolderName: `${state.appName
-        .replace(/\s+/g, '-')
-        .toLowerCase()}-documentation`,
+      .replace(/\s+/g, '-')
+      .toLowerCase()}-documentation`,
     backendProjectFolderName: `${state.appName
       .replace(/\s+/g, '-')
       .toLowerCase()}-api`,
@@ -82,8 +82,8 @@ const generatedProjectNamesBackofficeLaravelQuasar = computed(function () {
       .replace(/\s+/g, '-')
       .toLowerCase()}-app`,
     documentationAppContainerName: `${state.appName
-        .replace(/\s+/g, '-')
-        .toLowerCase()}-documentation`
+      .replace(/\s+/g, '-')
+      .toLowerCase()}-documentation`
   }
 })
 const downloadZipBackofficeLaravelQuasar = async () => {
@@ -103,9 +103,9 @@ const downloadZipBackofficeLaravelQuasar = async () => {
   const a = document.createElement('a')
   a.href = url
   a.download = `${
-      state.appName
-          ? state.appName.replace(/\s+/g, '-').toLowerCase()
-          : 'default-project'
+    state.appName
+      ? state.appName.replace(/\s+/g, '-').toLowerCase()
+      : 'default-project'
   }.zip` // Set the desired filename
   // Append to the body and trigger click
   document.body.appendChild(a)
@@ -168,6 +168,65 @@ const downloadZipWebsiteNuxtDaisyUi = async () => {
   window.URL.revokeObjectURL(url) // Release the blob URL
   generateProjectButtonLoadingState.value = false
 }
+
+//microservice logic
+
+const generatedProjectNamesMicroServiceFastify = computed(function () {
+  if (!state.appName) {
+    return {
+      downloadZipName: `${defaultAppName
+        .replace(/\s+/g, '-')
+        .toLowerCase()}.zip`,
+      unzippedFolderName: defaultAppName.replace(/\s+/g, '-').toLowerCase(),
+      webserverContainerName: `${defaultAppName
+        .replace(/\s+/g, '-')
+        .toLowerCase()}-webserver`,
+      databaseContainerName: `${defaultAppName
+        .replace(/\s+/g, '-')
+        .toLowerCase()}-db`
+    }
+  }
+  return {
+    downloadZipName: `${state.appName.replace(/\s+/g, '-').toLowerCase()}.zip`,
+    unzippedFolderName: state.appName.replace(/\s+/g, '-').toLowerCase(),
+    webserverContainerName: `${state.appName
+      .replace(/\s+/g, '-')
+      .toLowerCase()}-webserver`,
+    databaseContainerName: `${state.appName
+      .replace(/\s+/g, '-')
+      .toLowerCase()}-db`
+  }
+})
+const downloadZipMicroServiceFastify = async () => {
+  generateProjectButtonLoadingState.value = true
+  const result = await $fetch('/api/generateMicroServiceFastifyTemplate', {
+    method: 'POST',
+    body: {
+      projectName: state.appName
+    }
+  })
+
+  // Create a link element to trigger the download
+  const url = window.URL.createObjectURL(result as Blob)
+  const a = document.createElement('a')
+  a.href = url
+  a.download = `${
+    state.appName
+      ? state.appName.replace(/\s+/g, '-').toLowerCase()
+      : 'default-project'
+  }.zip` // Set the desired filename
+
+  // Append to the body and trigger click
+  document.body.appendChild(a)
+  a.click()
+
+  // Clean up
+  document.body.removeChild(a)
+  window.URL.revokeObjectURL(url) // Release the blob URL
+  generateProjectButtonLoadingState.value = false
+}
+
+//microservice logic - end
 </script>
 
 <template>
@@ -195,7 +254,10 @@ const downloadZipWebsiteNuxtDaisyUi = async () => {
           </div>
           <div class="w-full lg:w-1/3">
             <DocumentationVitepressFolderStructure
-                v-if="selectedFrontEnd.value === 'quasar' && selectedBackEnd.value === 'laravel'"
+              v-if="
+                selectedFrontEnd.value === 'quasar' &&
+                selectedBackEnd.value === 'laravel'
+              "
             />
           </div>
         </div>
@@ -210,9 +272,12 @@ const downloadZipWebsiteNuxtDaisyUi = async () => {
         <div v-else-if="selectedProjectFlavour.value === 'desktop'">
           desktop
         </div>
-        <div class="flex flex-col gap-4 justify-evenly" v-else-if="selectedProjectFlavour.value === 'microservice'">
+        <div
+          class="flex flex-col gap-4 justify-evenly"
+          v-else-if="selectedProjectFlavour.value === 'microservice'"
+        >
           <MicroServiceFolderStructure
-              v-if="selectedBackEnd.value === 'fastify'"
+            v-if="selectedBackEnd.value === 'fastify'"
           />
         </div>
       </UCard>
@@ -245,6 +310,14 @@ const downloadZipWebsiteNuxtDaisyUi = async () => {
             selectedFrontEnd.value === 'nuxt'
           "
         />
+
+        <MicroServiceFastifyDownloadPreview
+          :generated-project-names="generatedProjectNamesMicroServiceFastify"
+          v-if="
+            selectedProjectFlavour.value === 'microservice' &&
+            selectedBackEnd.value === 'fastify'
+          "
+        />
       </div>
       <div class="flex justify-center">
         <UButton
@@ -266,6 +339,16 @@ const downloadZipWebsiteNuxtDaisyUi = async () => {
           label="Generate"
           class="justify-center mt-4 w-96"
           @click="downloadZipWebsiteNuxtDaisyUi"
+          :loading="generateProjectButtonLoadingState"
+        />
+        <UButton
+          v-if="
+            selectedProjectFlavour.value === 'microservice' &&
+            selectedBackEnd.value === 'fastify'
+          "
+          label="Generate"
+          class="justify-center mt-4 w-96"
+          @click="downloadZipMicroServiceFastify"
           :loading="generateProjectButtonLoadingState"
         />
       </div>
