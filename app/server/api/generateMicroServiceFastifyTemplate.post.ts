@@ -80,7 +80,8 @@ const generateProjectEnvVariables = (projectName: string) => {
     webserverContainerName: `${projectName}-webserver`,
     databaseContainerName: `${projectName}-db`,
     databaseName: `${projectName.replace(/-/g, '_')}`,
-    databaseDumpFile: `${projectName}-dump`
+    databaseDumpFile: `${projectName}-dump`,
+    jwtSecret: generateJWTSecret(64)
   }
 }
 
@@ -138,6 +139,10 @@ const populateEnvLocalVariables = async (
       projectEnvVariables.databaseName
     )
 
+    dotEnvLocalContent = dotEnvLocalContent.replace(
+        /{{jwtSecret}}/g,
+        projectEnvVariables.jwtSecret
+    )
     // Write the modified content back to docker-compose.yml
     await fs.writeFile(dotEnvLocalFilePath, dotEnvLocalContent, 'utf8')
 
@@ -167,5 +172,14 @@ const populateDockerComposeVariables = async (
     // Write the modified content back to docker-compose.yml
     await fs.writeFile(dockerComposeFilePath, dockerComposeContent, 'utf8')
   }
+}
+
+const generateJWTSecret = (n:number): string => {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let result = '';
+  for (let i = 0; i < n; i++) {
+    result += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  return result;
 }
 

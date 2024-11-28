@@ -71,13 +71,29 @@ import PluginFolderOpened from "~/components/icons/PluginFolderOpened.vue";
 import PluginFolderClosed from "~/components/icons/PluginFolderClosed.vue";
 import SQLFileClosed from "~/components/icons/SQLFileClosed.vue";
 import SQLFileOpened from "~/components/icons/SQLFileOpened.vue";
+import PostmanFolderClosed from "~/components/icons/PostmanFolderClosed.vue";
+import PostmanFolderOpened from "~/components/icons/PostmanFolderOpened.vue";
+import JsonFileClosed from "~/components/icons/JsonFileClosed.vue";
+import JsonFileOpened from "~/components/icons/JsonFileOpened.vue";
 
 const fastifyProjectStructure = [
   {
     iconClosed: FolderIconClosed,
     iconOpened: FolderIconOpened,
+    label: 'dump-scripts',
+    slot: 'dump-scripts-folder'
+  },
+  {
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
     label: 'init-scripts',
     slot: 'init-scripts-folder'
+  },
+  {
+    iconClosed: PostmanFolderClosed,
+    iconOpened: PostmanFolderOpened,
+    label: 'postman',
+    slot: 'postman-folder'
   },
   {
     iconClosed: SrcFolderClosed,
@@ -129,12 +145,29 @@ const fastifyProjectStructure = [
   },
 ]
 
+const fastifyDumpScriptsFolder = [
+  {
+    label: '.gitkeep',
+    iconClosed: GitFileClosed,
+    iconOpened: GitFileOpened,
+    content: 'Gitkeep for dump folder'
+  }
+]
 const fastifyInitScriptsFolder = [
   {
     label: 'init.sql',
     iconClosed: SQLFileClosed,
     iconOpened: SQLFileOpened,
     content: 'Database init script'
+  }
+]
+
+const fastifyPostmanFolder = [
+  {
+    label: 'microservice-template-collection.postman_collection.json',
+    iconClosed: JsonFileClosed,
+    iconOpened: JsonFileOpened,
+    content: 'Postman collection of api endpoints'
   }
 ]
 
@@ -566,6 +599,40 @@ const srcSchemasFolder = [
 
       </template>
 
+      <template #dump-scripts-folder>
+        <UAccordion
+            class="pl-5"
+            multiple
+            variant="ghost"
+            :items="fastifyDumpScriptsFolder"
+        >
+          <template #default="{ item, index, open }">
+            <UButton color="gray" variant="ghost">
+              <template #leading>
+                <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                  <component v-show="!open" :is="item.iconClosed"></component>
+                  <component v-show="open" :is="item.iconOpened"></component>
+
+                </div>
+              </template>
+
+              <span class="truncate">{{ item.label }} </span>
+
+              <template #trailing>
+                <UIcon
+                    name="i-heroicons-chevron-right-20-solid"
+                    class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                    :class="[open && 'rotate-90']"
+                />
+              </template>
+
+
+            </UButton>
+
+          </template>
+        </UAccordion>
+      </template>
+
       <template #init-scripts-folder>
         <UAccordion
             class="pl-5"
@@ -599,6 +666,40 @@ const srcSchemasFolder = [
           </template>
         </UAccordion>
       </template>
+      <template #postman-folder>
+        <UAccordion
+            class="pl-5"
+            multiple
+            variant="ghost"
+            :items="fastifyPostmanFolder"
+        >
+          <template #default="{ item, index, open }">
+            <UButton color="gray" variant="ghost">
+              <template #leading>
+                <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                  <component v-show="!open" :is="item.iconClosed"></component>
+                  <component v-show="open" :is="item.iconOpened"></component>
+
+                </div>
+              </template>
+
+              <span class="truncate">{{ item.label }} </span>
+
+              <template #trailing>
+                <UIcon
+                    name="i-heroicons-chevron-right-20-solid"
+                    class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                    :class="[open && 'rotate-90']"
+                />
+              </template>
+
+
+            </UButton>
+
+          </template>
+        </UAccordion>
+      </template>
+
       <template #src-folder>
         <UAccordion
             class="pl-5"

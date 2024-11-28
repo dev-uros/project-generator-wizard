@@ -48,3 +48,13 @@ init:
 
 node:
 	  docker exec -it $(WEBSERVER_CONTAINER_NAME) /bin/sh
+
+#Makes a dump folder for database backup
+dump:
+	mkdir -p ./dump-scripts
+#Makes a database backup
+backup:
+	docker exec -t $(DB_CONTAINER_NAME) pg_dump -c -U postgres $(DB_NAME) > ./dump-scripts/$(DB_DUMP_FILENAME)
+#Restores a database from backup file
+restore:
+	cat ./dump-scripts/$(DB_DUMP_FILENAME) | docker exec -i $(DB_CONTAINER_NAME) psql -U postgres es -d $(DB_NAME)
