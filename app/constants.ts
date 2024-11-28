@@ -20,6 +20,11 @@ export const PROJECT_TYPES = [
     icon: 'carbon:gears'
   },
   {
+    value: 'documentation',
+    label: 'Documentation',
+    icon: 'oui:documentation'
+  },
+  {
     value: 'desktop',
     label: 'Desktop',
     icon: 'material-symbols-light:desktop-windows-outline',
@@ -143,7 +148,7 @@ export const FASTIFY_BADGE_ENABLED = {
     {
       name: 'devicon-plain:fastify'
     }
-  ],
+  ]
 }
 export const NO_BACKEND_BADGE = {
   value: 'none',
@@ -181,4 +186,3 @@ export const MICROSERVICE_FRONTENDS = [NO_FRONTEND_BADGE]
 export const DESKTOP_BACKENDS = [ELECTRON_BADGE]
 
 export const MICROSERVICE_BACKENDS = [FASTIFY_BADGE_ENABLED]
-
