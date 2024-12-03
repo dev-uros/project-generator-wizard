@@ -3,8 +3,7 @@ import FrontendQuasarSpaFolderStructure from '~/components/FrontendQuasarSpaFold
 import FolderIconClosed from '~/components/icons/FolderIconClosed.vue'
 import ZipFolderIcon from '~/components/icons/ZipFolderIcon.vue'
 import DockerFileClosed from '~/components/icons/DockerFileClosed.vue'
-import DocumentationVitepressStandAloneFolderStructure
-  from "~/components/DocumentationVitepressStandAloneFolderStructure.vue";
+import DocumentationVitepressStandAloneFolderStructure from '~/components/DocumentationVitepressStandAloneFolderStructure.vue'
 
 defineProps([
   'wizardSummaryModal',
@@ -229,6 +228,66 @@ const downloadZipMicroServiceFastify = async () => {
 }
 
 //microservice logic - end
+
+//documentation logic
+
+const generatedProjectNamesDocumentationVitepressStandAlone = computed(
+  function () {
+    if (!state.appName) {
+      return {
+        downloadZipName: `${defaultAppName
+          .replace(/\s+/g, '-')
+          .toLowerCase()}.zip`,
+        unzippedFolderName: defaultAppName.replace(/\s+/g, '-').toLowerCase(),
+        documentationContainerName: `${defaultAppName
+          .replace(/\s+/g, '-')
+          .toLowerCase()}-documentation`
+      }
+    }
+    return {
+      downloadZipName: `${state.appName
+        .replace(/\s+/g, '-')
+        .toLowerCase()}.zip`,
+      unzippedFolderName: state.appName.replace(/\s+/g, '-').toLowerCase(),
+      documentationContainerName: `${state.appName
+        .replace(/\s+/g, '-')
+        .toLowerCase()}-documentation`
+    }
+  }
+)
+const downloadZipDocumentationVitepressStandAlone = async () => {
+  generateProjectButtonLoadingState.value = true
+  const result = await $fetch(
+    '/api/generateDocumentationVitepressStandAloneTemplate',
+    {
+      method: 'POST',
+      body: {
+        projectName: state.appName
+      }
+    }
+  )
+
+  // Create a link element to trigger the download
+  const url = window.URL.createObjectURL(result as Blob)
+  const a = document.createElement('a')
+  a.href = url
+  a.download = `${
+    state.appName
+      ? state.appName.replace(/\s+/g, '-').toLowerCase()
+      : 'default-project'
+  }.zip` // Set the desired filename
+
+  // Append to the body and trigger click
+  document.body.appendChild(a)
+  a.click()
+
+  // Clean up
+  document.body.removeChild(a)
+  window.URL.revokeObjectURL(url) // Release the blob URL
+  generateProjectButtonLoadingState.value = false
+}
+
+//documentation logic-end
 </script>
 
 <template>
@@ -283,11 +342,11 @@ const downloadZipMicroServiceFastify = async () => {
           />
         </div>
         <div
-            v-else-if="selectedProjectFlavour.value === 'documentation'"
-            class="flex flex-col gap-4 justify-evenly"
+          v-else-if="selectedProjectFlavour.value === 'documentation'"
+          class="flex flex-col gap-4 justify-evenly"
         >
           <DocumentationVitepressStandAloneFolderStructure
-              v-if="selectedFrontEnd.value === 'vitepress'"
+            v-if="selectedFrontEnd.value === 'vitepress'"
           />
         </div>
       </UCard>
@@ -328,6 +387,16 @@ const downloadZipMicroServiceFastify = async () => {
             selectedBackEnd.value === 'fastify'
           "
         />
+
+        <DocumentationVitepressStandAloneDownloadPreview
+          :generated-project-names="
+            generatedProjectNamesDocumentationVitepressStandAlone
+          "
+          v-if="
+            selectedProjectFlavour.value === 'documentation' &&
+            selectedFrontEnd.value === 'vitepress'
+          "
+        />
       </div>
       <div class="flex justify-center">
         <UButton
@@ -359,6 +428,16 @@ const downloadZipMicroServiceFastify = async () => {
           label="Generate"
           class="justify-center mt-4 w-96"
           @click="downloadZipMicroServiceFastify"
+          :loading="generateProjectButtonLoadingState"
+        />
+        <UButton
+          v-if="
+            selectedProjectFlavour.value === 'documentation' &&
+            selectedFrontEnd.value === 'vitepress'
+          "
+          label="Generate"
+          class="justify-center mt-4 w-96"
+          @click="downloadZipDocumentationVitepressStandAlone"
           :loading="generateProjectButtonLoadingState"
         />
       </div>
