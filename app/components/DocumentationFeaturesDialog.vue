@@ -65,7 +65,7 @@ const setSelectedStep = (index: number) => {
             <div v-if="item.label === 'Documentation'" class="w-full gap-4">
               <p class="mb-8">Documentation preview</p>
 
-              <iframe src="https://nuxt-daisyui-website-preview.urosminic.com/" title="Website Template" class="w-full min-h-screen"></iframe>
+              <iframe src="https://vitepress-standalone-documentation-preview.urosminic.com/" title="Website Template" class="w-full min-h-screen"></iframe>
             </div>
 
 
