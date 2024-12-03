@@ -63,6 +63,12 @@ import ServiceFolderClosed from "~/components/icons/ServiceFolderClosed.vue";
 import ServiceFolderOpened from "~/components/icons/ServiceFolderOpened.vue";
 import DocsFolderClosed from "~/components/icons/DocsFolderClosed.vue";
 import DocsFolderOpened from "~/components/icons/DocsFolderOpened.vue";
+import PhpFileClosed from "~/components/icons/PhpFileClosed.vue";
+import PhpFileOpened from "~/components/icons/PhpFileOpened.vue";
+import VideoFolderClosed from "~/components/icons/VideoFolderClosed.vue";
+import VideoFolderOpened from "~/components/icons/VideoFolderOpened.vue";
+import VideoFileClosed from "~/components/icons/VideoFileClosed.vue";
+import VideoFileOpened from "~/components/icons/VideoFileOpened.vue";
 
 const vitepressProjectStructure = [
   {
@@ -123,12 +129,12 @@ const vitepressAppFolder = [
     iconOpened: NpmFileOpened,
     content: 'Npm dependencies'
   },
-  {
-    label: 'package-lock.json',
-    iconClosed: NpmFileClosed,
-    iconOpened: NpmFileOpened,
-    content: 'Npm lock file'
-  }
+  // {
+  //   label: 'package-lock.json',
+  //   iconClosed: NpmFileClosed,
+  //   iconOpened: NpmFileOpened,
+  //   content: 'Npm lock file'
+  // }
 ]
 
 const appDocsFolder = [
@@ -139,22 +145,34 @@ const appDocsFolder = [
     slot: 'app-docs-vitepress-folder',
   },
   {
-    label: 'administration',
+    label: 'code-snippets',
     iconClosed: FolderIconClosed,
     iconOpened: FolderIconOpened,
-    slot: 'app-docs-administration-folder'
+    slot: 'app-docs-code-snippets-folder',
   },
   {
-    label: 'assets',
-    iconClosed: AssetsFolderClosed,
-    iconOpened: AssetsFolderOpened,
-    slot: 'app-docs-assets-folder',
+    label: 'guide',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'app-docs-guide-folder'
+  },
+  {
+    label: 'images',
+    iconClosed: ImagesFolderClosed,
+    iconOpened: ImagesFolderOpened,
+    slot: 'app-docs-images-folder',
   },
   {
     label: 'public',
     iconClosed: PublicFolderClosed,
     iconOpened: PublicFolderOpened,
     slot: 'app-docs-public-folder',
+  },
+  {
+    label: 'reference',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'app-docs-reference-folder',
   },
   {
     label: 'index.md',
@@ -174,27 +192,132 @@ const appDocsVitepressFolder = [
   }
 ]
 
-const appDocsAdministrationFolder = [
+const appDocsCodeSnippetsFolder = [
   {
-    label: 'application.md',
-    iconClosed: MarkdownFileClosed,
-    iconOpened: MarkdownFileOpened,
-    content: 'Markdown file containing application feature docs'
+    label: 'large-code-snippet.php',
+    iconClosed: PhpFileClosed,
+    iconOpened: PhpFileOpened,
+    content: 'Example php code snippet'
   },
   {
-    label: 'users.md',
-    iconClosed: MarkdownFileClosed,
-    iconOpened: MarkdownFileOpened,
-    content: 'Markdown file containing user administration feature docs'
+    label: 'pet-repository-interface-snippet.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Example typescript code snipped'
+  },
+  {
+    label: 'pet-repository-snippet.ts',
+    iconClosed: TsFileClosed,
+    iconOpened: TsFileOpened,
+    content: 'Example typescript code snipped'
   }
 ]
 
-const appDocsAssetsFolder = [
+const appDocsGuideFolder = [
+  {
+    label: 'assets',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'app-docs-guide-assets-folder'
+  },
+  {
+    label: 'example-feature',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'app-docs-guide-example-feature-folder'
+  },
+  {
+    label: 'markdown',
+    iconClosed: FolderIconClosed,
+    iconOpened: FolderIconOpened,
+    slot: 'app-docs-guide-markdown-folder'
+  },
+  {
+    label: 'index.md',
+    iconClosed: MarkdownFileClosed,
+    iconOpened: MarkdownFileOpened,
+    content: 'Docs index page'
+  },
+]
+
+const appDocsGuideAssetsFolder = [
   {
     label: 'images',
     iconClosed: ImagesFolderClosed,
     iconOpened: ImagesFolderOpened,
-    slot: 'app-docs-assets-images-folder'
+    slot: 'app-docs-guide-assets-images-folder'
+  },
+  {
+    label: 'videos',
+    iconClosed: VideoFolderClosed,
+    iconOpened: VideoFolderOpened,
+    slot: 'app-docs-guide-assets-videos-folder'
+  },
+  {
+    label: 'assets.md',
+    iconClosed: MarkdownFileClosed,
+    iconOpened: MarkdownFileOpened,
+    content: 'Example of using assets in projects'
+  },
+  {
+    label: 'public.md',
+    iconClosed: MarkdownFileClosed,
+    iconOpened: MarkdownFileOpened,
+    content: 'Example of using public assets in project'
+  },
+]
+
+const appDocsGuideAssetsImagesFolder = [
+  {
+    label: 'image-1.webp',
+    iconClosed: ImageFileClosed,
+    iconOpened: ImageFileOpened,
+    content: 'Image 1 sample'
+  },
+  {
+    label: 'image-2.webp',
+    iconClosed: ImageFileClosed,
+    iconOpened: ImageFileOpened,
+    content: 'Image 2 sample'
+  },
+  {
+    label: 'image-3.webp',
+    iconClosed: ImageFileClosed,
+    iconOpened: ImageFileOpened,
+    content: 'Image 3 sample'
+  },
+  {
+    label: 'image-4.webp',
+    iconClosed: ImageFileClosed,
+    iconOpened: ImageFileOpened,
+    content: 'Image 4 sample'
+  },
+  {
+    label: 'image-5.webp',
+    iconClosed: ImageFileClosed,
+    iconOpened: ImageFileOpened,
+    content: 'Image 5 sample'
+  },
+]
+
+const appDocsGuideAssetsVideosFolder = [
+  {
+    label: 'video-1.mp4',
+    iconClosed: VideoFileClosed,
+    iconOpened: VideoFileOpened,
+    content: 'Video 1 sample'
+  },
+  {
+    label: 'video-2.mp4',
+    iconClosed: VideoFileClosed,
+    iconOpened: VideoFileOpened,
+    content: 'Video 2 sample'
+  },
+  {
+    label: 'video-3.mp4',
+    iconClosed: VideoFileClosed,
+    iconOpened: VideoFileOpened,
+    content: 'Video 3 sample'
   },
 ]
 const appDocsAssetsImagesFolder = [
@@ -334,6 +457,40 @@ const appDocsPublicIconsFolder = [
 
               </template>
 
+              <template #app-docs-code-snippets-folder>
+                <UAccordion
+                    class="pl-5"
+                    multiple
+                    variant="ghost"
+                    :items="appDocsCodeSnippetsFolder">
+                  <template #default="{ item, index, open }">
+                    <UButton color="gray" variant="ghost">
+                      <template #leading>
+                        <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                          <component v-show="!open" :is="item.iconClosed"></component>
+                          <component v-show="open" :is="item.iconOpened"></component>
+
+                        </div>
+                      </template>
+
+                      <span class="truncate">{{ item.label }}</span>
+
+                      <template #trailing>
+                        <UIcon
+                            name="i-heroicons-chevron-right-20-solid"
+                            class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                            :class="[open && 'rotate-90']"
+                        />
+                      </template>
+
+
+                    </UButton>
+
+                  </template>
+
+                </UAccordion>
+              </template>
+
               <template #app-docs-vitepress-folder>
                 <UAccordion
                     class="pl-5"
@@ -367,12 +524,13 @@ const appDocsPublicIconsFolder = [
 
                 </UAccordion>
               </template>
-              <template #app-docs-administration-folder>
+
+              <template #app-docs-guide-folder>
                 <UAccordion
                     class="pl-5"
                     multiple
                     variant="ghost"
-                    :items="appDocsAdministrationFolder">
+                    :items="appDocsGuideFolder">
                   <template #default="{ item, index, open }">
                     <UButton color="gray" variant="ghost">
                       <template #leading>
@@ -398,45 +556,12 @@ const appDocsPublicIconsFolder = [
 
                   </template>
 
-                </UAccordion>
-              </template>
-              <template #app-docs-assets-folder>
-                <UAccordion
-                    class="pl-5"
-                    multiple
-                    variant="ghost"
-                    :items="appDocsAssetsFolder">
-                  <template #default="{ item, index, open }">
-                    <UButton color="gray" variant="ghost">
-                      <template #leading>
-                        <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
-                          <component v-show="!open" :is="item.iconClosed"></component>
-                          <component v-show="open" :is="item.iconOpened"></component>
-
-                        </div>
-                      </template>
-
-                      <span class="truncate">{{ item.label }}</span>
-
-                      <template #trailing>
-                        <UIcon
-                            name="i-heroicons-chevron-right-20-solid"
-                            class="w-5 h-5 ms-auto transform transition-transform duration-200"
-                            :class="[open && 'rotate-90']"
-                        />
-
-                      </template>
-
-                    </UButton>
-
-                  </template>
-
-                  <template #app-docs-assets-images-folder>
+                  <template #app-docs-guide-assets-folder>
                     <UAccordion
                         class="pl-5"
                         multiple
                         variant="ghost"
-                        :items="appDocsAssetsImagesFolder">
+                        :items="appDocsGuideAssetsFolder">
                       <template #default="{ item, index, open }">
                         <UButton color="gray" variant="ghost">
                           <template #leading>
@@ -462,12 +587,12 @@ const appDocsPublicIconsFolder = [
 
                       </template>
 
-                      <template #app-docs-assets-images-home-folder>
+                      <template #app-docs-guide-assets-images-folder>
                         <UAccordion
                             class="pl-5"
                             multiple
                             variant="ghost"
-                            :items="appDocsAssetsImagesHomeFolder">
+                            :items="appDocsGuideAssetsImagesFolder">
                           <template #default="{ item, index, open }">
                             <UButton color="gray" variant="ghost">
                               <template #leading>
@@ -496,12 +621,48 @@ const appDocsPublicIconsFolder = [
                         </UAccordion>
                       </template>
 
+
+                      <template #app-docs-guide-assets-videos-folder>
+                        <UAccordion
+                            class="pl-5"
+                            multiple
+                            variant="ghost"
+                            :items="appDocsGuideAssetsVideosFolder">
+                          <template #default="{ item, index, open }">
+                            <UButton color="gray" variant="ghost">
+                              <template #leading>
+                                <div class="w-6 h-6 rounded-full flex items-center justify-center -my-1">
+                                  <component v-show="!open" :is="item.iconClosed"></component>
+                                  <component v-show="open" :is="item.iconOpened"></component>
+
+                                </div>
+                              </template>
+
+                              <span class="truncate">{{ item.label }}</span>
+
+                              <template #trailing>
+                                <UIcon
+                                    name="i-heroicons-chevron-right-20-solid"
+                                    class="w-5 h-5 ms-auto transform transition-transform duration-200"
+                                    :class="[open && 'rotate-90']"
+                                />
+                              </template>
+
+
+                            </UButton>
+
+                          </template>
+
+                        </UAccordion>
+                      </template>
+
+
                     </UAccordion>
                   </template>
 
-
                 </UAccordion>
               </template>
+
               <template #app-docs-public-folder>
                 <UAccordion
                     class="pl-5"
