@@ -4,7 +4,7 @@ import {
     BACKOFFICE_FRONTENDS,
     BACKOFFICE_QUASAR_BACKENDS,
     DESKTOP_BACKENDS,
-    DESKTOP_FRONTENDS,
+    DESKTOP_FRONTENDS, DOCUMENTATION_BACKEND,
     DOCUMENTATION_FRONTENDS,
     FRONTEND_OPTION,
     MICROSERVICE_BACKENDS,
@@ -160,6 +160,10 @@ export const useSetWizardStep = () => {
 
         if (selectedProjectFlavour.value.value === 'microservice') {
             backendOptions.value = MICROSERVICE_BACKENDS
+        }
+
+        if (selectedProjectFlavour.value.value === 'documentation') {
+            backendOptions.value = DOCUMENTATION_BACKEND
         }
         wizardSteps.value[0].disabled = true;
         wizardSteps.value[1].disabled = true;
