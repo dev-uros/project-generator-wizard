@@ -3,8 +3,8 @@
 layout: home
 
 hero:
-  name: 'doc-testing'
-  text: 'doc-testing - Dokumentacija'
+  name: '{{projectName}}'
+  text: '{{projectName}} - Documentation'
   tagline: Short project description
   image:
     src: ./images/home.webp

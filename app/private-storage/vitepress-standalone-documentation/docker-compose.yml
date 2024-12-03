@@ -1,6 +1,6 @@
 services:
   vitepress:
-    container_name: doc-testing-documentation
+    container_name: {{documentationContainerName}}
     build:
       context: .
       target: 'develop-stage'

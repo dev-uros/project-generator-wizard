@@ -2,8 +2,8 @@ import {defineConfig} from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "doc-testing - Dokumentacija",
-  description: "Upustvo/Dokumentacija za korišćenje doc-testing",
+  title: "{{projectName}}",
+  description: "Upustvo/Dokumentacija za korišćenje {{projectName}}",
   head: [['link', {rel: 'icon', href: '/icons/favicon.ico'}]],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
