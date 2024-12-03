@@ -3,6 +3,8 @@ import FrontendQuasarSpaFolderStructure from '~/components/FrontendQuasarSpaFold
 import FolderIconClosed from '~/components/icons/FolderIconClosed.vue'
 import ZipFolderIcon from '~/components/icons/ZipFolderIcon.vue'
 import DockerFileClosed from '~/components/icons/DockerFileClosed.vue'
+import DocumentationVitepressStandAloneFolderStructure
+  from "~/components/DocumentationVitepressStandAloneFolderStructure.vue";
 
 defineProps([
   'wizardSummaryModal',
@@ -278,6 +280,14 @@ const downloadZipMicroServiceFastify = async () => {
         >
           <MicroServiceFolderStructure
             v-if="selectedBackEnd.value === 'fastify'"
+          />
+        </div>
+        <div
+            v-else-if="selectedProjectFlavour.value === 'documentation'"
+            class="flex flex-col gap-4 justify-evenly"
+        >
+          <DocumentationVitepressStandAloneFolderStructure
+              v-if="selectedFrontEnd.value === 'vitepress'"
           />
         </div>
       </UCard>
