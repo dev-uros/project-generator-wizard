@@ -390,23 +390,6 @@ const appDocsGuideExampleFeatureMaecenasLobortisFolder = [
     content: 'Sub folder example'
   }
 ]
-const appDocsAssetsImagesFolder = [
-  {
-    label: 'home',
-    iconClosed: FolderIconClosed,
-    iconOpened: FolderIconOpened,
-    slot: 'app-docs-assets-images-home-folder'
-  }
-]
-
-const appDocsAssetsImagesHomeFolder = [
-  {
-    label: 'home.webp',
-    iconClosed: ImageFileClosed,
-    iconOpened: ImageFileOpened,
-    content: 'Home Page image'
-  }
-]
 const appDocsPublicFolder = [
   {
     label: 'icons',
