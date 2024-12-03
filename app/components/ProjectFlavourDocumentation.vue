@@ -14,7 +14,6 @@ const openFeaturesDialog = () => {
 
 const closeFeaturesDialog = () => {
   detailedFeaturesDialogOpened.value = false
-  moreInfoSideOpened.value = true
 }
 </script>
 
@@ -37,23 +36,19 @@ const closeFeaturesDialog = () => {
         organized, and easily searchable documentation, fostering better
         understanding and engagement within teams or with external users.
       </p>
+
       <UButton
-        label="More info"
+        label="Preview"
         color="gray"
-        @click="moreInfoSideOpened = true"
+        @click="detailedFeaturesDialogOpened = true"
       >
         <template #trailing>
-          <UIcon name="material-symbols:info-outline" class="w-5 h-5" />
+          <UIcon name="material-symbols:preview" class="w-5 h-5" />
         </template>
       </UButton>
     </article>
 
-    <LazyWebsiteMoreInfoSide
-      v-model="moreInfoSideOpened"
-      @close-side="closeSideDialog"
-      @open-feature-details-dialog="openFeaturesDialog"
-    />
-    <LazyWebsiteFeaturesDialog
+    <LazyDocumentationFeaturesDialog
       v-model="detailedFeaturesDialogOpened"
       @close-dialog="closeFeaturesDialog"
     />
