@@ -26,6 +26,8 @@ const frontendRadioGrayscale = computed(() => {
       astroGrayScale: true,
       angularGrayScale: true,
       noneGrayScale: true,
+      vitepressGrayScale: true
+
 
     }
   }
@@ -46,6 +48,8 @@ const frontendRadioGrayscale = computed(() => {
       astroGrayScale: false,
       angularGrayScale: true,
       noneGrayScale: true,
+      vitepressGrayScale: true
+
 
     }
   }
@@ -57,6 +61,8 @@ const frontendRadioGrayscale = computed(() => {
       astroGrayScale: true,
       angularGrayScale: true,
       noneGrayScale: true,
+      vitepressGrayScale: true
+
 
     }
   }
@@ -68,6 +74,18 @@ const frontendRadioGrayscale = computed(() => {
       astroGrayScale: true,
       angularGrayScale: true,
       noneGrayScale: false,
+      vitepressGrayScale: true
+
+    }
+  }
+  if (selectedFrontend.value === 'vitepress') {
+    return {
+      quasarGrayScale: true,
+      nuxtGrayScale: true,
+      astroGrayScale: true,
+      angularGrayScale: true,
+      noneGrayScale: true,
+      vitepressGrayScale: false
     }
   }
 })
@@ -116,6 +134,17 @@ onUpdated(() => {
             <div
                 class="flex justify-center items-center"
                 v-else-if="option.value === 'none'"
+            >
+              <UIcon
+                  v-for="icon in option.icons"
+                  :name="icon.name"
+                  class="w-10 h-10"
+                  :class="{ grayscale: frontendRadioGrayscale.noneGrayScale }"
+              />
+            </div>
+            <div
+                class="flex justify-center items-center"
+                v-else-if="option.value === 'vitepress'"
             >
               <UIcon
                   v-for="icon in option.icons"
@@ -277,6 +306,29 @@ onUpdated(() => {
               <h1>No frontend</h1>
               <UDivider />
             </article>
+          </div>
+          <div v-if="selectedFrontend === 'vitepress'">
+            <article class="prose lg:prose-xl dark:prose-invert">
+              <h1>VitePress</h1>
+              <UDivider/>
+              <p>
+                <ULink
+                    to="https://vitepress.dev/"
+                    target="_blank"
+                    active-class="text-primary"
+                    inactive-class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
+                >
+                  VitePress:
+                </ULink>
+                Vite & Vue Powered Static Site Generator
+              </p>
+              <p>
+                Markdown to Beautiful Docs in Minutes
+
+              </p>
+
+            </article>
+
           </div>
 
         </template>

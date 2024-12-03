@@ -2,8 +2,15 @@ import {
     BACKEND_OPTION,
     BACKOFFICE_ANGULAR_BACKENDS,
     BACKOFFICE_FRONTENDS,
-    BACKOFFICE_QUASAR_BACKENDS, DESKTOP_BACKENDS,
-    DESKTOP_FRONTENDS, FRONTEND_OPTION, MICROSERVICE_BACKENDS, MICROSERVICE_FRONTENDS, PROJECT_TYPES, WEBSITE_BACKENDS,
+    BACKOFFICE_QUASAR_BACKENDS,
+    DESKTOP_BACKENDS,
+    DESKTOP_FRONTENDS,
+    DOCUMENTATION_FRONTENDS,
+    FRONTEND_OPTION,
+    MICROSERVICE_BACKENDS,
+    MICROSERVICE_FRONTENDS,
+    PROJECT_TYPES,
+    WEBSITE_BACKENDS,
     WEBSITE_FRONTENDS
 } from "~/constants";
 import {isObjectTypeAnnotation} from "@babel/types";
@@ -111,6 +118,13 @@ export const useSetWizardStep = () => {
             selectedProjectFlavour.value = PROJECT_TYPES.find(type => type.value === optionValue);
 
             frontendOptions.value = MICROSERVICE_FRONTENDS
+        }
+
+        if(optionValue === 'documentation'){
+
+            selectedProjectFlavour.value = PROJECT_TYPES.find(type => type.value === optionValue);
+
+            frontendOptions.value = DOCUMENTATION_FRONTENDS
         }
 
         wizardSteps.value[0].disabled = true;

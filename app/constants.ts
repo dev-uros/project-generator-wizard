@@ -110,6 +110,15 @@ export const NUXT_BADGE = {
   ]
 }
 
+export const VITEPRESS_BADGE = {
+  value: 'vitepress',
+  label: 'VitePress',
+  icons: [
+    {
+      name: 'simple-icons:vitepress'
+    },
+  ]
+}
 export const ASTRO_BADGE = {
   value: 'astro',
   label: 'Astro/Daisy UI',
@@ -186,3 +195,5 @@ export const MICROSERVICE_FRONTENDS = [NO_FRONTEND_BADGE]
 export const DESKTOP_BACKENDS = [ELECTRON_BADGE]
 
 export const MICROSERVICE_BACKENDS = [FASTIFY_BADGE_ENABLED]
+
+export const DOCUMENTATION_FRONTENDS = [VITEPRESS_BADGE]
