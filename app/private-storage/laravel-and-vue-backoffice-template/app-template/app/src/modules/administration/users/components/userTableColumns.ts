@@ -1,4 +1,5 @@
-import {QTableProps} from "quasar";
+import type {QTableProps} from "quasar";
+import type { User } from "../types";
 
 export default function useUserTableColumns(): QTableProps['columns'] {
   return [
@@ -6,7 +7,7 @@ export default function useUserTableColumns(): QTableProps['columns'] {
       name: 'user',
       label: 'Korisnik',
       align: 'left',
-      field: (row: any) => `${row.name} ${row.surname}`,
+      field: (row: User) => `${row.name} ${row.surname}`,
       sortable: true
     },
     {name: 'email', align: 'left', label: 'E-mail', field: 'email', sortable: true},

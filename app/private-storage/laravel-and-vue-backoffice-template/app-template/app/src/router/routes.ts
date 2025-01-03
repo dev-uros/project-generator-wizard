@@ -1,13 +1,12 @@
-import {RouteRecordRaw} from 'vue-router';
+import { administrationRoutes } from 'src/modules/administration/routes';
+import { authRoutes } from 'src/modules/auth/routes';
+import { docsRoutes } from 'src/modules/docs/routes';
+import { homeRoutes } from 'src/modules/home/routes';
+import { settingsRoutes } from 'src/modules/settings/routes';
 import auth from 'src/modules/shared/middleware/auth';
-import {settingsRoutes} from "src/modules/settings/routes";
-import {homeRoutes} from "src/modules/home/routes";
-import guest from "src/modules/shared/middleware/guest";
-import {authRoutes} from "src/modules/auth/routes";
-import {sharedRoutes} from "src/modules/shared/routes";
-import {administrationRoutes} from "src/modules/administration/routes";
-import {docsRoutes} from "src/modules/docs/routes";
-
+import guest from 'src/modules/shared/middleware/guest';
+import { sharedRoutes } from 'src/modules/shared/routes';
+import type { RouteRecordRaw } from 'vue-router';
 
 const routes: RouteRecordRaw[] = [
   {

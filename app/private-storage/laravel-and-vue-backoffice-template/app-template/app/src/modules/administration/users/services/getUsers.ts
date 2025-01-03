@@ -1,5 +1,5 @@
 import {HttpMethod, useFetch} from "src/modules/shared/utils/fetch";
-import {UsersResponse, GetUsersFilters} from "../types";
+import type {UsersResponse, GetUsersFilters} from "../types";
 
 export async function getUsers(userFilters: GetUsersFilters) {
   console.log(userFilters);

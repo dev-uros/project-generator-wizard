@@ -1,5 +1,5 @@
 import {acceptHMRUpdate, defineStore} from 'pinia';
-import {DocsStoreState} from "./types";
+import type {DocsStoreState} from "./types";
 import {getServerHealthCheckApi} from "./services/docsService";
 import {formatNumberToCurrency} from "./utils/docsUtils"
 
@@ -37,4 +37,3 @@ if (import.meta.hot) {
   import.meta.hot.accept(acceptHMRUpdate(useDocsStore, import.meta.hot))
 }
 
-    

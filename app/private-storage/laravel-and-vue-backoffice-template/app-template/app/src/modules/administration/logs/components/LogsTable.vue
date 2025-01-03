@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import BaseTooltip from "src/modules/shared/components/BaseTooltip.vue";
-import {ApiLogFileEntry} from "../types";
+import type {ApiLogFileEntry} from "../types";
 import {ref} from "vue";
 import useLogsTableColumns from "./logsTableColumns";
 
-const props = defineProps<{
+defineProps<{
   rows: ApiLogFileEntry[]
 }>()
 const emit = defineEmits<{

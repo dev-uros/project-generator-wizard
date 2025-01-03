@@ -6,7 +6,7 @@ import {computed} from "vue";
 import BaseTooltip from "src/modules/shared/components/BaseTooltip.vue";
 import {copyToClipboard} from 'quasar'
 import useNotificationMessage, {NotificationType} from "src/modules/shared/utils/notificationMessage";
-import {QueryArray} from "src/modules/administration/logs/types";
+import type {QueryArray} from "src/modules/administration/logs/types";
 
 const logsStore = useLogsStore();
 

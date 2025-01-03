@@ -1,10 +1,9 @@
 import {acceptHMRUpdate, defineStore} from 'pinia';
-import {HomeStoreState} from "./types";
 
 
 
 export const useHomeStore = defineStore('homeStore', {
-  state: (): HomeStoreState => ({}),
+  state: () => ({}),
   getters: {},
   actions: {}
 

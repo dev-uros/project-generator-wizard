@@ -1,11 +1,6 @@
 import {HttpMethod, useFetch} from "src/modules/shared/utils/fetch";
-import {
-  ApiLogFileEntriesResponse, ApiLogFileEntryDetailsResponse,
-  ApiLogFilesResponse,
-  GetLogFileEntriesFilter,
-  GetLogFileEntryDetailsFilter,
-  GetLogFilesFilter
-} from "../types";
+import type { ApiLogFileEntryDetailsResponse,
+  GetLogFileEntryDetailsFilter} from "../types";
 
 export async function getApiLogFileEntryDetails(params: GetLogFileEntryDetailsFilter) {
 

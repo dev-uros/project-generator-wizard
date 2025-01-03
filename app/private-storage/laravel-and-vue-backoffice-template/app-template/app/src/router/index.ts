@@ -1,13 +1,18 @@
-import { route } from 'quasar/wrappers';
+import { defineRouter } from '#q-app/wrappers';
+import type {
+  RouteLocationNormalized} from 'vue-router';
 import {
   createMemoryHistory,
   createRouter,
   createWebHashHistory,
-  createWebHistory,
-  RouteLocationNormalized
+  createWebHistory
 } from 'vue-router';
-import middlewarePipeline from "src/router/middlewarePipeline";
 import routes from './routes';
+import middlewarePipeline from "src/router/middlewarePipeline";
+
+type NextFunction = () => Promise<void> | void;
+
+type Middleware = (ctx: { next: NextFunction, to: RouteLocationNormalized }) => Promise<void> | void;
 
 /*
  * If not building with SSR mode, you can
@@ -17,11 +22,8 @@ import routes from './routes';
  * async/await or return a Promise which resolves
  * with the Router instance.
  */
-type NextFunction = () => Promise<void> | void;
 
-type Middleware = (ctx: { next: NextFunction, to: RouteLocationNormalized }) => Promise<void> | void;
-
-export default route(function (/* { store, ssrContext } */) {
+export default defineRouter(function (/* { store, ssrContext } */) {
   const createHistory = process.env.SERVER
     ? createMemoryHistory
     : (process.env.VUE_ROUTER_MODE === 'history' ? createWebHistory : createWebHashHistory);

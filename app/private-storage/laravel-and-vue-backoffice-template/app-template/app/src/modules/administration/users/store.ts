@@ -1,5 +1,5 @@
 import {acceptHMRUpdate, defineStore} from 'pinia';
-import {GetUsersFilters, StoreNewUserRequest, UserStoreState} from "./types";
+import type {StoreNewUserRequest, UserStoreState} from "./types";
 import {getUsers} from "src/modules/administration/users/services/getUsers";
 import {storeUser} from "./services/storeUser";
 import {showUser} from "./services/showUser";
@@ -18,7 +18,7 @@ export const useUsersStore = defineStore('usersStore', {
     getUserDetails: (state) => state.userDetails
   },
   actions: {
-    async getUserList(request: GetUsersFilters){
+    async getUserList(request: number){
       this.users = await getUsers({accountState: request});
     },
     async storeNewUser(request: StoreNewUserRequest) {
@@ -28,7 +28,7 @@ export const useUsersStore = defineStore('usersStore', {
       this.userDetails = await showUser(userId);
     },
     async updateUser(userId: number, request: StoreNewUserRequest){
-      this.userDetails = updateUser(userId, request)
+      this.userDetails = await updateUser(userId, request)
     },
     async setAccountState(userId: number){
       this.userDetails = await setAccountState(userId);

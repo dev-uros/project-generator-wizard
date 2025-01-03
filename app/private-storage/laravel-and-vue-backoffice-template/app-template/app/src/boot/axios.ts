@@ -1,14 +1,16 @@
-import { boot } from 'quasar/wrappers';
-import axios, { AxiosInstance } from 'axios';
-import useRouteRequiresAuth from 'src/modules/shared/utils/routeRequiresAuth';
-import useHandleErrors from 'src/modules/shared/utils/handleErrors';
-import {Cookies,Loading} from 'quasar';
-import useNotificationMessage, {NotificationType} from "src/modules/shared/utils/notificationMessage";
-import {useAuthStore} from "src/modules/auth/store";
-
-declare module '@vue/runtime-core' {
+import { defineBoot } from '#q-app/wrappers'
+import axios, { type AxiosInstance } from 'axios'
+import useRouteRequiresAuth from 'src/modules/shared/utils/routeRequiresAuth'
+import useHandleErrors from 'src/modules/shared/utils/handleErrors'
+import { Cookies, Loading } from 'quasar'
+import useNotificationMessage, {
+  NotificationType,
+} from 'src/modules/shared/utils/notificationMessage'
+import { useAuthStore } from 'src/modules/auth/store'
+declare module 'vue' {
   interface ComponentCustomProperties {
-    $axios: AxiosInstance;
+    $axios: AxiosInstance
+    $api: AxiosInstance
   }
 }
 
@@ -18,46 +20,51 @@ declare module '@vue/runtime-core' {
 // good idea to move this instance creation inside of the
 // "export default () => {}" function below (which runs individually
 // for each client)
-const api = axios.create({ baseURL: process.env.BACKEND_APP_BASE_URL });
+const api = axios.create({ baseURL: process.env.BACKEND_APP_BASE_URL })
 
-api.interceptors.request.use((config)=>{
-  Loading.show();
-  if(useRouteRequiresAuth(`${config.url}`)){
-    config.headers['Authorization'] = `Bearer ${Cookies.get('userSessionToken')}`
-  }
-  return config;
-}, ()=>{
-  Loading.hide();
-});
+api.interceptors.request.use(
+  (config) => {
+    Loading.show()
+    if (useRouteRequiresAuth(`${config.url}`)) {
+      config.headers['Authorization'] = `Bearer ${Cookies.get('userSessionToken')}`
+    }
+    return config
+  },
+  () => {
+    Loading.hide()
+  },
+)
 
-api.interceptors.response.use((response)=>{
-  Loading.hide();
-  if(response.data.message){
-    useNotificationMessage(NotificationType.SUCCESS, response.data.message)
-  }
-  return response;
-}, (error)=>{
+api.interceptors.response.use(
+  (response) => {
+    Loading.hide()
+    if (response.data.message) {
+      useNotificationMessage(NotificationType.SUCCESS, response.data.message)
+    }
+    return response
+  },
+  (error) => {
+    Loading.hide()
+    if (useHandleErrors(error.response.status, error.response.data.errors)) {
+      const authUserStore = useAuthStore()
+      authUserStore.revokeSession().then(() => {
+        window.location.replace('/auth/login')
+      })
+    }
+    return Promise.reject(error)
+  },
+)
 
-  Loading.hide();
-  if(useHandleErrors(error.response.status, error.response.data.errors)){
-    const authUserStore = useAuthStore();
-    authUserStore.revokeSession().then(()=>{
-      window.location.replace('/auth/login');
-    });
-  }
-  return Promise.reject(error);
-})
-
-export default boot(({ app }) => {
+export default defineBoot(({ app }) => {
   // for use inside Vue files (Options API) through this.$axios and this.$api
 
-  app.config.globalProperties.$axios = axios;
+  app.config.globalProperties.$axios = axios
   // ^ ^ ^ this will allow you to use this.$axios (for Vue Options API form)
   //       so you won't necessarily have to import axios in each vue file
 
-  app.config.globalProperties.$api = api;
+  app.config.globalProperties.$api = api
   // ^ ^ ^ this will allow you to use this.$api (for Vue Options API form)
   //       so you can easily perform requests against your app's API
-});
+})
 
-export { api };
+export { api }

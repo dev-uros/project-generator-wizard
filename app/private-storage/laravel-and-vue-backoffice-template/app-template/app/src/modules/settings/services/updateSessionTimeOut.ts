@@ -1,5 +1,5 @@
 import {HttpMethod, useFetch} from "src/modules/shared/utils/fetch";
-import {SetSessionTimeoutResponse} from "src/modules/settings/types";
+import type {SetSessionTimeoutResponse} from "src/modules/settings/types";
 
 export async function updateSessionTimeOut(timeout: number){
   const {data: {sessionTimeout}} = await useFetch<SetSessionTimeoutResponse, { timeout: number }>({

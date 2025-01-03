@@ -13,7 +13,7 @@ const emit = defineEmits<{
 const accountState = ref(accountStateOptions[0])
 
 const fetchUsers = () => {
-  emit('fetchUsers', accountState.value.id)
+  emit('fetchUsers', accountState.value!.id)
 }
 </script>
 

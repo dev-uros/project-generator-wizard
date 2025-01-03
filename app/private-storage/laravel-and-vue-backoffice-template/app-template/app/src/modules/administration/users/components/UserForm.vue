@@ -44,7 +44,7 @@ export type UserData = {
 }
 interface UserFormProps {
   mode: 'create' | 'update',
-  userData?: UserData
+  userData: UserData | undefined
 }
 
 const props = withDefaults(defineProps<UserFormProps>(), {

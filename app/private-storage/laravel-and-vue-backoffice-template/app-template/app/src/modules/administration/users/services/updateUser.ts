@@ -1,4 +1,4 @@
-import {StoreNewUserRequest, StoreNewUserResponse} from "../types";
+import type {StoreNewUserRequest, StoreNewUserResponse} from "../types";
 import {HttpMethod, useFetch} from "src/modules/shared/utils/fetch";
 
 export async function updateUser(userId: number, request: StoreNewUserRequest){

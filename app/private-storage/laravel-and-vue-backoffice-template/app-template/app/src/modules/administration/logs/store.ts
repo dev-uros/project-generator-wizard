@@ -1,5 +1,5 @@
 import {acceptHMRUpdate, defineStore} from 'pinia';
-import {LogsStoreState} from "./types";
+import type {LogsStoreState} from "./types";
 import {getApiLogFolders} from "src/modules/administration/logs/services/getApiLogFolders";
 import {getApiLogFiles} from "src/modules/administration/logs/services/getApiLogFiles";
 import {getApiLogFileEntries} from "src/modules/administration/logs/services/getApiLogFileEntries";

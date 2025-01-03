@@ -86,3 +86,5 @@ That's it, once quasar is ready, app will be available at http://localhost:9000
 
 
 **When finished with developing run make down!**
+
+- Vue devtools url: http://localhost:9000/__devtools__/ 

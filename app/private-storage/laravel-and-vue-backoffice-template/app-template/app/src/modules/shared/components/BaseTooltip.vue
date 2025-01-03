@@ -14,7 +14,7 @@ interface TooltipProps {
   tooltip: string
 }
 
-const props = withDefaults(defineProps<TooltipProps>(), {
+withDefaults(defineProps<TooltipProps>(), {
   tooltip: 'Tekst!',
 })
 </script>

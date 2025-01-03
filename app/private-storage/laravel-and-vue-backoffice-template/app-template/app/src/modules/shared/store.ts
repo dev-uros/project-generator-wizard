@@ -1,7 +1,5 @@
 import {acceptHMRUpdate, defineStore} from 'pinia';
-import {SharedStoreState} from "./types";
-import {getServerHealthCheckApi} from "./services/sharedService";
-import {formatNumberToCurrency} from "./utils/sharedUtils"
+import type {SharedStoreState} from "./types";
 
 
 export const useSharedStore = defineStore('sharedStore', {
@@ -11,7 +9,6 @@ export const useSharedStore = defineStore('sharedStore', {
   }),
   getters: {
     getDoubleCount: (state) => state.counter * 2,
-    getFormattedCounter: (state) => formatNumberToCurrency(state.counter)
   },
   actions: {
     exampleStoreFunction(){
@@ -23,9 +20,6 @@ export const useSharedStore = defineStore('sharedStore', {
     },
     subtractCount() {
       this.counter = this.counter - 1;
-    },
-    async getServerHealthCheck(){
-        this.serverHealthCheck = await getServerHealthCheckApi();
     }
   }
 
@@ -37,4 +31,3 @@ if (import.meta.hot) {
   import.meta.hot.accept(acceptHMRUpdate(useSharedStore, import.meta.hot))
 }
 
-    

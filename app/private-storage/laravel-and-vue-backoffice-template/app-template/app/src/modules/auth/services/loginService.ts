@@ -1,5 +1,5 @@
 import {HttpMethod, useFetch} from "../../shared/utils/fetch";
-import {LoginRequest, LoginResponse} from "../types";
+import type {LoginRequest, LoginResponse} from "../types";
 
 
 export async function login(request: LoginRequest) {
@@ -8,11 +8,10 @@ export async function login(request: LoginRequest) {
       user,
       token,
       sessionTimeout,
-      userContacts
     }
   } = await useFetch<LoginResponse, LoginRequest>({url: '/auth/login', method: HttpMethod.POST, data: request});
 
-  return {user, token, sessionTimeout, userContacts}
+  return {user, token, sessionTimeout}
 }
 
 

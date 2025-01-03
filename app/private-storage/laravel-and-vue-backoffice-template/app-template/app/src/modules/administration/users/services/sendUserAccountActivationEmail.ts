@@ -1,5 +1,5 @@
 import {HttpMethod, useFetch} from "src/modules/shared/utils/fetch";
-import {ResendActivationEmailResponse} from "../types";
+import type {ResendActivationEmailResponse} from "../types";
 
 export async function sendActivationEmail(userId: number) {
   await useFetch<ResendActivationEmailResponse>({

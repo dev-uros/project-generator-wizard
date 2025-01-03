@@ -1,5 +1,5 @@
 import {HttpMethod, useFetch} from "../../shared/utils/fetch";
-import {ForgotPasswordResponse} from "../types";
+import type {ForgotPasswordResponse} from "../types";
 
 
 export async function makeForgotPasswordRequest(email: string) {

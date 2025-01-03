@@ -1,5 +1,5 @@
 import {HttpMethod, useFetch} from "src/modules/shared/utils/fetch";
-import {UserDetailsResponse} from "../types";
+import type {UserDetailsResponse} from "../types";
 
 export async function showUser(userId: number) {
   const {data: {user}} = await useFetch<UserDetailsResponse>({

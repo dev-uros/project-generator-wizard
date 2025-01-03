@@ -1,6 +1,5 @@
 import {HttpMethod, useFetch} from "../../shared/utils/fetch";
-import {AutoLoginResponse,} from "../types";
-import {Cookies} from "quasar";
+import type {AutoLoginResponse} from "../types";
 
 
 export async function autoLogin() {
@@ -9,11 +8,10 @@ export async function autoLogin() {
       user,
       isUserSessionActive,
       sessionTimeout,
-      userContacts
     }
   } = await useFetch<AutoLoginResponse>({url: '/auth/auto-login', method: HttpMethod.POST})
 
-  return {user, isUserSessionActive, sessionTimeout, userContacts}
+  return {user, isUserSessionActive, sessionTimeout}
 }
 
 

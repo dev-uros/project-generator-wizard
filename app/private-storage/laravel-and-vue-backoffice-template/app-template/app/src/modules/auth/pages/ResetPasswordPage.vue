@@ -123,8 +123,8 @@ function containsUpperCase(password: string) {
 
 function containsSymbol(password:string) {
   // Specify the list of symbols you want to check for
-  const symbolList = /[\!\@\#\$\%\^\&\*]/;
-
+  const symbolList = /[!@#$%^&*]/;
+  
   return symbolList.test(password);
 }
 

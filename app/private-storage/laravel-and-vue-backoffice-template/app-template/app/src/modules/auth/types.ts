@@ -1,13 +1,8 @@
-import {User} from "src/modules/administration/users/types";
-import {Contact, FileViewer, Gallery} from "src/modules/auth/types";
+import type {User} from "src/modules/administration/users/types";
 
 export interface AuthStoreState{
   user: User,
-  token: string,
-  contacts: Contact[],
-  gallery: Gallery[],
-  allFiles: FileViewer[],
-  allFilesFiltered: FileViewer[],
+  token: string
 }
 
 
@@ -22,7 +17,6 @@ export interface LoginResponse {
     user: User,
     token: string,
     sessionTimeout: number,
-    userContacts: Contact[]
   }
 }
 
@@ -48,7 +42,6 @@ export interface AutoLoginResponse {
     user: User,
     sessionTimeout: number,
     isUserSessionActive: boolean,
-    userContacts: Contact[]
   },
 
 }

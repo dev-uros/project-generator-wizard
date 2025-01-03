@@ -1,7 +1,7 @@
 import {acceptHMRUpdate, defineStore} from 'pinia';
 
 import {updateSessionTimeOut} from "src/modules/settings/services/updateSessionTimeOut";
-import {SettingsStore} from "src/modules/settings/types";
+import type {SettingsStore} from "src/modules/settings/types";
 
 export const useSettingsStore = defineStore('settingsStore', {
 

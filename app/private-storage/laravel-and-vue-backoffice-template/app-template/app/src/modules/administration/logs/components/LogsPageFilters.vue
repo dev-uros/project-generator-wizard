@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import {useLogsStore} from "../store";
-import {Ref, ref} from "vue";
+import {ref} from "vue";
+
+type UpdateFunction = (callback: () => void) => void;
 
 const emit = defineEmits<{
   setLogFolderAndFile: [logFolder: string, logFile: string]
@@ -11,7 +13,7 @@ const selectedLogFolder = ref();
 const logFolderStringOptions = logsStore.apiLogFolders;
 const logFolderOptions = ref(logFolderStringOptions);
 
-const filterLogFolders  = (val: string, update: any) => {
+const filterLogFolders  = (val: string, update: UpdateFunction) => {
   update(() => {
     const needle = val.toLowerCase()
     logFolderOptions.value = logFolderStringOptions.filter(v => v.toLowerCase().indexOf(needle) > -1)
@@ -36,7 +38,7 @@ const selectedLogFile = ref();
 let logFileStringOptions: string[] = [];
 const logFileOptions = ref(logFileStringOptions)
 
-const filterLogFiles  = (val: string, update: any) => {
+const filterLogFiles  = (val: string, update: UpdateFunction) => {
   update(() => {
     const needle = val.toLowerCase()
     logFileOptions.value = logFileStringOptions.filter(v => v.toLowerCase().indexOf(needle) > -1)

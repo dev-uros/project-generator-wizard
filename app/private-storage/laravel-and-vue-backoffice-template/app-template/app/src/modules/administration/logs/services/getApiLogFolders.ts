@@ -1,5 +1,5 @@
 import {HttpMethod, useFetch} from "src/modules/shared/utils/fetch";
-import {ApiLogFoldersResponse} from "../types";
+import type {ApiLogFoldersResponse} from "../types";
 
 export async function getApiLogFolders() {
 

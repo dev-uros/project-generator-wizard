@@ -5,12 +5,6 @@
   justify-content: flex-start;
 }
 
-.right-drawer-header {
-}
-
-.right-drawer-dark-mode {
-
-}
 
 </style>
 
@@ -29,7 +23,6 @@
           Title
         </q-toolbar-title>
         <q-btn dense flat round icon="menu" @click="toggleRightDrawer">
-          <q-badge color="red" floating v-if="contacts.find(contact => contact.hasUnreadMessages === true)"/>
         </q-btn>
       </q-toolbar>
     </q-header>
@@ -151,7 +144,6 @@
         <q-tab name="light" icon="wb_sunny"/>
         <q-tab name="dark" icon="bedtime"/>
       </q-tabs>
-      <ChatContainer v-if="webSocketServerEnabled" ref="chatContainer"></ChatContainer>
 
     </q-drawer>
 
@@ -169,33 +161,25 @@
 </template>
 
 <script setup lang="ts">
-import {computed, ComputedRef, ref, watch, defineAsyncComponent} from 'vue'
+import type { ComputedRef} from 'vue';
+import {computed, ref, watch} from 'vue'
 import {Cookies, useQuasar} from "quasar";
 import {useRouter} from "vue-router";
 
 import BaseTooltip from "src/modules/shared/components/BaseTooltip.vue";
-import {User} from "src/modules/administration/users/types";
+import type {User} from "src/modules/administration/users/types";
 import {useAuthStore} from "src/modules/auth/store";
-
-const ChatContainer = defineAsyncComponent(() => import('layouts/main/components/ChatContainer.vue'))
-const webSocketServerEnabled = process.env.WEBSOCKET_SERVER === 'true';
-
-const chatContainer = ref()
 
 
 const authUserStore = useAuthStore();
 const authenticatedUser: ComputedRef<User> = computed(function () {
   return authUserStore.getUser
 })
-const contacts = ref(authUserStore.contacts);
 
 const router = useRouter();
 
 
 const logout = async () => {
-  if (webSocketServerEnabled) {
-    chatContainer.value.sendBeforeUnloadMessage();
-  }
 
   await authUserStore.logout();
   await router.replace({

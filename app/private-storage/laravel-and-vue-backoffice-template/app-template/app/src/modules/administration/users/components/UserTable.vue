@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import BaseTooltip from "src/modules/shared/components/BaseTooltip.vue";
-import {User} from "../types";
+import type {User} from "../types";
 import useUserTableColumns from "./userTableColumns";
 import {ref} from "vue";
 
-const props = defineProps<{
+defineProps<{
   rows: User[]
 }>()
 

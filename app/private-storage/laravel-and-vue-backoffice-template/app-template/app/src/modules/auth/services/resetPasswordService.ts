@@ -1,5 +1,5 @@
 import {HttpMethod, useFetch} from "../../shared/utils/fetch";
-import {ResetPasswordRequest, ResetPasswordResponse} from "../types";
+import type {ResetPasswordRequest, ResetPasswordResponse} from "../types";
 
 
 export async function resetPassword(request: ResetPasswordRequest) {

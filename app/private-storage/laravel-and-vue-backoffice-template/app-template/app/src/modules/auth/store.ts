@@ -1,16 +1,15 @@
 import {acceptHMRUpdate, defineStore} from 'pinia';
-import {
+import type {
   AuthStoreState,
   LoginRequest,
   ResetPasswordRequest,
 } from "./types";
 
-import {User} from "src/modules/administration/users/types";
+import type {User} from "src/modules/administration/users/types";
 
 
 import {Cookies} from "quasar";
 import {useSettingsStore} from "src/modules/settings/store";
-import {Contact} from "src/modules/auth/types";
 import {login} from "./services/loginService";
 import {logout} from "./services/logoutService";
 import {makeForgotPasswordRequest} from "./services/forgotPasswordService";
@@ -21,29 +20,19 @@ import {autoLogin} from "./services/autoLoginService";
 
 export const useAuthStore = defineStore('authStore', {
   state: (): AuthStoreState => ({
-    user: {},
-    token: '',
-    contacts: [],
-    gallery: [],
-    allFiles: [],
-    allFilesFiltered: []
+    user: {} as User,
+    token: ''
   }),
   getters: {
     getUser: (state) => state.user,
-    getToken: (state) => state.token,
-    getGallery: (state) => state.gallery,
-    getCurrentlyActiveGalleryItem: (state) => state.gallery.find(file => file.currentlyActiveInCarousel),
-    getAllFiles: (state)=>state.allFiles,
-    countMessagesToForward: (state) => {
-      return (chattingToId: number) => state.contacts.find(contact => contact.id === chattingToId)!.messages.filter(msg => msg.forwardMessage).length
-    }
+    getToken: (state) => state.token
   },
   actions: {
     async login(request: LoginRequest) {
 
-      const {user, token, sessionTimeout, userContacts} = await login(request)
+      const {user, token, sessionTimeout} = await login(request)
 
-      this.setLoggedInUserData(user, token, sessionTimeout, userContacts)
+      this.setLoggedInUserData(user, token, sessionTimeout)
 
     },
 
@@ -72,12 +61,11 @@ export const useAuthStore = defineStore('authStore', {
         user,
         isUserSessionActive,
         sessionTimeout,
-        userContacts
       } = await autoLogin()
 
 
       if (isUserSessionActive) {
-        await this.setLoggedInUserData(user, userSessionToken, sessionTimeout, userContacts)
+        await this.setLoggedInUserData(user, userSessionToken, sessionTimeout)
 
       }else{
         Cookies.remove('userSessionToken', {
@@ -87,7 +75,7 @@ export const useAuthStore = defineStore('authStore', {
       return isUserSessionActive;
     },
 
-    setLoggedInUserData(user, token, sessionTimeout, userContacts){
+    setLoggedInUserData(user: User, token: string, sessionTimeout: number){
       this.setUserData(user);
 
       this.setUserToken(token);
@@ -96,7 +84,6 @@ export const useAuthStore = defineStore('authStore', {
 
       this.setUserCookie(token);
 
-      this.setUserContacts(userContacts)
     },
     setUserData(user: User) {
       this.user = user;
@@ -106,19 +93,6 @@ export const useAuthStore = defineStore('authStore', {
       this.token = token;
     },
 
-    setUserContacts(userContacts: Contact[]) {
-      this.contacts = userContacts.map((contact)=>{
-        contact.letter = `${contact.name[0]}${contact.surname[0]}`
-        contact.messages = [];
-        contact.gallery = [];
-        contact.hasUnreadMessages = false;
-        contact.unreadMessageCount = 0;
-        contact.isOnline = false;
-        contact.isTyping = false
-        contact.scrollToTopCount = 0;
-        return contact
-      });
-    },
     setUserSessionDurationData(sessionDuration: number) {
       useSettingsStore().setSessionTimeout(sessionDuration);
     },

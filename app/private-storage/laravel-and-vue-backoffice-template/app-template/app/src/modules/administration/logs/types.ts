@@ -1,4 +1,4 @@
-import {User} from "src/modules/administration/users/types";
+import type {User} from "src/modules/administration/users/types";
 
 export interface LogsStoreState{
   apiLogFolders: string[],
@@ -40,7 +40,11 @@ export interface ApiLogFileEntryDetailContext {
   request_date: string,
   request_time: string,
   request_id: string,
-  status: number
+  status: number,
+  content: {
+    errors: [],
+    data: []
+  }
 }
 
 export interface QueryArray{

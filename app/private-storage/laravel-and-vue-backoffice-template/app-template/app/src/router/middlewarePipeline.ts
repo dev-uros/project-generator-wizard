@@ -1,4 +1,4 @@
-import { RouteLocationNormalized } from "vue-router";
+import type { RouteLocationNormalized } from "vue-router";
 
 type NextFunction = () => Promise<void> | void;
 
