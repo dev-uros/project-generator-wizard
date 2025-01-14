@@ -3,7 +3,9 @@ import {Notify} from "quasar";
 export enum NotificationType {
   SUCCESS = 'success',
   ERROR = 'error',
-  STICKY_ERROR = 'sticky_error'
+  STICKY_ERROR = 'sticky_error',
+  NO_INTERNET_CONNECTION = 'no_internet_connection',
+
 }
 export default function useNotificationMessage( type: string, message: string){
 
@@ -28,6 +30,16 @@ export default function useNotificationMessage( type: string, message: string){
         position: 'top',
       });
       break;
+
+      case NotificationType.NO_INTERNET_CONNECTION:
+        Notify.create({
+          color: 'red-7',
+          textColor: 'white',
+          icon: 'wifi_off',
+          message: message,
+          position: 'top',
+        })
+        break
 
     case(NotificationType.STICKY_ERROR):
       Notify.create({

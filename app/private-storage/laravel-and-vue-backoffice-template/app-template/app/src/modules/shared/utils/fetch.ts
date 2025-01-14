@@ -16,13 +16,20 @@ export async function useFetch<TResponse, TData = null, TParams = null>(options:
   params?: TParams
 }): Promise<TResponse> {
   const { url, method, data = null, params = null } = options
+
+  if (!navigator.onLine) {
+    useNotificationMessage(
+      NotificationType.NO_INTERNET_CONNECTION,
+      'Niste povezani na internet, molimo povežite se i pokušajte ponovo',
+    )
+    throw new Error('No internet connection!')
+  }
   try {
     console.log('pokusavam')
     const response = await api(url, { method, data, params })
 
     return response.data as TResponse
   } catch (error) {
-    useNotificationMessage(NotificationType.ERROR, 'Došlo je do greške pri povezivanju sa serverom')
     // Handle errors or rethrow
     throw error
   }
