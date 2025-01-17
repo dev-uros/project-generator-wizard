@@ -25,11 +25,12 @@ export async function useFetch<TResponse, TData = null, TParams = null>(options:
     throw new Error('No internet connection!')
   }
   try {
-    console.log('pokusavam')
     const response = await api(url, { method, data, params })
 
     return response.data as TResponse
   } catch (error) {
+
+    console.error(error);
     // Handle errors or rethrow
     throw error
   }
