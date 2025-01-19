@@ -1,9 +1,11 @@
 import {FastifyPluginAsync} from "fastify";
+import {FastifyPluginOptions} from "fastify/types/plugin.js";
+
 import {join} from "desm";
 import AutoLoad from "@fastify/autoload";
 
 
-const authDomain: FastifyPluginAsync = async (fastify, opts)=> {
+const authDomain: FastifyPluginAsync = async (fastify, opts: FastifyPluginOptions)=> {
 
     await fastify.register(AutoLoad, {
         dir: join(import.meta.url, 'repositories'),

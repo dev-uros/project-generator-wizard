@@ -1,4 +1,4 @@
-import { FastifyError, FastifyPluginAsync } from 'fastify'
+import { FastifyPluginAsync } from 'fastify'
 import { indexResponseSchema } from '../schemas/indexSchema.js'
 import {
   petShowParamSchema,

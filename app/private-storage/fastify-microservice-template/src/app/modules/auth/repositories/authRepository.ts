@@ -1,6 +1,6 @@
 import fp from 'fastify-plugin'
-import { Insertable, Kysely, Selectable, Updateable } from 'kysely'
-import {DB, Pets, Users} from 'kysely-codegen'
+import { Kysely, Selectable } from 'kysely'
+import {DB, Users} from 'kysely-codegen'
 import {AuthRepositoryInterface} from "../interfaces/authRepositoryInterface.js";
 
 export default fp(
