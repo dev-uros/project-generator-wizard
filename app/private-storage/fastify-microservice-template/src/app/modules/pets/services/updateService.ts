@@ -1,13 +1,13 @@
 import fp from "fastify-plugin";
-import {PetIndexServiceInterface} from "../interfaces/petIndexServiceInterface.js";
-import {PetShowServiceInterface} from "../interfaces/petShowServiceInterface.js";
 import {FastifyError} from "fastify";
+import {PetUpdateRequestSchemaType} from "../schemas/updateSchema.js";
+import {PetUpdateServiceInterface} from "../interfaces/petUpdateServiceInterface.js";
 
 export default fp(
     async (fastify, opts) => {
-        class petShowService implements PetShowServiceInterface{
-            async find(petId: number){
-                const pet = await fastify.petRepository.find(petId);
+        class petUpdateService implements PetUpdateServiceInterface{
+            async update(data: PetUpdateRequestSchemaType, petId: number){
+                const pet = await fastify.petRepository.update(data, petId);
 
                 if(!pet){
                     const error = new Error() as FastifyError
@@ -20,16 +20,16 @@ export default fp(
             }
         }
 
-        fastify.decorate('petShowService', new petShowService())
+        fastify.decorate('petUpdateService', new petUpdateService())
 
     },{
-        name: 'petShowService',
+        name: 'petUpdateService',
         dependencies: ['petRepository']
     });
 
 
 declare module 'fastify' {
     export interface FastifyInstance {
-        petShowService: PetShowServiceInterface
+        petUpdateService: PetUpdateServiceInterface
     }
 }

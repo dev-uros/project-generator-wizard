@@ -1,4 +1,4 @@
-import {TString, Type} from '@sinclair/typebox'
+import {Type} from '@sinclair/typebox'
 // import {TDate} from "../../../types/customTypes";
 
 export const PetEntitySchema = Type.Object({
