@@ -32,13 +32,11 @@ defineProps(['generatedProjectNames'])
         <ul class="list-none space-y-1.5">
           <li>
             <div class="flex flex-row gap-4">
-              <CapacitorFileClosed />
-              {{ generatedProjectNames.appId }}
+              App ID: {{ generatedProjectNames.appId }}
             </div>
 
             <div class="flex flex-row gap-4">
-              <CapacitorFileClosed />
-              {{ generatedProjectNames.appName }}
+              App name: {{ generatedProjectNames.appName }}
             </div>
           </li>
         </ul>
