@@ -26,7 +26,9 @@ const frontendRadioGrayscale = computed(() => {
       astroGrayScale: true,
       angularGrayScale: true,
       noneGrayScale: true,
-      vitepressGrayScale: true
+      vitepressGrayScale: true,
+      vueIonicGrayScale: true
+
 
 
     }
@@ -38,6 +40,8 @@ const frontendRadioGrayscale = computed(() => {
       astroGrayScale: true,
       angularGrayScale: false,
       noneGrayScale: true,
+      vueIonicGrayScale: true
+
 
     }
   }
@@ -48,7 +52,9 @@ const frontendRadioGrayscale = computed(() => {
       astroGrayScale: false,
       angularGrayScale: true,
       noneGrayScale: true,
-      vitepressGrayScale: true
+      vitepressGrayScale: true,
+      vueIonicGrayScale: true
+
 
 
     }
@@ -61,7 +67,9 @@ const frontendRadioGrayscale = computed(() => {
       astroGrayScale: true,
       angularGrayScale: true,
       noneGrayScale: true,
-      vitepressGrayScale: true
+      vitepressGrayScale: true,
+      vueIonicGrayScale: true
+
 
 
     }
@@ -74,7 +82,9 @@ const frontendRadioGrayscale = computed(() => {
       astroGrayScale: true,
       angularGrayScale: true,
       noneGrayScale: false,
-      vitepressGrayScale: true
+      vitepressGrayScale: true,
+      vueIonicGrayScale: true
+
 
     }
   }
@@ -85,7 +95,21 @@ const frontendRadioGrayscale = computed(() => {
       astroGrayScale: true,
       angularGrayScale: true,
       noneGrayScale: true,
-      vitepressGrayScale: false
+      vitepressGrayScale: false,
+      vueIonicGrayScale: true
+
+    }
+  }
+
+  if (selectedFrontend.value === 'vueIonic') {
+    return {
+      quasarGrayScale: true,
+      nuxtGrayScale: true,
+      astroGrayScale: true,
+      angularGrayScale: true,
+      noneGrayScale: true,
+      vitepressGrayScale: true,
+      vueIonicGrayScale: false
     }
   }
 })
@@ -130,6 +154,10 @@ onUpdated(() => {
             <div class="flex justify-center items-center" v-if="option.value === 'astro'">
               <UIcon v-for="icon in option.icons" :name="icon.name" class="w-10 h-10"
                      :class="{'grayscale': frontendRadioGrayscale.astroGrayScale}"/>
+            </div>
+            <div class="flex justify-center items-center" v-if="option.value === 'vueIonic'">
+              <UIcon v-for="icon in option.icons" :name="icon.name" class="w-10 h-10"
+                     :class="{'grayscale': frontendRadioGrayscale.vueIonicGrayScale}"/>
             </div>
             <div
                 class="flex justify-center items-center"
@@ -325,6 +353,25 @@ onUpdated(() => {
               <p>
                 Markdown to Beautiful Docs in Minutes
 
+              </p>
+
+            </article>
+
+          </div>
+          <div v-if="selectedFrontend === 'vueIonic'">
+            <article class="prose lg:prose-xl dark:prose-invert">
+              <h1>Capacitor with Ionic and Vue</h1>
+              <UDivider/>
+              <p>
+                <ULink
+                    to="https://ionicframework.com/docs/vue/overview"
+                    target="_blank"
+                    active-class="text-primary"
+                    inactive-class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
+                >
+                  Capacitor with Ionic and Vue:
+                </ULink>
+                Native mobile apps created with Capacitor, Ionic and Vue
               </p>
 
             </article>

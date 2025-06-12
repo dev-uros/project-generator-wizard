@@ -4,6 +4,7 @@ import ProjectFlavourWebsite from '~/components/ProjectFlavourWebsite.vue'
 import ProjectFlavourDesktop from '~/components/ProjectFlavourDesktop.vue'
 import type { PROJECT_TYPE } from '~/constants'
 import ProjectFlavourDocumentation from './ProjectFlavourDocumentation.vue';
+import ProjectFlavourMobile from "~/components/ProjectFlavourMobile.vue";
 
 interface Props {
   headerLabel: string
@@ -68,6 +69,10 @@ const selectedProjectType = ref('backoffice')
           <ProjectFlavourWebsite
             v-else-if="selectedProjectType === 'website'"
             class="overflow-auto p-4"
+          />
+          <ProjectFlavourMobile
+              v-else-if="selectedProjectType === 'mobile'"
+              class="overflow-auto p-4"
           />
           <ProjectFlavourMicroService
             v-else-if="selectedProjectType === 'microservice'"

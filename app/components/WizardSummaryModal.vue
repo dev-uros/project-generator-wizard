@@ -4,6 +4,8 @@ import FolderIconClosed from '~/components/icons/FolderIconClosed.vue'
 import ZipFolderIcon from '~/components/icons/ZipFolderIcon.vue'
 import DockerFileClosed from '~/components/icons/DockerFileClosed.vue'
 import DocumentationVitepressStandAloneFolderStructure from '~/components/DocumentationVitepressStandAloneFolderStructure.vue'
+import MobileIonicVueFolderStructure from "~/components/MobileIonicVueFolderStructure.vue";
+import MobileVueIonicDownloadPreview from "~/components/MobileVueIonicDownloadPreview.vue";
 
 defineProps([
   'wizardSummaryModal',
@@ -170,6 +172,59 @@ const downloadZipWebsiteNuxtDaisyUi = async () => {
   generateProjectButtonLoadingState.value = false
 }
 
+//mobile
+
+const generatedProjectNamesMobileVueIonic = computed(function () {
+  if (!state.appName) {
+    return {
+      downloadZipName: `${defaultAppName
+          .replace(/\s+/g, '-')
+          .toLowerCase()}.zip`,
+      unzippedFolderName: defaultAppName.replace(/\s+/g, '-').toLowerCase(),
+      appId: `com.${defaultAppName.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()}`,
+      appName: defaultAppName
+    }
+  }
+  return {
+    downloadZipName: `${state.appName.replace(/\s+/g, '-').toLowerCase()}.zip`,
+    unzippedFolderName: state.appName.replace(/\s+/g, '-').toLowerCase(),
+    appId: `com.${state.appName.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()}`,
+    appName: state.appName
+  }
+})
+const downloadZipMobileVueIonic = async () => {
+  generateProjectButtonLoadingState.value = true
+  const result = await $fetch(
+      '/api/generateMobileVueIonicProjectTemplate',
+      {
+        method: 'POST',
+        body: {
+          projectName: state.appName
+        }
+      }
+  )
+
+  // Create a link element to trigger the download
+  const url = window.URL.createObjectURL(result as Blob)
+  const a = document.createElement('a')
+  a.href = url
+  a.download = `${
+      state.appName
+          ? state.appName.replace(/\s+/g, '-').toLowerCase()
+          : 'default-project'
+  }.zip` // Set the desired filename
+
+  // Append to the body and trigger click
+  document.body.appendChild(a)
+  a.click()
+
+  // Clean up
+  document.body.removeChild(a)
+  window.URL.revokeObjectURL(url) // Release the blob URL
+  generateProjectButtonLoadingState.value = false
+}
+
+//mobile end
 //microservice logic
 
 const generatedProjectNamesMicroServiceFastify = computed(function () {
@@ -330,6 +385,14 @@ const downloadZipDocumentationVitepressStandAlone = async () => {
             v-if="selectedFrontEnd.value === 'nuxt'"
           />
         </div>
+        <div
+            v-else-if="selectedProjectFlavour.value === 'mobile'"
+            class="flex flex-col gap-4 justify-evenly"
+        >
+          <MobileIonicVueFolderStructure
+              v-if="selectedFrontEnd.value === 'vueIonic'"
+          />
+        </div>
         <div v-else-if="selectedProjectFlavour.value === 'desktop'">
           desktop
         </div>
@@ -380,6 +443,14 @@ const downloadZipDocumentationVitepressStandAlone = async () => {
           "
         />
 
+        <MobileVueIonicDownloadPreview
+            :generated-project-names="generatedProjectNamesMobileVueIonic"
+            v-if="
+            selectedProjectFlavour.value === 'mobile' &&
+            selectedFrontEnd.value === 'vueIonic'
+          "
+        />
+
         <MicroServiceFastifyDownloadPreview
           :generated-project-names="generatedProjectNamesMicroServiceFastify"
           v-if="
@@ -419,6 +490,16 @@ const downloadZipDocumentationVitepressStandAlone = async () => {
           class="justify-center mt-4 w-96"
           @click="downloadZipWebsiteNuxtDaisyUi"
           :loading="generateProjectButtonLoadingState"
+        />
+        <UButton
+            v-if="
+            selectedProjectFlavour.value === 'mobile' &&
+            selectedFrontEnd.value === 'vueIonic'
+          "
+            label="Generate"
+            class="justify-center mt-4 w-96"
+            @click="downloadZipMobileVueIonic"
+            :loading="generateProjectButtonLoadingState"
         />
         <UButton
           v-if="

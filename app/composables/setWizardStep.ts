@@ -8,7 +8,7 @@ import {
     DOCUMENTATION_FRONTENDS,
     FRONTEND_OPTION,
     MICROSERVICE_BACKENDS,
-    MICROSERVICE_FRONTENDS,
+    MICROSERVICE_FRONTENDS, MOBILE_BACKENDS, MOBILE_FRONTENDS,
     PROJECT_TYPES,
     WEBSITE_BACKENDS,
     WEBSITE_FRONTENDS
@@ -107,6 +107,12 @@ export const useSetWizardStep = () => {
             frontendOptions.value = WEBSITE_FRONTENDS;
         }
 
+        if (optionValue === 'mobile') {
+            selectedProjectFlavour.value = PROJECT_TYPES.find(type => type.value === optionValue);
+
+            frontendOptions.value = MOBILE_FRONTENDS;
+        }
+
         if (optionValue === 'desktop') {
             selectedProjectFlavour.value = PROJECT_TYPES.find(type => type.value === optionValue);
 
@@ -154,6 +160,9 @@ export const useSetWizardStep = () => {
             backendOptions.value = WEBSITE_BACKENDS
         }
 
+        if (selectedProjectFlavour.value.value === 'mobile') {
+            backendOptions.value = MOBILE_BACKENDS
+        }
         if (selectedProjectFlavour.value.value === 'desktop') {
             backendOptions.value = DESKTOP_BACKENDS
         }

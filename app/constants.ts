@@ -15,6 +15,11 @@ export const PROJECT_TYPES = [
     icon: 'streamline:programming-web-server-world-internet-earth-www-globe-worldwide-web-network'
   },
   {
+    value: 'mobile',
+    label: 'Mobile',
+    icon: 'majesticons:device-mobile-line'
+  },
+  {
     value: 'microservice',
     label: 'Micro Service',
     icon: 'carbon:gears'
@@ -110,6 +115,22 @@ export const NUXT_BADGE = {
   ]
 }
 
+export const IONIC_VUE = {
+  value: 'vueIonic',
+  label: 'Vue/Ionic',
+  icons: [
+    {
+      name: 'devicon:capacitor'
+    },
+    {
+      name: 'devicon:vuejs'
+    },
+    {
+      name: 'devicon:ionic'
+    }
+  ]
+}
+
 export const VITEPRESS_BADGE = {
   value: 'vitepress',
   label: 'VitePress',
@@ -187,7 +208,12 @@ export const BACKOFFICE_ANGULAR_BACKENDS = [LARAVEL_BADGE]
 
 export const WEBSITE_FRONTENDS = [NUXT_BADGE, ASTRO_BADGE]
 
+export const MOBILE_FRONTENDS = [IONIC_VUE]
+
 export const WEBSITE_BACKENDS = [NO_BACKEND_BADGE]
+
+export const MOBILE_BACKENDS = [NO_BACKEND_BADGE]
+
 export const DESKTOP_FRONTENDS = [QUASAR_BADGE]
 
 export const MICROSERVICE_FRONTENDS = [NO_FRONTEND_BADGE]
