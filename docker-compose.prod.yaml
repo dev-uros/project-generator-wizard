@@ -6,12 +6,12 @@ services:
       target: 'production-stage'
     ports:
       - '127.0.0.1:3000:3000'
-#    networks:
-#      - app-network # Connect to the shared network
+    networks:
+      - app-network # Connect to the shared network
     environment:
       - NODE_ENV=production
     command: ['node', '.output/server/index.mjs']
 
-#networks:
-#  app-network:
-#    external: true # Use the external network created earlier
+networks:
+  app-network:
+    external: true # Use the external network created earlier
