@@ -35,18 +35,8 @@ const closeFeaturesDialog = () => {
         maintain continuous connectivity with their audience. They play a key role in enhancing customer satisfaction,
         boosting brand loyalty, and expanding digital reach in an increasingly mobile-first world.
       </p>
-      <UButton label="More info" color="gray" @click="moreInfoSideOpened = true">
-        <template #trailing>
-          <UIcon name="material-symbols:info-outline" class="w-5 h-5"/>
-        </template>
-      </UButton>
     </article>
 
-    <LazyWebsiteMoreInfoSide v-model="moreInfoSideOpened"
-                            @close-side="closeSideDialog"
-                            @open-feature-details-dialog="openFeaturesDialog"/>
-    <LazyWebsiteFeaturesDialog v-model="detailedFeaturesDialogOpened"
-                              @close-dialog="closeFeaturesDialog"/>
   </div>
 </template>
 

@@ -386,14 +386,7 @@ const downloadZipDocumentationVitepressStandAlone = async () => {
             v-if="selectedFrontEnd.value === 'nuxt'"
           />
         </div>
-        <div
-            v-else-if="selectedProjectFlavour.value === 'mobile'"
-            class="flex flex-col gap-4 justify-evenly"
-        >
-          <MobileIonicVueFolderStructure
-              v-if="selectedFrontEnd.value === 'vueIonic'"
-          />
-        </div>
+
         <div v-else-if="selectedProjectFlavour.value === 'desktop'">
           desktop
         </div>
