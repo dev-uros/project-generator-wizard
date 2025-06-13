@@ -199,7 +199,8 @@ const downloadZipMobileVueIonic = async () => {
       {
         method: 'POST',
         body: {
-          projectName: state.appName
+          projectName: state.appName,
+          appId: generatedProjectNamesMobileVueIonic.value.appId
         }
       }
   )
